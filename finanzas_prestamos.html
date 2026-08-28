@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="finanzas_prestamos.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Préstamos Personales</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- Cursor magnético personalizado (solo escritorio) -->
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" class="active" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <main>
+        <!-- ============================================
+             1. HERO — PRÉSTAMOS PERSONALES
+        ============================================ -->
+        <section class="loans-hero">
+            <div class="loans-title">
+                <h1>
+                    <span data-es="PRÉSTAMOS" data-en="LOANS" data-pt="EMPRÉSTIMOS" data-fr="PRÊTS" data-al="KREDITE" data-zh="贷款">PRÉSTAMOS</span>
+                    <span data-es="PERSONALES" data-en="PERSONAL" data-pt="PESSOAIS" data-fr="PERSONNELS" data-al="PRIVAT" data-zh="个人">PERSONALES</span>
+                </h1>
+
+                <p data-es="TODO LO QUE NECESITAS SABER PARA TOMAR LA MEJOR DECISIÓN."
+                   data-en="EVERYTHING YOU NEED TO KNOW TO MAKE THE BEST DECISION"
+                   data-pt="TUDO O QUE VOCÊ PRECISA SABER PARA TOMAR A MELHOR DECISÃO."
+                   data-fr="TOUT CE QUE VOUS DEVEZ SAVOIR POUR PRENDRE LA MEILLEURE DÉCISION."
+                   data-al="ALLES, WAS SIE WISSEN MÜSSEN, UM DIE BESTE ENTSCHEIDUNG ZU TREFFEN."
+                   data-zh="做出最佳决定所需了解的一切。">
+                    TODO LO QUE NECESITAS SABER PARA TOMAR LA MEJOR DECISIÓN.
+                </p>
+            </div>
+
+            <article class="loan-info-card">
+                <h2 data-es="QUÉ ES UN PRÉSTAMO PERSONAL?" data-en="WHAT IS A PERSONAL LOAN?"
+                    data-pt="O QUE É UM EMPRÉSTIMO PESSOAL?" data-fr="QU'EST-CE QU'UN PRÊT PERSONNEL ?"
+                    data-al="WAS IST EIN PRIVATKREDIT?" data-zh="什么是个人贷款？">
+                    QUÉ ES UN PRÉSTAMO PERSONAL?
+                </h2>
+
+                <p data-es="Un préstamo personal es una operación financiera mediante la cual una entidad bancaria o financiera entrega una cantidad de dinero a una persona, quien se compromete a devolverlo en un plazo determinado junto con los intereses y cargos establecidos en el contrato."
+                   data-en="A personal loan is a financial operation where a bank or financial institution gives money to a person, who agrees to pay it back within a set term along with the interest and fees established in the contract."
+                   data-pt="Um empréstimo pessoal é uma operação financeira por meio da qual uma instituição bancária ou financeira entrega uma quantia em dinheiro a uma pessoa, que se compromete a devolvê-la em um prazo determinado, junto com os juros e encargos estabelecidos no contrato."
+                   data-fr="Un prêt personnel est une opération financière par laquelle une banque ou une institution financière remet une somme d'argent à une personne, qui s'engage à la rembourser dans un délai déterminé, avec les intérêts et frais établis dans le contrat."
+                   data-al="Ein Privatkredit ist ein Finanzgeschäft, bei dem eine Bank oder ein Finanzinstitut einer Person einen Geldbetrag zur Verfügung stellt, den diese sich verpflichtet, innerhalb einer festgelegten Frist zusammen mit den im Vertrag festgelegten Zinsen und Gebühren zurückzuzahlen."
+                   data-zh="个人贷款是一种金融操作，银行或金融机构向个人提供一笔资金，借款人承诺在约定期限内连同合同中规定的利息和费用一并偿还。">
+                    Un préstamo personal es una operación financiera mediante la cual una entidad bancaria o financiera entrega una cantidad de dinero a una persona, quien se compromete a devolverlo en un plazo determinado junto con los intereses y cargos establecidos en el contrato.
+                </p>
+            </article>
+        </section>
+
+        <!-- ============================================
+             2. PARA QUÉ PUEDO UTILIZARLOS + BENEFICIOS
+        ============================================ -->
+        <section class="prestamos-uso">
+            <div class="prestamos-hero">
+                <img src="img/mapa.png" alt="Fondo de mapa" class="imagen-fondo">
+                <h1>
+                    <span data-es="¿Para qué puedo" data-en="What can I" data-pt="Para que posso" data-fr="À quoi puis-je" data-al="Wofür kann ich" data-zh="我可以">¿Para qué puedo</span><br>
+                    <span data-es="utilizarlos?" data-en="use them for?" data-pt="utilizá-los?" data-fr="les utiliser ?" data-al="sie verwenden?" data-zh="用它们做什么？">utilizarlos?</span>
+                </h1>
+
+                <div class="prestamos-cuadro">
+                    <h2 data-es="Los préstamos personales pueden utilizarse para:"
+                        data-en="Personal loans can be used for:"
+                        data-pt="Os empréstimos pessoais podem ser usados para:"
+                        data-fr="Les prêts personnels peuvent être utilisés pour :"
+                        data-al="Privatkredite können verwendet werden für:"
+                        data-zh="个人贷款可用于：">
+                        Los préstamos personales pueden utilizarse para:
+                    </h2>
+                    <ul>
+                        <li data-es="Estudios y educación." data-en="Education and studies." data-pt="Estudos e educação." data-fr="Études et éducation." data-al="Studium und Bildung." data-zh="学习和教育。">Estudios y educación.</li>
+                        <li data-es="Gastos médicos." data-en="Medical expenses." data-pt="Despesas médicas." data-fr="Frais médicaux." data-al="Medizinische Ausgaben." data-zh="医疗费用。">Gastos médicos.</li>
+                        <li data-es="Remodelación del hogar." data-en="Home renovation." data-pt="Reforma da casa." data-fr="Rénovation de la maison." data-al="Hausrenovierung." data-zh="房屋翻新。">Remodelación del hogar.</li>
+                        <li data-es="Viajes." data-en="Travel." data-pt="Viagens." data-fr="Voyages." data-al="Reisen." data-zh="旅行。">Viajes.</li>
+                        <li data-es="Consolidación de deudas." data-en="Debt consolidation." data-pt="Consolidação de dívidas." data-fr="Consolidation de dettes." data-al="Schuldenkonsolidierung." data-zh="债务整合。">Consolidación de deudas.</li>
+                        <li data-es="Eventos especiales." data-en="Special events." data-pt="Eventos especiais." data-fr="Événements spéciaux." data-al="Besondere Anlässe." data-zh="特殊活动。">Eventos especiales.</li>
+                        <li data-es="Emergencias financieras." data-en="Financial emergencies." data-pt="Emergências financeiras." data-fr="Urgences financières." data-al="Finanzielle Notfälle." data-zh="财务紧急情况。">Emergencias financieras.</li>
+                        <li data-es="Inversiones o emprendimientos." data-en="Investments or business ventures." data-pt="Investimentos ou empreendimentos." data-fr="Investissements ou projets entrepreneuriaux." data-al="Investitionen oder Unternehmensgründungen." data-zh="投资或创业。">Inversiones o emprendimientos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Franja de beneficios -->
+            <div class="beneficios">
+                <div class="beneficios-titulo">
+                    <img src="img/beneficios-es.png" alt="Beneficios" class="imagen-beneficios"
+                         data-img-es="img/beneficios-es.png"
+                         data-img-en="img/beneficios-en.png"
+                         data-img-pt="img/beneficios-pt.jpg"
+                         data-img-fr="img/beneficios-fr.jpg"
+                         data-img-al="img/beneficios-al.jpg"
+                         data-img-zh="img/beneficios-zh.jpg">
+                </div>
+
+                <ul class="beneficios-lista">
+                    <li class="beneficio-item">
+                        <span class="beneficio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 2h6M12 2v3"/></svg>
+                        </span>
+                        <div class="beneficio-texto">
+                            <h3 data-es="Aprobación rápida." data-en="Fast approval." data-pt="Aprovação rápida." data-fr="Approbation rapide." data-al="Schnelle Genehmigung." data-zh="快速审批。">Aprobación rápida.</h3>
+                            <p data-es="Recibe una respuesta en poco tiempo." data-en="Get a response in no time." data-pt="Receba uma resposta em pouco tempo." data-fr="Recevez une réponse rapidement." data-al="Erhalten Sie in kürzester Zeit eine Antwort." data-zh="短时间内获得回复。">Recibe una respuesta en poco tiempo.</p>
+                        </div>
+                    </li>
+
+                    <li class="beneficio-item">
+                        <span class="beneficio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/><circle cx="17" cy="14" r="1.4" fill="currentColor" stroke="none"/></svg>
+                        </span>
+                        <div class="beneficio-texto">
+                            <h3 data-es="Desembolso en poco tiempo." data-en="Quick disbursement." data-pt="Desembolso rápido." data-fr="Décaissement rapide." data-al="Schnelle Auszahlung." data-zh="快速放款。">Desembolso en poco tiempo.</h3>
+                            <p data-es="El dinero disponible cuando más lo necesitas." data-en="The money available when you need it most." data-pt="O dinheiro disponível quando você mais precisa." data-fr="L'argent disponible quand vous en avez le plus besoin." data-al="Das Geld ist verfügbar, wenn Sie es am meisten brauchen." data-zh="在您最需要的时候获得资金。">El dinero disponible cuando más lo necesitas.</p>
+                        </div>
+                    </li>
+
+                    <li class="beneficio-item">
+                        <span class="beneficio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M8 14h2M8 17h2M14 14h2M14 17h2"/></svg>
+                        </span>
+                        <div class="beneficio-texto">
+                            <h3 data-es="Cuotas mensuales fijas." data-en="Fixed monthly payments." data-pt="Parcelas mensais fixas." data-fr="Mensualités fixes." data-al="Feste monatliche Raten." data-zh="固定月供。">Cuotas mensuales fijas.</h3>
+                            <p data-es="Pagos predecibles que te ayudan a organizar tus finanzas." data-en="Predictable payments that help you organize your finances." data-pt="Pagamentos previsíveis que ajudam a organizar suas finanças." data-fr="Des paiements prévisibles qui vous aident à organiser vos finances." data-al="Vorhersehbare Zahlungen, die Ihnen helfen, Ihre Finanzen zu organisieren." data-zh="可预测的还款，帮助你更好地规划财务。">Pagos predecibles que te ayudan a organizar tus finanzas.</p>
+                        </div>
+                    </li>
+
+                    <li class="beneficio-item">
+                        <span class="beneficio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1-4 4-6 7.5-6s6.5 2 7.5 6"/></svg>
+                        </span>
+                        <div class="beneficio-texto">
+                            <h3>
+                                <span data-es="Montos adaptados a las necesidades" data-en="Amounts tailored to the" data-pt="Valores adaptados às necessidades" data-fr="Montants adaptés aux besoins" data-al="An die Bedürfnisse des Kunden" data-zh="根据客户需求">Montos adaptados a las necesidades</span>
+                                <span data-es="del cliente." data-en="client's needs." data-pt="do cliente." data-fr="du client." data-al="angepasste Beträge." data-zh="定制的金额。">del cliente.</span>
+                            </h3>
+                            <p data-es="Elige el monto que se ajusta a tus planes." data-en="Choose the amount that fits your plans." data-pt="Escolha o valor que se ajusta aos seus planos." data-fr="Choisissez le montant qui correspond à vos projets." data-al="Wählen Sie den Betrag, der zu Ihren Plänen passt." data-zh="选择符合你计划的金额。">Elige el monto que se ajusta a tus planes.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="beneficios-lista beneficios-derecha">
+                    <li class="beneficio-item">
+                        <span class="beneficio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M2.5 12.5l4-4 3 1 3-2 3 2 3-1 3 4"/><path d="M8 11l3.2 3.2a1.6 1.6 0 0 0 2.3 0l.2-.2a1.6 1.6 0 0 0 0-2.3L11 9"/><path d="M13.5 12.5l1.7 1.7a1.6 1.6 0 0 0 2.3 0 1.6 1.6 0 0 0 0-2.3"/></svg>
+                        </span>
+                        <div class="beneficio-texto">
+                            <h3 data-es="No siempre requieren fiador." data-en="A co-signer is not always required." data-pt="Nem sempre exigem fiador." data-fr="Un garant n'est pas toujours nécessaire." data-al="Ein Bürge ist nicht immer erforderlich." data-zh="不总是需要担保人。">No siempre requieren fiador.</h3>
+                            <p data-es="Obtén tu préstamo sin necesidad de un fiador." data-en="Get your loan without needing a co-signer." data-pt="Obtenha seu empréstimo sem precisar de um fiador." data-fr="Obtenez votre prêt sans avoir besoin d'un garant." data-al="Erhalten Sie Ihren Kredit ohne Bürgen." data-zh="无需担保人即可获得贷款。">Obtén tu préstamo sin necesidad de un fiador.</p>
+                        </div>
+                    </li>
+
+                    <li class="beneficio-item">
+                        <span class="beneficio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M6 2.5h8l4 4v15H6z"/><path d="M14 2.5v4h4"/><path d="M9 14l2 2 4-4.5"/></svg>
+                        </span>
+                        <div class="beneficio-texto">
+                            <h3>
+                                <span data-es="Posibilidad de consolidar deudas en un solo" data-en="Possibility of consolidating debts into a" data-pt="Possibilidade de consolidar dívidas em um único" data-fr="Possibilité de regrouper vos dettes en un" data-al="Möglichkeit, Schulden in einer einzigen" data-zh="可将债务合并为">Posibilidad de consolidar deudas en un solo</span>
+                                <span data-es="pago." data-en="single payment." data-pt="pagamento." data-fr="seul paiement." data-al="Zahlung zu bündeln." data-zh="单笔还款。">pago.</span>
+                            </h3>
+                            <p data-es="Unifica tus deudas y simplifica tus pagos mensuales." data-en="Unify your debts and simplify your monthly payments." data-pt="Unifique suas dívidas e simplifique seus pagamentos mensais." data-fr="Regroupez vos dettes et simplifiez vos paiements mensuels." data-al="Bündeln Sie Ihre Schulden und vereinfachen Sie Ihre monatlichen Zahlungen." data-zh="整合你的债务，简化每月还款。">Unifica tus deudas y simplifica tus pagos mensuales.</p>
+                        </div>
+                    </li>
+
+                    <li class="beneficio-item">
+                        <span class="beneficio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M8.5 15.5l2 2 4.5-5"/></svg>
+                        </span>
+                        <div class="beneficio-texto">
+                            <h3 data-es="Flexibilidad en los plazos de pago." data-en="Flexibility in payment terms." data-pt="Flexibilidade nos prazos de pagamento." data-fr="Flexibilité des délais de paiement." data-al="Flexible Zahlungsfristen." data-zh="灵活的还款期限。">Flexibilidad en los plazos de pago.</h3>
+                            <p data-es="Elige el plazo que mejor se adapte a tu capacidad de pago." data-en="Choose the term that best suits your ability to pay." data-pt="Escolha o prazo que melhor se adapta à sua capacidade de pagamento." data-fr="Choisissez le délai qui correspond le mieux à votre capacité de paiement." data-al="Wählen Sie die Laufzeit, die am besten zu Ihrer Zahlungsfähigkeit passt." data-zh="选择最适合你偿还能力的期限。">Elige el plazo que mejor se adapte a tu capacidad de pago.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================================
+             3. TEMAS DE PRÉSTAMOS — 3 tarjetas
+        ============================================ -->
+        <section class="loan-topics" aria-label="Temas de préstamos personales">
+
+            <a class="topic-card reveal-scale" tabindex="0" href="prestamos_como_elegir.html">
+                <img src="img/Manejo-de-money.png" alt="" class="topic-card-image">
+                <h2 data-es="Cómo elegir el mejor préstamo" data-en="How to choose the best loan"
+                    data-pt="Como escolher o melhor empréstimo" data-fr="Comment choisir le meilleur prêt"
+                    data-al="Wie man den besten Kredit auswählt" data-zh="如何选择最佳贷款">
+                    Cómo elegir el mejor préstamo
+                </h2>
+            </a>
+
+            <a class="topic-card reveal-scale" tabindex="0" href="prestamos_riesgos.html">
+                <img src="img/Frustracion.png" alt="" class="topic-card-image">
+                <h2 data-es="Riesgos del sobreendeudamiento" data-en="Risks of over-indebtedness"
+                    data-pt="Riscos do superendividamento" data-fr="Risques du surendettement"
+                    data-al="Risiken der Überschuldung" data-zh="过度负债的风险">
+                    Riesgos del sobreendeudamiento
+                </h2>
+            </a>
+
+            <a class="topic-card reveal-scale" tabindex="0" href="prestamos_tipos.html">
+                <img src="img/Money.png" alt="" class="topic-card-image">
+                <h2 data-es="Tipos de préstamos personales" data-en="Types of personal loans"
+                    data-pt="Tipos de empréstimos pessoais" data-fr="Types de prêts personnels"
+                    data-al="Arten von Privatkrediten" data-zh="个人贷款的类型">
+                    Tipos de préstamos personales
+                </h2>
+            </a>
+
+        </section>
+
+        <!-- ============================================
+             4. ENTIDADES BANCARIAS ALIADAS
+        ============================================ -->
+        <section class="bancos-section" id="bancos-aliados">
+
+            <img class="bancos-fondo" src="img/fondo-bancos.png" alt="" aria-hidden="true">
+
+            <div class="bancos-contenedor">
+
+                <article class="banco-card reveal-scale" data-banco="Global Bank">
+                    <img src="img/global-bank.jpg" alt="Edificio de Global Bank">
+                    <div class="banco-overlay">
+                        <a href="https://www.globalbank.com.pa/" target="_blank" rel="noopener noreferrer" class="banco-boton">
+                            <span data-es="Más información" data-en="More information" data-pt="Mais informações" data-fr="Plus d'informations" data-al="Weitere Informationen" data-zh="更多信息">Más información</span>
+                        </a>
+                        <a href="requisitos_globalbank.html" class="banco-boton banco-boton--requisitos banco-requisitos-link">
+                            <span data-es="Ver requisitos" data-en="View requirements" data-pt="Ver requisitos" data-fr="Voir les conditions" data-al="Anforderungen ansehen" data-zh="查看要求">Ver requisitos</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="banco-card reveal-scale" data-banco="Banistmo">
+                    <img src="img/banistmo.jpg" alt="Edificio de Banistmo">
+                    <div class="banco-overlay">
+                        <a href="https://www.banistmo.com/" target="_blank" rel="noopener noreferrer" class="banco-boton">
+                            <span data-es="Más información" data-en="More information" data-pt="Mais informações" data-fr="Plus d'informations" data-al="Weitere Informationen" data-zh="更多信息">Más información</span>
+                        </a>
+                        <a href="requisitos_banistmo.html" class="banco-boton banco-boton--requisitos banco-requisitos-link">
+                            <span data-es="Ver requisitos" data-en="View requirements" data-pt="Ver requisitos" data-fr="Voir les conditions" data-al="Anforderungen ansehen" data-zh="查看要求">Ver requisitos</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="banco-card reveal-scale" data-banco="Banco General">
+                    <img src="img/banco-general.jpg" alt="Edificio de Banco General">
+                    <div class="banco-overlay">
+                        <a href="https://www.bgeneral.com/" target="_blank" rel="noopener noreferrer" class="banco-boton">
+                            <span data-es="Más información" data-en="More information" data-pt="Mais informações" data-fr="Plus d'informations" data-al="Weitere Informationen" data-zh="更多信息">Más información</span>
+                        </a>
+                        <a href="requisitos_bancogeneral.html" class="banco-boton banco-boton--requisitos banco-requisitos-link">
+                            <span data-es="Ver requisitos" data-en="View requirements" data-pt="Ver requisitos" data-fr="Voir les conditions" data-al="Anforderungen ansehen" data-zh="查看要求">Ver requisitos</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="banco-card reveal-scale" data-banco="Caja de Ahorros">
+                    <img src="img/Cajadeahorros.png" alt="Edificio de Caja de Ahorros" loading="lazy">
+                    <div class="banco-overlay">
+                        <a href="https://www.cajadeahorros.com/" target="_blank" rel="noopener noreferrer" class="banco-boton">
+                            <span data-es="Más información" data-en="More information" data-pt="Mais informações" data-fr="Plus d'informations" data-al="Weitere Informationen" data-zh="更多信息">Más información</span>
+                        </a>
+                        <a href="requisitos_cajadeahorros.html" class="banco-boton banco-boton--requisitos banco-requisitos-link">
+                            <span data-es="Ver requisitos" data-en="View requirements" data-pt="Ver requisitos" data-fr="Voir les conditions" data-al="Anforderungen ansehen" data-zh="查看要求">Ver requisitos</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="banco-card reveal-scale" data-banco="BAC Credomatic">
+                    <img src="img/bac-credomatic.png" alt="Edificio de BAC Credomatic" loading="lazy">
+                    <div class="banco-overlay">
+                        <a href="https://www.baccredomatic.com/es-pa" target="_blank" rel="noopener noreferrer" class="banco-boton">
+                            <span data-es="Más información" data-en="More information" data-pt="Mais informações" data-fr="Plus d'informations" data-al="Weitere Informationen" data-zh="更多信息">Más información</span>
+                        </a>
+                        <a href="requisitos_baccredomatic.html" class="banco-boton banco-boton--requisitos banco-requisitos-link">
+                            <span data-es="Ver requisitos" data-en="View requirements" data-pt="Ver requisitos" data-fr="Voir les conditions" data-al="Anforderungen ansehen" data-zh="查看要求">Ver requisitos</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="banco-card reveal-scale" data-banco="Banco Nacional">
+                    <img src="img/banco-nacional.png" alt="Edificio de Banco Nacional de Panamá" loading="lazy">
+                    <div class="banco-overlay">
+                        <a href="https://www.banconal.com.pa/" target="_blank" rel="noopener noreferrer" class="banco-boton">
+                            <span data-es="Más información" data-en="More information" data-pt="Mais informações" data-fr="Plus d'informations" data-al="Weitere Informationen" data-zh="更多信息">Más información</span>
+                        </a>
+                        <a href="requisitos_banconacional.html" class="banco-boton banco-boton--requisitos banco-requisitos-link">
+                            <span data-es="Ver requisitos" data-en="View requirements" data-pt="Ver requisitos" data-fr="Voir les conditions" data-al="Anforderungen ansehen" data-zh="查看要求">Ver requisitos</span>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================
+             5. SOLICITAR UN PRÉSTAMO — FAQ + consejos
+        ============================================ -->
+        <section class="solicitud-prestamo" aria-labelledby="solicitud-titulo">
+            <div class="solicitud-panel">
+
+                <img class="solicitud-fondo" src="img/Fondo-solicitarprestamos.png" alt="" aria-hidden="true">
+
+                <h2 id="solicitud-titulo"
+                    data-es="Todo lo que Debes Saber Antes de Solicitar un Préstamo Personal en Panamá"
+                    data-en="Everything You Need to Know Before Applying for a Personal Loan in Panama"
+                    data-pt="Tudo o que você precisa saber antes de solicitar um empréstimo pessoal no Panamá"
+                    data-fr="Tout ce que vous devez savoir avant de demander un prêt personnel au Panama"
+                    data-al="Alles, was Sie vor der Beantragung eines Privatkredits in Panama wissen müssen"
+                    data-zh="在巴拿马申请个人贷款前你需要知道的一切">
+                    Todo lo que Debes Saber Antes de Solicitar un Préstamo Personal en Panamá
+                </h2>
+
+                <div class="solicitud-preguntas">
+
+                    <!-- Pregunta 1 -->
+                    <article class="solicitud-card esta-cerrada">
+                        <button id="solicitud-pregunta-1" class="solicitud-pregunta" type="button" aria-expanded="false" aria-controls="solicitud-respuesta-1">
+                            <span>1.</span>
+                            <span data-es="¿Realmente necesito el préstamo?" data-en="Do I really need the loan?" data-pt="Eu realmente preciso do empréstimo?" data-fr="Ai-je vraiment besoin du prêt ?" data-al="Brauche ich den Kredit wirklich?" data-zh="我真的需要这笔贷款吗？">¿Realmente necesito el préstamo?</span>
+                        </button>
+                        <div class="solicitud-respuesta" id="solicitud-respuesta-1" role="region" aria-labelledby="solicitud-pregunta-1" aria-hidden="true">
+                            <div class="solicitud-respuesta-interior">
+                                <p data-es="Debes evaluar si el dinero se usará para una inversión útil (como reparar tu casa, consolidar deudas caras o educación) o para un gasto pasajero (lujos, vacaciones o compras impulsivas). Si no es una emergencia o algo que genere valor a largo plazo, es mejor evitar la deuda."
+                                   data-en="You should assess whether the money will be used for a useful investment (like repairing your home, consolidating expensive debts, or education) or for a passing expense (luxuries, vacations, or impulsive purchases). If it isn't an emergency or something that creates long-term value, it's better to avoid the debt."
+                                   data-pt="Você deve avaliar se o dinheiro será usado para um investimento útil (como reformar sua casa, consolidar dívidas caras ou educação) ou para um gasto passageiro (luxos, férias ou compras por impulso). Se não for uma emergência ou algo que gere valor a longo prazo, é melhor evitar a dívida."
+                                   data-fr="Vous devez évaluer si l'argent sera utilisé pour un investissement utile (comme réparer votre maison, consolider des dettes coûteuses ou l'éducation) ou pour une dépense passagère (luxe, vacances ou achats impulsifs). S'il ne s'agit pas d'une urgence ou de quelque chose qui génère de la valeur à long terme, il vaut mieux éviter la dette."
+                                   data-al="Sie sollten prüfen, ob das Geld für eine sinnvolle Investition verwendet wird (z. B. Hausreparatur, Konsolidierung teurer Schulden oder Bildung) oder für eine vorübergehende Ausgabe (Luxus, Urlaub oder Spontankäufe). Handelt es sich nicht um einen Notfall oder etwas, das langfristigen Wert schafft, ist es besser, die Schulden zu vermeiden."
+                                   data-zh="你应该评估这笔钱是用于有益的投资（如房屋维修、整合高息债务或教育），还是用于一次性支出（奢侈品、度假或冲动消费）。如果不是紧急情况或能带来长期价值的事情，最好避免负债。">
+                                    Debes evaluar si el dinero se usará para una inversión útil (como reparar tu casa, consolidar deudas caras o educación) o para un gasto pasajero (lujos, vacaciones o compras impulsivas). Si no es una emergencia o algo que genere valor a largo plazo, es mejor evitar la deuda.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pregunta 2 -->
+                    <article class="solicitud-card esta-cerrada">
+                        <button id="solicitud-pregunta-2" class="solicitud-pregunta" type="button" aria-expanded="false" aria-controls="solicitud-respuesta-2">
+                            <span>2.</span>
+                            <span data-es="¿Puedo ahorrar en lugar de endeudarme?" data-en="Can I save instead of borrowing?" data-pt="Posso poupar em vez de me endividar?" data-fr="Puis-je épargner au lieu de m'endetter ?" data-al="Kann ich sparen, anstatt Schulden zu machen?" data-zh="我可以储蓄而不是借贷吗？">¿Puedo ahorrar en lugar de endeudarme?</span>
+                        </button>
+                        <div class="solicitud-respuesta" id="solicitud-respuesta-2" role="region" aria-labelledby="solicitud-pregunta-2" aria-hidden="true">
+                            <div class="solicitud-respuesta-interior">
+                                <p data-es="Si el objetivo del préstamo puede esperar unos meses, la mejor opción financiera es abrir una cuenta de ahorros dedicada y reunir el dinero poco a poco. De esta manera, adquieres lo que deseas pagando su precio real, en lugar de pagar el precio más los intereses y comisiones del banco."
+                                   data-en="If the loan's purpose can wait a few months, the best financial option is to open a dedicated savings account and gather the money little by little. This way, you get what you want by paying its real price, instead of paying the price plus the bank's interest and fees."
+                                   data-pt="Se o objetivo do empréstimo puder esperar alguns meses, a melhor opção financeira é abrir uma conta poupança dedicada e juntar o dinheiro pouco a pouco. Dessa forma, você adquire o que deseja pagando seu preço real, em vez de pagar o preço mais os juros e as comissões do banco."
+                                   data-fr="Si l'objectif du prêt peut attendre quelques mois, la meilleure option financière est d'ouvrir un compte d'épargne dédié et de réunir l'argent petit à petit. Ainsi, vous obtenez ce que vous souhaitez en payant son prix réel, au lieu de payer le prix plus les intérêts et commissions de la banque."
+                                   data-al="Wenn der Zweck des Kredits einige Monate warten kann, ist die beste finanzielle Option, ein spezielles Sparkonto zu eröffnen und das Geld nach und nach anzusparen. So erhalten Sie, was Sie möchten, zum tatsächlichen Preis, anstatt den Preis plus Zinsen und Gebühren der Bank zu zahlen."
+                                   data-zh="如果贷款的目的可以等待几个月，最好的财务选择是开设专门的储蓄账户，逐步积累资金。这样，你可以按实际价格获得想要的东西，而不必额外支付银行的利息和手续费。">
+                                    Si el objetivo del préstamo puede esperar unos meses, la mejor opción financiera es abrir una cuenta de ahorros dedicada y reunir el dinero poco a poco. De esta manera, adquieres lo que deseas pagando su precio real, en lugar de pagar el precio más los intereses y comisiones del banco.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pregunta 3 -->
+                    <article class="solicitud-card esta-cerrada">
+                        <button id="solicitud-pregunta-3" class="solicitud-pregunta" type="button" aria-expanded="false" aria-controls="solicitud-respuesta-3">
+                            <span>3.</span>
+                            <span data-es="¿Tengo ingresos suficientes para pagar las cuotas?" data-en="Do I have sufficient income to pay the installments?" data-pt="Tenho renda suficiente para pagar as parcelas?" data-fr="Ai-je des revenus suffisants pour payer les mensualités ?" data-al="Habe ich genug Einkommen, um die Raten zu bezahlen?" data-zh="我有足够的收入来支付分期付款吗？">¿Tengo ingresos suficientes para pagar las cuotas?</span>
+                        </button>
+                        <div class="solicitud-respuesta" id="solicitud-respuesta-3" role="region" aria-labelledby="solicitud-pregunta-3" aria-hidden="true">
+                            <div class="solicitud-respuesta-interior">
+                                <p data-es="En Panamá, por ley, existe un tope máximo de descuento de tu salario (capacidad de descuento legal). Debes calcular si, tras restar tus gastos fijos (comida, alquiler y servicios) y los préstamos actuales, te queda suficiente dinero libre para cubrir la nueva cuota sin quedar en números rojos."
+                                   data-en="In Panama, by law, there is a maximum cap on how much can be deducted from your salary (legal deduction capacity). You should calculate whether, after subtracting your fixed expenses (food, rent, and utilities) and current loans, you have enough free money left to cover the new installment without going into the red."
+                                   data-pt="No Panamá, por lei, existe um limite máximo de desconto do seu salário (capacidade de desconto legal). Você deve calcular se, depois de subtrair seus gastos fixos (alimentação, aluguel e serviços) e os empréstimos atuais, sobra dinheiro suficiente para cobrir a nova parcela sem ficar no vermelho."
+                                   data-fr="Au Panama, la loi fixe un plafond maximal de retenue sur votre salaire (capacité de retenue légale). Vous devez calculer si, après avoir soustrait vos dépenses fixes (nourriture, loyer et services) et vos prêts actuels, il vous reste suffisamment d'argent disponible pour couvrir la nouvelle mensualité sans être dans le rouge."
+                                   data-al="In Panama gibt es gesetzlich eine Obergrenze für Gehaltsabzüge (gesetzliche Abzugsfähigkeit). Sie sollten berechnen, ob nach Abzug Ihrer festen Ausgaben (Essen, Miete und Nebenkosten) und bestehender Kredite genug freies Geld übrig bleibt, um die neue Rate zu decken, ohne in die roten Zahlen zu geraten."
+                                   data-zh="在巴拿马，法律规定了工资扣款的最高上限（法定可扣除额度）。你需要计算，在扣除固定支出（食物、房租和水电费）以及现有贷款之后，是否还有足够的可支配资金来支付新的分期付款而不至于入不敷出。">
+                                    En Panamá, por ley, existe un tope máximo de descuento de tu salario (capacidad de descuento legal). Debes calcular si, tras restar tus gastos fijos (comida, alquiler y servicios) y los préstamos actuales, te queda suficiente dinero libre para cubrir la nueva cuota sin quedar "en números rojos".
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pregunta 4 -->
+                    <article class="solicitud-card esta-cerrada">
+                        <button id="solicitud-pregunta-4" class="solicitud-pregunta" type="button" aria-expanded="false" aria-controls="solicitud-respuesta-4">
+                            <span>4.</span>
+                            <span data-es="¿Mi presupuesto permite asumir una nueva deuda?" data-en="Does my budget allow me to take on new debt?" data-pt="Meu orçamento permite assumir uma nova dívida?" data-fr="Mon budget me permet-il d'assumer une nouvelle dette ?" data-al="Erlaubt mein Budget die Aufnahme neuer Schulden?" data-zh="我的预算允许我承担新的债务吗？">¿Mi presupuesto permite asumir una nueva deuda?</span>
+                        </button>
+                        <div class="solicitud-respuesta" id="solicitud-respuesta-4" role="region" aria-labelledby="solicitud-pregunta-4" aria-hidden="true">
+                            <div class="solicitud-respuesta-interior">
+                                <p data-es="Antes de firmar, se recomienda hacer un presupuesto mensual detallado. La cuota del nuevo préstamo no debería comprometer tu estabilidad diaria. Los expertos sugieren que el total de tus deudas mensuales no supere el 35% o 40% de tus ingresos netos."
+                                   data-en="Before signing, it is recommended to create a detailed monthly budget. The installment of the new loan should not compromise your daily stability. Experts suggest that the total of your monthly debts should not exceed 35% or 40% of your net income."
+                                   data-pt="Antes de assinar, recomenda-se fazer um orçamento mensal detalhado. A parcela do novo empréstimo não deve comprometer sua estabilidade diária. Os especialistas sugerem que o total das suas dívidas mensais não ultrapasse 35% a 40% da sua renda líquida."
+                                   data-fr="Avant de signer, il est recommandé d'établir un budget mensuel détaillé. La mensualité du nouveau prêt ne devrait pas compromettre votre stabilité quotidienne. Les experts suggèrent que le total de vos dettes mensuelles ne dépasse pas 35 % à 40 % de vos revenus nets."
+                                   data-al="Vor der Unterschrift wird empfohlen, ein detailliertes Monatsbudget zu erstellen. Die Rate des neuen Kredits sollte Ihre tägliche Stabilität nicht gefährden. Experten empfehlen, dass Ihre monatlichen Schulden insgesamt nicht mehr als 35 % bis 40 % Ihres Nettoeinkommens betragen sollten."
+                                   data-zh="在签署合同之前，建议制定详细的月度预算。新贷款的分期付款不应影响你的日常生活稳定。专家建议，每月债务总额不应超过净收入的35%至40%。">
+                                    Antes de firmar, se recomienda hacer un presupuesto mensual detallado. La cuota del nuevo préstamo no debería comprometer tu estabilidad diaria. Los expertos sugieren que el total de tus deudas mensuales no supere el 35% o 40% de tus ingresos netos.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pregunta 5 -->
+                    <article class="solicitud-card esta-cerrada">
+                        <button id="solicitud-pregunta-5" class="solicitud-pregunta" type="button" aria-expanded="false" aria-controls="solicitud-respuesta-5">
+                            <span>5.</span>
+                            <span data-es="¿Qué pasaría si pierdo mi empleo o disminuyen mis ingresos?" data-en="What would happen if I lost my job or my income decreased?" data-pt="O que aconteceria se eu perdesse meu emprego ou minha renda diminuísse?" data-fr="Que se passerait-il si je perdais mon emploi ou si mes revenus diminuaient ?" data-al="Was würde passieren, wenn ich meinen Job verliere oder mein Einkommen sinkt?" data-zh="如果我失业或收入减少会怎样？">¿Qué pasaría si pierdo mi empleo o disminuyen mis ingresos?</span>
+                        </button>
+                        <div class="solicitud-respuesta" id="solicitud-respuesta-5" role="region" aria-labelledby="solicitud-pregunta-5" aria-hidden="true">
+                            <div class="solicitud-respuesta-interior">
+                                <p data-es="Debes contar con un plan de respaldo, como un fondo de emergencia que cubra al menos de 3 a 6 meses de tus gastos básicos. Aunque los préstamos en Panamá incluyen seguros de vida o desempleo bajo ciertas condiciones, tener ahorros propios evitará que caigas en morosidad y afectes tu historial en la APC."
+                                   data-en="You should have a backup plan, such as an emergency fund that covers at least 3 to 6 months of your basic expenses. Although loans in Panama include life insurance or unemployment coverage under certain conditions, having your own savings will prevent you from falling into default and affecting your record with the APC."
+                                   data-pt="Você deve contar com um plano de apoio, como um fundo de emergência que cubra ao menos de 3 a 6 meses das suas despesas básicas. Embora os empréstimos no Panamá incluam seguro de vida ou desemprego sob certas condições, ter suas próprias economias evitará que você caia em inadimplência e prejudique seu histórico na APC."
+                                   data-fr="Vous devez disposer d'un plan de secours, comme un fonds d'urgence couvrant au moins 3 à 6 mois de vos dépenses de base. Bien que les prêts au Panama incluent une assurance vie ou chômage sous certaines conditions, avoir votre propre épargne vous évitera de tomber en défaut de paiement et d'affecter votre dossier auprès de l'APC."
+                                   data-al="Sie sollten über einen Notfallplan verfügen, etwa einen Notfallfonds, der mindestens 3 bis 6 Monate Ihrer Grundausgaben abdeckt. Obwohl Kredite in Panama unter bestimmten Bedingungen eine Lebens- oder Arbeitslosenversicherung beinhalten, verhindern eigene Ersparnisse, dass Sie in Zahlungsverzug geraten und Ihre Bonität bei der APC beeinträchtigen."
+                                   data-zh="你应该有一个应急计划，例如能够覆盖至少3到6个月基本支出的应急基金。虽然巴拿马的贷款在某些条件下包含人寿或失业保险，但拥有自己的储蓄可以避免你陷入拖欠，从而影响你在APC（信用管理机构）的信用记录。">
+                                    Debes contar con un plan de respaldo, como un fondo de emergencia que cubra al menos de 3 a 6 meses de tus gastos básicos. Aunque los préstamos en Panamá incluyen seguros de vida o desempleo bajo ciertas condiciones, tener ahorros propios evitará que caigas en morosidad y afectes tu historial en la APC.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pregunta 6 -->
+                    <article class="solicitud-card esta-cerrada">
+                        <button id="solicitud-pregunta-6" class="solicitud-pregunta" type="button" aria-expanded="false" aria-controls="solicitud-respuesta-6">
+                            <span>6.</span>
+                            <span data-es="¿Cuánto tiempo demora en aprobarse y desembolsarse un préstamo personal en Panamá?"
+                                  data-en="How long does it take to approve and disburse a personal loan in Panama?"
+                                  data-pt="Quanto tempo demora para aprovar e liberar um empréstimo pessoal no Panamá?"
+                                  data-fr="Combien de temps faut-il pour approuver et décaisser un prêt personnel au Panama ?"
+                                  data-al="Wie lange dauert die Genehmigung und Auszahlung eines Privatkredits in Panama?"
+                                  data-zh="在巴拿马，个人贷款的审批和放款需要多长时间？">¿Cuánto tiempo demora en aprobarse y desembolsarse un préstamo personal en Panamá?</span>
+                        </button>
+                        <div class="solicitud-respuesta" id="solicitud-respuesta-6" role="region" aria-labelledby="solicitud-pregunta-6" aria-hidden="true">
+                            <div class="solicitud-respuesta-interior">
+                                <ul>
+                                    <li>
+                                        <strong><span data-es="Gobierno y jubilados:" data-en="Government and retirees:" data-pt="Governo e aposentados:" data-fr="Gouvernement et retraités :" data-al="Regierung und Rentner:" data-zh="政府雇员及退休人员：">Gobierno y jubilados:</span></strong>
+                                        <span data-es="de 24 a 48 horas. Es el proceso más rápido por la automatización de los sistemas del Estado."
+                                              data-en="24 to 48 hours. It's the fastest process due to the automation of government systems."
+                                              data-pt="de 24 a 48 horas. É o processo mais rápido devido à automatização dos sistemas do Estado."
+                                              data-fr="24 à 48 heures. C'est le processus le plus rapide grâce à l'automatisation des systèmes de l'État."
+                                              data-al="24 bis 48 Stunden. Dies ist der schnellste Prozess dank der Automatisierung der staatlichen Systeme."
+                                              data-zh="24至48小时。由于政府系统的自动化，这是最快的流程。">de 24 a 48 horas. Es el proceso más rápido por la automatización de los sistemas del Estado.</span>
+                                    </li>
+                                    <li>
+                                        <strong><span data-es="Empresa privada (descuento directo):" data-en="Private company (direct deduction):" data-pt="Empresa privada (desconto direto):" data-fr="Entreprise privée (retenue directe) :" data-al="Privatunternehmen (Direktabzug):" data-zh="私营企业（直接代扣）：">Empresa privada (descuento directo):</span></strong>
+                                        <span data-es="de 3 a 5 días hábiles. El banco debe validar la empresa y esperar la firma de Recursos Humanos."
+                                              data-en="3 to 5 business days. The bank must validate the company and wait for the Human Resources signature."
+                                              data-pt="de 3 a 5 dias úteis. O banco deve validar a empresa e aguardar a assinatura do Recursos Humanos."
+                                              data-fr="3 à 5 jours ouvrables. La banque doit valider l'entreprise et attendre la signature des Ressources Humaines."
+                                              data-al="3 bis 5 Werktage. Die Bank muss das Unternehmen validieren und auf die Unterschrift der Personalabteilung warten."
+                                              data-zh="3至5个工作日。银行需要核实企业信息并等待人力资源部门签字。">de 3 a 5 días hábiles. El banco debe validar la empresa y esperar la firma de Recursos Humanos.</span>
+                                    </li>
+                                    <li>
+                                        <strong><span data-es="Pago voluntario:" data-en="Voluntary payment:" data-pt="Pagamento voluntário:" data-fr="Paiement volontaire :" data-al="Freiwillige Zahlung:" data-zh="自愿还款方式：">Pago voluntario:</span></strong>
+                                        <span data-es="de 5 a 7 días hábiles. El análisis de la capacidad de pago y del historial en la APC es más estricto."
+                                              data-en="5 to 7 business days. The analysis of payment capacity and APC credit history is stricter."
+                                              data-pt="de 5 a 7 dias úteis. A análise da capacidade de pagamento e do histórico na APC é mais rigorosa."
+                                              data-fr="5 à 7 jours ouvrables. L'analyse de la capacité de paiement et de l'historique auprès de l'APC est plus stricte."
+                                              data-al="5 bis 7 Werktage. Die Analyse der Zahlungsfähigkeit und der Bonitätshistorie bei der APC ist strenger."
+                                              data-zh="5至7个工作日。对还款能力及APC信用记录的审核更为严格。">de 5 a 7 días hábiles. El análisis de la capacidad de pago y del historial en la APC es más estricto.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- Franja de consejos -->
+            <div class="solicitud-consejos">
+                <h3 data-es="Consejos clave:" data-en="Key tips:" data-pt="Dicas-chave:" data-fr="Conseils clés :" data-al="Wichtige Tipps:" data-zh="关键建议：">Consejos clave:</h3>
+
+                <div class="solicitud-consejos-contenido">
+
+                    <svg class="solicitud-bombillo" viewBox="0 0 120 130" role="img" aria-label="Idea importante">
+                        <g fill="none" stroke="#0c1118" stroke-linecap="round">
+                            <path d="M60 5v18 M20 20l13 15 M100 20 87 35
+                                     M4 62h20 M116 62H96 M18 105l15-14
+                                     M102 105 87 91" stroke-width="3"/>
+                        </g>
+                        <circle cx="60" cy="67" r="43" fill="#ffe58a" opacity=".62"/>
+                        <path d="M60 28c-22 0-38 16-38 37
+                                 0 14 7 24 17 32
+                                 5 4 7 9 7 15h28
+                                 c0-6 2-11 7-15
+                                 10-8 17-18 17-32
+                                 0-21-16-37-38-37Z"
+                              fill="#ffc400" stroke="#0c1118" stroke-width="5"/>
+                        <path d="M48 108h25 M49 116h23 M53 123h15" stroke="#0c1118" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M45 67c8 0 7 20 13 20
+                                 s5-20 13-20 7 20 13 20"
+                              fill="none" stroke="#0c1118" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+
+                    <ul class="solicitud-lista-consejos">
+                        <li data-es="Compara las tasas de interés y el costo total del préstamo antes de tomar una decisión."
+                            data-en="Compare interest rates and the total cost of the loan before making a decision."
+                            data-pt="Compare as taxas de juros e o custo total do empréstimo antes de tomar uma decisão."
+                            data-fr="Comparez les taux d'intérêt et le coût total du prêt avant de prendre une décision."
+                            data-al="Vergleichen Sie die Zinssätze und die Gesamtkosten des Kredits, bevor Sie eine Entscheidung treffen."
+                            data-zh="在做决定之前，比较利率和贷款的总成本。">
+                            Compara las tasas de interés y el costo total del préstamo antes de tomar una decisión.
+                        </li>
+                        <li data-es="Solicita únicamente el monto que realmente necesitas y puedes pagar."
+                            data-en="Only request the amount you really need and can afford."
+                            data-pt="Solicite apenas o valor que você realmente precisa e pode pagar."
+                            data-fr="Ne demandez que le montant dont vous avez réellement besoin et que vous pouvez rembourser."
+                            data-al="Beantragen Sie nur den Betrag, den Sie wirklich benötigen und zurückzahlen können."
+                            data-zh="只申请你真正需要且能够偿还的金额。">
+                            Solicita únicamente el monto que realmente necesitas y puedes pagar.
+                        </li>
+                        <li data-es="Elabora un presupuesto mensual para asegurarte de que podrás cumplir con las cuotas."
+                            data-en="Create a monthly budget to make sure you'll be able to keep up with the payments."
+                            data-pt="Elabore um orçamento mensal para garantir que poderá cumprir com as parcelas."
+                            data-fr="Établissez un budget mensuel pour vous assurer de pouvoir respecter les mensualités."
+                            data-al="Erstellen Sie ein Monatsbudget, um sicherzustellen, dass Sie die Raten bezahlen können."
+                            data-zh="制定月度预算，确保你能够按时偿还分期款项。">
+                            Elabora un presupuesto mensual para asegurarte de que podrás cumplir con las cuotas.
+                        </li>
+                    </ul>
+
+                    <ul class="solicitud-lista-consejos">
+                        <li data-es="Lee cuidadosamente el contrato y comprende todas las condiciones antes de firmarlo."
+                            data-en="Read the contract carefully and understand all the terms before signing it."
+                            data-pt="Leia cuidadosamente o contrato e entenda todas as condições antes de assiná-lo."
+                            data-fr="Lisez attentivement le contrat et comprenez toutes les conditions avant de le signer."
+                            data-al="Lesen Sie den Vertrag sorgfältig durch und verstehen Sie alle Bedingungen, bevor Sie ihn unterschreiben."
+                            data-zh="在签署合同之前，仔细阅读并理解所有条款。">
+                            Lee cuidadosamente el contrato y comprende todas las condiciones antes de firmarlo.
+                        </li>
+                        <li data-es="Mantén tus pagos al día para conservar un buen historial crediticio."
+                            data-en="Keep your payments up to date to maintain a good credit history."
+                            data-pt="Mantenha seus pagamentos em dia para preservar um bom histórico de crédito."
+                            data-fr="Maintenez vos paiements à jour pour conserver un bon historique de crédit."
+                            data-al="Halten Sie Ihre Zahlungen aktuell, um eine gute Kredithistorie zu bewahren."
+                            data-zh="保持按时还款，以维持良好的信用记录。">
+                            Mantén tus pagos al día para conservar un buen historial crediticio.
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE — STRIX
+    ============================================ -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="finanzas_prestamos.js"></script>
+    <script src="heatmap-prestamos.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

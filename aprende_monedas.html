@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aprende_monedas.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Monedas</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- Cursor magnético personalizado (solo escritorio) -->
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Pièces" data-al="Münzen" data-zh="硬币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- ============================================
+         HERO
+    ============================================ -->
+    <section class="hero-monedas">
+        <img src="img/monedas.png" alt="Monedas" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Pièces" data-al="Münzen" data-zh="硬币">Monedas</h1>
+            <p data-es="Descubre las monedas de Panamá y aprende a reconocer sus valores, diseños y características. En esta sección conocerás las monedas que se utilizan en la vida diaria y cómo identificar cada una para realizar pagos y manejar mejor tu dinero."
+               data-en="Discover Panama's coins and learn to recognize their values, designs, and features. In this section, you will explore the coins used in everyday life and learn how to identify each one to make payments and manage your money with confidence."
+               data-pt="Descubra as moedas do Panamá e aprenda a reconhecer seus valores, desenhos e características. Nesta seção você vai conhecer as moedas usadas no dia a dia e como identificar cada uma para fazer pagamentos e administrar melhor seu dinheiro."
+               data-fr="Découvrez les pièces de monnaie du Panama et apprenez à reconnaître leurs valeurs, leurs motifs et leurs caractéristiques. Dans cette section, vous découvrirez les pièces utilisées dans la vie quotidienne et comment identifier chacune d'elles pour effectuer des paiements et mieux gérer votre argent."
+               data-al="Entdecken Sie die Münzen Panamas und lernen Sie, ihre Werte, Designs und Merkmale zu erkennen. In diesem Abschnitt lernen Sie die im Alltag verwendeten Münzen kennen und erfahren, wie Sie jede einzelne erkennen, um Zahlungen zu tätigen und Ihr Geld besser zu verwalten."
+               data-zh="了解巴拿马的硬币，学习辨认它们的面值、图案和特征。在本节中，你将认识日常生活中使用的硬币，并学会识别每一种，以便付款和更好地管理你的资金。">
+                Descubre las monedas de Panamá y aprende a reconocer sus valores, diseños y características. En esta sección conocerás las monedas que se utilizan en la vida diaria y cómo identificar cada una para realizar pagos y manejar mejor tu dinero.
+            </p>
+        </div>
+    </section>
+
+    <main class="contenido-monedas">
+
+        <!-- ===== BLOQUE 1: ¿Qué es una moneda? ===== -->
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-text">
+                    <h2 class="section-title" data-es="¿Qué es una moneda?" data-en="What is a coin?" data-pt="O que é uma moeda?" data-fr="Qu'est-ce qu'une pièce de monnaie ?" data-al="Was ist eine Münze?" data-zh="什么是硬币？">¿Qué es una moneda?</h2>
+                    <p class="section-desc"
+                       data-es="Una moneda es una pieza metálica creada por un gobierno o institución autorizada que tiene un valor establecido y se utiliza como medio de pago para comprar bienes y servicios"
+                       data-en="A coin is a metal piece created by a government or authorized institution that has an established value and is used as a means of payment to buy goods and services"
+                       data-pt="Uma moeda é uma peça metálica criada por um governo ou instituição autorizada, que tem um valor estabelecido e é usada como meio de pagamento para comprar bens e serviços."
+                       data-fr="Une pièce de monnaie est un objet métallique créé par un gouvernement ou une institution autorisée, ayant une valeur établie et utilisé comme moyen de paiement pour acheter des biens et des services."
+                       data-al="Eine Münze ist ein von einer Regierung oder einer autorisierten Institution geschaffenes Metallstück mit festgelegtem Wert, das als Zahlungsmittel für den Kauf von Waren und Dienstleistungen verwendet wird."
+                       data-zh="硬币是由政府或授权机构制造的金属制品，具有既定价值，用作购买商品和服务的支付手段。">
+                        Una moneda es una pieza metálica creada por un gobierno o institución autorizada que tiene un valor establecido y se utiliza como medio de pago para comprar bienes y servicios
+                    </p>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div class="features-row">
+                <div class="feature-item">
+                    <div class="icon-placeholder"><img src="iconos/escudo.png" alt="escudo"></div>
+                    <h3 data-es="Medio de pago" data-en="Payment method" data-pt="Meio de pagamento" data-fr="Moyen de paiement" data-al="Zahlungsmittel" data-zh="支付方式">Medio de pago</h3>
+                    <p data-es="Permite comprar y vender productos y servicios de forma rápida y sencilla."
+                       data-en="It lets you buy and sell products and services quickly and easily."
+                       data-pt="Permite comprar e vender produtos e serviços de forma rápida e simples."
+                       data-fr="Il permet d'acheter et de vendre des produits et services rapidement et facilement."
+                       data-al="Ermöglicht den schnellen und einfachen Kauf und Verkauf von Produkten und Dienstleistungen."
+                       data-zh="让你能够快速便捷地买卖商品和服务。">
+                        Permite comprar y vender productos y servicios de forma rápida y sencilla.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="icon-placeholder"><img src="iconos/moneda-de-dolar.png" alt="moneda"></div>
+                    <h3 data-es="Valor garantizado" data-en="Guaranteed value" data-pt="Valor garantido" data-fr="Valeur garantie" data-al="Garantierter Wert" data-zh="价值保证">Valor garantizado</h3>
+                    <p data-es="Su valor es reconocido oficialmente dentro del sistema monetario del país."
+                       data-en="Its value is officially recognized within the country's monetary system."
+                       data-pt="Seu valor é oficialmente reconhecido dentro do sistema monetário do país."
+                       data-fr="Sa valeur est officiellement reconnue au sein du système monétaire du pays."
+                       data-al="Ihr Wert wird offiziell innerhalb des Währungssystems des Landes anerkannt."
+                       data-zh="其价值在该国货币体系内得到官方认可。">
+                        Su valor es reconocido oficialmente dentro del sistema monetario del país.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="icon-placeholder"><img src="iconos/martillo.png" alt="martillo"></div>
+                    <h3 data-es="Duraderas" data-en="Durable" data-pt="Duráveis" data-fr="Durables" data-al="Langlebig" data-zh="耐用">Duraderas</h3>
+                    <p data-es="Están fabricadas con materiales resistentes para soportar el uso diario durante muchos años."
+                       data-en="They are made with resistant materials to withstand daily use for many years."
+                       data-pt="São fabricadas com materiais resistentes para suportar o uso diário durante muitos anos."
+                       data-fr="Elles sont fabriquées avec des matériaux résistants pour supporter un usage quotidien pendant de nombreuses années."
+                       data-al="Sie werden aus widerstandsfähigen Materialien hergestellt, um dem täglichen Gebrauch über viele Jahre standzuhalten."
+                       data-zh="采用耐用材料制造，能够承受多年的日常使用。">
+                        Están fabricadas con materiales resistentes para soportar el uso diario durante muchos años.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="icon-placeholder"><img src="iconos/banco.png" alt="Banco"></div>
+                    <h3 data-es="Respaldo oficial" data-en="Official backing" data-pt="Respaldo oficial" data-fr="Garantie officielle" data-al="Offizielle Deckung" data-zh="官方保障">Respaldo oficial</h3>
+                    <p data-es="Son emitidas por autoridades competentes y forman parte del sistema monetario oficial"
+                       data-en="They are issued by competent authorities and are part of the official monetary system"
+                       data-pt="São emitidas por autoridades competentes e fazem parte do sistema monetário oficial."
+                       data-fr="Elles sont émises par des autorités compétentes et font partie du système monétaire officiel."
+                       data-al="Sie werden von zuständigen Behörden ausgegeben und sind Teil des offiziellen Währungssystems."
+                       data-zh="由主管当局发行，是官方货币体系的一部分。">
+                        Son emitidas por autoridades competentes y forman parte del sistema monetario oficial
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 2: ¿Por qué se dice "Cuara"? ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title"
+                data-es='¿Por qué se dice "Cuara"?' data-en='Why is it called "Cuara"?'
+                data-pt='Por que se diz "Cuara"?' data-fr='Pourquoi dit-on "Cuara" ?'
+                data-al='Warum sagt man "Cuara"?' data-zh='为什么叫"Cuara"？'>¿Por qué se dice "Cuara"?</h2>
+
+            <div class="info-box">
+                <div class="info-box-text">
+                    <p data-es='En Panamá, "cuara" es el nombre popular que recibe la moneda de 25 centésimos de balboa (B/.0.25).'
+                       data-en='In Panama, "cuara" is the popular name given to the 25-cent balboa coin (B/.0.25).'
+                       data-pt='No Panamá, "cuara" é o nome popular dado à moeda de 25 centésimos de balboa (B/.0,25).'
+                       data-fr='Au Panama, « cuara » est le nom populaire donné à la pièce de 25 centésimos de balboa (B/.0,25).'
+                       data-al='In Panama ist "Cuara" der gebräuchliche Name für die 25-Centésimo-Balboa-Münze (B/.0,25).'
+                       data-zh='在巴拿马，"cuara"是25分之一巴波亚硬币（B/.0.25）的俗称。'>
+                        En Panamá, "cuara" es el nombre popular que recibe la moneda de 25 centésimos de balboa (B/.0.25).
+                    </p>
+                    <p data-es='Este término proviene de la adaptación de la palabra inglesa "quarter", utilizada para referirse a la moneda estadounidense de un cuarto de dólar.'
+                       data-en='The term comes from the adaptation of the English word "quarter", used to refer to the US quarter-dollar coin.'
+                       data-pt='Este termo vem da adaptação da palavra inglesa "quarter", usada para se referir à moeda americana de um quarto de dólar.'
+                       data-fr='Ce terme vient de l&#39;adaptation du mot anglais « quarter », utilisé pour désigner la pièce américaine d&#39;un quart de dollar.'
+                       data-al='Der Begriff stammt von der Anpassung des englischen Wortes "quarter", mit dem die US-amerikanische Vierteldollar-Münze bezeichnet wird.'
+                       data-zh='这个词源自英语单词"quarter"的转化，该词用来指代美国的四分之一美元硬币。'>
+                        Este término proviene de la adaptación de la palabra inglesa "quarter", utilizada para referirse a la moneda estadounidense de un cuarto de dólar.
+                    </p>
+                    <p data-es="La cuara es una de las monedas más utilizadas en la vida cotidiana de los panameños y forma parte de la cultura popular del país."
+                       data-en="The cuara is one of the most widely used coins in Panamanians' daily life and is part of the country's popular culture."
+                       data-pt="A cuara é uma das moedas mais usadas no dia a dia dos panamenhos e faz parte da cultura popular do país."
+                       data-fr="La cuara est l'une des pièces les plus utilisées dans la vie quotidienne des Panaméens et fait partie de la culture populaire du pays."
+                       data-al="Die Cuara ist eine der im Alltag der Panamaer am häufigsten verwendeten Münzen und Teil der Populärkultur des Landes."
+                       data-zh="cuara是巴拿马人日常生活中最常用的硬币之一，也是该国大众文化的一部分。">
+                        La cuara es una de las monedas más utilizadas en la vida cotidiana de los panameños y forma parte de la cultura popular del país.
+                    </p>
+                </div>
+
+                <div class="info-box-coin">
+                    <img src="img/cuara.png" alt="Moneda de 25 centésimos de balboa">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 3: Breve historia de la moneda (línea de tiempo) ===== -->
+        <section class="content-section">
+            <div class="history-box">
+                <h2 data-es="Breve historia de la moneda" data-en="A brief history of the coin"
+                    data-pt="Breve história da moeda" data-fr="Brève histoire de la monnaie"
+                    data-al="Kurze Geschichte der Münze" data-zh="货币简史">BREVE HISTORIA DE LA MONEDA</h2>
+
+                <div class="timeline">
+                    <div class="timeline-step">
+                        <div class="timeline-icon">1904</div>
+                        <h4 data-es="Nace el Balboa" data-en="The Balboa is born" data-pt="Nasce o Balboa" data-fr="Naissance du Balboa" data-al="Der Balboa entsteht" data-zh="巴波亚诞生">Nace el Balboa</h4>
+                        <p data-es="Tras la separación de Panamá de Colombia, el Balboa fue adoptado como moneda oficial de la República de Panamá."
+                           data-en="After Panama's separation from Colombia, the Balboa was adopted as the official currency of the Republic of Panama."
+                           data-pt="Após a separação do Panamá da Colômbia, o Balboa foi adotado como moeda oficial da República do Panamá."
+                           data-fr="Après la séparation du Panama de la Colombie, le Balboa a été adopté comme monnaie officielle de la République du Panama."
+                           data-al="Nach der Trennung Panamas von Kolumbien wurde der Balboa als offizielle Währung der Republik Panama eingeführt."
+                           data-zh="巴拿马脱离哥伦比亚独立后，巴波亚被采用为巴拿马共和国的官方货币。">
+                            Tras la separación de Panamá de Colombia, el Balboa fue adoptado como moneda oficial de la República de Panamá.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-icon">$</div>
+                        <h4 data-es="Paridad con el dólar" data-en="Parity with the dollar" data-pt="Paridade com o dólar" data-fr="Parité avec le dollar" data-al="Parität zum Dollar" data-zh="与美元等值">Paridad con el dólar</h4>
+                        <p data-es="Desde su creación, el Balboa mantiene el mismo valor que el dólar estadounidense: 1 Balboa = 1 Dólar estadounidense"
+                           data-en="Since its creation, the Balboa has kept the same value as the US dollar: 1 Balboa = 1 US Dollar"
+                           data-pt="Desde sua criação, o Balboa mantém o mesmo valor do dólar americano: 1 Balboa = 1 Dólar americano."
+                           data-fr="Depuis sa création, le Balboa conserve la même valeur que le dollar américain : 1 Balboa = 1 dollar américain."
+                           data-al="Seit seiner Einführung behält der Balboa denselben Wert wie der US-Dollar: 1 Balboa = 1 US-Dollar."
+                           data-zh="自诞生以来，巴波亚一直与美元保持相同价值：1巴波亚 = 1美元。">
+                            Desde su creación, el Balboa mantiene el mismo valor que el dólar estadounidense: 1 Balboa = 1 Dólar estadounidense
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-icon">25¢</div>
+                        <h4 data-es='La "Cuara"' data-en='The "Cuara"' data-pt='A "Cuara"' data-fr='« La Cuara »' data-al='Die "Cuara"' data-zh='"Cuara"的由来'>La "Cuara"</h4>
+                        <p data-es='Los panameños comenzaron a utilizar la palabra "cuara" para referirse al cuarto de balboa o cuarto de dólar.'
+                           data-en='Panamanians began using the word "cuara" to refer to the quarter balboa or quarter dollar.'
+                           data-pt='Os panamenhos começaram a usar a palavra "cuara" para se referir ao quarto de balboa ou quarto de dólar.'
+                           data-fr="Les Panaméens ont commencé à utiliser le mot « cuara » pour désigner le quart de balboa ou le quart de dollar."
+                           data-al='Die Panamaer begannen, das Wort "Cuara" zu verwenden, um den Viertel-Balboa oder Viertel-Dollar zu bezeichnen.'
+                           data-zh='巴拿马人开始使用"cuara"一词来指代四分之一巴波亚或四分之一美元。'>
+                            Los panameños comenzaron a utilizar la palabra "cuara" para referirse al cuarto de balboa o cuarto de dólar.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-icon"><img src="iconos/globo-azul.png" alt="Globo"></div>
+                        <h4 data-es="Actualidad" data-en="Today" data-pt="Atualidade" data-fr="Aujourd'hui" data-al="Heute" data-zh="今天">Actualidad</h4>
+                        <p data-es="La cuara sigue siendo una de las monedas más utilizadas para compras y pagos cotidianos en todo el país."
+                           data-en="The cuara remains one of the most used coins for everyday purchases and payments across the country."
+                           data-pt="A cuara continua sendo uma das moedas mais usadas para compras e pagamentos cotidianos em todo o país."
+                           data-fr="La cuara reste l'une des pièces les plus utilisées pour les achats et paiements quotidiens dans tout le pays."
+                           data-al="Die Cuara ist nach wie vor eine der am häufigsten verwendeten Münzen für alltägliche Einkäufe und Zahlungen im ganzen Land."
+                           data-zh="cuara至今仍是全国日常购物和支付中最常用的硬币之一。">
+                            La cuara sigue siendo una de las monedas más utilizadas para compras y pagos cotidianos en todo el país.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title accent-title"
+                data-es="¿Por qué son importantes las monedas?" data-en="Why are coins important?"
+                data-pt="Por que as moedas são importantes?" data-fr="Pourquoi les pièces de monnaie sont-elles importantes ?"
+                data-al="Warum sind Münzen wichtig?" data-zh="为什么硬币很重要？">¿POR QUÉ SON IMPORTANTES LAS MONEDAS?</h2>
+
+            <div class="cards-grid">
+                <div class="info-card">
+                    <h4 data-es="Compras diarias" data-en="Daily purchases" data-pt="Compras diárias" data-fr="Achats quotidiens" data-al="Tägliche Einkäufe" data-zh="日常购物">Compras diarias</h4>
+                    <p data-es="Se utiliza frecuentemente para pequeños pagos y transacciones del día a día."
+                       data-en="It is frequently used for small everyday payments and transactions."
+                       data-pt="É frequentemente usada para pequenos pagamentos e transações do dia a dia."
+                       data-fr="Elle est fréquemment utilisée pour les petits paiements et transactions du quotidien."
+                       data-al="Wird häufig für kleine alltägliche Zahlungen und Transaktionen verwendet."
+                       data-zh="常用于日常小额支付和交易。">
+                        Se utiliza frecuentemente para pequeños pagos y transacciones del día a día.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4 data-es="Parte de la cultura" data-en="Part of the culture" data-pt="Parte da cultura" data-fr="Fait partie de la culture" data-al="Teil der Kultur" data-zh="文化的一部分">Parte de la cultura</h4>
+                    <p data-es='La palabra "cuara" forma parte del vocabulario cotidiano de los panameños y de sus costumbres.'
+                       data-en='The word "cuara" is part of Panamanians&#39; everyday vocabulary and customs.'
+                       data-pt='A palavra "cuara" faz parte do vocabulário cotidiano dos panamenhos e de seus costumes.'
+                       data-fr="Le mot « cuara » fait partie du vocabulaire quotidien des Panaméens et de leurs coutumes."
+                       data-al='Das Wort "Cuara" ist Teil des alltäglichen Wortschatzes und der Bräuche der Panamaer.'
+                       data-zh='"cuara"一词是巴拿马人日常词汇和习俗的一部分。'>
+                        La palabra "cuara" forma parte del vocabulario cotidiano de los panameños y de sus costumbres.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4 data-es="Equivale a B/.0.25" data-en="Equals B/.0.25" data-pt="Equivale a B/.0,25" data-fr="Équivaut à B/.0,25" data-al="Entspricht B/.0,25" data-zh="等值于 B/.0.25">Equivale a B/.0.25</h4>
+                    <p data-es="Representa la cuarta parte de un balboa, manteniendo el mismo valor dentro del sistema monetario panameño."
+                       data-en="It represents a quarter of a balboa, keeping the same value within the Panamanian monetary system."
+                       data-pt="Representa a quarta parte de um balboa, mantendo o mesmo valor dentro do sistema monetário panamenho."
+                       data-fr="Elle représente le quart d'un balboa, conservant la même valeur au sein du système monétaire panaméen."
+                       data-al="Sie stellt ein Viertel eines Balboa dar und behält denselben Wert innerhalb des panamaischen Währungssystems."
+                       data-zh="它相当于四分之一巴波亚，在巴拿马货币体系中保持同等价值。">
+                        Representa la cuarta parte de un balboa, manteniendo el mismo valor dentro del sistema monetario panameño.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4 data-es="Circulación nacional" data-en="National circulation" data-pt="Circulação nacional" data-fr="Circulation nationale" data-al="Landesweiter Umlauf" data-zh="全国流通">Circulación nacional</h4>
+                    <p data-es="Forma parte del sistema monetario de Panamá y circula junto con otras monedas de balboa y el dólar estadounidense."
+                       data-en="It is part of Panama's monetary system and circulates alongside other balboa coins and the US dollar."
+                       data-pt="Faz parte do sistema monetário do Panamá e circula junto com outras moedas de balboa e o dólar americano."
+                       data-fr="Elle fait partie du système monétaire du Panama et circule aux côtés d'autres pièces de balboa et du dollar américain."
+                       data-al="Sie ist Teil des panamaischen Währungssystems und ist zusammen mit anderen Balboa-Münzen und dem US-Dollar im Umlauf."
+                       data-zh="它是巴拿马货币体系的一部分，与其他巴波亚硬币和美元一同流通。">
+                        Forma parte del sistema monetario de Panamá y circula junto con otras monedas de balboa y el dólar estadounidense.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 4: Denominaciones actuales ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title" data-es="Denominaciones actuales" data-en="Current denominations"
+                data-pt="Denominações atuais" data-fr="Dénominations actuelles" data-al="Aktuelle Stückelungen" data-zh="现行面额">Denominaciones actuales</h2>
+            <p class="section-desc" data-es="Actualmente circulan las siguientes monedas panameñas:" data-en="The following Panamanian coins are currently in circulation:"
+               data-pt="Atualmente circulam as seguintes moedas panamenhas:" data-fr="Les pièces panaméennes suivantes sont actuellement en circulation :"
+               data-al="Derzeit sind folgende panamaische Münzen im Umlauf:" data-zh="目前流通的巴拿马硬币如下：">
+                Actualmente circulan las siguientes monedas panameñas:
+            </p>
+
+            <div class="denominations-grid">
+                <div class="coin-card">
+                    <img src="img/centavo.png" alt="Un centésimo de balboa">
+                    <h5 data-es="Un centésimo de balboa" data-en="One centesimo" data-pt="Um centésimo de balboa" data-fr="Un centésimo de balboa" data-al="Ein Centésimo Balboa" data-zh="一分巴波亚">Un centésimo de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un centavo" data-en="Nickname: A cent" data-pt="Apelido: Um centavo" data-fr="Surnom : Un centime" data-al="Spitzname: Ein Cent" data-zh="俗称：一分">Apodo: Un centavo</p>
+                    <p class="valor">B/. 0.01</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/real.png" alt="Cinco centésimos de balboa">
+                    <h5 data-es="Cinco centésimos de balboa" data-en="Five centesimos" data-pt="Cinco centésimos de balboa" data-fr="Cinq centésimos de balboa" data-al="Fünf Centésimos Balboa" data-zh="五分巴波亚">Cinco centésimos de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un real" data-en="Nickname: A real" data-pt="Apelido: Um real" data-fr="Surnom : Un real" data-al="Spitzname: Ein Real" data-zh="俗称：一雷亚尔">Apodo: Un real</p>
+                    <p class="valor">B/. 0.05</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/10-centavos.png" alt="Un décimo de balboa">
+                    <h5 data-es="Un décimo de balboa" data-en="One tenth of a balboa" data-pt="Um décimo de balboa" data-fr="Un dixième de balboa" data-al="Ein Zehntel Balboa" data-zh="十分之一巴波亚">Un décimo de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un dain" data-en="Nickname: A dain" data-pt="Apelido: Um dain" data-fr="Surnom : Un dain" data-al="Spitzname: Ein Dain" data-zh="俗称：一dain">Apodo: Un dain</p>
+                    <p class="valor">B/. 0.10</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/cuara.png" alt="Un cuarto de balboa">
+                    <h5 data-es="Un cuarto de balboa" data-en="One quarter of a balboa" data-pt="Um quarto de balboa" data-fr="Un quart de balboa" data-al="Ein Viertel Balboa" data-zh="四分之一巴波亚">Un cuarto de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Cuara" data-en="Nickname: Cuara" data-pt="Apelido: Cuara" data-fr="Surnom : Cuara" data-al="Spitzname: Cuara" data-zh="俗称：Cuara">Apodo: Cuara</p>
+                    <p class="valor">B/. 0.25</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/peso.png" alt="Medio balboa">
+                    <h5 data-es="Medio balboa" data-en="Half a balboa" data-pt="Meio balboa" data-fr="Un demi-balboa" data-al="Ein halber Balboa" data-zh="半巴波亚">Medio balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un peso" data-en="Nickname: A peso" data-pt="Apelido: Um peso" data-fr="Surnom : Un peso" data-al="Spitzname: Ein Peso" data-zh="俗称：一比索">Apodo: Un peso</p>
+                    <p class="valor">B/. 0.50</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/Balboaa.png" alt="Un balboa">
+                    <h5 data-es="Un balboa" data-en="One balboa" data-pt="Um balboa" data-fr="Un balboa" data-al="Ein Balboa" data-zh="一巴波亚">Un balboa</h5>
+                    <p class="apodo" data-es="Apodo: Martinelli" data-en="Nickname: Martinelli" data-pt="Apelido: Martinelli" data-fr="Surnom : Martinelli" data-al="Spitzname: Martinelli" data-zh="俗称：Martinelli">Apodo: Martinelli</p>
+                    <p class="valor">B/. 1.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 5: Materiales de fabricación ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title" data-es="Materiales de fabricación" data-en="Manufacturing materials"
+                data-pt="Materiais de fabricação" data-fr="Matériaux de fabrication" data-al="Herstellungsmaterialien" data-zh="制造材料">Materiales de fabricación</h2>
+
+            <div class="materials-section">
+                <div class="materials-text">
+                    <p class="section-desc"
+                       data-es="Las monedas de Panamá se han fabricado principalmente con plata, cobre-níquel y acero revestido a lo largo de su historia."
+                       data-en="Panamanian coins have historically been made mainly of silver, copper-nickel, and coated steel."
+                       data-pt="Ao longo de sua história, as moedas do Panamá foram fabricadas principalmente com prata, cobre-níquel e aço revestido."
+                       data-fr="Au fil de son histoire, les pièces du Panama ont été principalement fabriquées en argent, cuivre-nickel et acier plaqué."
+                       data-al="Im Laufe ihrer Geschichte wurden panamaische Münzen hauptsächlich aus Silber, Kupfer-Nickel und plattiertem Stahl hergestellt."
+                       data-zh="在其历史进程中，巴拿马硬币主要由银、铜镍合金和覆层钢制成。">
+                        Las monedas de Panamá se han fabricado principalmente con plata, cobre-níquel y acero revestido a lo largo de su historia.
+                    </p>
+
+                    <ul class="materials-list">
+                        <li>
+                            <strong data-es="1 Balboa:" data-en="1 Balboa:" data-pt="1 Balboa:" data-fr="1 Balboa :" data-al="1 Balboa:" data-zh="1巴波亚：">1 Balboa:</strong>
+                            <span data-es="Cobre bañado en cuproníquel o aleaciones bimetálicas en emisiones recientes (anillo gris y centro dorado)."
+                                  data-en="Copper plated in cupronickel, or bimetallic alloys in recent issues (grey ring and golden centre)."
+                                  data-pt="Cobre banhado em cuproníquel ou ligas bimetálicas em emissões recentes (anel cinza e centro dourado)."
+                                  data-fr="Cuivre plaqué en cupronickel, ou alliages bimétalliques dans les émissions récentes (anneau gris et centre doré)."
+                                  data-al="Kupfer, kupfernickelbeschichtet, oder bimetallische Legierungen bei neueren Ausgaben (grauer Ring und goldener Mittelteil)."
+                                  data-zh="镀铜镍合金，或近期发行版本采用双金属合金（灰色外环和金色内芯）。">
+                                Cobre bañado en cuproníquel o aleaciones bimetálicas en emisiones recientes (anillo gris y centro dorado).
+                            </span>
+                        </li>
+                        <li>
+                            <strong data-es="50 y 25 Centésimos:" data-en="50 and 25 Cents:" data-pt="50 e 25 Centésimos:" data-fr="50 et 25 Centésimos :" data-al="50 und 25 Centésimos:" data-zh="50分和25分：">50 y 25 Centésimos:</strong>
+                            <span data-es="Cuproníquel (aleación de 75% de cobre y 25% de níquel)."
+                                  data-en="Cupronickel (an alloy of 75% copper and 25% nickel)."
+                                  data-pt="Cuproníquel (liga de 75% de cobre e 25% de níquel)."
+                                  data-fr="Cupronickel (alliage de 75 % de cuivre et 25 % de nickel)."
+                                  data-al="Kupfernickel (Legierung aus 75 % Kupfer und 25 % Nickel)."
+                                  data-zh="铜镍合金（75%铜和25%镍的合金）。">
+                                Cuproníquel (aleación de 75% de cobre y 25% de níquel).
+                            </span>
+                        </li>
+                        <li>
+                            <strong data-es="10 y 5 Centésimos:" data-en="10 and 5 Cents:" data-pt="10 e 5 Centésimos:" data-fr="10 et 5 Centésimos :" data-al="10 und 5 Centésimos:" data-zh="10分和5分：">10 y 5 Centésimos:</strong>
+                            <span data-es="Latón (aleación de cobre y zinc) o níquel-latón."
+                                  data-en="Brass (a copper and zinc alloy) or nickel-brass."
+                                  data-pt="Latão (liga de cobre e zinco) ou níquel-latão."
+                                  data-fr="Laiton (alliage de cuivre et de zinc) ou nickel-laiton."
+                                  data-al="Messing (Kupfer-Zink-Legierung) oder Nickel-Messing."
+                                  data-zh="黄铜（铜锌合金）或镍黄铜。">
+                                Latón (aleación de cobre y zinc) o níquel-latón.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="materials-images">
+                    <img src="img/Balboaa.png" alt="Un balboa">
+                    <img src="img/cuara,atras.png" alt="Cuarto de balboa">
+                    <img src="img/real,atras.png" alt="Cinco centésimos">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 6: Diseño de la moneda ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title" data-es="Diseño de la moneda" data-en="Coin design"
+                data-pt="Design da moeda" data-fr="Design de la pièce" data-al="Münzdesign" data-zh="硬币设计">Diseño de la moneda</h2>
+
+            <div class="design-section">
+                <div class="design-coin">
+                    <img src="img/Balboaa.png" alt="Diseño de la moneda panameña">
+                </div>
+
+                <ul class="design-features">
+                    <li data-es="Escudo de la República de Panamá" data-en="Coat of arms of the Republic of Panama" data-pt="Brasão da República do Panamá" data-fr="Armoiries de la République du Panama" data-al="Wappen der Republik Panama" data-zh="巴拿马共和国国徽">Escudo de la República de Panamá</li>
+                    <li data-es='Nombre "República de Panamá"' data-en='Name "Republic of Panama"' data-pt='Nome "República do Panamá"' data-fr="« République du Panama » (nom)" data-al='Name "Republik Panama"' data-zh='"巴拿马共和国"字样'>Nombre "República de Panamá"</li>
+                    <li data-es="Año de emisión" data-en="Year of issue" data-pt="Ano de emissão" data-fr="Année d'émission" data-al="Ausgabejahr" data-zh="发行年份">Año de emisión</li>
+                    <li data-es="Valor nominal" data-en="Face value" data-pt="Valor nominal" data-fr="Valeur nominale" data-al="Nennwert" data-zh="面值">Valor nominal</li>
+                    <li data-es="Diseños conmemorativos en algunas emisiones especiales" data-en="Commemorative designs on some special issues" data-pt="Desenhos comemorativos em algumas emissões especiais" data-fr="Motifs commémoratifs sur certaines émissions spéciales" data-al="Gedenkdesigns bei einigen Sonderausgaben" data-zh="部分特别发行版有纪念图案">Diseños conmemorativos en algunas emisiones especiales</li>
+                </ul>
+            </div>
+
+            <div class="cards-grid" style="margin-top: 32px;">
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm"><img src="iconos/inversion.png" alt="ciclo"></div>
+                    <p data-es="Panamá es uno de los pocos países que comparte su sistema monetario con el dólar estadounidense."
+                       data-en="Panama is one of the few countries that shares its monetary system with the US dollar."
+                       data-pt="O Panamá é um dos poucos países que compartilha seu sistema monetário com o dólar americano."
+                       data-fr="Le Panama est l'un des rares pays à partager son système monétaire avec le dollar américain."
+                       data-al="Panama ist eines der wenigen Länder, die ihr Währungssystem mit dem US-Dollar teilen."
+                       data-zh="巴拿马是少数几个与美元共享货币体系的国家之一。">
+                        Panamá es uno de los pocos países que comparte su sistema monetario con el dólar estadounidense.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm"><img src="iconos/monedas.png" alt="monedas"></div>
+                    <p data-es="Las monedas panameñas circulan junto a las monedas estadounidenses en la vida diaria."
+                       data-en="Panamanian coins circulate alongside US coins in everyday life."
+                       data-pt="As moedas panamenhas circulam junto com as moedas americanas no dia a dia."
+                       data-fr="Les pièces panaméennes circulent aux côtés des pièces américaines dans la vie quotidienne."
+                       data-al="Panamaische Münzen sind im Alltag zusammen mit US-Münzen im Umlauf."
+                       data-zh="巴拿马硬币在日常生活中与美国硬币一同流通。">
+                        Las monedas panameñas circulan junto a las monedas estadounidenses en la vida diaria.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm"><img src="iconos/insignia.png" alt="medalla"></div>
+                    <p data-es="Algunas monedas conmemorativas nunca llegan al comercio; son exclusivas para coleccionistas."
+                       data-en="Some commemorative coins never reach circulation; they are exclusive to collectors."
+                       data-pt="Algumas moedas comemorativas nunca chegam ao comércio; são exclusivas para colecionadores."
+                       data-fr="Certaines pièces commémoratives n'arrivent jamais dans le commerce ; elles sont réservées aux collectionneurs."
+                       data-al="Manche Gedenkmünzen gelangen nie in den Handel; sie sind ausschließlich für Sammler bestimmt."
+                       data-zh="有些纪念币从未进入流通市场，仅供收藏者使用。">
+                        Algunas monedas conmemorativas nunca llegan al comercio; son exclusivas para coleccionistas.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm"><img src="iconos/subasta.png" alt="Subasta"></div>
+                    <p data-es="Las monedas antiguas de Panamá pueden alcanzar alto valor en subastas internacionales."
+                       data-en="Old Panamanian coins can reach high value at international auctions."
+                       data-pt="As moedas antigas do Panamá podem alcançar alto valor em leilões internacionais."
+                       data-fr="Les anciennes pièces du Panama peuvent atteindre une valeur élevée lors d'enchères internationales."
+                       data-al="Alte panamaische Münzen können bei internationalen Auktionen hohe Werte erzielen."
+                       data-zh="巴拿马的古币在国际拍卖会上可能拍出高价。">
+                        Las monedas antiguas de Panamá pueden alcanzar alto valor en subastas internacionales.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         CONVERSOR DE MONEDAS
+    ============================================ -->
+    <section class="conversor-section">
+        <div class="conversor-overlay"></div>
+
+        <div class="conversor-container reveal-scale">
+            <div class="conversor-header">
+                <h2 data-es="Conversor de Monedas" data-en="Currency Converter" data-fr="Convertisseur de Devises" data-pt="Conversor de Moedas" data-al="Währungsrechner" data-zh="货币转换器">Conversor de Monedas</h2>
+                <p data-es="Calcula equivalencias exactas entre distintas monedas al instante." data-en="Calculate exact equivalencies between different currencies instantly." data-fr="Calculez des équivalences exactes entre différentes devises instantanément." data-pt="Calcule equivalências exatas entre diferentes moedas instantaneamente." data-al="Berechnen Sie genaue Äquivalenzen zwischen verschiedenen Währungen sofort." data-zh="即时计算不同货币之间的精确等值。">Calcula equivalencias exactas entre distintas monedas al instante.</p>
+            </div>
+
+            <div class="conversor-card" data-tilt>
+                <div class="conversor-grid">
+
+                    <div class="conversor-col">
+                        <label data-es="Monto a enviar" data-en="Amount to send" data-fr="Montant à envoyer" data-pt="Valor para enviar" data-al="Betrag zum Senden" data-zh="发送金额">Monto a enviar</label>
+                        <div class="input-group">
+                            <input type="number" id="amountFrom" value="1000.00" min="0" step="0.01">
+                            <select id="currencyFrom" class="currency-select">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="MXN">MXN</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="CNY">CNY</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="conversor-swap">
+                        <button id="swapBtn" aria-label="Intercambiar monedas">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="17 1 21 5 17 9"></polyline>
+                                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                <polyline points="7 23 3 19 7 15"></polyline>
+                                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="conversor-col">
+                        <label data-es="Recibirás" data-en="You will receive" data-fr="Vous recevrez" data-pt="Você receberá" data-al="Sie erhalten" data-zh="您将收到">Recibirás</label>
+                        <div class="input-group">
+                            <input type="text" id="amountTo" value="0.00" readonly>
+                            <select id="currencyTo" class="currency-select">
+                                <option value="USD">USD</option>
+                                <option value="EUR" selected>EUR</option>
+                                <option value="MXN">MXN</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="CNY">CNY</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conversor-info">
+                    <div class="rate-display">
+                        <span class="rate-label" data-es="Tipo de cambio:" data-en="Exchange rate:" data-fr="Taux de change :" data-pt="Taxa de câmbio:" data-al="Wechselkurs:" data-zh="汇率:">Tipo de cambio:</span>
+                        <span class="rate-value" id="rateDisplay">1 USD = 0.92 EUR</span>
+                    </div>
+                    <p class="rate-update" data-es="Actualizado en tiempo real." data-en="Updated in real time." data-fr="Mis à jour en temps réel." data-pt="Atualizado em tempo real." data-al="Echtzeit aktualisiert." data-zh="实时更新。">Actualizado en tiempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE — STRIX
+    ============================================ -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="aprende_monedas.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

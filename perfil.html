@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vaulty+ · Mi perfil</title>
+
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="auth.css">
+
+    <!-- Estilos propios del perfil -->
+    <link rel="stylesheet" href="perfil.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     CURSOR PERSONALIZADO
+========================================================= -->
+
+<div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+<div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+
+<!-- =========================================================
+     BARRA DE PROGRESO
+========================================================= -->
+
+<div class="vaulty-page-progress" aria-hidden="true">
+    <span class="vaulty-page-progress__bar"></span>
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header id="header" class="scrolled">
+
+    <div class="header-content">
+
+        <!-- Botón hamburguesa -->
+        <button
+            class="nav-toggle"
+            id="navToggle"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="mainNav">
+
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+
+        </button>
+
+
+        <!-- Logo y botones de sesión -->
+
+        <div class="logo">
+
+            <a
+                href="index.html"
+                style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+
+                <div class="logo-icon">
+                    <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                </div>
+
+                <span>Vaulty+</span>
+
+            </a>
+
+
+            <a
+                href="registro.html"
+                class="btn-register"
+                data-es="Regístrate"
+                data-en="Register"
+                data-pt="Registre-se"
+                data-fr="Inscrivez-vous"
+                data-al="Registrieren"
+                data-zh="注册">
+                Regístrate
+            </a>
+
+
+            <a
+                href="inicio_sesion.html"
+                class="btn-login"
+                id="authLoginBtn"
+                data-es="Iniciar sesión"
+                data-en="Log in"
+                data-fr="Se connecter"
+                data-pt="Iniciar sessão"
+                data-al="Anmelden"
+                data-zh="登录">
+                Iniciar sesión
+            </a>
+
+        </div>
+
+
+        <!-- =====================================================
+             NAVEGACIÓN
+        ====================================================== -->
+
+        <nav id="mainNav">
+
+            <!-- Cabecera del menú móvil -->
+
+            <div class="nav-panel-header">
+
+                <div class="logo nav-panel-logo">
+
+                    <div class="logo-icon">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                    </div>
+
+                    <span>Vaulty+</span>
+
+                </div>
+
+                <button
+                    class="nav-close"
+                    id="navClose"
+                    type="button"
+                    aria-label="Cerrar menú">
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- Inicio -->
+
+            <a
+                href="index.html"
+                data-es="Inicio"
+                data-en="Home"
+                data-pt="Início"
+                data-fr="Accueil"
+                data-al="Startseite"
+                data-zh="首页">
+
+                <span class="nav-icon" aria-hidden="true">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/>
+                    </svg>
+
+                </span>
+
+                <span class="nav-label">Inicio</span>
+
+            </a>
+
+
+            <!-- Finanzas Panamá -->
+
+            <div class="nav-item dropdown">
+
+                <a href="finanzas.html">
+
+                    <span class="nav-icon" aria-hidden="true">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/>
+                        </svg>
+
+                    </span>
+
+                    <span
+                        class="nav-label"
+                        data-es="Finanzas Panamá"
+                        data-en="Panama's Finances"
+                        data-pt="Finanças do Panamá"
+                        data-fr="Finances du Panama"
+                        data-al="Panamas Finanzen"
+                        data-zh="巴拿马金融">
+                        Finanzas Panamá
+                    </span>
+
+                    <span class="nav-chevron" aria-hidden="true">›</span>
+
+                </a>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a
+                            href="finanzas_fraudes.html"
+                            data-es="Fraudes"
+                            data-en="Frauds"
+                            data-pt="Fraudes"
+                            data-fr="Fraudes"
+                            data-al="Betrug"
+                            data-zh="欺诈">
+                            Fraudes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="finanzas_impuestos.html"
+                            data-es="Impuestos"
+                            data-en="Taxes"
+                            data-pt="Impostos"
+                            data-fr="Impôts"
+                            data-al="Steuern"
+                            data-zh="税收">
+                            Impuestos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="finanzas_seguro.html"
+                            data-es="Seguro Social"
+                            data-en="Social Security"
+                            data-pt="Previdência Social"
+                            data-fr="Sécurité sociale"
+                            data-al="Sozialversicherung"
+                            data-zh="社会保障">
+                            Seguro Social
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="finanzas_prestamos.html"
+                            data-es="Prestamos personales"
+                            data-en="Personal Loans"
+                            data-pt="Empréstimos pessoais"
+                            data-fr="Prêts personnels"
+                            data-al="Privatkredite"
+                            data-zh="个人贷款">
+                            Prestamos
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Aprende -->
+
+            <div class="nav-item dropdown">
+
+                <a href="aprende.html">
+
+                    <span class="nav-icon" aria-hidden="true">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/>
+                        </svg>
+
+                    </span>
+
+                    <span
+                        class="nav-label"
+                        data-es="Aprende"
+                        data-en="Learn"
+                        data-pt="Aprenda"
+                        data-fr="Apprendre"
+                        data-al="Lernen"
+                        data-zh="学习">
+                        Aprende
+                    </span>
+
+                    <span class="nav-chevron" aria-hidden="true">›</span>
+
+                </a>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a
+                            href="aprende_glosario.html"
+                            data-es="Glosario"
+                            data-en="Glossary"
+                            data-pt="Glossário"
+                            data-fr="Glossaire"
+                            data-al="Glossar"
+                            data-zh="词汇表">
+                            Glosario
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="aprende_podcast.html"
+                            data-es="Podcast"
+                            data-en="Podcast"
+                            data-pt="Podcast"
+                            data-fr="Podcast"
+                            data-al="Podcast"
+                            data-zh="播客">
+                            Podcast
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="aprende_juegos.html"
+                            data-es="Juegos"
+                            data-en="Games"
+                            data-pt="Jogos"
+                            data-fr="Jeux"
+                            data-al="Spiele"
+                            data-zh="游戏">
+                            Juegos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="aprende_monedas.html"
+                            data-es="Monedas"
+                            data-en="Coins"
+                            data-pt="Moedas"
+                            data-fr="Devises"
+                            data-al="Münzen"
+                            data-zh="货币">
+                            Monedas
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ATM -->
+
+            <div class="nav-item">
+
+                <a href="ATM.html">
+
+                    <span class="nav-icon" aria-hidden="true">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/>
+                        </svg>
+
+                    </span>
+
+                    <span
+                        class="nav-label"
+                        data-es="ATM"
+                        data-en="ATM"
+                        data-pt="Caixa eletrônico"
+                        data-fr="Distributeur"
+                        data-al="Geldautomat"
+                        data-zh="自动取款机">
+                        ATM
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 IDIOMA — MÓVIL
+            ================================================== -->
+
+            <div class="nav-lang-mobile">
+
+                <button
+                    class="lang-current lang-current--panel"
+                    id="langTogglePanel"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="langDropdownPanel">
+
+                    <img
+                        src="img/spain.png"
+                        alt=""
+                        class="lang-current-flag"
+                        data-lang-flag>
+
+                    <span
+                        class="lang-current-label"
+                        data-lang-label>
+                        Español
+                    </span>
+
+                    <span
+                        class="lang-chevron"
+                        aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+
+                <ul
+                    class="lang-dropdown lang-dropdown--panel"
+                    id="langDropdownPanel">
+
+                    <li>
+                        <button
+                            type="button"
+                            class="lang-option"
+                            data-lang="es">
+
+                            <img src="img/spain.png" alt="ES">
+                            Español
+                            <span class="lang-check" aria-hidden="true">✓</span>
+
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            type="button"
+                            class="lang-option"
+                            data-lang="en">
+
+                            <img src="img/ingles.png" alt="EN">
+                            English
+                            <span class="lang-check" aria-hidden="true">✓</span>
+
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            type="button"
+                            class="lang-option"
+                            data-lang="pt">
+
+                            <img src="img/portugues.png" alt="PT">
+                            Português
+                            <span class="lang-check" aria-hidden="true">✓</span>
+
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            type="button"
+                            class="lang-option"
+                            data-lang="fr">
+
+                            <img src="img/frances.png" alt="FR">
+                            Français
+                            <span class="lang-check" aria-hidden="true">✓</span>
+
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            type="button"
+                            class="lang-option"
+                            data-lang="al">
+
+                            <img src="img/aleman.png" alt="AL">
+                            Deutsch
+                            <span class="lang-check" aria-hidden="true">✓</span>
+
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            type="button"
+                            class="lang-option"
+                            data-lang="zh">
+
+                            <img src="img/china.png" alt="ZH">
+                            中文
+                            <span class="lang-check" aria-hidden="true">✓</span>
+
+                        </button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+
+        <!-- =====================================================
+             IDIOMA — ESCRITORIO / TOPBAR
+        ====================================================== -->
+
+        <div class="nav-right">
+
+            <!-- Selector escritorio -->
+
+            <div class="nav-lang-desktop">
+
+                <button
+                    class="lang-current lang-current--desktop"
+                    id="langToggleDesktop"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="langDropdownDesktop">
+
+                    <img
+                        src="img/spain.png"
+                        alt=""
+                        class="lang-current-flag"
+                        data-lang-flag>
+
+                    <span
+                        class="lang-current-label"
+                        data-lang-label>
+                        Español
+                    </span>
+
+                    <span
+                        class="lang-chevron"
+                        aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+
+                <ul
+                    class="lang-dropdown lang-dropdown--desktop"
+                    id="langDropdownDesktop">
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="es">
+                            <img src="img/spain.png" alt="ES">
+                            Español
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="en">
+                            <img src="img/ingles.png" alt="EN">
+                            English
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="pt">
+                            <img src="img/portugues.png" alt="PT">
+                            Português
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="fr">
+                            <img src="img/frances.png" alt="FR">
+                            Français
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="al">
+                            <img src="img/aleman.png" alt="AL">
+                            Deutsch
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="zh">
+                            <img src="img/china.png" alt="ZH">
+                            中文
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Selector móvil superior -->
+
+            <div class="nav-lang-topbar">
+
+                <button
+                    class="lang-current lang-current--topbar"
+                    id="langToggleTop"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="langDropdownTop">
+
+                    <img
+                        src="img/spain.png"
+                        alt=""
+                        class="lang-current-flag"
+                        data-lang-flag>
+
+                    <span
+                        class="lang-current-code"
+                        data-lang-code>
+                        ES
+                    </span>
+
+                    <span
+                        class="lang-chevron"
+                        aria-hidden="true">
+                        ⌄
+                    </span>
+
+                </button>
+
+
+                <ul
+                    class="lang-dropdown lang-dropdown--topbar"
+                    id="langDropdownTop">
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="es">
+                            <img src="img/spain.png" alt="ES">
+                            Español
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="en">
+                            <img src="img/ingles.png" alt="EN">
+                            English
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="pt">
+                            <img src="img/portugues.png" alt="PT">
+                            Português
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="fr">
+                            <img src="img/frances.png" alt="FR">
+                            Français
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="al">
+                            <img src="img/aleman.png" alt="AL">
+                            Deutsch
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" class="lang-option" data-lang="zh">
+                            <img src="img/china.png" alt="ZH">
+                            中文
+                            <span class="lang-check" aria-hidden="true">✓</span>
+                        </button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="nav-backdrop"
+        id="navBackdrop">
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     CONTENIDO — MI PERFIL
+========================================================= -->
+
+<main class="perfil-page">
+
+    <div class="perfil-wrap" id="perfilWrap">
+
+
+        <!-- =================================================
+             TÍTULO
+        ================================================== -->
+
+        <div class="perfil-titulo reveal">
+
+            <h1>
+
+                <span
+                    class="perfil-titulo-icono"
+                    aria-hidden="true">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M4 4h13a3 3 0 0 1 3 3v12.5a1 1 0 0 1-1.5.87L16 19H6a2 2 0 0 1-2-2V4zm3.2 4.3v7.4h1.9v-2.6h1.7c1.6 0 2.7-1 2.7-2.4S12.4 8.3 10.8 8.3H7.2zm1.9 1.6h1.5c.7 0 1.1.4 1.1.9s-.4.9-1.1.9H9.1V9.9z"/>
+
+                    </svg>
+
+                </span>
+
+
+                <span
+                    data-es="Mi perfil"
+                    data-en="My profile"
+                    data-fr="Mon profil"
+                    data-pt="Meu perfil"
+                    data-al="Mein Profil"
+                    data-zh="我的资料">
+                    Mi perfil
+                </span>
+
+            </h1>
+
+
+            <p
+                data-es="Gestiona tu información personal."
+                data-en="Manage your personal information."
+                data-fr="Gérez vos informations personnelles."
+                data-pt="Gerencie suas informações pessoais."
+                data-al="Verwalte deine persönlichen Daten."
+                data-zh="管理你的个人信息。">
+                Gestiona tu información personal.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTENIDO APILADO
+        ================================================== -->
+
+        <div class="perfil-stack">
+
+
+            <!-- =================================================
+                 FOTO DE PERFIL
+            ================================================== -->
+
+            <section class="perfil-card perfil-card-foto reveal">
+
+                <div class="perfil-card-cabecera">
+
+                    <h2
+                        data-es="Foto de perfil"
+                        data-en="Profile photo"
+                        data-fr="Photo de profil"
+                        data-pt="Foto de perfil"
+                        data-al="Profilbild"
+                        data-zh="头像">
+                        Foto de perfil
+                    </h2>
+
+
+                    <p
+                        class="perfil-card-subtitulo"
+                        data-es="Así te verán en Vaulty+."
+                        data-en="This is how you'll appear on Vaulty+."
+                        data-fr="C'est ainsi que vous apparaîtrez sur Vaulty+."
+                        data-pt="É assim que você aparecerá na Vaulty+."
+                        data-al="So wirst du auf Vaulty+ angezeigt."
+                        data-zh="这是你在 Vaulty+ 上的显示方式。">
+                        Así te verán en Vaulty+.
+                    </p>
+
+                </div>
+
+
+                <div class="perfil-foto-cuerpo">
+
+
+                    <!-- Avatar -->
+
+                    <div class="perfil-avatar-wrap">
+
+                        <div class="perfil-avatar-shell">
+
+                            <div
+                                class="perfil-avatar"
+                                id="perfilAvatar">
+
+                                <span id="perfilAvatarIniciales">
+                                    U
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="perfil-avatar-cam"
+                                id="perfilAvatarCamBtn"
+                                aria-label="Cambiar foto"
+                                data-es-title="Cambiar foto"
+                                title="Cambiar foto">
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M9 3l-1.7 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.3L15 3H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+
+                        <p
+                            class="perfil-avatar-nombre"
+                            id="perfilNombreCorto">
+                            Usuario
+                        </p>
+
+
+                        <p class="perfil-avatar-desde">
+
+                            <span
+                                data-es="Miembro desde"
+                                data-en="Member since"
+                                data-fr="Membre depuis"
+                                data-pt="Membro desde"
+                                data-al="Mitglied seit"
+                                data-zh="加入时间">
+                                Miembro desde
+                            </span>
+
+                            <strong id="perfilMiembroDesde">
+                                —
+                            </strong>
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- Acciones de avatar -->
+
+                    <div class="perfil-avatar-actions">
+
+                        <p
+                            class="perfil-avatar-actions-label"
+                            data-es="Cambia tu foto"
+                            data-en="Change your photo"
+                            data-fr="Changer votre photo"
+                            data-pt="Altere sua foto"
+                            data-al="Foto ändern"
+                            data-zh="更换头像">
+                            Cambia tu foto
+                        </p>
+
+
+                        <div class="perfil-avatar-btns">
+
+
+                            <!-- Tomar foto -->
+
+                            <button
+                                type="button"
+                                class="perfil-avatar-btn"
+                                id="btnTomarFoto">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 3l-1.7 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.3L15 3H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                </svg>
+
+                                <span
+                                    data-es="Tomar foto"
+                                    data-en="Take photo"
+                                    data-fr="Prendre une photo"
+                                    data-pt="Tirar foto"
+                                    data-al="Foto aufnehmen"
+                                    data-zh="拍照">
+                                    Tomar foto
+                                </span>
+
+                            </button>
+
+
+                            <!-- Fototeca -->
+
+                            <button
+                                type="button"
+                                class="perfil-avatar-btn"
+                                id="btnFototeca">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/>
+                                </svg>
+
+                                <span
+                                    data-es="Fototeca"
+                                    data-en="Gallery"
+                                    data-fr="Galerie"
+                                    data-pt="Galeria"
+                                    data-al="Galerie"
+                                    data-zh="相册">
+                                    Fototeca
+                                </span>
+
+                            </button>
+
+
+                            <!-- Estilos -->
+
+                            <button
+                                type="button"
+                                class="perfil-avatar-btn"
+                                id="btnEstilos">
+
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2a10 10 0 1 0 0 20 2.5 2.5 0 0 0 1.8-4.2c-.4-.4-.5-1 0-1.4.4-.4.9-.4 1.4-.4A5 5 0 0 0 20 11a9 9 0 0 0-8-9zM7 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                                </svg>
+
+                                <span
+                                    data-es="Estilos"
+                                    data-en="Styles"
+                                    data-fr="Styles"
+                                    data-pt="Estilos"
+                                    data-al="Stile"
+                                    data-zh="风格">
+                                    Estilos
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Panel de estilos -->
+
+                        <div
+                            class="perfil-estilos-panel"
+                            id="perfilEstilosPanel"
+                            hidden>
+
+                            <div
+                                class="perfil-estilos-tabs"
+                                id="perfilEstilosTabs">
+                            </div>
+
+                            <div
+                                class="perfil-avatar-grid"
+                                id="perfilAvatarGrid">
+                            </div>
+
+                        </div>
+
+
+                        <!-- Inputs de imágenes -->
+
+                        <input
+                            type="file"
+                            id="inputCamara"
+                            accept="image/*"
+                            capture="user"
+                            hidden>
+
+                        <input
+                            type="file"
+                            id="inputGaleria"
+                            accept="image/*"
+                            hidden>
+
+
+                        <!-- Estado -->
+
+                        <p
+                            class="perfil-avatar-estado"
+                            id="perfilAvatarEstado"
+                            role="status"
+                            aria-live="polite">
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 INFORMACIÓN PERSONAL
+            ================================================== -->
+
+            <section class="perfil-card perfil-card-info reveal">
+
+                <div class="perfil-card-cabecera perfil-card-cabecera--con-boton">
+
+                    <div>
+
+                        <h2
+                            data-es="Información personal"
+                            data-en="Personal information"
+                            data-fr="Informations personnelles"
+                            data-pt="Informações pessoais"
+                            data-al="Persönliche Daten"
+                            data-zh="个人信息">
+                            Información personal
+                        </h2>
+
+                        <p
+                            class="perfil-card-subtitulo"
+                            data-es="Tus datos de cuenta."
+                            data-en="Your account details."
+                            data-fr="Les détails de votre compte."
+                            data-pt="Os dados da sua conta."
+                            data-al="Deine Kontodaten."
+                            data-zh="你的账户信息。">
+                            Tus datos de cuenta.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="perfil-btn-editar"
+                        id="btnEditarInfo">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+
+                        <span
+                            data-es="Editar"
+                            data-en="Edit"
+                            data-fr="Modifier"
+                            data-pt="Editar"
+                            data-al="Bearbeiten"
+                            data-zh="编辑">
+                            Editar
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <form
+                    id="formInfoPersonal"
+                    class="perfil-info-list"
+                    novalidate>
+
+
+                    <!-- Nombre -->
+
+                    <div
+                        class="perfil-info-item"
+                        data-campo="nombre">
+
+                        <div class="perfil-info-icono">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.4c-3.3 0-9.8 1.6-9.8 4.9V21h19.6v-1.7c0-3.3-6.5-4.9-9.8-4.9z"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="perfil-info-texto">
+
+                            <span
+                                class="perfil-info-label"
+                                data-es="Nombre completo"
+                                data-en="Full name"
+                                data-fr="Nom complet"
+                                data-pt="Nome completo"
+                                data-al="Vollständiger Name"
+                                data-zh="姓名">
+                                Nombre completo
+                            </span>
+
+                            <span
+                                class="perfil-info-valor"
+                                id="valorNombre">
+                                —
+                            </span>
+
+                            <input
+                                class="perfil-info-input"
+                                id="inputNombre"
+                                type="text"
+                                maxlength="60"
+                                hidden>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Usuario -->
+
+                    <div
+                        class="perfil-info-item"
+                        data-campo="usuario">
+
+                        <div class="perfil-info-icono">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="perfil-info-texto">
+
+                            <span
+                                class="perfil-info-label"
+                                data-es="Usuario"
+                                data-en="Username"
+                                data-fr="Nom d'utilisateur"
+                                data-pt="Usuário"
+                                data-al="Benutzername"
+                                data-zh="用户名">
+                                Usuario
+                            </span>
+
+                            <span
+                                class="perfil-info-valor"
+                                id="valorUsuario">
+                                —
+                            </span>
+
+                            <input
+                                class="perfil-info-input"
+                                id="inputUsuario"
+                                type="text"
+                                maxlength="30"
+                                hidden>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Correo -->
+
+                    <div class="perfil-info-item">
+
+                        <div class="perfil-info-icono">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.2l8 5.3 8-5.3V6H4zm16 2.4l-7.4 4.9a1 1 0 0 1-1.2 0L4 8.4V18h16V8.4z"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="perfil-info-texto">
+
+                            <span
+                                class="perfil-info-label"
+                                data-es="Correo electrónico"
+                                data-en="Email"
+                                data-fr="E-mail"
+                                data-pt="E-mail"
+                                data-al="E-Mail"
+                                data-zh="电子邮箱">
+                                Correo electrónico
+                            </span>
+
+                            <span
+                                class="perfil-info-valor"
+                                id="valorCorreo">
+                                —
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Fecha -->
+
+                    <div class="perfil-info-item">
+
+                        <div class="perfil-info-icono">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 9h14v11H5V9z"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="perfil-info-texto">
+
+                            <span
+                                class="perfil-info-label"
+                                data-es="Fecha de registro"
+                                data-en="Registration date"
+                                data-fr="Date d'inscription"
+                                data-pt="Data de registro"
+                                data-al="Registrierungsdatum"
+                                data-zh="注册日期">
+                                Fecha de registro
+                            </span>
+
+                            <span
+                                class="perfil-info-valor"
+                                id="valorFecha">
+                                —
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Idioma -->
+
+                    <div class="perfil-info-item">
+
+                        <div class="perfil-info-icono">
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 9h-3a15.6 15.6 0 0 0-1.2-5.5A8 8 0 0 1 18.9 11zM12 4.1c.9 1.2 1.9 3.4 2.1 6.9H9.9c.2-3.5 1.2-5.7 2.1-6.9zM9.3 5.5A15.6 15.6 0 0 0 8.1 11h-3a8 8 0 0 1 4.2-5.5zM5.1 13h3a15.6 15.6 0 0 0 1.2 5.5A8 8 0 0 1 5.1 13zm6.9 6.9c-.9-1.2-1.9-3.4-2.1-6.9h4.2c-.2 3.5-1.2 5.7-2.1 6.9zm2.7-1.4A15.6 15.6 0 0 0 15.9 13h3a8 8 0 0 1-4.2 5.5z"/>
+                            </svg>
+
+                        </div>
+
+                        <div class="perfil-info-texto">
+
+                            <span
+                                class="perfil-info-label"
+                                data-es="Idioma"
+                                data-en="Language"
+                                data-fr="Langue"
+                                data-pt="Idioma"
+                                data-al="Sprache"
+                                data-zh="语言">
+                                Idioma
+                            </span>
+
+                            <span
+                                class="perfil-info-valor"
+                                id="valorIdioma">
+                                —
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Botones guardar -->
+
+                    <div
+                        class="perfil-info-guardar"
+                        id="perfilGuardarWrap"
+                        hidden>
+
+                        <button
+                            type="button"
+                            class="perfil-btn-cancelar"
+                            id="btnCancelarInfo"
+                            data-es="Cancelar"
+                            data-en="Cancel"
+                            data-fr="Annuler"
+                            data-pt="Cancelar"
+                            data-al="Abbrechen"
+                            data-zh="取消">
+                            Cancelar
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="perfil-btn-guardar"
+                            data-es="Guardar cambios"
+                            data-en="Save changes"
+                            data-fr="Enregistrer"
+                            data-pt="Salvar alterações"
+                            data-al="Speichern"
+                            data-zh="保存更改">
+                            Guardar cambios
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- =================================================
+                 CERRAR SESIÓN
+            ================================================== -->
+
+            <button
+                type="button"
+                class="perfil-btn-salir reveal"
+                id="perfilLogout">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zm3-10H10a2 2 0 0 0-2 2v4h2V5h9v14h-9v-4H8v4a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+
+                </svg>
+
+                <span
+                    data-es="Cerrar sesión"
+                    data-en="Log out"
+                    data-fr="Se déconnecter"
+                    data-pt="Sair"
+                    data-al="Abmelden"
+                    data-zh="退出登录">
+                    Cerrar sesión
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     SCRIPTS
+========================================================= -->
+
+<script src="index.js"></script>
+
+<script
+    type="module"
+    src="auth.js">
+</script>
+
+<script
+    type="module"
+    src="perfil.js">
+</script>
+
+</body>
+</html>

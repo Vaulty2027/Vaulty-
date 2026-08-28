@@ -1,0 +1,468 @@
+:root{
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f4f5f7;
+  --text: #14181f;
+  --muted: #6b7280;
+  --accent: #111827;
+  --hover-accent: #374151;
+  --border: #e2e4e9;
+}
+ 
+*{
+  box-sizing: border-box;
+}
+ 
+/* IMPORTANTE: html y body deben tener altura definida
+   o el mapa queda con altura 0 y no se ve (bug más común) */
+html, body{
+  height: 100%;
+  margin: 0;
+}
+ 
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+ 
+.app{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+ 
+/* ---------- Sidebar ---------- */
+.sidebar{
+  width: 360px;
+  min-width: 360px;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ============================================
+   BOTÓN DE REGRESO 
+============================================ */
+.volver-container {
+  margin-bottom: 14px;
+}
+
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-volver:hover {
+  color: var(--hover-accent);
+  transform: translateX(-3px);
+}
+
+.flecha {
+  font-size: 18px;
+  line-height: 1;
+}
+ 
+.sidebar h1{
+  font-size: 19px;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+ 
+.sidebar h1 .dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+ 
+.sidebar p.sub{
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 18px 0;
+}
+ 
+/* ---------- Buscador ---------- */
+.search-box{
+  position: relative;
+  margin-bottom: 16px;
+}
+ 
+.search-box input{
+  width: 100%;
+  padding: 10px 12px 10px 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+ 
+.search-box input:focus{
+  border-color: var(--accent);
+}
+ 
+.search-box::before{
+  content: "⌕";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 16px;
+}
+ 
+/* ---------- Filtros ---------- */
+.filter-label{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 6px 0 8px 0;
+}
+ 
+select#citySelect{
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 13.5px;
+  margin-bottom: 18px;
+  outline: none;
+  cursor: pointer;
+}
+ 
+select#citySelect:focus{
+  border-color: var(--accent);
+}
+ 
+.bank-filters{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+ 
+.bank-chip{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  font-size: 12.5px;
+  cursor: pointer;
+  color: var(--text);
+  user-select: none;
+  transition: all 0.15s ease;
+}
+ 
+.bank-chip.active{
+  border-color: var(--chip-color, var(--accent));
+  background: color-mix(in srgb, var(--chip-color, var(--accent)) 12%, var(--panel-2));
+  font-weight: 600;
+}
+ 
+.bank-chip .sw{
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--chip-color, var(--accent));
+  flex-shrink: 0;
+}
+ 
+/* ---------- Estadísticas ---------- */
+.stats{
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+ 
+.stats b{
+  color: var(--text);
+}
+ 
+/* ---------- Lista de ATMs ---------- */
+.list-label{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 4px 0 8px 0;
+}
+ 
+.atm-list{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.atm-card{
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+ 
+.atm-card:hover{
+  border-color: var(--accent);
+  transform: translateX(2px);
+}
+ 
+.atm-card .name{
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+}
+ 
+.atm-card .name .sw{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ 
+.atm-card .addr{
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+ 
+.atm-card .city-tag{
+  display: inline-block;
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+ 
+.atm-card .hours{
+  font-size: 11px;
+  margin-top: 4px;
+  color: var(--text);
+  font-weight: 600;
+}
+ 
+/* ---------- Mapa ----------
+   #map necesita una altura EXPLICITA, si no, no se muestra.
+   Aquí se hereda de .app (height: 100vh) mediante flex: 1,
+   pero si vas a incrustar esto dentro de otra página,
+   asegúrate que el contenedor padre también tenga altura. */
+#map{
+  flex: 1;
+  height: 100%;
+  min-height: 400px;
+  width: 100%;
+  background: #eef0f3; /* color de respaldo mientras cargan los tiles */
+}
+ 
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar{
+  width: 8px;
+}
+ 
+::-webkit-scrollbar-thumb{
+  background: var(--border);
+  border-radius: 4px;
+}
+ 
+/* ---------- Popups de Leaflet ---------- */
+.leaflet-popup-content-wrapper{
+  background: #ffffff;
+  color: var(--text);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+ 
+.leaflet-popup-tip{
+  background: #ffffff;
+}
+ 
+.popup-title{
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+ 
+.popup-addr{
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+ 
+.popup-hours{
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 600;
+}
+ 
+.popup-bank-tag{
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  border: 1px solid var(--border);
+}
+ 
+/* ================================================================
+   ================================================================
+   RESPONSIVE — por tramo de pantalla, de mayor a menor.
+
+   ÍNDICE:
+     1. TABLET GRANDE (≤1024px) — sidebar más angosta
+     2. TABLET CHICA (≤900px) — sidebar más compacta todavía
+     3. CELULAR (≤760px) — layout pasa de fila a columna
+     4. CELULAR CHICO (≤480px) — ajustes finos de tipografía/alto
+   ================================================================ */
+
+/* ================================================================
+   1. TABLET GRANDE (≤1024px)
+   ================================================================ */
+@media (max-width: 1024px){
+  .sidebar{
+    width: 320px;
+    min-width: 320px;
+    padding: 18px;
+  }
+}
+
+/* ================================================================
+   2. TABLET CHICA (≤900px)
+   ================================================================ */
+@media (max-width: 900px){
+  .sidebar{
+    width: 280px;
+    min-width: 280px;
+    padding: 16px;
+  }
+
+  .sidebar h1{
+    font-size: 17px;
+  }
+
+  .bank-chip{
+    font-size: 12px;
+    padding: 5px 9px;
+  }
+}
+
+/* ================================================================
+   3. CELULAR (≤760px) 
+   ================================================================ */
+@media (max-width: 760px){
+  body{
+    overflow: auto; /* en columna, todo el documento puede scrollear */
+  }
+
+  .app{
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar{
+    width: 100%;
+    min-width: 0;
+    height: 48vh;
+    max-height: 480px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 16px;
+  }
+
+  .volver-container{
+    margin-bottom: 10px;
+  }
+
+  .sidebar h1{
+    font-size: 17px;
+  }
+
+  .search-box input,
+  select#citySelect{
+    font-size: 13px;
+  }
+
+  .bank-filters{
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .bank-chip{
+    font-size: 11.5px;
+    padding: 5px 9px;
+  }
+
+  .stats{
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+
+  #map{
+    height: 52vh;
+    min-height: 320px;
+  }
+}
+
+/* ================================================================
+   4. CELULAR CHICO (≤480px)
+   ================================================================ */
+@media (max-width: 480px){
+  .sidebar{
+    height: 50vh;
+    padding: 14px;
+  }
+
+  .sidebar h1{
+    font-size: 16px;
+  }
+
+  .sidebar p.sub{
+    font-size: 12px;
+  }
+
+  .btn-volver{
+    font-size: 13px;
+  }
+
+  .search-box input{
+    padding: 9px 10px 9px 30px;
+  }
+
+  .filter-label{
+    font-size: 11px;
+  }
+
+  #map{
+    height: 50vh;
+  }
+}

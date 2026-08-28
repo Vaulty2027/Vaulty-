@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrador - Mapa de Calor</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="admin-header">
+
+        <div>
+            <h1>Panel de Analítica</h1>
+
+            <p>
+                Sección: ¿Dónde podemos ahorrar en Panamá?
+            </p>
+        </div>
+
+        <button id="btnActualizar">
+            Actualizar datos
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         ESTADÍSTICAS
+    ====================================================== -->
+
+    <main class="admin-container">
+
+
+        <section class="estadisticas">
+
+
+            <div class="stat-card">
+
+                <span class="stat-titulo">
+                    Visitas
+                </span>
+
+                <strong id="totalVisitas">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-titulo">
+                    Interacciones
+                </span>
+
+                <strong id="totalClics">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-titulo">
+                    Banco más visitado
+                </span>
+
+                <strong id="bancoMasClickeado">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-titulo">
+                    Total de bancos
+                </span>
+
+                <strong id="totalBancos">
+                    7
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CLICS POR BANCO
+        ================================================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Clics por entidad
+                    </h2>
+
+                    <p>
+                        Cantidad de veces que los usuarios
+                        hicieron clic en "Sitio oficial".
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="listaBancos" class="lista-bancos">
+
+                <!-- JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MAPA DE CALOR
+        ================================================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Mapa de calor
+                    </h2>
+
+                    <p>
+                        Representación de las zonas donde
+                        se realizaron clics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="heatmap-wrapper">
+
+                <div class="heatmap-container">
+
+                    <!-- Canvas donde se dibuja el mapa -->
+
+                    <canvas id="heatmapCanvas"></canvas>
+
+                </div>
+
+            </div>
+
+
+            <div class="heatmap-leyenda">
+
+                <span>
+                    Menos interacción
+                </span>
+
+                <div class="gradient"></div>
+
+                <span>
+                    Más interacción
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             TABLA DE CLICS
+        ================================================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Últimas interacciones
+                    </h2>
+
+                    <p>
+                        Registro de los clics realizados.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tabla-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Banco
+                            </th>
+
+                            <th>
+                                Fecha
+                            </th>
+
+                            <th>
+                                Posición X
+                            </th>
+
+                            <th>
+                                Posición Y
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaClics">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ADMINISTRACIÓN
+        ================================================== -->
+
+        <section class="zona-peligrosa">
+
+            <h2>
+                Administración de datos
+            </h2>
+
+            <p>
+                Esta acción eliminará todas las estadísticas
+                almacenadas en este navegador.
+            </p>
+
+            <button id="btnEliminarDatos">
+                Eliminar datos
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

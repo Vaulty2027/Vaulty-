@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fraudes_llamadas.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Llamadas Fraudulentas</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- Cursor magnético personalizado (solo escritorio) -->
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER 
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label active"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" class="active" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- ============================================
+         HERO — Llamadas Fraudulentas
+    ============================================ -->
+    <section class="hero-llamadas">
+       <img src="img/llamadas_es.jpeg"
+            data-img-es="img/llamadas_es.jpeg" data-img-en="img/llamadas_en.jpeg"
+            data-img-pt="img/llamadas_pt.jpg" data-img-fr="img/llamadas_fr.jpg"
+            data-img-al="img/llamadas_al.jpg" data-img-zh="img/llamadas_zh.jpg"
+            alt="Fondo llamadas fraudulentas" class="hero-img">
+       <div class="hero-overlay"></div>
+       <div class="hero-content">
+
+          <div class="volver-container">
+            <a href="finanzas_fraudes.html" class="btn-volver">
+                <span class="flecha" aria-hidden="true">←</span>
+                <span data-es="Volver a fraudes" data-en="Back to frauds" data-pt="Voltar a fraudes" data-fr="Retour aux fraudes" data-al="Zurück zu Betrug" data-zh="返回欺诈页面">Volver a fraudes</span>
+            </a>
+          </div>
+
+          <h1>
+             <span data-es="Llamadas" data-en="Fraudulent" data-pt="Chamadas" data-fr="Appels" data-al="Betrügerische" data-zh="欺诈">Llamadas</span>
+             <span class="accent" data-es="Fraudulentas" data-en="Calls" data-pt="Fraudulentas" data-fr="Frauduleux" data-al="Anrufe" data-zh="电话">Fraudulentas</span>
+          </h1>
+          <p data-es="Infórmate sobre cómo operan los estafadores por teléfono para obtener tu información personal o financiera y aprende a protegerte."
+             data-en="Learn how phone scammers operate to steal your personal or financial information, and discover how to protect yourself."
+             data-pt="Saiba como os golpistas operam por telefone para obter suas informações pessoais ou financeiras e aprenda a se proteger."
+             data-fr="Découvrez comment les escrocs opèrent par téléphone pour obtenir vos informations personnelles ou financières, et apprenez à vous protéger."
+             data-al="Erfahre, wie Betrüger am Telefon vorgehen, um an deine persönlichen oder finanziellen Daten zu gelangen, und lerne, dich zu schützen."
+             data-zh="了解电话诈骗者如何窃取你的个人或财务信息，并学习如何保护自己。">
+             Infórmate sobre cómo operan los estafadores por teléfono para obtener tu información personal o financiera y aprende a protegerte.
+          </p>
+      </div>
+  </section>
+
+
+   <!-- TARJETA - QUÉ SON LAS LLAMADAS FRAUDULENTAS -->
+    <section class="que_son-section">
+        <div class="cards-que-son">
+            <div class="card reveal" data-tilt>
+                <h3 data-es="¿Qué son las llamadas fraudulentas?" data-en="What Are Fraudulent Phone Calls?" data-pt="O que são chamadas fraudulentas?" data-fr="Qu'est-ce qu'un appel frauduleux ?" data-al="Was sind betrügerische Anrufe?" data-zh="什么是欺诈电话？">¿Qué son las llamadas fraudulentas?</h3>
+                <p data-es="Son llamadas realizadas por delincuentes que se hacen pasar por bancos, instituciones gubernamentales, empresas de servicios u otras organizaciones confiables, con el objetivo de engañarte y obtener tu información personal, financiera o códigos de seguridad."
+                    data-en="They are phone calls made by scammers who impersonate banks, government agencies, utility providers, or other trusted organizations to deceive you into revealing your personal information, financial details, or security codes."
+                    data-pt="São chamadas feitas por criminosos que se passam por bancos, instituições governamentais, empresas de serviços ou outras organizações confiáveis, com o objetivo de enganá-lo e obter suas informações pessoais, financeiras ou códigos de segurança."
+                    data-fr="Ce sont des appels passés par des escrocs se faisant passer pour des banques, des organismes gouvernementaux, des fournisseurs de services ou d'autres organisations de confiance, dans le but de vous tromper et d'obtenir vos informations personnelles, financières ou vos codes de sécurité."
+                    data-al="Dabei handelt es sich um Anrufe von Kriminellen, die sich als Banken, Behörden, Dienstleistungsunternehmen oder andere vertrauenswürdige Organisationen ausgeben, um dich zu täuschen und an deine persönlichen, finanziellen Daten oder Sicherheitscodes zu gelangen."
+                    data-zh="这些电话由犯罪分子拨打，他们冒充银行、政府机构、服务公司或其他可信组织，目的是欺骗你并获取你的个人信息、财务信息或安全代码。">
+                    Son llamadas realizadas por delincuentes que se hacen pasar por bancos, instituciones gubernamentales, empresas de servicios u otras organizaciones confiables, con el objetivo de engañarte y obtener tu información personal, financiera o códigos de seguridad.
+                </p>
+            </div>
+            <div class="card reveal" data-tilt style="transition-delay:.08s">
+                <h3 data-es="Objetivo principal" data-en="Main Objective" data-pt="Objetivo principal" data-fr="Objectif principal" data-al="Hauptziel" data-zh="主要目的">Objetivo principal</h3>
+                <p data-es="Robar tu dinero o tu identidad."
+                    data-en="Steal your money or your identity."
+                    data-pt="Roubar seu dinheiro ou sua identidade."
+                    data-fr="Voler votre argent ou votre identité."
+                    data-al="Ihr Geld oder Ihre Identität stehlen."
+                    data-zh="窃取你的钱财或身份。">
+                    Robar tu dinero o tu identidad.
+                </p>
+                <div class="objetivo-icono">
+                  <img src="iconos/ID.png" alt="Cédula de identidad">
+               </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTODOS COMUNES -->
+    <section class="metodos-section">
+     <h2 data-es="Métodos comunes" data-en="Common Methods" data-pt="Métodos comuns" data-fr="Méthodes courantes" data-al="Gängige Methoden" data-zh="常见手段">Métodos comunes</h2>
+       <div class="cards-metodos">
+         <!-- Tarjeta 1 -->
+         <div class="metodo-item">
+             <div class="card-metodo">
+                 <h3 data-es="Solicitan códigos de verificación" data-en="They Request Verification Codes" data-pt="Solicitam códigos de verificação" data-fr="Ils demandent des codes de vérification" data-al="Sie fordern Verifizierungscodes an" data-zh="要求验证码">Solicitan códigos de verificación</h3>
+             </div>
+             <div class="card-info">
+                   <p data-es="Te piden códigos enviados a tu celular o correo para verificar tu cuenta."
+                     data-en="They ask you for verification codes sent to your phone or email to verify your account."
+                     data-pt="Pedem códigos enviados ao seu celular ou e-mail para 'verificar' sua conta."
+                     data-fr="Ils vous demandent des codes envoyés sur votre téléphone ou par e-mail pour 'vérifier' votre compte."
+                     data-al="Sie bitten um Codes, die an Ihr Handy oder Ihre E-Mail gesendet wurden, um Ihr Konto zu 'verifizieren'."
+                     data-zh="要求你提供发送到手机或邮箱的验证码，以'验证'你的账户。">
+                     Te piden códigos enviados a tu celular o correo para "verificar" tu cuenta.
+                   </p>
+              </div>
+         </div>
+
+          <!-- Tarjeta 2 -->
+          <div class="metodo-item">
+                <div class="card-metodo">
+                    <h3 data-es="Se hacen pasar por tu banco" data-en="They Pretend to Be Your Bank" data-pt="Fingem ser o seu banco" data-fr="Ils se font passer pour votre banque" data-al="Sie geben sich als Ihre Bank aus" data-zh="冒充你的银行">Se hacen pasar por tu banco</h3>
+                </div>
+             <div class="card-info">
+                  <p data-es="Dicen que hay problemas con tu cuenta o transacciones sospechosas."
+                     data-en="They claim there are issues with your account or suspicious transactions."
+                     data-pt="Dizem que há problemas com sua conta ou transações suspeitas."
+                     data-fr="Ils prétendent qu'il y a des problèmes avec votre compte ou des transactions suspectes."
+                     data-al="Sie behaupten, es gäbe Probleme mit Ihrem Konto oder verdächtige Transaktionen."
+                     data-zh="声称你的账户有问题或存在可疑交易。">
+                     Dicen que hay problemas con tu cuenta o transacciones sospechosas.
+                 </p>
+             </div>
+          </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="metodo-item">
+            <div class="card-metodo">
+                <h3 data-es="Ofrecen premios o beneficios" data-en="They Offer Prizes or Benefits" data-pt="Oferecem prêmios ou benefícios" data-fr="Ils proposent des prix ou des avantages" data-al="Sie bieten Preise oder Vorteile an" data-zh="提供奖品或优惠">Ofrecen premios o beneficios</h3>
+            </div>
+            <div class="card-info">
+                <p data-es="Prometen premios, reembolsos o mejoras de servicios que no existen."
+                   data-en="They promise fake prizes, refunds, or service upgrades."
+                   data-pt="Prometem prêmios, reembolsos ou melhorias de serviços que não existem."
+                   data-fr="Ils promettent des prix, remboursements ou améliorations de services inexistants."
+                   data-al="Sie versprechen nicht existierende Preise, Rückerstattungen oder Service-Upgrades."
+                   data-zh="承诺不存在的奖品、退款或服务升级。">
+                  Prometen premios, reembolsos o mejoras de servicios que no existen.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="metodo-item">
+            <div class="card-metodo">
+                <h3 data-es="Verificación de datos personales" data-en="Personal Information Verification" data-pt="Verificação de dados pessoais" data-fr="Vérification de données personnelles" data-al="Überprüfung persönlicher Daten" data-zh="个人信息核实">Verificación de datos personales</h3>
+            </div>
+            <div class="card-info">
+                <p data-es="Piden información personal para actualizar o confirmar datos."
+                   data-en="They ask for personal information to update or confirm your account details."
+                   data-pt="Pedem informações pessoais para 'atualizar' ou 'confirmar' dados."
+                   data-fr="Ils demandent des informations personnelles pour 'mettre à jour' ou 'confirmer' des données."
+                   data-al="Sie bitten um persönliche Daten, um Angaben zu 'aktualisieren' oder zu 'bestätigen'."
+                   data-zh="要求提供个人信息以'更新'或'确认'资料。">
+                  Piden información personal para "actualizar" o "confirmar" datos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="metodo-item">
+            <div class="card-metodo">
+                <h3 data-es="Amenazan con consecuencias" data-en="They Threaten You with Consequences" data-pt="Ameaçam com consequências" data-fr="Ils menacent de conséquences" data-al="Sie drohen mit Konsequenzen" data-zh="以后果相威胁">Amenazan con consecuencias</h3>
+            </div>
+            <div class="card-info">
+                <p data-es="Te asustan diciendo que bloquearán tu cuenta o tomarán acciones legales."
+                   data-en="They try to scare you by claiming your account will be blocked or that legal action will be taken."
+                   data-pt="Assustam você dizendo que vão bloquear sua conta ou tomar ações legais."
+                   data-fr="Ils vous font peur en disant qu'ils bloqueront votre compte ou engageront des poursuites judiciaires."
+                   data-al="Sie versuchen, Sie einzuschüchtern, indem sie behaupten, Ihr Konto zu sperren oder rechtliche Schritte einzuleiten."
+                   data-zh="以冻结账户或采取法律行动来恐吓你。">
+                   Te asustan diciendo que bloquearán tu cuenta o tomarán acciones legales.
+                </p>
+            </div>
+        </div>
+      </div>
+   </section>
+
+
+   <!-- SEÑALES DE ALERTA -->
+   <section class="alerta-section">
+      <h2 data-es="Señales de alerta" data-en="Warning Signs" data-pt="Sinais de alerta" data-fr="Signes d'alerte" data-al="Warnzeichen" data-zh="警示信号">Señales de alerta</h2>
+      <div class="alerta-container">
+          <!-- Lista -->
+          <div class="alerta-lista reveal">
+               <ol>
+                   <li data-es="Te piden información confidencial o códigos de seguridad." data-en="They ask for confidential information or security codes." data-pt="Pedem informações confidenciais ou códigos de segurança." data-fr="Ils demandent des informations confidentielles ou des codes de sécurité." data-al="Sie fragen nach vertraulichen Informationen oder Sicherheitscodes." data-zh="索要机密信息或安全代码。">Te piden información confidencial o códigos de seguridad.</li>
+                   <li data-es="Te presionan para tomar decisiones inmediatas." data-en="They pressure you to make immediate decisions." data-pt="Pressionam você a tomar decisões imediatas." data-fr="Ils vous pressent de prendre des décisions immédiates." data-al="Sie drängen Sie zu sofortigen Entscheidungen." data-zh="催促你立即做出决定。">Te presionan para tomar decisiones inmediatas.</li>
+                   <li data-es="Te dicen que no cuelgues la llamada." data-en="They tell you not to hang up the call." data-pt="Dizem para você não desligar a chamada." data-fr="Ils vous disent de ne pas raccrocher." data-al="Sie sagen Ihnen, Sie sollen nicht auflegen." data-zh="要求你不要挂断电话。">Te dicen que no cuelgues la llamada.</li>
+                   <li data-es="El número que aparece en pantalla puede estar falsificado." data-en="The number displayed on screen may be spoofed." data-pt="O número exibido na tela pode estar falsificado." data-fr="Le numéro affiché à l'écran peut être falsifié." data-al="Die angezeigte Nummer kann gefälscht sein." data-zh="屏幕上显示的号码可能是伪造的。">El número que aparece en pantalla puede estar falsificado.</li>
+                   <li data-es="La llamada proviene de un número desconocido o internacional." data-en="The call comes from an unknown or international number." data-pt="A chamada vem de um número desconhecido ou internacional." data-fr="L'appel provient d'un numéro inconnu ou international." data-al="Der Anruf kommt von einer unbekannten oder internationalen Nummer." data-zh="来电来自陌生或国际号码。">La llamada proviene de un número desconocido o internacional.</li>
+              </ol>
+          </div>
+
+          <!-- Imagen -->
+          <div class="alerta-imagen reveal">
+              <img src="img/telefono_fraude_es.jpg" 
+                    data-img-es="img/telefono_fraude_es.jpg"
+                     data-img-en="img/telefono_fraude_en.jpg"
+                     data-img-pt="img/telefono_fraude_pt.jpg"
+                     data-img-fr="img/telefono_fraude_fr.jpg"
+                     data-img-al="img/telefono_fraude_al.jpg"
+                     data-img-zh="img/telefono_fraude_zh.jpg"
+              alt="Teléfono con llamada fraudulenta">
+          </div>
+
+          <!-- Mensaje -->
+          <div class="alerta-mensaje reveal">
+               <p>
+                  <strong data-es="Recuerda:" data-en="Remember:" data-pt="Lembre-se:" data-fr="Rappel :" data-al="Denk daran:" data-zh="请记住：">Recuerda:</strong>
+                  <span data-es="Ninguna entidad financiera o institución seria te pedirá por teléfono tu contraseña, PIN o códigos de verificación."
+                        data-en="No financial institution or serious organization will ask for your password, PIN, or verification codes over the phone."
+                        data-pt="Nenhuma instituição financeira ou organização séria pedirá sua senha, PIN ou códigos de verificação por telefone."
+                        data-fr="Aucune institution financière ou organisation sérieuse ne vous demandera votre mot de passe, code PIN ou codes de vérification par téléphone."
+                        data-al="Kein Finanzinstitut und keine seriöse Organisation wird Sie am Telefon nach Ihrem Passwort, PIN oder Verifizierungscode fragen."
+                        data-zh="任何正规金融机构或组织都不会通过电话索要你的密码、PIN码或验证码。">
+                    Ninguna entidad financiera o institución seria te pedirá por teléfono tu contraseña, PIN o códigos de verificación.
+                  </span>
+               </p>
+          </div>
+       </div>
+  </section>
+
+  <!-- ESCUCHA ANTES DE RESPONDER -->
+    <section class="escucha-section">
+        <div class="escucha-inner">
+            <div class="escucha-titulo">
+                <h2>
+                    <span data-es="ESCUCHA ANTES DE RESPONDER" data-en="LISTEN BEFORE YOU RESPOND" data-pt="OUÇA ANTES DE RESPONDER" data-fr="ÉCOUTEZ AVANT DE RÉPONDRE" data-al="HÖR ZU, BEVOR DU ANTWORTEST" data-zh="回应前先倾听">ESCUCHA ANTES DE RESPONDER</span>
+                </h2>
+                <p data-es="¿Cómo diferenciar una llamada legítima de una llamada fraudulenta?"
+                   data-en="How can you tell a legitimate call from a fraudulent one?"
+                   data-pt="Como diferenciar uma chamada legítima de uma chamada fraudulenta?"
+                   data-fr="Comment distinguer un appel légitime d'un appel frauduleux ?"
+                   data-al="Wie unterscheidet man einen echten Anruf von einem betrügerischen?"
+                   data-zh="如何区分合法电话和欺诈电话？">
+                    ¿Cómo diferenciar una llamada legítima de una llamada fraudulenta?
+                </p>
+            </div>
+
+            <div class="comparacion-llamadas reveal">
+                <article class="comparacion-columna llamada-confiable">
+                    <h3>
+                        <img src="iconos/escudo.png" alt="" aria-hidden="true">
+                        <span data-es="LLAMADA CONFIABLE" data-en="TRUSTWORTHY CALL" data-pt="CHAMADA CONFIÁVEL" data-fr="APPEL FIABLE" data-al="VERTRAUENSWÜRDIGER ANRUF" data-zh="可信来电">LLAMADA CONFIABLE</span>
+                    </h3>
+
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/imagen-de-perfil.png" alt=""><small>✓</small></span>
+                        <p data-es="Se identifica con el nombre de la empresa o institución."
+                           data-en="The caller identifies themselves with the name of the company or institution."
+                           data-pt="Se identifica com o nome da empresa ou instituição."
+                           data-fr="L'appelant s'identifie avec le nom de l'entreprise ou de l'institution."
+                           data-al="Der Anrufer nennt den Namen des Unternehmens oder der Institution."
+                           data-zh="来电者会说明公司或机构的名称。">
+                            Se identifica con el nombre de la empresa o institución.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/escudo.png" alt=""><small>✓</small></span>
+                        <p data-es="Nunca solicita contraseñas, PIN o códigos de verificación."
+                           data-en="The caller never requests passwords, PINs or verification codes."
+                           data-pt="Nunca solicita senhas, PIN ou códigos de verificação."
+                           data-fr="Il ne demande jamais de mots de passe, codes PIN ou codes de vérification."
+                           data-al="Er fragt niemals nach Passwörtern, PINs oder Verifizierungscodes."
+                           data-zh="绝不会索要密码、PIN码或验证码。">
+                            Nunca solicita contraseñas, PIN o códigos de verificación.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/reloj-de-pared.png" alt=""><small>✓</small></span>
+                        <p data-es="Te permite verificar la información antes de continuar."
+                           data-en="The caller lets you verify the information before continuing."
+                           data-pt="Permite que você verifique as informações antes de continuar."
+                           data-fr="Il vous permet de vérifier les informations avant de continuer."
+                           data-al="Er lässt Sie die Informationen überprüfen, bevor Sie fortfahren."
+                           data-zh="允许你在继续之前核实信息。">
+                            Te permite verificar la información antes de continuar.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/llamar.png" alt=""><small>✓</small></span>
+                        <p data-es="Puedes colgar y comunicarte al número oficial sin inconvenientes."
+                           data-en="You can hang up and call the official number without any objection."
+                           data-pt="Você pode desligar e ligar para o número oficial sem problemas."
+                           data-fr="Vous pouvez raccrocher et appeler le numéro officiel sans problème."
+                           data-al="Sie können auflegen und die offizielle Nummer problemlos anrufen."
+                           data-zh="你可以挂断电话并拨打官方号码，不会有任何阻拦。">
+                            Puedes colgar y comunicarte al número oficial sin inconvenientes.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/correo-electronico.png" alt=""><small>✓</small></span>
+                        <p data-es="Explica el motivo de la llamada con claridad y profesionalismo."
+                           data-en="The caller explains the reason for the call clearly and professionally."
+                           data-pt="Explica o motivo da chamada com clareza e profissionalismo."
+                           data-fr="Il explique la raison de l'appel avec clarté et professionnalisme."
+                           data-al="Er erklärt den Grund des Anrufs klar und professionell."
+                           data-zh="清楚且专业地说明来电原因。">
+                            Explica el motivo de la llamada con claridad y profesionalismo.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/social.png" alt=""><small>✓</small></span>
+                        <p data-es="Respeta tu decisión si prefieres comunicarte por otro medio."
+                           data-en="The caller respects your decision if you prefer to communicate another way."
+                           data-pt="Respeita sua decisão se preferir se comunicar por outro meio."
+                           data-fr="Il respecte votre décision si vous préférez communiquer autrement."
+                           data-al="Er respektiert Ihre Entscheidung, wenn Sie einen anderen Kommunikationsweg bevorzugen."
+                           data-zh="尊重你选择其他沟通方式的决定。">
+                            Respeta tu decisión si prefieres comunicarte por otro medio.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="comparacion-columna llamada-fraudulenta">
+                    <h3>
+                        <img src="iconos/peligro.png" alt="" aria-hidden="true">
+                        <span data-es="LLAMADA FRAUDULENTA" data-en="FRAUDULENT CALL" data-pt="CHAMADA FRAUDULENTA" data-fr="APPEL FRAUDULEUX" data-al="BETRÜGERISCHER ANRUF" data-zh="欺诈来电">LLAMADA FRAUDULENTA</span>
+                    </h3>
+
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/ID.png" alt=""><small>×</small></span>
+                        <p data-es="Evita identificarse o utiliza nombres poco claros."
+                           data-en="The caller avoids identifying themselves or uses unclear names."
+                           data-pt="Evita se identificar ou usa nomes pouco claros."
+                           data-fr="Il évite de s'identifier ou utilise des noms peu clairs."
+                           data-al="Er vermeidet es, sich auszuweisen, oder nennt unklare Namen."
+                           data-zh="回避表明身份，或使用不明确的名称。">
+                            Evita identificarse o utiliza nombres poco claros.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/tarjetas-de-credito.png" alt=""><small>×</small></span>
+                        <p data-es="Solicita contraseñas, PIN, códigos SMS o datos bancarios."
+                           data-en="The caller requests passwords, PINs, SMS codes or banking information."
+                           data-pt="Solicita senhas, PIN, códigos por SMS ou dados bancários."
+                           data-fr="Il demande des mots de passe, codes PIN, codes SMS ou données bancaires."
+                           data-al="Er fragt nach Passwörtern, PINs, SMS-Codes oder Bankdaten."
+                           data-zh="索要密码、PIN码、短信验证码或银行信息。">
+                            Solicita contraseñas, PIN, códigos SMS o datos bancarios.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/peligro.png" alt=""><small>×</small></span>
+                        <p data-es="Te presiona para actuar de inmediato."
+                           data-en="The caller pressures you to act immediately."
+                           data-pt="Pressiona você a agir imediatamente."
+                           data-fr="Il vous pousse à agir immédiatement."
+                           data-al="Er drängt Sie, sofort zu handeln."
+                           data-zh="催促你立刻采取行动。">
+                            Te presiona para actuar de inmediato.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/llamar.png" alt=""><small>×</small></span>
+                        <p data-es="Insiste en que no cuelgues la llamada."
+                           data-en="The caller insists that you do not hang up."
+                           data-pt="Insiste para que você não desligue a chamada."
+                           data-fr="Il insiste pour que vous ne raccrochiez pas."
+                           data-al="Er besteht darauf, dass Sie nicht auflegen."
+                           data-zh="坚持要求你不要挂断电话。">
+                            Insiste en que no cuelgues la llamada.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/peligro.png" alt=""><small>×</small></span>
+                        <p data-es="Utiliza amenazas, miedo o promesas para convencerte."
+                           data-en="The caller uses threats, fear or promises to convince you."
+                           data-pt="Usa ameaças, medo ou promessas para convencê-lo."
+                           data-fr="Il utilise des menaces, la peur ou des promesses pour vous convaincre."
+                           data-al="Er nutzt Drohungen, Angst oder Versprechen, um Sie zu überzeugen."
+                           data-zh="使用威胁、恐吓或承诺来说服你。">
+                            Utiliza amenazas, miedo o promesas para convencerte.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/hombre.png" alt=""><small>×</small></span>
+                        <p data-es="Intenta manipularte para obtener información rápidamente."
+                           data-en="The caller tries to manipulate you into quickly providing information."
+                           data-pt="Tenta manipulá-lo para obter informações rapidamente."
+                           data-fr="Il tente de vous manipuler pour obtenir rapidement des informations."
+                           data-al="Er versucht, Sie zu manipulieren, um schnell Informationen zu erhalten."
+                           data-zh="试图操纵你迅速提供信息。">
+                            Intenta manipularte para obtener información rápidamente.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- QUÉ HACER DURANTE UNA LLAMADA SOSPECHOSA -->
+    <section class="diagrama-llamada-section">
+        <div class="diagrama-llamada-inner">
+            <h2>
+                <span data-es="¿QUÉ HACER DURANTE UNA LLAMADA" data-en="WHAT SHOULD YOU DO DURING A" data-pt="O QUE FAZER DURANTE UMA CHAMADA" data-fr="QUE FAIRE PENDANT UN APPEL" data-al="WAS TUN WÄHREND EINES" data-zh="在可疑来电中">¿QUÉ HACER DURANTE UNA LLAMADA</span>
+                <strong data-es="SOSPECHOSA?" data-en="SUSPICIOUS CALL?" data-pt="SUSPEITA?" data-fr="SUSPECT ?" data-al="VERDÄCHTIGEN ANRUFS?" data-zh="应该怎么做？">SOSPECHOSA?</strong>
+            </h2>
+            <div class="diagrama-imagen-wrap reveal">
+                <img src="img/llamada-sospechosa-es.png"
+                     data-img-es="img/llamada-sospechosa-es.png"
+                     data-img-en="img/llamada-sospechosa-en.png"
+                     data-img-pt="img/llamada-sospechosa-pt.jpg"
+                     data-img-fr="img/llamada-sospechosa-fr.jpg"
+                     data-img-al="img/llamada-sospechosa-al.jpg"
+                     data-img-zh="img/llamada-sospechosa-zh.jpg"
+                     alt="Diagrama: qué hacer durante una llamada sospechosa">
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- PALABRAS DE ALERTA -->
+    <section class="palabras-alerta-section">
+        <div class="palabras-alerta-inner">
+            <h2 data-es="Palabras que deben ponerte en alerta"
+                data-en="Words that should put you on alert"
+                data-pt="Palavras que devem deixar você em alerta"
+                data-fr="Mots qui doivent vous mettre en alerte"
+                data-al="Wörter, die dich alarmieren sollten"
+                data-zh="应引起警觉的词语">
+                Palabras que deben ponerte en alerta
+            </h2>
+
+            <div class="palabras-alerta-grid">
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/peligro.png" alt=""></div>
+                    <h3 data-es="Urgente" data-en="Urgent" data-pt="Urgente" data-fr="Urgent" data-al="Dringend" data-zh="紧急">Urgente</h3>
+                    <p data-es="Buscan presionarte para que actúes sin pensar."
+                       data-en="They try to pressure you into acting without thinking."
+                       data-pt="Tentam pressionar você a agir sem pensar."
+                       data-fr="Ils cherchent à vous pousser à agir sans réfléchir."
+                       data-al="Sie wollen Sie dazu drängen, unüberlegt zu handeln."
+                       data-zh="试图迫使你不假思索地行动。">
+                        Buscan presionarte para que actúes sin pensar.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/escudo.png" alt=""><span class="palabra-marca">×</span></div>
+                    <h3 data-es="Bloqueo" data-en="Blocked" data-pt="Bloqueio" data-fr="Blocage" data-al="Sperrung" data-zh="冻结">Bloqueo</h3>
+                    <p data-es="Amenazan con bloquear tu cuenta o acceso si no haces algo."
+                       data-en="They threaten to block your account or access unless you act."
+                       data-pt="Ameaçam bloquear sua conta ou acesso se você não fizer algo."
+                       data-fr="Ils menacent de bloquer votre compte ou accès si vous n'agissez pas."
+                       data-al="Sie drohen, Ihr Konto oder den Zugang zu sperren, wenn Sie nicht handeln."
+                       data-zh="威胁如果你不采取行动就冻结账户或权限。">
+                        Amenazan con bloquear tu cuenta o acceso si no haces algo.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/transferir.png" alt=""></div>
+                    <h3 data-es="Transferencia" data-en="Transfer" data-pt="Transferência" data-fr="Virement" data-al="Überweisung" data-zh="转账">Transferencia</h3>
+                    <p data-es="Te piden enviar dinero a otra cuenta o a un lugar desconocido."
+                       data-en="They ask you to send money to another account or an unknown destination."
+                       data-pt="Pedem para você enviar dinheiro para outra conta ou local desconhecido."
+                       data-fr="Ils vous demandent d'envoyer de l'argent vers un autre compte ou une destination inconnue."
+                       data-al="Sie bitten Sie, Geld auf ein anderes Konto oder an einen unbekannten Ort zu senden."
+                       data-zh="要求你把钱转到另一个账户或未知地点。">
+                        Te piden enviar dinero a otra cuenta o a un lugar desconocido.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/dinero.png" alt=""></div>
+                    <h3 data-es="Premio" data-en="Prize" data-pt="Prêmio" data-fr="Prix" data-al="Preis" data-zh="奖品">Premio</h3>
+                    <p data-es="Prometen premios falsos para engañarte y obtener tus datos o dinero."
+                       data-en="They promise fake prizes to obtain your information or money."
+                       data-pt="Prometem prêmios falsos para enganá-lo e obter seus dados ou dinheiro."
+                       data-fr="Ils promettent de faux prix pour vous tromper et obtenir vos données ou votre argent."
+                       data-al="Sie versprechen falsche Preise, um Sie zu täuschen und an Ihre Daten oder Ihr Geld zu gelangen."
+                       data-zh="承诺虚假奖品以骗取你的信息或钱财。">
+                        Prometen premios falsos para engañarte y obtener tus datos o dinero.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/tarjetas-de-credito.png" alt=""></div>
+                    <h3 data-es="Código" data-en="Code" data-pt="Código" data-fr="Code" data-al="Code" data-zh="验证码">Código</h3>
+                    <p data-es="Piden códigos secretos o de verificación que les dan acceso a tus cuentas."
+                       data-en="They request secret or verification codes that give them access to your accounts."
+                       data-pt="Pedem códigos secretos ou de verificação que dão acesso às suas contas."
+                       data-fr="Ils demandent des codes secrets ou de vérification donnant accès à vos comptes."
+                       data-al="Sie fragen nach geheimen oder Verifizierungscodes, die ihnen Zugang zu Ihren Konten geben."
+                       data-zh="索要能让他们访问你账户的密码或验证码。">
+                        Piden códigos secretos o de verificación que les dan acceso a tus cuentas.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/lista-de-verificacion.png" alt=""></div>
+                    <h3 data-es="Verificación" data-en="Verification" data-pt="Verificação" data-fr="Vérification" data-al="Verifizierung" data-zh="验证">Verificación</h3>
+                    <p data-es="Solicitan datos personales para verificarte y luego usarlos en tu contra."
+                       data-en="They request personal data to verify you and then use it against you."
+                       data-pt="Solicitam dados pessoais para verificá-lo e depois usá-los contra você."
+                       data-fr="Ils demandent des données personnelles pour vous vérifier puis les utiliser contre vous."
+                       data-al="Sie fordern persönliche Daten zur Verifizierung an, um sie später gegen Sie zu verwenden."
+                       data-zh="索要个人信息进行'验证'，然后用来对付你。">
+                        Solicitan datos personales para verificarte y luego usarlos en tu contra.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/escudo.png" alt=""></div>
+                    <h3 data-es="Seguridad" data-en="Security" data-pt="Segurança" data-fr="Sécurité" data-al="Sicherheit" data-zh="安全">Seguridad</h3>
+                    <p data-es="Usan el tema de seguridad para ganarse tu confianza y manipularte."
+                       data-en="They use security concerns to gain your trust and manipulate you."
+                       data-pt="Usam o tema segurança para ganhar sua confiança e manipulá-lo."
+                       data-fr="Ils utilisent le thème de la sécurité pour gagner votre confiance et vous manipuler."
+                       data-al="Sie nutzen das Thema Sicherheit, um Ihr Vertrauen zu gewinnen und Sie zu manipulieren."
+                       data-zh="利用'安全'话题赢得你的信任并操纵你。">
+                        Usan el tema de seguridad para ganarse tu confianza y manipularte.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/imagen-de-perfil.png" alt=""><span class="palabra-marca">×</span></div>
+                    <h3 data-es="Cuenta suspendida" data-en="Account suspended" data-pt="Conta suspensa" data-fr="Compte suspendu" data-al="Konto gesperrt" data-zh="账户被暂停">Cuenta suspendida</h3>
+                    <p data-es="Te alertan de una suspensión falsa para que hagas clic en enlaces maliciosos."
+                       data-en="They falsely claim your account is suspended so you will click malicious links."
+                       data-pt="Alertam sobre uma suspensão falsa para que você clique em links maliciosos."
+                       data-fr="Ils vous alertent d'une fausse suspension pour vous faire cliquer sur des liens malveillants."
+                       data-al="Sie behaupten fälschlicherweise, Ihr Konto sei gesperrt, damit Sie auf schädliche Links klicken."
+                       data-zh="谎称账户被暂停，诱使你点击恶意链接。">
+                        Te alertan de una suspensión falsa para que hagas clic en enlaces maliciosos.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERRAMIENTAS — Verifica una llamada antes de responder -->
+    <section class="herramientas-section">
+      <div class="herramientas-container">
+
+        <div class="herramientas-titulo reveal">
+          <div class="herramientas-titulo-fila">
+            <span class="herramientas-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </span>
+            <h2 data-es="Verifica una llamada antes de responder" data-en="Verify a call before answering" data-pt="Verifique uma chamada antes de responder" data-fr="Vérifiez un appel avant de répondre" data-al="Überprüfe einen Anruf, bevor du antwortest" data-zh="接听前先核实来电">Verifica una llamada antes de responder</h2>
+            <span class="herramientas-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </span>
+          </div>
+
+          <div class="herramientas-icono-central" aria-hidden="true">
+            <span class="herramientas-icono-circulo">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/>
+              </svg>
+            </span>
+          </div>
+
+          <p data-es="Herramientas confiables para identificar números sospechosos, bloquear spam y detectar posibles fraudes."
+             data-en="Reliable tools to identify suspicious numbers, block spam, and detect possible fraud."
+             data-pt="Ferramentas confiáveis para identificar números suspeitos, bloquear spam e detectar possíveis fraudes."
+             data-fr="Des outils fiables pour identifier les numéros suspects, bloquer le spam et détecter les fraudes possibles."
+             data-al="Zuverlässige Tools, um verdächtige Nummern zu identifizieren, Spam zu blockieren und möglichen Betrug zu erkennen."
+             data-zh="可靠的工具，帮助识别可疑号码、拦截垃圾电话并检测潜在欺诈。">
+            Herramientas confiables para identificar números sospechosos, bloquear spam y detectar posibles fraudes.
+          </p>
+        </div>
+
+        <div class="herramientas-lista">
+
+          <!-- Truecaller -->
+          <div class="herramientas-card reveal" data-tilt>
+            <div class="herramientas-logo-slot">
+              <img src="img/logoTruecaller.jpg" alt="Truecaller">
+            </div>
+            <div class="herramientas-texto">
+              <h4 data-es="Truecaller" data-en="Truecaller" data-pt="Truecaller" data-fr="Truecaller" data-al="Truecaller" data-zh="Truecaller">Truecaller</h4>
+              <p data-es="Identifica números desconocidos y llamadas sospechosas."
+                 data-en="Identifies unknown numbers and suspicious calls."
+                 data-pt="Identifica números desconhecidos e chamadas suspeitas."
+                 data-fr="Identifie les numéros inconnus et les appels suspects."
+                 data-al="Identifiziert unbekannte Nummern und verdächtige Anrufe."
+                 data-zh="识别未知号码和可疑来电。">
+                Identifica números desconocidos y llamadas sospechosas.
+              </p>
+              <div class="herramientas-nota">
+                <span class="herramientas-nota-icono">✓</span>
+                <p data-es="Detecta y bloquea llamadas de spam y posibles fraudes."
+                   data-en="Detects and blocks spam calls and possible fraud."
+                   data-pt="Detecta e bloqueia chamadas de spam e possíveis fraudes."
+                   data-fr="Détecte et bloque les appels indésirables et les fraudes possibles."
+                   data-al="Erkennt und blockiert Spam-Anrufe und möglichen Betrug."
+                   data-zh="检测并拦截垃圾电话和潜在欺诈。">
+                  Detecta y bloquea llamadas de spam y posibles fraudes.
+                </p>
+              </div>
+            </div>
+            <a href="https://www.truecaller.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Truecaller">→</a>
+          </div>
+
+          <!-- Hiya -->
+          <div class="herramientas-card reveal" data-tilt style="transition-delay:.08s">
+            <div class="herramientas-logo-slot">
+              <img src="img/logoHiya.png" alt="Hiya">
+            </div>
+            <div class="herramientas-texto">
+              <h4 data-es="Hiya" data-en="Hiya" data-pt="Hiya" data-fr="Hiya" data-al="Hiya" data-zh="Hiya">Hiya</h4>
+              <p data-es="Comprueba si una llamada puede ser spam o fraude."
+                 data-en="Checks whether a call could be spam or fraud."
+                 data-pt="Verifica se uma chamada pode ser spam ou fraude."
+                 data-fr="Vérifie si un appel pourrait être du spam ou une fraude."
+                 data-al="Prüft, ob ein Anruf Spam oder Betrug sein könnte."
+                 data-zh="检查来电是否可能是垃圾电话或欺诈。">
+                Comprueba si una llamada puede ser spam o fraude.
+              </p>
+              <div class="herramientas-nota">
+                <span class="herramientas-nota-icono">✓</span>
+                <p data-es="Identifica números sospechosos y ayuda a bloquear llamadas no deseadas."
+                   data-en="Identifies suspicious numbers and helps block unwanted calls."
+                   data-pt="Identifica números suspeitos e ajuda a bloquear chamadas indesejadas."
+                   data-fr="Identifie les numéros suspects et aide à bloquer les appels indésirables."
+                   data-al="Identifiziert verdächtige Nummern und hilft, unerwünschte Anrufe zu blockieren."
+                   data-zh="识别可疑号码，帮助拦截不想要的来电。">
+                  Identifica números sospechosos y ayuda a bloquear llamadas no deseadas.
+                </p>
+              </div>
+            </div>
+            <a href="https://www.hiya.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Hiya">→</a>
+          </div>
+
+          <!-- Google Phone -->
+          <div class="herramientas-card reveal" data-tilt style="transition-delay:.16s">
+            <div class="herramientas-logo-slot">
+              <img src="img/logoGooglePhone.jpg" alt="Google Phone">
+            </div>
+            <div class="herramientas-texto">
+              <h4 data-es="Google Phone" data-en="Google Phone" data-pt="Google Phone" data-fr="Google Phone" data-al="Google Phone" data-zh="Google Phone">Google Phone</h4>
+              <p data-es="Protección integrada para llamadas sospechosas en Android compatibles."
+                 data-en="Built-in protection for suspicious calls on compatible Android devices."
+                 data-pt="Proteção integrada para chamadas suspeitas em Android compatíveis."
+                 data-fr="Protection intégrée contre les appels suspects sur Android compatibles."
+                 data-al="Integrierter Schutz vor verdächtigen Anrufen auf kompatiblen Android-Geräten."
+                 data-zh="在兼容的安卓设备上内置可疑来电防护。">
+                Protección integrada para llamadas sospechosas en Android compatibles.
+              </p>
+              <div class="herramientas-nota">
+                <span class="herramientas-nota-icono">✓</span>
+                <p data-es="Identifica llamadas de spam y muestra advertencias antes de responder."
+                   data-en="Identifies spam calls and shows warnings before you answer."
+                   data-pt="Identifica chamadas de spam e mostra avisos antes de você responder."
+                   data-fr="Identifie les appels indésirables et affiche des avertissements avant de répondre."
+                   data-al="Identifiziert Spam-Anrufe und zeigt Warnungen an, bevor Sie antworten."
+                   data-zh="识别垃圾电话，并在接听前显示警告。">
+                  Identifica llamadas de spam y muestra advertencias antes de responder.
+                </p>
+              </div>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.google.android.dialer" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Google Phone">→</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE — STRIX 
+    ============================================ -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="fraudes_llamadas.js"></script>
+    <script type="module" src="auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><!-- API para Tipografía-->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Inicio</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- Cursor magnético personalizado (solo escritorio) -->
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: solo visible en celulares -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo y botón de registro -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+                <a href="registro.html" class="btn-register" data-es="Regístrate" data-en="Register" data-pt="Registre-se" data-fr="Inscrivez-vous" data-al="Registrieren" data-zh="注册">Regístrate </a>
+                <a href="inicio_sesion.html" class="btn-login" id="authLoginBtn" data-es="Iniciar sesión" data-en="Log in" data-fr="Se connecter" data-pt="Iniciar sessão" data-al="Anmelden" data-zh="登录">Iniciar sesión</a>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html" class="active"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma en el menu, solo para celulares -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- nav en compu-->
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <!-- nav celular -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- ============================================
+    HERO
+    ============================================ -->
+    <section class="hero-inicio">
+        <img src="img/finanza_principal.png" alt="Persona organizando sus finanzas personales" class="hero-inicio-img">
+        <div class="hero-inicio-bg"></div>
+        <div class="hero-inicio-content">
+            <h1>
+                <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY," data-pt="PROTEJA SEU DINHEIRO," data-fr="SÉCURISEZ VOTRE ARGENT," data-al="SICHERE DEIN GELD," data-zh="守护你的财富，">SECURE YOUR MONEY,</span>
+                <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS" data-pt="CONQUISTE SEUS OBJETIVOS" data-fr="RÉALISEZ VOS OBJECTIFS" data-al="ERREICHE DEINE ZIELE" data-zh="解锁你的目标">UNLOCK YOUR GOALS</span>
+            </h1>
+
+            <div class="hero-tagline">
+                <span class="hero-tagline-prefix"
+                      data-es="Vaulty+" data-en="Vaulty+" data-pt="Vaulty+" data-fr="Vaulty+" data-al="Vaulty+" data-zh="Vaulty+">Vaulty+</span>
+                <span class="hero-tagline-word" id="heroTaglineWord">Ahorra con propósito.</span>
+            </div>
+
+            <p data-es="Herramientas y conocimientos para tomar el control de tus finanzas y lograr tu estabilidad financiera."
+               data-en="Tools and knowledge to take control of your finances and achieve financial stability."
+               data-pt="Ferramentas e conhecimento para assumir o controle das suas finanças e alcançar estabilidade financeira."
+               data-fr="Des outils et des connaissances pour prendre le contrôle de vos finances et atteindre la stabilité financière."
+               data-al="Werkzeuge und Wissen, um Ihre Finanzen in den Griff zu bekommen und finanzielle Stabilität zu erreichen."
+               data-zh="提供工具和知识，帮助你掌控财务，实现财务稳定。">
+                Herramientas y conocimientos para tomar el control de tus finanzas y lograr tu estabilidad financiera.
+            </p>
+
+            <!-- 4 tarjetas de confianza -->
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <div class="hero-feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3zm-1.2 14L7 12.2l1.4-1.4 2.4 2.4L15.6 8l1.4 1.4-6.2 6.6z"/></svg>
+                    </div>
+                    <div>
+                        <p class="hero-feature-title" data-es="100% Seguro" data-en="100% Secure" data-pt="100% Seguro" data-fr="100% Sécurisé" data-al="100% Sicher" data-zh="100% 安全">100% Seguro</p>
+                        <p class="hero-feature-desc" data-es="Tu información protegida" data-en="Your information protected" data-pt="Suas informações protegidas" data-fr="Vos données protégées" data-al="Ihre Daten sind geschützt" data-zh="保护您的信息">Tu información protegida</p>
+                    </div>
+                </div>
+
+                <div class="hero-feature">
+                    <div class="hero-feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V16h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                    </div>
+                    <div>
+                        <p class="hero-feature-title" data-es="Aprende a tu ritmo" data-en="Learn at your pace" data-pt="Aprenda no seu ritmo" data-fr="Apprenez à votre rythme" data-al="Lerne in deinem Tempo" data-zh="按自己的节奏学习">Aprende a tu ritmo</p>
+                        <p class="hero-feature-desc" data-es="Contenido práctico y fácil de entender" data-en="Practical, easy-to-follow content" data-pt="Conteúdo prático e fácil de entender" data-fr="Contenu pratique et facile à comprendre" data-al="Praktische, leicht verständliche Inhalte" data-zh="实用易懂的内容">Contenido práctico y fácil de entender</p>
+                    </div>
+                </div>
+
+                <div class="hero-feature">
+                    <div class="hero-feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <div>
+                        <p class="hero-feature-title" data-es="Miles de usuarios" data-en="Thousands of users" data-pt="Milhares de usuários" data-fr="Des milliers d'utilisateurs" data-al="Tausende Nutzer" data-zh="数千用户">Miles de usuarios</p>
+                        <p class="hero-feature-desc" data-es="Confían en Vaulty+ cada día" data-en="Trust Vaulty+ every day" data-pt="Confiam na Vaulty+ todos os dias" data-fr="Font confiance à Vaulty+ chaque jour" data-al="Vertrauen täglich auf Vaulty+" data-zh="每天信赖 Vaulty+">Confían en Vaulty+ cada día</p>
+                    </div>
+                </div>
+
+                <div class="hero-feature">
+                    <div class="hero-feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 1 5 4v6c0 5.5 3.8 10.7 7 12 3.2-1.3 7-6.5 7-12V4l-7-3zm0 10.9h5c-.5 3.7-2.8 7-5 7.9V12H7V6.3l5-2.2v7.8z"/></svg>
+                    </div>
+                    <div>
+                        <p class="hero-feature-title" data-es="Privacidad total" data-en="Total privacy" data-pt="Privacidade total" data-fr="Confidentialité totale" data-al="Volle Privatsphäre" data-zh="全面隐私保护">Privacidad total</p>
+                        <p class="hero-feature-desc" data-es="Tu información siempre segura" data-en="Your information always secure" data-pt="Suas informações sempre seguras" data-fr="Vos données toujours en sécurité" data-al="Ihre Daten sind immer sicher" data-zh="您的信息始终安全">Tu información siempre segura</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         SECCIÓN 1 — QUÉ ES VAULTY+
+    ============================================ -->
+    <section class="about-section que-es-vaulty" id="que-es">
+        <img src="img/finanzas_index.jpeg" alt="Finanzas" class="que-es-vaulty-img">
+        <div class="about-overlay"></div>
+
+        <div class="about-container">
+            <div class="about-text reveal">
+                <h2 data-es="¿Qué es Vaulty+?" data-en="What is Vaulty+?" data-pt="O que é a Vaulty+?" data-fr="Qu'est-ce que Vaulty+ ?" data-al="Was ist Vaulty+?" data-zh="什么是 Vaulty+？">¿Qué es Vaulty+?</h2>
+
+                <p data-es="Vaulty+ es una página web enfocada en la educación financiera que ofrece contenido adaptado al nivel de conocimiento del usuario, ya sea nulo o básico."
+                   data-en="Vaulty+ is a website focused on financial education that offers content tailored to the user's level of knowledge, whether it's nonexistent or basic."
+                   data-pt="Vaulty+ é um site focado em educação financeira que oferece conteúdo adaptado ao nível de conhecimento do usuário, seja ele nulo ou básico."
+                   data-fr="Vaulty+ est un site web dédié à l'éducation financière qui propose un contenu adapté au niveau de connaissance de l'utilisateur, qu'il soit nul ou basique."
+                   data-al="Vaulty+ ist eine Website für finanzielle Bildung, die Inhalte anbietet, die an das Wissensniveau des Nutzers angepasst sind, ob es nun kaum oder grundlegend vorhanden ist."
+                   data-zh="Vaulty+ 是一个专注于金融教育的网站，根据用户的知识水平（无论是零基础还是基础水平）提供相应内容。">
+                    Vaulty+ es una página web enfocada en la educación financiera que ofrece contenido adaptado al nivel de conocimiento del usuario, ya sea nulo o básico.
+                </p>
+
+                <p data-es="Su objetivo principal es ayudar a las personas a tomar mejores decisiones económicas mediante una plataforma interactiva y educativa."
+                   data-en="Its main goal is to help people make better financial decisions through an interactive and educational platform."
+                   data-pt="Seu principal objetivo é ajudar as pessoas a tomar melhores decisões econômicas por meio de uma plataforma interativa e educativa."
+                   data-fr="Son objectif principal est d'aider les gens à prendre de meilleures décisions financières grâce à une plateforme interactive et éducative."
+                   data-al="Das Hauptziel ist es, Menschen durch eine interaktive und lehrreiche Plattform bei besseren finanziellen Entscheidungen zu helfen."
+                   data-zh="其主要目标是通过一个互动式教育平台，帮助人们做出更好的经济决策。">
+                    Su objetivo principal es ayudar a las personas a tomar mejores decisiones económicas mediante una plataforma interactiva y educativa.
+                </p>
+
+                <p data-es="También cuenta con inteligencia artificial para orientar a los usuarios, además de una comunidad donde las personas puedan compartir consejos y experiencias."
+                   data-en="It also has artificial intelligence to guide users, as well as a community where people can share tips and experiences."
+                   data-pt="Também conta com inteligência artificial para orientar os usuários, além de uma comunidade onde as pessoas podem compartilhar dicas e experiências."
+                   data-fr="Il dispose également d'une intelligence artificielle pour orienter les utilisateurs, ainsi que d'une communauté où les gens peuvent partager des conseils et des expériences."
+                   data-al="Außerdem gibt es künstliche Intelligenz zur Unterstützung der Nutzer sowie eine Community, in der Tipps und Erfahrungen ausgetauscht werden können."
+                   data-zh="它还配备了人工智能来指导用户，并拥有一个社区，供人们分享建议和经验。">
+                    También cuenta con inteligencia artificial para orientar a los usuarios, además de una comunidad donde las personas puedan compartir consejos y experiencias.
+                </p>
+
+                <p data-es="De igual forma, incluye herramientas prácticas como juegos educativos sobre finanzas e información financiera panameña."
+                   data-en="Likewise, it includes practical tools such as educational games on finance and information about Panama's financial system."
+                   data-pt="Da mesma forma, inclui ferramentas práticas, como jogos educativos sobre finanças e informações financeiras do Panamá."
+                   data-fr="De même, il comprend des outils pratiques tels que des jeux éducatifs sur la finance et des informations sur le système financier panaméen."
+                   data-al="Ebenso enthält es praktische Werkzeuge wie Lernspiele zu Finanzen und Informationen zum panamaischen Finanzsystem."
+                   data-zh="此外，还包含实用工具，例如金融教育游戏以及巴拿马金融信息。">
+                    De igual forma, incluye herramientas prácticas como juegos educativos sobre finanzas e información financiera panameña.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+        SECCIÓN 2 — QUIÉNES SOMOS
+    ============================================ -->
+    <section class="about-section quienes-somos">
+        <div class="about-overlay"></div>
+
+        <div class="about-text reveal">
+            <h2 data-es="¿Quiénes somos?" data-en="Who are we?" data-pt="Quem somos?" data-fr="Qui sommes-nous ?" data-al="Wer wir sind?" data-zh="我们是谁？">¿Quiénes somos?</h2>
+
+            <p data-es="Vaulty+ es una plataforma diseñada para impulsar la educación financiera de una manera innovadora, práctica y accesible para todos."
+               data-en="Vaulty+ is a platform designed to promote financial education in an innovative, practical, and accessible way for everyone."
+               data-pt="Vaulty+ é uma plataforma projetada para impulsionar a educação financeira de forma inovadora, prática e acessível para todos."
+               data-fr="Vaulty+ est une plateforme conçue pour promouvoir l'éducation financière de manière innovante, pratique et accessible à tous."
+               data-al="Vaulty+ ist eine Plattform, die finanzielle Bildung auf innovative, praktische und für alle zugängliche Weise fördern soll."
+               data-zh="Vaulty+ 是一个旨在以创新、实用且人人可及的方式推动金融教育的平台。">
+                Vaulty+ es una plataforma diseñada para impulsar la educación financiera de una manera innovadora, práctica y accesible para todos.
+            </p>
+
+            <p data-es="Creemos que aprender a administrar el dinero no debería ser complicado, sino una habilidad que ayude a las personas a tomar mejores decisiones, alcanzar sus metas y construir un futuro más seguro."
+               data-en="We believe that learning how to manage money should not be complicated, but rather a skill that helps people make better decisions, achieve their goals, and build a more secure future."
+               data-pt="Acreditamos que aprender a administrar o dinheiro não deveria ser complicado, mas sim uma habilidade que ajude as pessoas a tomar melhores decisões, alcançar seus objetivos e construir um futuro mais seguro."
+               data-fr="Nous pensons qu'apprendre à gérer son argent ne devrait pas être compliqué, mais plutôt une compétence qui aide les gens à prendre de meilleures décisions, à atteindre leurs objectifs et à construire un avenir plus sûr."
+               data-al="Wir glauben, dass das Erlernen des Umgangs mit Geld nicht kompliziert sein sollte, sondern eine Fähigkeit ist, die Menschen hilft, bessere Entscheidungen zu treffen, ihre Ziele zu erreichen und eine sicherere Zukunft aufzubauen."
+               data-zh="我们相信，学习理财不应该很复杂，而应该是一项能帮助人们做出更好决策、实现目标并构建更安全未来的技能。">
+                Creemos que aprender a administrar el dinero no debería ser complicado, sino una habilidad que ayude a las personas a tomar mejores decisiones, alcanzar sus metas y construir un futuro más seguro.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+        SECCIÓN 3 — CÓMO PODEMOS AYUDARTE
+    ============================================ -->
+    <section class="about-section como-podemos-ayudarte">
+        <img src="img/como_ayudarte.png" alt="Cómo ayudarte" class="como-podemos-ayudarte-img">
+        <div class="about-overlay"></div>
+
+        <div class="about-container">
+            <div class="about-text reveal">
+                <h2 data-es="¿Cómo podemos ayudarte?" data-en="How can we help you?" data-pt="Como podemos ajudá-lo?" data-fr="Comment pouvons-nous vous aider ?" data-al="Wie können wir Ihnen helfen?" data-zh="我们能如何帮助您？">¿Cómo podemos ayudarte?</h2>
+
+                <p data-es="Te ayudamos a comprender mejor tus finanzas, aprendiendo a ahorrar, administrar tu dinero y a conocer cómo funcionan los impuestos."
+                   data-en="We help you better understand your finances, learning how to save, manage your money and learn how taxes work."
+                   data-pt="Ajudamos você a entender melhor suas finanças, aprendendo a poupar, administrar seu dinheiro e conhecer como funcionam os impostos."
+                   data-fr="Nous vous aidons à mieux comprendre vos finances, en apprenant à épargner, à gérer votre argent et à comprendre le fonctionnement des impôts."
+                   data-al="Wir helfen Ihnen, Ihre Finanzen besser zu verstehen, indem Sie lernen zu sparen, Ihr Geld zu verwalten und zu verstehen, wie Steuern funktionieren."
+                   data-zh="我们帮助您更好地理解自己的财务状况，学习储蓄、管理资金，并了解税收的运作方式。">
+                    Te ayudamos a comprender mejor tus finanzas, aprendiendo a ahorrar, administrar tu dinero y a conocer cómo funcionan los impuestos.
+                </p>
+
+                <p data-es="También te enseñamos sobre jubilación y prevención de fraudes, para que puedas tomar decisiones financieras más seguras, informadas e inteligentes."
+                   data-en="We also teach you about retirement and fraud prevention, so you can make safer, more informed and smarter financial decisions."
+                   data-pt="Também ensinamos sobre aposentadoria e prevenção de fraudes, para que você possa tomar decisões financeiras mais seguras, informadas e inteligentes."
+                   data-fr="Nous vous informons également sur la retraite et la prévention des fraudes, afin que vous puissiez prendre des décisions financières plus sûres, éclairées et intelligentes."
+                   data-al="Wir informieren Sie auch über Ruhestand und Betrugsprävention, damit Sie sicherere, fundiertere und klügere finanzielle Entscheidungen treffen können."
+                   data-zh="我们还教您关于退休和防欺诈的知识，帮助您做出更安全、更明智、更理性的财务决策。">
+                    También te enseñamos sobre jubilación y prevención de fraudes, para que puedas tomar decisiones financieras más seguras, informadas e inteligentes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+        SECCIÓN 4 — ENTIDADES Y POSIBLES ALIANZAS
+    ============================================ -->
+    <section class="about-section entidades-alianzas">
+        <div class="about-container">
+            <div class="about-text reveal">
+                <h2>
+                    <span data-es="Consulta información, recursos y contactos de interés"
+                          data-en="Explore valuable information, resources, and key contacts"
+                          data-pt="Consulte informações, recursos e contatos de interesse"
+                          data-fr="Consultez des informations, des ressources et des contacts utiles"
+                          data-al="Informationen, Ressourcen und wichtige Kontakte einsehen"
+                          data-zh="查阅有价值的信息、资源和相关联系方式">
+                        Consulta información, recursos y contactos de interés
+                    </span>
+                    <br>
+                    <span data-es="para resolver tus dudas" data-en="to answer your questions" data-pt="para tirar suas dúvidas" data-fr="pour répondre à vos questions" data-al="um Ihre Fragen zu klären" data-zh="以解答您的疑问">
+                        para resolver tus dudas
+                    </span>
+                </h2>
+
+                <h3 class="entidades-lista-organizaciones"
+                    data-es="Entidades reguladoras en Panamá a tu disposición"
+                    data-en="Panamanian regulatory institutions at your service"
+                    data-pt="Entidades reguladoras no Panamá à sua disposição"
+                    data-fr="Entités régulatrices au Panama à votre disposition"
+                    data-al="Panamaische Regulierungsbehörden zu Ihrer Verfügung"
+                    data-zh="为您服务的巴拿马监管机构">
+                    Entidades reguladoras en Panamá a tu disposición
+                </h3>
+
+                <div class="entidades-lista">
+
+                    <div class="entidad-card reveal-scale" data-tilt>
+                        <img src="img/logoSMV.jpg" alt="SMV" class="entidad-logo">
+                        <div class="entidad-divider"></div>
+                        <div class="entidad-texto">
+                            <h4 data-es="Regulador del mercado de valores" data-en="Securities Market Regulator" data-pt="Regulador do mercado de valores" data-fr="Régulateur du marché des valeurs" data-al="Regulierer des Wertpapiermarkts" data-zh="证券市场监管机构">Regulador del mercado de valores</h4>
+                            <p data-es="Superintendencia del Mercado de Valores de Panamá (SMV)" data-en="Superintendency of the Securities Market of Panama (SMV)" data-pt="Superintendência do Mercado de Valores do Panamá (SMV)" data-fr="Surintendance du marché des valeurs du Panama (SMV)" data-al="Aufsichtsbehörde für den Wertpapiermarkt Panamas (SMV)" data-zh="巴拿马证券市场监管局 (SMV)">Superintendencia del Mercado de Valores de Panamá (SMV)</p>
+
+                            <div class="entidad-contacto">
+                                <img src="iconos/llamar.png" alt="Teléfono" class="entidad-icono">
+                                <p data-es="Teléfono: 501-1700" data-en="Phone: 501-1700" data-pt="Telefone: 501-1700" data-fr="Téléphone : 501-1700" data-al="Telefon: 501-1700" data-zh="电话：501-1700">Teléfono: 501-1700</p>
+                            </div>
+                            <div class="entidad-contacto">
+                                <img src="iconos/correo-electronico.png" alt="Correo" class="entidad-icono">
+                                <p data-es="Correo: info@supervalores.gob.pa" data-en="Email: info@supervalores.gob.pa" data-pt="E-mail: info@supervalores.gob.pa" data-fr="Courriel : info@supervalores.gob.pa" data-al="E-Mail: info@supervalores.gob.pa" data-zh="邮箱：info@supervalores.gob.pa">Correo: info@supervalores.gob.pa</p>
+                            </div>
+                        </div>
+                        <a href="https://www.supervalores.gob.pa" target="_blank" rel="noopener" class="entidad-arrow" aria-label="Ver más sobre la SMV">→</a>
+                    </div>
+
+                    <div class="entidad-card reveal-scale" data-tilt>
+                        <img src="img/logoSRPP.jpg" alt="SSRP" class="entidad-logo">
+                        <div class="entidad-divider"></div>
+                        <div class="entidad-texto">
+                            <h4 data-es="Regulador del sector seguros" data-en="Insurance Sector Regulator" data-pt="Regulador do setor de seguros" data-fr="Régulateur du secteur des assurances" data-al="Regulierer des Versicherungssektors" data-zh="保险行业监管机构">Regulador del sector seguros</h4>
+                            <p data-es="Superintendencia de Seguros y Reaseguros de Panamá (SRPP)" data-en="Superintendency of Insurance and Reinsurance of Panama (SRPP)" data-pt="Superintendência de Seguros e Resseguros do Panamá (SRPP)" data-fr="Surintendance des assurances et réassurances du Panama (SRPP)" data-al="Aufsichtsbehörde für Versicherung und Rückversicherung Panamas (SRPP)" data-zh="巴拿马保险与再保险监管局 (SRPP)">Superintendencia de Seguros y Reaseguros de Panamá (SRPP)</p>
+
+                            <div class="entidad-contacto">
+                                <img src="iconos/llamar.png" alt="Teléfono" class="entidad-icono">
+                                <p data-es="Teléfono: 524-5800" data-en="Phone: 524-5800" data-pt="Telefone: 524-5800" data-fr="Téléphone : 524-5800" data-al="Telefon: 524-5800" data-zh="电话：524-5800">Teléfono: 524-5800</p>
+                            </div>
+                            <div class="entidad-contacto">
+                                <img src="iconos/correo-electronico.png" alt="Correo" class="entidad-icono">
+                                <p data-es="Correo: info@superseguros.gob.pa" data-en="Email: info@superseguros.gob.pa" data-pt="E-mail: info@superseguros.gob.pa" data-fr="Courriel : info@superseguros.gob.pa" data-al="E-Mail: info@superseguros.gob.pa" data-zh="邮箱：info@superseguros.gob.pa">Correo: info@superseguros.gob.pa</p>
+                            </div>
+                        </div>
+                        <a href="https://www.superseguros.gob.pa" target="_blank" rel="noopener" class="entidad-arrow" aria-label="Ver más sobre la SRPP">→</a>
+                    </div>
+
+                    <div class="entidad-card reveal-scale" data-tilt>
+                        <img src="img/logoSBP.png" alt="SBP" class="entidad-logo">
+                        <div class="entidad-divider"></div>
+                        <div class="entidad-texto">
+                            <h4 data-es="Regulador del sector bancario" data-en="Banking Sector Regulator" data-pt="Regulador do setor bancário" data-fr="Régulateur du secteur bancaire" data-al="Regulierer des Bankensektors" data-zh="银行业监管机构">Regulador del sector bancario</h4>
+                            <p data-es="Superintendencia de Bancos de Panamá (SBP)" data-en="Superintendency of Banks of Panama (SBP)" data-pt="Superintendência de Bancos do Panamá (SBP)" data-fr="Surintendance des banques du Panama (SBP)" data-al="Aufsichtsbehörde für Banken Panamas (SBP)" data-zh="巴拿马银行监管局 (SBP)">Superintendencia de Bancos de Panamá (SBP)</p>
+
+                            <div class="entidad-contacto">
+                                <img src="iconos/llamar.png" alt="Teléfono" class="entidad-icono">
+                                <p data-es="Teléfono: 800-7897" data-en="Phone: 800-7897" data-pt="Telefone: 800-7897" data-fr="Téléphone : 800-7897" data-al="Telefon: 800-7897" data-zh="电话：800-7897">Teléfono: 800-7897</p>
+                            </div>
+                            <div class="entidad-contacto">
+                                <img src="iconos/correo-electronico.png" alt="Correo" class="entidad-icono">
+                                <p data-es="Correo: atencionalcliente@superbancos.gob.pa" data-en="Email: atencionalcliente@superbancos.gob.pa" data-pt="E-mail: atencionalcliente@superbancos.gob.pa" data-fr="Courriel : atencionalcliente@superbancos.gob.pa" data-al="E-Mail: atencionalcliente@superbancos.gob.pa" data-zh="邮箱：atencionalcliente@superbancos.gob.pa">Correo: atencionalcliente@superbancos.gob.pa</p>
+                            </div>
+                        </div>
+                        <a href="https://www.superbancos.gob.pa" target="_blank" rel="noopener" class="entidad-arrow" aria-label="Ver más sobre la SBP">→</a>
+                    </div>
+
+                    <h3 class="entidades-lista-organizaciones" data-es="Posibles alianzas" data-en="Potential Partnerships" data-pt="Possíveis parcerias" data-fr="Partenariats potentiels" data-al="Mögliche Partnerschaften" data-zh="潜在合作伙伴">Posibles alianzas</h3>
+
+                    <div class="entidad-card reveal-scale" data-tilt>
+                        <img src="img/MEF.PNG" alt="MEF" class="entidad-logo">
+                        <div class="entidad-divider"></div>
+                        <div class="entidad-texto">
+                            <h4 data-es="Administración de las Finanzas Públicas" data-en="Public Finance Administration" data-pt="Administração das Finanças Públicas" data-fr="Administration des finances publiques" data-al="Verwaltung der öffentlichen Finanzen" data-zh="公共财政管理">Administración de las Finanzas Públicas</h4>
+                            <p data-es="Ministerio de Economía y Finanzas de Panamá" data-en="Ministry of Economy and Finance of Panama" data-pt="Ministério da Economia e Finanças do Panamá" data-fr="Ministère de l'Économie et des Finances du Panama" data-al="Ministerium für Wirtschaft und Finanzen Panamas" data-zh="巴拿马经济财政部">Ministerio de Economía y Finanzas</p>
+
+                            <div class="entidad-contacto">
+                                <img src="iconos/llamar.png" alt="Teléfono" class="entidad-icono">
+                                <p data-es="Teléfono: 507-7000" data-en="Phone: 507-7000" data-pt="Telefone: 507-7000" data-fr="Téléphone : 507-7000" data-al="Telefon: 507-7000" data-zh="电话：507-7000">Teléfono: 507-7000</p>
+                            </div>
+                            <div class="entidad-contacto">
+                                <img src="iconos/correo-electronico.png" alt="Correo" class="entidad-icono">
+                                <p data-es="Correo: contacto@mef.gob.pa" data-en="Email: contacto@mef.gob.pa" data-pt="E-mail: contacto@mef.gob.pa" data-fr="Courriel : contacto@mef.gob.pa" data-al="E-Mail: contacto@mef.gob.pa" data-zh="邮箱：contacto@mef.gob.pa">Correo: contacto@mef.gob.pa</p>
+                            </div>
+                        </div>
+                        <a href="https://www.mef.gob.pa" target="_blank" rel="noopener" class="entidad-arrow" aria-label="Ver más sobre la MEF">→</a>
+                    </div>
+
+                    <div class="entidad-card reveal-scale" data-tilt>
+                        <img src="img/MICI.jpeg" alt="MICI" class="entidad-logo">
+                        <div class="entidad-divider"></div>
+                        <div class="entidad-texto">
+                            <h4 data-es="Dirección de Empresas Financieras del Ministerio de Comercio e Industrias" data-en="Directorate of Financial Companies of the Ministry of Commerce and Industries" data-pt="Direção de Empresas Financeiras do Ministério do Comércio e Indústrias" data-fr="Direction des entreprises financières du ministère du Commerce et de l'Industrie" data-al="Direktion für Finanzunternehmen des Ministeriums für Handel und Industrie" data-zh="商工部金融企业司">Dirección de Empresas Financieras del Ministerio de Comercio e Industrias</h4>
+                            <p data-es="Ministerio de Comercio e Industrias de Panamá" data-en="Ministry of Commerce and Industries of Panama" data-pt="Ministério do Comércio e Indústrias do Panamá" data-fr="Ministère du Commerce et de l'Industrie du Panama" data-al="Ministerium für Handel und Industrie Panamas" data-zh="巴拿马商工部">Ministerio de Comercio e Industrias de Panamá</p>
+
+                            <div class="entidad-contacto">
+                                <img src="iconos/llamar.png" alt="Teléfono" class="entidad-icono">
+                                <p data-es="Teléfono: 560-0600" data-en="Phone: 560-0600" data-pt="Telefone: 560-0600" data-fr="Téléphone : 560-0600" data-al="Telefon: 560-0600" data-zh="电话：560-0600">Teléfono: 560-0600</p>
+                            </div>
+                            <div class="entidad-contacto">
+                                <img src="iconos/correo-electronico.png" alt="Correo" class="entidad-icono">
+                                <p data-es="Correo: contactenos@mici.gob.pa" data-en="Email: contactenos@mici.gob.pa" data-pt="E-mail: contactenos@mici.gob.pa" data-fr="Courriel : contactenos@mici.gob.pa" data-al="E-Mail: contactenos@mici.gob.pa" data-zh="邮箱：contactenos@mici.gob.pa">Correo: contactenos@mici.gob.pa</p>
+                            </div>
+                        </div>
+                        <a href="https://mici.gob.pa" target="_blank" rel="noopener" class="entidad-arrow" aria-label="Ver más sobre la MICI">→</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================
+    FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+     ASISTENTE — STRIX
+    ============================================ -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

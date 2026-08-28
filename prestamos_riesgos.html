@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prestamos_detalle.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Riesgos sobreendeudamiento</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER 
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" class="active" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- HERO -->
+        <section class="detail-hero">
+            <div class="hero-inner">
+                <div>
+                    <p class="eyebrow" data-es="Prevención financiera" data-en="Financial prevention" data-pt="Prevenção financeira" data-fr="Prévention financière" data-al="Finanzielle Prävention" data-zh="财务预防">Prevención financiera</p>
+                    <h1 data-es="Riesgos del sobreendeudamiento" data-en="Risks of over-indebtedness" data-pt="Riscos do superendividamento" data-fr="Risques de surendettement" data-al="Risiken der Überschuldung" data-zh="过度负债的风险">Riesgos del sobreendeudamiento</h1>
+                    <p class="hero-lead"
+                       data-es="Ocurre cuando una persona asume más obligaciones financieras de las que puede pagar con sus ingresos disponibles."
+                       data-en="It happens when a person takes on more financial obligations than they can pay with their available income."
+                       data-pt="Ocorre quando uma pessoa assume mais obrigações financeiras do que pode pagar com sua renda disponível."
+                       data-fr="Cela se produit lorsqu'une personne assume plus d'obligations financières qu'elle ne peut en payer avec ses revenus disponibles."
+                       data-al="Dies geschieht, wenn eine Person mehr finanzielle Verpflichtungen eingeht, als sie mit ihrem verfügbaren Einkommen bezahlen kann."
+                       data-zh="当一个人承担的财务义务超过其可支配收入所能承受的范围时，就会发生这种情况。">
+                        Ocurre cuando una persona asume más obligaciones financieras de las que puede pagar con sus ingresos disponibles.
+                    </p>
+                </div>
+
+                <div class="hero-art" aria-hidden="true">
+                    <div class="art-orbit"></div>
+                    <div class="hero-symbol"><img src="iconos/peligro.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRINCIPALES CONSECUENCIAS -->
+        <section class="page-shell" aria-labelledby="consecuencias-title">
+            <div class="section-heading reveal">
+                <p class="section-kicker" data-es="Señales de alerta" data-en="Warning signs" data-pt="Sinais de alerta" data-fr="Signaux d'alerte" data-al="Warnzeichen" data-zh="警示信号">Señales de alerta</p>
+                <h2 id="consecuencias-title" data-es="Principales consecuencias" data-en="Main consequences" data-pt="Principais consequências" data-fr="Principales conséquences" data-al="Wichtigste Folgen" data-zh="主要后果">Principales consecuencias</h2>
+                <p data-es="El problema no es usar crédito: es asumir pagos que tu presupuesto ya no puede sostener."
+                   data-en="The problem is not using credit; it is taking on payments your budget can no longer support."
+                   data-pt="O problema não é usar crédito: é assumir pagamentos que seu orçamento já não consegue sustentar."
+                   data-fr="Le problème n'est pas d'utiliser le crédit, mais d'assumer des paiements que votre budget ne peut plus soutenir."
+                   data-al="Das Problem ist nicht die Nutzung von Krediten, sondern Zahlungen zu übernehmen, die Ihr Budget nicht mehr tragen kann."
+                   data-zh="问题不在于使用信贷，而在于承担了预算已无法支撑的还款。">
+                    El problema no es usar crédito: es asumir pagos que tu presupuesto ya no puede sostener.
+                </p>
+            </div>
+
+            <div class="consequence-grid">
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="iconos/reloj-de-pared.png" alt=""></div>
+                    <h3 data-es="Retrasos en los pagos" data-en="Late payments" data-pt="Atrasos nos pagamentos" data-fr="Retards de paiement" data-al="Zahlungsverzug" data-zh="逾期付款">Retrasos en los pagos</h3>
+                    <p data-es="La falta de liquidez puede provocar atrasos o incumplimientos en una o varias obligaciones."
+                       data-en="Lack of cash can cause delays or defaults on one or more financial obligations."
+                       data-pt="A falta de liquidez pode causar atrasos ou inadimplência em uma ou várias obrigações."
+                       data-fr="Le manque de liquidités peut entraîner des retards ou des défauts sur une ou plusieurs obligations."
+                       data-al="Mangelnde Liquidität kann zu Verzögerungen oder Ausfällen bei einer oder mehreren Verpflichtungen führen."
+                       data-zh="资金不足可能导致一项或多项债务延迟或违约。">
+                        La falta de liquidez puede provocar atrasos o incumplimientos en una o varias obligaciones.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/historial-crediticio.png" alt=""></div>
+                    <h3 data-es="Historial crediticio afectado" data-en="Damaged credit history" data-pt="Histórico de crédito prejudicado" data-fr="Historique de crédit affecté" data-al="Beeinträchtigte Kredithistorie" data-zh="信用记录受损">Historial crediticio afectado</h3>
+                    <p data-es="Los incumplimientos pueden dificultar el acceso futuro a financiamiento o empeorar sus condiciones."
+                       data-en="Defaults may make future financing harder to obtain or lead to worse terms."
+                       data-pt="A inadimplência pode dificultar o acesso futuro a financiamento ou piorar suas condições."
+                       data-fr="Les défauts de paiement peuvent compliquer l'accès futur au financement ou en dégrader les conditions."
+                       data-al="Zahlungsausfälle können den künftigen Zugang zu Finanzierungen erschweren oder deren Konditionen verschlechtern."
+                       data-zh="违约可能使未来获得融资更加困难，或导致条件恶化。">
+                        Los incumplimientos pueden dificultar el acceso futuro a financiamiento o empeorar sus condiciones.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/interes.png" alt=""></div>
+                    <h3 data-es="Intereses y recargos" data-en="Interest and fees" data-pt="Juros e encargos" data-fr="Intérêts et frais" data-al="Zinsen und Gebühren" data-zh="利息和附加费">Intereses y recargos</h3>
+                    <p data-es="La mora puede añadir intereses moratorios, penalizaciones y otros cargos a una deuda ya difícil de pagar."
+                       data-en="Late payment can add default interest, penalties and other charges to debt that is already difficult to pay."
+                       data-pt="A mora pode adicionar juros moratórios, penalidades e outras taxas a uma dívida já difícil de pagar."
+                       data-fr="Le retard peut ajouter des intérêts de retard, des pénalités et d'autres frais à une dette déjà difficile à payer."
+                       data-al="Verzug kann Verzugszinsen, Strafen und weitere Gebühren zu einer bereits schwer zu zahlenden Schuld hinzufügen."
+                       data-zh="逾期可能会给本已难以偿还的债务增加违约利息、罚金和其他费用。">
+                        La mora puede añadir intereses moratorios, penalizaciones y otros cargos a una deuda ya difícil de pagar.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/credito.png" alt=""></div>
+                    <h3 data-es="Menor capacidad de crédito" data-en="Lower borrowing capacity" data-pt="Menor capacidade de crédito" data-fr="Capacité d'emprunt réduite" data-al="Geringere Kreditfähigkeit" data-zh="信贷能力下降">Menor capacidad de crédito</h3>
+                    <p data-es="Una alta carga de deudas reduce la posibilidad de obtener nuevos créditos cuando realmente los necesites."
+                       data-en="A high debt burden reduces your ability to obtain new credit when you truly need it."
+                       data-pt="Uma alta carga de dívidas reduz a possibilidade de obter novos créditos quando você realmente precisar."
+                       data-fr="Une lourde charge de dettes réduit la possibilité d'obtenir de nouveaux crédits quand vous en aurez vraiment besoin."
+                       data-al="Eine hohe Schuldenlast verringert die Möglichkeit, neue Kredite zu erhalten, wenn Sie sie wirklich brauchen."
+                       data-zh="较高的债务负担会降低您在真正需要时获得新贷款的机会。">
+                        Una alta carga de deudas reduce la posibilidad de obtener nuevos créditos cuando realmente los necesites.
+                    </p>
+                </article>
+
+                <article class="info-card featured reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/ahorro.png" alt=""></div>
+                    <div>
+                        <h3 data-es="Menos ahorro y más estrés financiero" data-en="Less saving and more financial stress" data-pt="Menos poupança e mais estresse financeiro" data-fr="Moins d'épargne et plus de stress financier" data-al="Weniger Ersparnisse und mehr finanzieller Stress" data-zh="储蓄减少、财务压力增大">Menos ahorro y más estrés financiero</h3>
+                        <p data-es="Cuando casi todo el ingreso se destina a cuotas, queda poco margen para ahorrar, cubrir emergencias o mantener el bienestar personal y familiar."
+                           data-en="When nearly all income goes to payments, little remains for saving, emergencies or personal and family well-being."
+                           data-pt="Quando quase toda a renda vai para parcelas, sobra pouca margem para poupar, cobrir emergências ou manter o bem-estar pessoal e familiar."
+                           data-fr="Lorsque presque tout le revenu est consacré aux mensualités, il reste peu de marge pour épargner, faire face aux urgences ou maintenir le bien-être personnel et familial."
+                           data-al="Wenn fast das gesamte Einkommen für Raten aufgewendet wird, bleibt wenig Spielraum zum Sparen, für Notfälle oder für das persönliche und familiäre Wohlbefinden."
+                           data-zh="当几乎所有收入都用于还款时，用于储蓄、应急或维持个人及家庭福祉的空间就所剩无几了。">
+                            Cuando casi todo el ingreso se destina a cuotas, queda poco margen para ahorrar, cubrir emergencias o mantener el bienestar personal y familiar.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CÓMO EVITARLO -->
+            <section class="subsection" aria-labelledby="evitar-title">
+                <div class="section-heading reveal">
+                    <p class="section-kicker" data-es="Actúa a tiempo" data-en="Act early" data-pt="Aja a tempo" data-fr="Agissez à temps" data-al="Rechtzeitig handeln" data-zh="及时行动">Actúa a tiempo</p>
+                    <h2 id="evitar-title" data-es="¿Cómo evitarlo?" data-en="How can you prevent it?" data-pt="Como evitar?" data-fr="Comment l'éviter ?" data-al="Wie kann man es vermeiden?" data-zh="如何避免？">¿Cómo evitarlo?</h2>
+                </div>
+
+                <div class="content-grid">
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="iconos/contabilidad.png" alt=""></div>
+                        <h3 data-es="Organiza tu presupuesto" data-en="Organize your budget" data-pt="Organize seu orçamento" data-fr="Organisez votre budget" data-al="Organisieren Sie Ihr Budget" data-zh="整理您的预算">Organiza tu presupuesto</h3>
+                        <p data-es="Registra ingresos, gastos esenciales y cuotas. Destina una parte del ingreso al ahorro antes de asumir una deuda nueva."
+                           data-en="Record income, essential expenses and payments. Set aside part of your income for savings before taking on new debt."
+                           data-pt="Registre renda, gastos essenciais e parcelas. Destine parte da renda à poupança antes de assumir uma nova dívida."
+                           data-fr="Enregistrez les revenus, les dépenses essentielles et les mensualités. Réservez une partie du revenu à l'épargne avant de contracter une nouvelle dette."
+                           data-al="Erfassen Sie Einnahmen, wesentliche Ausgaben und Raten. Legen Sie einen Teil des Einkommens als Ersparnis zurück, bevor Sie neue Schulden aufnehmen."
+                           data-zh="记录收入、基本支出和还款额。在承担新债务之前，先拿出一部分收入用于储蓄。">
+                            Registra ingresos, gastos esenciales y cuotas. Destina una parte del ingreso al ahorro antes de asumir una deuda nueva.
+                        </p>
+                    </article>
+
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="img/glosario/financiamiento.png" alt=""></div>
+                        <h3 data-es="Solicita solo lo necesario" data-en="Borrow only what you need" data-pt="Solicite apenas o necessário" data-fr="Ne demandez que le nécessaire" data-al="Beantragen Sie nur das Nötige" data-zh="只申请所需金额">Solicita solo lo necesario</h3>
+                        <p data-es="No aceptes un monto mayor solo porque fue aprobado. Pide lo que realmente necesitas y puedes devolver."
+                           data-en="Do not accept a larger amount simply because it was approved. Borrow only what you truly need and can repay."
+                           data-pt="Não aceite um valor maior só porque foi aprovado. Peça apenas o que realmente precisa e pode devolver."
+                           data-fr="N'acceptez pas un montant plus élevé simplement parce qu'il a été approuvé. Demandez ce dont vous avez réellement besoin et que vous pouvez rembourser."
+                           data-al="Akzeptieren Sie keinen höheren Betrag nur, weil er genehmigt wurde. Beantragen Sie nur, was Sie wirklich brauchen und zurückzahlen können."
+                           data-zh="不要仅因获批就接受更高的额度。只申请您真正需要且能够偿还的金额。">
+                            No aceptes un monto mayor solo porque fue aprobado. Pide lo que realmente necesitas y puedes devolver.
+                        </p>
+                    </article>
+
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="iconos/bancos.png" alt=""></div>
+                        <h3 data-es="Compara diferentes ofertas" data-en="Compare different offers" data-pt="Compare diferentes ofertas" data-fr="Comparez différentes offres" data-al="Vergleichen Sie verschiedene Angebote" data-zh="比较不同的报价">Compara diferentes ofertas</h3>
+                        <p data-es="Revisa tasas, comisiones, seguros, plazos y recargos de varias entidades antes de firmar."
+                           data-en="Review rates, fees, insurance, terms and penalties from several institutions before signing."
+                           data-pt="Revise taxas, comissões, seguros, prazos e encargos de várias instituições antes de assinar."
+                           data-fr="Examinez les taux, commissions, assurances, durées et frais de plusieurs établissements avant de signer."
+                           data-al="Prüfen Sie vor der Unterschrift Zinsen, Gebühren, Versicherungen, Laufzeiten und Aufschläge mehrerer Institute."
+                           data-zh="签约前请审查多家机构的利率、手续费、保险、期限和罚金。">
+                            Revisa tasas, comisiones, seguros, plazos y recargos de varias entidades antes de firmar.
+                        </p>
+                    </article>
+
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="img/glosario/deuda.png" alt=""></div>
+                        <h3 data-es="No tapes una deuda sin analizar" data-en="Do not cover one debt without analysis" data-pt="Não cubra uma dívida sem analisar" data-fr="Ne couvrez pas une dette sans analyse" data-al="Decken Sie keine Schuld ohne Analyse" data-zh="不要未经分析就以贷养贷">No tapes una deuda sin analizar</h3>
+                        <p data-es="Evita solicitar un préstamo para pagar otro sin calcular el costo total y confirmar que realmente mejora tu situación."
+                           data-en="Avoid taking a loan to pay another without calculating the total cost and confirming it truly improves your situation."
+                           data-pt="Evite solicitar um empréstimo para pagar outro sem calcular o custo total e confirmar que realmente melhora sua situação."
+                           data-fr="Évitez de contracter un prêt pour en payer un autre sans calculer le coût total et confirmer que cela améliore réellement votre situation."
+                           data-al="Vermeiden Sie es, einen Kredit aufzunehmen, um einen anderen zu tilgen, ohne die Gesamtkosten zu berechnen und zu prüfen, ob sich Ihre Lage wirklich verbessert."
+                           data-zh="不要在未计算总成本、未确认真正能改善处境的情况下，为偿还一笔债务而申请另一笔贷款。">
+                            Evita solicitar un préstamo para pagar otro sin calcular el costo total y confirmar que realmente mejora tu situación.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <aside class="tip-panel reveal">
+                <div class="tip-icon" aria-hidden="true"><img src="iconos/escudo.png" alt=""></div>
+                <div>
+                    <h2 data-es="Si ya tienes dificultades" data-en="If you are already struggling" data-pt="Se você já tem dificuldades" data-fr="Si vous rencontrez déjà des difficultés" data-al="Wenn Sie bereits Schwierigkeiten haben" data-zh="如果您已陷入困境">Si ya tienes dificultades</h2>
+                    <p data-es="Contacta a la entidad antes de atrasarte y pregunta por alternativas. No ignores avisos ni firmes acuerdos que no comprendas."
+                       data-en="Contact the institution before falling behind and ask about alternatives. Do not ignore notices or sign agreements you do not understand."
+                       data-pt="Entre em contato com a instituição antes de atrasar e pergunte sobre alternativas. Não ignore avisos nem assine acordos que não entenda."
+                       data-fr="Contactez l'établissement avant d'être en retard et renseignez-vous sur les alternatives. N'ignorez pas les avis et ne signez pas d'accords que vous ne comprenez pas."
+                       data-al="Kontaktieren Sie das Institut, bevor Sie in Verzug geraten, und fragen Sie nach Alternativen. Ignorieren Sie keine Hinweise und unterschreiben Sie keine Vereinbarungen, die Sie nicht verstehen."
+                       data-zh="在逾期之前联系金融机构，询问其他方案。不要忽视通知，也不要签署您不理解的协议。">
+                        Contacta a la entidad antes de atrasarte y pregunta por alternativas. No ignores avisos ni firmes acuerdos que no comprendas.
+                    </p>
+                </div>
+                <a class="tip-link" href="finanzas_prestamos.html#temas-prestamos" data-es="Volver a préstamos" data-en="Back to loans" data-pt="Voltar a empréstimos" data-fr="Retour aux prêts" data-al="Zurück zu Krediten" data-zh="返回贷款页面">Volver a préstamos</a>
+            </aside>
+        </section>
+
+        <!-- SIGUE APRENDIENDO -->
+        <section class="related-pages" aria-labelledby="relacionados-title">
+            <div class="related-inner">
+                <h2 id="relacionados-title" data-es="Sigue aprendiendo" data-en="Keep learning" data-pt="Continue aprendendo" data-fr="Continuez à apprendre" data-al="Weiter lernen" data-zh="继续学习">Sigue aprendiendo</h2>
+                <div class="related-grid">
+                    <a class="related-card" href="prestamos_como_elegir.html">
+                        <span data-es="Explorar" data-en="Explore" data-pt="Explorar" data-fr="Explorer" data-al="Entdecken" data-zh="探索">Explorar</span>
+                        <strong data-es="Cómo elegir un préstamo" data-en="How to choose a loan" data-pt="Como escolher um empréstimo" data-fr="Comment choisir un prêt" data-al="Wie man einen Kredit wählt" data-zh="如何选择贷款">Cómo elegir un préstamo</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_riesgos.html" aria-current="page">
+                        <span data-es="Tema actual" data-en="Current topic" data-pt="Tema atual" data-fr="Sujet actuel" data-al="Aktuelles Thema" data-zh="当前主题">Tema actual</span>
+                        <strong data-es="Riesgos del sobreendeudamiento" data-en="Over-indebtedness risks" data-pt="Riscos do superendividamento" data-fr="Risques de surendettement" data-al="Risiken der Überschuldung" data-zh="过度负债的风险">Riesgos del sobreendeudamiento</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_tipos.html">
+                        <span data-es="Siguiente tema" data-en="Next topic" data-pt="Próximo tema" data-fr="Sujet suivant" data-al="Nächstes Thema" data-zh="下一个主题">Siguiente tema</span>
+                        <strong data-es="Tipos de préstamos personales" data-en="Types of personal loans" data-pt="Tipos de empréstimos pessoais" data-fr="Types de prêts personnels" data-al="Arten von Privatkrediten" data-zh="个人贷款类型">Tipos de préstamos personales</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ASISTENTE — STRIX  -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="prestamos_detalle.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

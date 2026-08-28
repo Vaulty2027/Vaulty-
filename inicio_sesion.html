@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaulty+ | Iniciar sesión</title>
+<link rel="stylesheet" href="registro.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body
+    data-title-es="Vaulty+ | Iniciar sesión"
+    data-title-en="Vaulty+ | Log in"
+    data-title-fr="Vaulty+ | Se connecter"
+    data-title-pt="Vaulty+ | Iniciar sessão"
+    data-title-al="Vaulty+ | Anmelden"
+    data-title-zh="Vaulty+ | 登录">
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+            </div>
+            <span>Vaulty+</span>
+        </div>
+    </div>
+
+    <div class="topbar-right">
+
+        <!-- Selector de idioma -->
+        <div class="nav-lang-desktop">
+            <button class="lang-current" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                <span class="lang-current-label" data-lang-label>Español</span>
+                <span class="lang-chevron" aria-hidden="true">⌄</span>
+            </button>
+            <ul class="lang-dropdown" id="langDropdownDesktop">
+                <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+            </ul>
+        </div>
+
+        <div class="login-hint">
+            <span data-es="¿No tienes una cuenta?" data-en="Don't have an account?" data-fr="Vous n'avez pas de compte ?" data-pt="Não tem uma conta?" data-al="Haben Sie noch kein Konto?" data-zh="还没有账户？">¿No tienes una cuenta?</span>
+            <a href="registro.html" class="login-link" data-es="Regístrate" data-en="Register" data-fr="Inscrivez-vous" data-pt="Registre-se" data-al="Registrieren" data-zh="注册">Regístrate</a>
+        </div>
+
+    </div>
+
+</header>
+
+<main class="layout login-layout">
+
+  <!-- Panel izquierdo -->
+  <section class="left-panel login-left">
+    <div class="left-content">
+      <h1 class="headline">
+        <span class="accent" data-es="Iniciar sesión" data-en="Log in" data-fr="Se connecter" data-pt="Iniciar sessão" data-al="Anmelden" data-zh="登录">Iniciar sesión</span>
+      </h1>
+      <p class="subheadline" data-es="Bienvenido de nuevo a Vaulty+." data-en="Welcome back to Vaulty+." data-fr="Bienvenue à nouveau sur Vaulty+." data-pt="Bem-vindo de volta à Vaulty+." data-al="Willkommen zurück bei Vaulty+." data-zh="欢迎回到 Vaulty+。">Bienvenido de nuevo a Vaulty+.</p>
+    </div>
+
+    <section class="about-section como-podemos-ayudarte">
+      <blockquote class="quote">
+        <span data-es="La disciplina financiera hoy," data-en="Financial discipline today," data-fr="La discipline financière aujourd'hui," data-pt="Disciplina financeira hoje," data-al="Finanzielle Disziplin heute," data-zh="今天的财务自律，">La disciplina financiera hoy,</span><br>
+        <span data-es="la libertad mañana." data-en="freedom tomorrow." data-fr="la liberté demain." data-pt="liberdade amanhã." data-al="morgen die Freiheit." data-zh="明天的自由。">la libertad mañana.</span>
+      </blockquote>
+    </section>
+    <img src="img/Aguilita.png" alt="Strix" class="como-podemos-ayudarte-img">
+  </section>
+
+  <!-- Panel derecho: formulario -->
+  <section class="right-panel login-right">
+    <form class="signup-form login-form" id="loginForm" novalidate>
+
+      <div class="input-group">
+        <span class="input-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 21a8 8 0 0116 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <input type="text" id="identifier" name="identifier" autocomplete="username" required
+               placeholder="Correo electrónico o nombre de usuario"
+               data-es-placeholder="Correo electrónico o nombre de usuario" data-en-placeholder="Email or username" data-fr-placeholder="E-mail ou nom d'utilisateur" data-pt-placeholder="E-mail ou nome de usuário" data-al-placeholder="E-Mail oder Benutzername" data-zh-placeholder="电子邮箱或用户名">
+      </div>
+
+      <div class="input-group">
+        <span class="input-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V7a4 4 0 118 0v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <input type="password" id="loginPassword" name="loginPassword" autocomplete="current-password" required
+               placeholder="Contraseña"
+               data-es-placeholder="Contraseña" data-en-placeholder="Password" data-fr-placeholder="Mot de passe" data-pt-placeholder="Senha" data-al-placeholder="Passwort" data-zh-placeholder="密码">
+        <button type="button" class="toggle-visibility" data-target="loginPassword"
+                aria-label="Mostrar contraseña"
+                data-es-aria="Mostrar contraseña" data-en-aria="Show password" data-fr-aria="Afficher le mot de passe" data-pt-aria="Mostrar senha" data-al-aria="Passwort anzeigen" data-zh-aria="显示密码">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+      </div>
+
+      <div class="login-options">
+        <label class="checkbox-row remember-row">
+          <input type="checkbox" id="remember" name="remember">
+          <span class="checkbox-box"></span>
+          <span class="checkbox-label" data-es="Recordarme" data-en="Remember me" data-fr="Se souvenir de moi" data-pt="Lembrar-me" data-al="Angemeldet bleiben" data-zh="记住我">Recordarme</span>
+        </label>
+        <a href="#" class="forgot-link" data-es="¿Olvidaste tu contraseña?" data-en="Forgot your password?" data-fr="Mot de passe oublié ?" data-pt="Esqueceu sua senha?" data-al="Passwort vergessen?" data-zh="忘记密码？">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button type="submit" class="submit-btn" data-es="Iniciar sesión" data-en="Log in" data-fr="Se connecter" data-pt="Iniciar sessão" data-al="Anmelden" data-zh="登录">Iniciar sesión</button>
+    </form>
+  </section>
+
+</main>
+
+<!-- Contenedor de notificaciones -->
+<div id="notificationContainer" class="notification-container"></div>
+
+<script src="lang.js"></script>
+<script type="module" src="inicio_sesion.js"></script>
+</body>
+</html>

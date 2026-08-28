@@ -1,0 +1,523 @@
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f7fb;
+
+    color: #172033;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-header {
+
+    background: #111827;
+
+    color: white;
+
+    padding: 25px 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.admin-header h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 6px;
+
+}
+
+
+.admin-header p {
+
+    color: #cbd5e1;
+
+}
+
+
+#btnActualizar {
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+#btnActualizar:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.admin-container {
+
+    width: min(1400px, 94%);
+
+    margin: 30px auto;
+
+}
+
+
+/* =========================================================
+   ESTADÍSTICAS
+========================================================= */
+
+.estadisticas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.stat-card {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+
+}
+
+
+.stat-titulo {
+
+    display: block;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    font-size: 30px;
+
+    color: #111827;
+
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.panel {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+
+}
+
+
+.panel-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.panel-header h2 {
+
+    margin-bottom: 7px;
+
+}
+
+
+.panel-header p {
+
+    color: #64748b;
+
+}
+
+
+/* =========================================================
+   LISTA DE BANCOS
+========================================================= */
+
+.lista-bancos {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+
+.banco-row {
+
+    display: grid;
+
+    grid-template-columns:
+        220px 1fr 70px;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.banco-nombre {
+
+    font-weight: bold;
+
+}
+
+
+.barra-fondo {
+
+    width: 100%;
+
+    height: 18px;
+
+    background: #e2e8f0;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.barra {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: #2563eb;
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
+
+}
+
+
+.banco-cantidad {
+
+    text-align: right;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
+   MAPA DE CALOR
+========================================================= */
+
+.heatmap-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+.heatmap-container {
+
+    position: relative;
+
+    width: 100%;
+
+    min-width: 700px;
+
+    height: 850px;
+
+    background: #f8fafc;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+}
+
+
+#heatmapCanvas {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   LEYENDA
+========================================================= */
+
+.heatmap-leyenda {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 18px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+.gradient {
+
+    width: 220px;
+
+    height: 15px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            to right,
+            #3b82f6,
+            #22c55e,
+            #eab308,
+            #f97316,
+            #ef4444
+        );
+
+}
+
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+.tabla-container {
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+
+    text-align: left;
+
+    padding: 14px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+}
+
+
+th {
+
+    background: #f8fafc;
+
+    color: #475569;
+
+}
+
+
+td {
+
+    color: #334155;
+
+}
+
+
+/* =========================================================
+   ZONA PELIGROSA
+========================================================= */
+
+.zona-peligrosa {
+
+    background: white;
+
+    border: 2px solid #fecaca;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 40px;
+
+}
+
+
+.zona-peligrosa h2 {
+
+    color: #b91c1c;
+
+    margin-bottom: 8px;
+
+}
+
+
+.zona-peligrosa p {
+
+    color: #64748b;
+
+    margin-bottom: 20px;
+
+}
+
+
+#btnEliminarDatos {
+
+    background: #dc2626;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+#btnEliminarDatos:hover {
+
+    background: #b91c1c;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .estadisticas {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+    }
+
+
+    .estadisticas {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .banco-row {
+
+        grid-template-columns:
+            1fr 60px;
+
+    }
+
+
+    .barra-fondo {
+
+        grid-column: 1 / -1;
+
+        grid-row: 2;
+
+    }
+
+}

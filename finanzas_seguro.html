@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="finanzas_seguro.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Seguro Social</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- Cursor magnético personalizado (solo escritorio) -->
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label active"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" class="active" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- ============================================
+         HERO — Seguro Social
+    ============================================ -->
+    <section class="hero-seguros">
+        <img src="img/seguro-social.png" alt="Seguro Social Panamá" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>
+                <span data-es="SEGURO" data-en="SOCIAL" data-pt="PREVIDÊNCIA" data-fr="SÉCURITÉ" data-al="SOZIAL" data-zh="社会">SEGURO</span>
+                <span data-es="SOCIAL" data-en="SECURITY" data-pt="SOCIAL" data-fr="SOCIALE" data-al="VERSICHERUNG" data-zh="保障">SOCIAL</span>
+            </h1>
+            <p data-es="Aprende sobre información clara sobre requisitos, aportes, beneficios y la situación financiera del sistema de seguridad financiera en Panamá"
+               data-en="Learn about clear information on eligibility requirements, contributions, benefits, and the financial status of Panama's Social Security system"
+               data-pt="Conheça informações claras sobre requisitos, contribuições, benefícios e a situação financeira do sistema de previdência social no Panamá"
+               data-fr="Découvrez des informations claires sur les conditions requises, les cotisations, les prestations et la situation financière du système de sécurité sociale au Panama"
+               data-al="Erhalten Sie klare Informationen zu Voraussetzungen, Beiträgen, Leistungen und der finanziellen Lage des Sozialversicherungssystems in Panama"
+               data-zh="了解巴拿马社会保障体系的资格要求、缴费、福利及财务状况等清晰信息">
+                Aprende sobre información clara sobre requisitos, aportes, beneficios y la situación financiera del sistema de seguridad financiera en Panamá
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIONES 1 y 2 -->
+    <section class="info-section bg-dark">
+        <div class="info-grid">
+
+            <div class="bloque reveal-left">
+                <div class="bloque-titulo">
+                    <span class="num-badge">1</span>
+                    <h2 data-es="Requisitos de jubilación Normal" data-en="Normal Retirement Requirements" data-pt="Requisitos de aposentadoria normal" data-fr="Conditions de retraite normale" data-al="Voraussetzungen für die reguläre Rente" data-zh="正常退休要求">Requisitos de jubilación Normal</h2>
+                </div>
+                <div class="iconos-fila">
+                    <div class="icono-item">
+                        <img src="iconos/hombre.png" alt="Hombres">
+                        <p class="icono-label" data-es="Hombres" data-en="Men" data-pt="Homens" data-fr="Hommes" data-al="Männer" data-zh="男性">Hombres</p>
+                        <p class="icono-valor accent" data-es="62 AÑOS" data-en="62 YEARS" data-pt="62 ANOS" data-fr="62 ANS" data-al="62 JAHRE" data-zh="62岁">62 AÑOS</p>
+                    </div>
+                    <div class="icono-item">
+                        <img src="iconos/mujer.png" alt="Mujeres">
+                        <p class="icono-label" data-es="Mujeres" data-en="Women" data-pt="Mulheres" data-fr="Femmes" data-al="Frauen" data-zh="女性">Mujeres</p>
+                        <p class="icono-valor accent" data-es="57 AÑOS" data-en="57 YEARS" data-pt="57 ANOS" data-fr="57 ANS" data-al="57 JAHRE" data-zh="57岁">57 AÑOS</p>
+                    </div>
+                    <div class="icono-item">
+                        <img src="iconos/calendario.png" alt="Cuotas">
+                        <p class="icono-label" data-es="Cuotas necesarias" data-en="Required Contributions" data-pt="Contribuições necessárias" data-fr="Cotisations nécessaires" data-al="Erforderliche Beiträge" data-zh="所需缴费次数">Cuotas necesarias</p>
+                        <p class="icono-valor accent" data-es="240 CUOTAS" data-en="240 CONTRIBUTIONS" data-pt="240 CONTRIBUIÇÕES" data-fr="240 COTISATIONS" data-al="240 BEITRÄGE" data-zh="240次缴费">240 CUOTAS</p>
+                    </div>
+                    <div class="icono-item">
+                        <img src="iconos/reloj-de-pared.png" alt="Mínimo">
+                        <p class="icono-label" data-es="Mínimo Necesario" data-en="Minimum Required" data-pt="Mínimo necessário" data-fr="Minimum requis" data-al="Erforderliches Minimum" data-zh="最低要求">Mínimo Necesario</p>
+                        <p class="icono-valor accent" data-es="20 AÑOS" data-en="20 YEARS" data-pt="20 ANOS" data-fr="20 ANS" data-al="20 JAHRE" data-zh="20年">20 AÑOS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloque reveal-right">
+                <div class="bloque-titulo">
+                    <span class="num-badge">2</span>
+                    <h2 data-es="¿Cómo se calcula la pensión?" data-en="How is the pension calculated?" data-pt="Como se calcula a pensão?" data-fr="Comment se calcule la pension ?" data-al="Wie wird die Rente berechnet?" data-zh="养老金如何计算？">¿Cómo se calcula la pensión?</h2>
+                </div>
+                <div class="calculo-fila">
+                    <div class="calculo-item">
+                        <img src="iconos/barra-grafica.png" alt="Promedio">
+                        <p data-es="Promedio de los mejores 10 años cotizados" data-en="Average of the best 10 years contributed" data-pt="Média dos 10 melhores anos contribuídos" data-fr="Moyenne des 10 meilleures années cotisées" data-al="Durchschnitt der besten 10 Beitragsjahre" data-zh="缴费最高的10年平均值">Promedio de los mejores 10 años cotizados</p>
+                    </div>
+                    <span class="flecha-calculo">→</span>
+                    <div class="calculo-item calculo-destacado">
+                        <img src="iconos/billetera.png" alt="salario">
+                        <p data-es="60% del salario" data-en="60% of salary" data-pt="60% do salário" data-fr="60 % du salaire" data-al="60% des Gehalts" data-zh="工资的60%">60% del salario</p>
+                    </div>
+                    <span class="flecha-calculo">→</span>
+                    <div class="calculo-item">
+                        <img src="iconos/grafica.png" alt="Extra">
+                        <p data-es="+1.25% por cada 12 cuotas extra sobre el mínimo" data-en="+1.25% for every 12 extra contributions above the minimum" data-pt="+1,25% para cada 12 contribuições extras acima do mínimo" data-fr="+1,25 % pour chaque tranche de 12 cotisations supplémentaires au-delà du minimum" data-al="+1,25 % für je 12 zusätzliche Beiträge über dem Minimum" data-zh="超出最低缴费每多缴12次增加1.25%">+1.25% por cada 12 cuotas extra sobre el mínimo</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIONES 3 y 4 -->
+    <section class="info-section bg-darker">
+        <div class="info-grid">
+
+            <div class="bloque reveal-left">
+                <div class="bloque-titulo">
+                    <span class="num-badge">3</span>
+                    <h2 data-es="Jubilación proporcional" data-en="Proportional Retirement" data-pt="Aposentadoria proporcional" data-fr="Retraite proportionnelle" data-al="Anteilige Rente" data-zh="比例养老金">Jubilación proporcional</h2>
+                </div>
+                <p class="bloque-sub" data-es="¿No llegaste a 240 cuotas?" data-en="Didn't reach 240 contributions?" data-pt="Não chegou a 240 contribuições?" data-fr="Vous n'avez pas atteint 240 cotisations ?" data-al="Haben Sie die 240 Beiträge nicht erreicht?" data-zh="未达到240次缴费？">¿No llegaste a 240 cuotas?</p>
+                <p class="bloque-desc" data-es="Si tienes al menos:" data-en="If you have at least:" data-pt="Se você tiver pelo menos:" data-fr="Si vous avez au moins :" data-al="Wenn Sie mindestens haben:" data-zh="如果您至少有：">Si tienes al menos:</p>
+                <div class="cuotas-badge">
+                    <img src="iconos/contabilidad.png" alt="Cuotas">
+                    <div class="cuotas-info">
+                        <span class="cuotas-num">180 <span data-es="cuotas" data-en="contributions" data-pt="contribuições" data-fr="cotisations" data-al="Beiträge" data-zh="次缴费">cuotas</span></span>
+                        <span class="cuotas-check">✔</span>
+                    </div>
+                </div>
+                <p class="bloque-desc" data-es="Puedes optar por una pensión proporcional basada en tus aportes acumulados"
+                   data-en="You may opt for a proportional pension based on your accumulated contributions"
+                   data-pt="Você pode optar por uma pensão proporcional baseada em suas contribuições acumuladas"
+                   data-fr="Vous pouvez opter pour une pension proportionnelle basée sur vos cotisations accumulées"
+                   data-al="Sie können sich für eine anteilige Rente basierend auf Ihren angesammelten Beiträgen entscheiden"
+                   data-zh="您可以根据累计缴费选择比例养老金">
+                    Puedes optar por una pensión proporcional basada en tus aportes acumulados
+                </p>
+            </div>
+
+            <div class="bloque reveal-right">
+                <div class="bloque-titulo">
+                    <span class="num-badge">4</span>
+                    <h2 data-es="Condiciones para obtener el 60% de reemplazo" data-en="Conditions to obtain 60% replacement" data-pt="Condições para obter 60% de reposição" data-fr="Conditions pour obtenir un taux de remplacement de 60 %" data-al="Bedingungen für 60 % Ersatzquote" data-zh="获得60%替代率的条件">Condiciones para obtener el 60% de reemplazo</h2>
+                </div>
+                <ul class="condiciones-lista">
+                    <li>
+                        <img src="iconos/check.png" alt="check">
+                        <span data-es="Cotizar al menos 5 veces al año" data-en="Contribute at least 5 times per year" data-pt="Contribuir pelo menos 5 vezes ao ano" data-fr="Cotiser au moins 5 fois par an" data-al="Mindestens 5-mal jährlich Beiträge leisten" data-zh="每年至少缴费5次">Cotizar al menos 5 veces al año</span>
+                    </li>
+                    <li>
+                        <img src="iconos/check.png" alt="check">
+                        <span data-es="No exceder 6 años sin cotizar" data-en="Not exceed 6 years without contributing" data-pt="Não ultrapassar 6 anos sem contribuir" data-fr="Ne pas dépasser 6 ans sans cotiser" data-al="Nicht mehr als 6 Jahre ohne Beiträge" data-zh="未缴费时间不超过6年">No exceder 6 años sin cotizar</span>
+                    </li>
+                    <li>
+                        <img src="iconos/check.png" alt="check">
+                        <span data-es="Tener 5 años consecutivos de aportes" data-en="Have 5 consecutive years of contributions" data-pt="Ter 5 anos consecutivos de contribuições" data-fr="Avoir 5 années consécutives de cotisations" data-al="5 aufeinanderfolgende Beitragsjahre haben" data-zh="有连续5年的缴费记录">Tener 5 años consecutivos de aportes</span>
+                    </li>
+                    <li>
+                        <img src="iconos/check.png" alt="check">
+                        <span data-es="Que al menos el 50% de las cuotas hayan sido aportadas en los primeros 20 años laborales"
+                              data-en="At least 50% of contributions made in the first 20 working years"
+                              data-pt="Que pelo menos 50% das contribuições tenham sido feitas nos primeiros 20 anos de trabalho"
+                              data-fr="Qu'au moins 50 % des cotisations aient été versées au cours des 20 premières années de travail"
+                              data-al="Dass mindestens 50 % der Beiträge in den ersten 20 Erwerbsjahren geleistet wurden"
+                              data-zh="至少50%的缴费须在前20个工作年度内完成">
+                            Que al menos el 50% de las cuotas hayan sido aportadas en los primeros 20 años laborales
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIONES 5 y 6 -->
+    <section class="info-section bg-dark">
+        <div class="info-grid">
+
+            <div class="bloque reveal-left">
+                <div class="bloque-titulo">
+                    <span class="num-badge">5</span>
+                    <h2 data-es="Recaudación conjunta" data-en="Joint Collection" data-pt="Arrecadação conjunta" data-fr="Collecte conjointe" data-al="Gemeinsame Erhebung" data-zh="联合征收">Recaudación conjunta</h2>
+                </div>
+                <p class="bloque-desc" data-es="La CSS y la Dirección General de Ingresos (DGI) trabajan conjuntamente en la recaudación de tributos y cuotas"
+                   data-en="The CSS and the General Directorate of Revenue (DGI) work together in the collection of taxes and contributions"
+                   data-pt="A CSS e a Direção Geral de Receitas (DGI) trabalham em conjunto na arrecadação de tributos e contribuições"
+                   data-fr="La CSS et la Direction générale des recettes (DGI) collaborent pour la collecte des impôts et des cotisations"
+                   data-al="Die CSS und die Generaldirektion für Einnahmen (DGI) arbeiten gemeinsam bei der Erhebung von Steuern und Beiträgen"
+                   data-zh="社会保障局（CSS）与国家税务总局（DGI）共同负责税费和缴费的征收">
+                    La CSS y la Dirección General de Ingresos (DGI) trabajan conjuntamente en la recaudación de tributos y cuotas
+                </p>
+                <div class="recaudacion-grid">
+                    <div class="recaudacion-card" data-tilt>
+                        <div class="recaudacion-header">
+                            <span data-es="Trabajador" data-en="Worker" data-pt="Trabalhador" data-fr="Travailleur" data-al="Arbeitnehmer" data-zh="员工">Trabajador</span>
+                        </div>
+                        <img src="iconos/imagen-de-perfil.png" alt="Trabajador">
+                        <div class="recaudacion-fila">
+                            <span data-es="CSS" data-en="CSS" data-pt="CSS" data-fr="CSS" data-al="CSS" data-zh="CSS">CSS</span>
+                            <span class="accent">9.75%</span>
+                        </div>
+                        <div class="recaudacion-fila">
+                            <span data-es="Seguro Educativo" data-en="Educational Insurance" data-pt="Seguro Educativo" data-fr="Assurance éducative" data-al="Bildungsversicherung" data-zh="教育保险">Seguro Educativo</span>
+                            <span class="accent">1.25%</span>
+                        </div>
+                        <div class="recaudacion-total">
+                            <span data-es="TOTAL" data-en="TOTAL" data-pt="TOTAL" data-fr="TOTAL" data-al="GESAMT" data-zh="总计">TOTAL</span>
+                            <span class="accent">11.00%</span>
+                        </div>
+                        <p class="recaudacion-pie" data-es="Del salario bruto" data-en="Of gross salary" data-pt="Do salário bruto" data-fr="Du salaire brut" data-al="Vom Bruttogehalt" data-zh="占毛工资比例">Del salario bruto</p>
+                    </div>
+
+                    <div class="recaudacion-card" data-tilt>
+                        <div class="recaudacion-header">
+                            <span data-es="Empleador" data-en="Employer" data-pt="Empregador" data-fr="Employeur" data-al="Arbeitgeber" data-zh="雇主">Empleador</span>
+                        </div>
+                        <img src="iconos/edificios.png" alt="Empleador">
+                        <div class="recaudacion-fila">
+                            <span data-es="CSS" data-en="CSS" data-pt="CSS" data-fr="CSS" data-al="CSS" data-zh="CSS">CSS</span>
+                            <span class="accent">13.25%</span>
+                        </div>
+                        <div class="recaudacion-fila">
+                            <span data-es="Seguro Educativo" data-en="Educational Insurance" data-pt="Seguro Educativo" data-fr="Assurance éducative" data-al="Bildungsversicherung" data-zh="教育保险">Seguro Educativo</span>
+                            <span class="accent">1.50%</span>
+                        </div>
+                        <div class="recaudacion-total">
+                            <span data-es="TOTAL" data-en="TOTAL" data-pt="TOTAL" data-fr="TOTAL" data-al="GESAMT" data-zh="总计">TOTAL</span>
+                            <span class="accent">14.75%</span>
+                        </div>
+                        <p class="recaudacion-pie" data-es="Del salario bruto" data-en="Of gross salary" data-pt="Do salário bruto" data-fr="Du salaire brut" data-al="Vom Bruttogehalt" data-zh="占毛工资比例">Del salario bruto</p>
+                    </div>
+
+                    <div class="recaudacion-card" data-tilt>
+                        <div class="recaudacion-header">
+                            <span data-es="Estado DGI" data-en="State DGI" data-pt="Estado DGI" data-fr="État DGI" data-al="Staat DGI" data-zh="国家税务局(DGI)">Estado DGI</span>
+                        </div>
+                        <p class="recaudacion-desc" data-es="ISR (IMPUESTO SOBRE LA RENTA)" data-en="ISR (INCOME TAX)" data-pt="ISR (IMPOSTO DE RENDA)" data-fr="ISR (IMPÔT SUR LE REVENU)" data-al="ISR (EINKOMMENSTEUER)" data-zh="ISR（所得税）">ISR (IMPUESTO SOBRE LA RENTA)</p>
+                        <p class="recaudacion-desc" data-es="Retenido de los salarios de los empleados, gestionado por la CSS pero perteneciente al Tesoro Nacional (DGI)."
+                           data-en="Withheld from employee salaries, managed by the CSS but belonging to the National Treasury (DGI)."
+                           data-pt="Retido dos salários dos funcionários, gerenciado pela CSS mas pertencente ao Tesouro Nacional (DGI)."
+                           data-fr="Retenu sur les salaires des employés, géré par la CSS mais appartenant au Trésor national (DGI)."
+                           data-al="Wird vom Gehalt der Arbeitnehmer einbehalten, von der CSS verwaltet, gehört jedoch der Staatskasse (DGI)."
+                           data-zh="从员工工资中扣缴，由CSS管理但归属国库（DGI）。">
+                            Retenido de los salarios de los empleados, gestionado por la CSS pero perteneciente al Tesoro Nacional (DGI).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bloque reveal-right">
+                <div class="bloque-titulo">
+                    <span class="num-badge">6</span>
+                    <h2 data-es="¿Qué es la prescripcion de deudas?" data-en="What is the Statute of Limitations on Debt?" data-pt="O que é a prescrição de dívidas?" data-fr="Qu'est-ce que la prescription des dettes ?" data-al="Was ist die Verjährung von Schulden?" data-zh="什么是债务时效？">¿Qué es la prescripcion de deudas?</h2>
+                </div>
+
+                <p class="bloque-desc" data-es="Es cuando una entidad pierde el derecho a cobrar una deuda tributaria porque ha pasado el plazo establecido por la ley sin realizar acciones para cobrarla, siempre que ese plazo no haya sido interrumpido o suspendido."
+                   data-en="It is when an entity loses the right to collect a tax debt because the period established by law has passed without taking actions to collect it, as long as that period has not been interrupted or suspended."
+                   data-pt="É quando uma entidade perde o direito de cobrar uma dívida tributária porque o prazo estabelecido por lei passou sem que ações de cobrança fossem realizadas, desde que esse prazo não tenha sido interrompido ou suspenso."
+                   data-fr="C'est lorsqu'une entité perd le droit de recouvrer une dette fiscale parce que le délai établi par la loi s'est écoulé sans qu'aucune action de recouvrement n'ait été entreprise, à condition que ce délai n'ait pas été interrompu ou suspendu."
+                   data-al="Dies ist der Fall, wenn eine Institution das Recht verliert, eine Steuerschuld einzufordern, weil die gesetzlich festgelegte Frist verstrichen ist, ohne dass Maßnahmen zur Eintreibung ergriffen wurden, sofern diese Frist nicht unterbrochen oder ausgesetzt wurde."
+                   data-zh="指某机构因法定期限届满而未采取追偿行动，从而丧失追讨税务债务的权利，前提是该期限未被中断或暂停。">
+                    Es cuando una entidad pierde el derecho a cobrar una deuda tributaria porque ha pasado el plazo establecido por la ley sin realizar acciones para cobrarla, siempre que ese plazo no haya sido interrumpido o suspendido.
+                </p>
+                <div class="prescripcion-lista">
+                    <div class="prescripcion-item">
+                        <div class="prescripcion-barra barra-larga"></div>
+                        <span class="prescripcion-label" data-es="Cuotas Seguro Social (CSS)" data-en="Social Security Contributions (CSS)" data-pt="Contribuições da Previdência Social (CSS)" data-fr="Cotisations de sécurité sociale (CSS)" data-al="Sozialversicherungsbeiträge (CSS)" data-zh="社会保障缴费（CSS）">Cuotas Seguro Social (CSS)</span>
+                        <span class="prescripcion-años accent" data-es="20 AÑOS" data-en="20 YEARS" data-pt="20 ANOS" data-fr="20 ANS" data-al="20 JAHRE" data-zh="20年">20 AÑOS</span>
+                    </div>
+
+                    <div class="prescripcion-item">
+                        <div class="prescripcion-barra barra-media"></div>
+                        <span class="prescripcion-label" data-es="Impuestos sobre la renta (ISR)" data-en="Income Tax (ISR)" data-pt="Imposto de Renda (ISR)" data-fr="Impôt sur le revenu (ISR)" data-al="Einkommensteuer (ISR)" data-zh="所得税（ISR）">Impuestos sobre la renta (ISR)</span>
+                        <span class="prescripcion-años accent" data-es="7 AÑOS" data-en="7 YEARS" data-pt="7 ANOS" data-fr="7 ANS" data-al="7 JAHRE" data-zh="7年">7 AÑOS</span>
+                    </div>
+                    <div class="prescripcion-item">
+                        <div class="prescripcion-barra barra-corta"></div>
+                        <span class="prescripcion-label">ITBMS</span>
+                        <span class="prescripcion-años accent" data-es="5 AÑOS" data-en="5 YEARS" data-pt="5 ANOS" data-fr="5 ANS" data-al="5 JAHRE" data-zh="5年">5 AÑOS</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES SOBRE PENSIONES -->
+    <section class="faq-section" aria-labelledby="pension-faq-title">
+        <div class="faq-content">
+            <h2 id="pension-faq-title">
+                <span data-es="Preguntas frecuentes (FAQ)" data-en="Frequently Asked Questions (FAQ)" data-pt="Perguntas frequentes (FAQ)" data-fr="Foire aux questions (FAQ)" data-al="Häufig gestellte Fragen (FAQ)" data-zh="常见问题（FAQ）">Preguntas frecuentes (FAQ)</span>
+            </h2>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1" data-es="¿Puedo solicitar la pensión antes de cumplir la edad?" data-en="Can I apply for a pension before reaching retirement age?" data-pt="Posso solicitar a pensão antes de completar a idade?" data-fr="Puis-je demander la pension avant d'atteindre l'âge requis ?" data-al="Kann ich die Rente beantragen, bevor ich das erforderliche Alter erreiche?" data-zh="我可以在达到退休年龄之前申请养老金吗？">¿Puedo solicitar la pensión antes de cumplir la edad?</button>
+                <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
+                    <p data-es="Sí. La solicitud puede presentarse hasta tres meses antes de cumplir la edad de jubilación." data-en="Yes. You may submit your application up to three months before reaching retirement age." data-pt="Sim. A solicitação pode ser apresentada até três meses antes de completar a idade de aposentadoria." data-fr="Oui. La demande peut être présentée jusqu'à trois mois avant d'atteindre l'âge de la retraite." data-al="Ja. Der Antrag kann bis zu drei Monate vor Erreichen des Rentenalters gestellt werden." data-zh="可以。申请可在达到退休年龄前三个月内提交。">Sí. La solicitud puede presentarse hasta tres meses antes de cumplir la edad de jubilación.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2" data-es="¿Qué documentos necesito para solicitar mi pensión?" data-en="What documents do I need to apply for my pension?" data-pt="Quais documentos preciso para solicitar minha pensão?" data-fr="Quels documents dois-je fournir pour demander ma pension ?" data-al="Welche Unterlagen benötige ich für die Beantragung meiner Rente?" data-zh="申请养老金需要哪些文件？">¿Qué documentos necesito para solicitar mi pensión?</button>
+                <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
+                    <p data-es="Debes presentar el formulario de solicitud, copia de la cédula vigente y los documentos requeridos por la CSS según tu caso." data-en="You must submit the application form, a copy of your valid ID, and the documents required by the CSS for your specific case." data-pt="Você deve apresentar o formulário de solicitação, cópia da carteira de identidade válida e os documentos exigidos pela CSS conforme seu caso." data-fr="Vous devez présenter le formulaire de demande, une copie de votre carte d'identité en cours de validité et les documents requis par la CSS selon votre cas." data-al="Sie müssen das Antragsformular, eine Kopie des gültigen Personalausweises und die von der CSS je nach Fall geforderten Unterlagen vorlegen." data-zh="您需要提交申请表、有效身份证复印件以及CSS根据您的情况所需的其他文件。">Debes presentar el formulario de solicitud, copia de la cédula vigente y los documentos requeridos por la CSS según tu caso.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3" data-es="¿Existe una pensión proporcional?" data-en="Is there a proportional pension?" data-pt="Existe uma pensão proporcional?" data-fr="Existe-t-il une pension proportionnelle ?" data-al="Gibt es eine anteilige Rente?" data-zh="是否存在比例养老金？">¿Existe una pensión proporcional?</button>
+                <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
+                    <p data-es="Sí. La CSS contempla la Pensión por Vejez Proporcional para quienes cumplen las condiciones establecidas por la ley." data-en="Yes. The CSS offers a Proportional Old-Age Pension for people who meet the conditions established by law." data-pt="Sim. A CSS contempla a Pensão por Velhice Proporcional para quem cumpre as condições estabelecidas por lei." data-fr="Oui. La CSS prévoit la Pension de Vieillesse Proportionnelle pour les personnes qui remplissent les conditions établies par la loi." data-al="Ja. Die CSS sieht die anteilige Altersrente für Personen vor, die die gesetzlich festgelegten Bedingungen erfüllen." data-zh="有。CSS为符合法律规定条件的人提供比例老年养老金。">Sí. La CSS contempla la Pensión por Vejez Proporcional para quienes cumplen las condiciones establecidas por la ley.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4" data-es="¿Cómo puedo consultar mis cuotas acumuladas?" data-en="How can I check my accumulated contributions?" data-pt="Como posso consultar minhas contribuições acumuladas?" data-fr="Comment puis-je consulter mes cotisations accumulées ?" data-al="Wie kann ich meine angesammelten Beiträge einsehen?" data-zh="如何查询我的累计缴费？">¿Cómo puedo consultar mis cuotas acumuladas?</button>
+                <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
+                    <p data-es="Puedes revisar tus cuotas mediante los servicios digitales de la Caja de Seguro Social." data-en="You can review your contributions through the Caja de Seguro Social digital services." data-pt="Você pode consultar suas contribuições através dos serviços digitais da Caja de Seguro Social." data-fr="Vous pouvez consulter vos cotisations via les services numériques de la Caisse de Sécurité Sociale." data-al="Sie können Ihre Beiträge über die digitalen Dienste der Caja de Seguro Social einsehen." data-zh="您可以通过社会保障局（Caja de Seguro Social）的数字服务查询您的缴费记录。">Puedes revisar tus cuotas mediante los servicios digitales de la Caja de Seguro Social.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5" data-es="¿Dónde puedo descargar el formulario para solicitar mi pensión?" data-en="Where can I download the pension application form?" data-pt="Onde posso baixar o formulário para solicitar minha pensão?" data-fr="Où puis-je télécharger le formulaire pour demander ma pension ?" data-al="Wo kann ich das Formular zur Beantragung meiner Rente herunterladen?" data-zh="在哪里可以下载申请养老金的表格？">¿Dónde puedo descargar el formulario para solicitar mi pensión?</button>
+                <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
+                    <p data-es="El formulario está disponible en la sección de pensiones del sitio oficial de la CSS." data-en="The form is available in the pensions section of the official CSS website." data-pt="O formulário está disponível na seção de pensões do site oficial da CSS." data-fr="Le formulaire est disponible dans la section pensions du site officiel de la CSS." data-al="Das Formular ist im Rentenbereich der offiziellen CSS-Website verfügbar." data-zh="该表格可在CSS官方网站的养老金板块下载。">El formulario está disponible en la sección de pensiones del sitio oficial de la CSS.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-6" aria-expanded="false" aria-controls="faq-answer-6" data-es="¿Dónde puedo realizar trámites relacionados con mi pensión?" data-en="Where can I complete pension-related procedures?" data-pt="Onde posso realizar trâmites relacionados à minha pensão?" data-fr="Où puis-je effectuer des démarches liées à ma pension ?" data-al="Wo kann ich Vorgänge im Zusammenhang mit meiner Rente erledigen?" data-zh="在哪里可以办理与养老金相关的手续？">¿Dónde puedo realizar trámites relacionados con mi pensión?</button>
+                <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
+                    <p data-es="Puedes hacerlo mediante la plataforma oficial de trámites de la Caja de Seguro Social." data-en="You can do so through the official Caja de Seguro Social procedures platform." data-pt="Você pode fazer isso através da plataforma oficial de trâmites da Caja de Seguro Social." data-fr="Vous pouvez le faire via la plateforme officielle de démarches de la Caisse de Sécurité Sociale." data-al="Sie können dies über die offizielle Vorgangsplattform der Caja de Seguro Social tun." data-zh="您可以通过社会保障局的官方手续平台办理。">Puedes hacerlo mediante la plataforma oficial de trámites de la Caja de Seguro Social.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-7" aria-expanded="false" aria-controls="faq-answer-7" data-es="¿Qué tipos de pensión ofrece la Caja de Seguro Social?" data-en="What types of pensions does the Caja de Seguro Social offer?" data-pt="Que tipos de pensão a Caja de Seguro Social oferece?" data-fr="Quels types de pension propose la Caisse de Sécurité Sociale ?" data-al="Welche Rentenarten bietet die Caja de Seguro Social an?" data-zh="社会保障局提供哪些类型的养老金？">¿Qué tipos de pensión ofrece la Caja de Seguro Social?</button>
+                <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
+                    <ul>
+                        <li data-es="Pensión por vejez." data-en="Old-age pension." data-pt="Pensão por velhice." data-fr="Pension de vieillesse." data-al="Altersrente." data-zh="老年养老金。">Pensión por vejez.</li>
+                        <li data-es="Pensión por vejez proporcional." data-en="Proportional old-age pension." data-pt="Pensão por velhice proporcional." data-fr="Pension de vieillesse proportionnelle." data-al="Anteilige Altersrente." data-zh="比例老年养老金。">Pensión por vejez proporcional.</li>
+                        <li data-es="Pensión por invalidez." data-en="Disability pension." data-pt="Pensão por invalidez." data-fr="Pension d'invalidité." data-al="Invaliditätsrente." data-zh="伤残养老金。">Pensión por invalidez.</li>
+                        <li data-es="Pensión de sobrevivientes para beneficiarios." data-en="Survivors' pension for beneficiaries." data-pt="Pensão de sobreviventes para beneficiários." data-fr="Pension de survivants pour les bénéficiaires." data-al="Hinterbliebenenrente für Begünstigte." data-zh="受益人遗属养老金。">Pensión de sobrevivientes para beneficiarios.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-8" aria-expanded="false" aria-controls="faq-answer-8" data-es="¿Qué es Pensión por Vejez?" data-en="What is an Old-Age Pension?" data-pt="O que é a Pensão por Velhice?" data-fr="Qu'est-ce que la Pension de Vieillesse ?" data-al="Was ist die Altersrente?" data-zh="什么是老年养老金？">¿Qué es Pensión por Vejez?</button>
+                <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-question-8">
+                    <p data-es="Ingreso mensual para quienes cumplen la edad y las cuotas requeridas para jubilarse." data-en="A monthly income for people who meet the age and contribution requirements for retirement." data-pt="Renda mensal para quem cumpre a idade e as contribuições exigidas para se aposentar." data-fr="Un revenu mensuel pour les personnes qui remplissent l'âge et les cotisations requises pour prendre leur retraite." data-al="Ein monatliches Einkommen für Personen, die das Alter und die erforderlichen Beiträge für den Ruhestand erfüllen." data-zh="为达到退休年龄及所需缴费次数的人提供的每月收入。">Ingreso mensual para quienes cumplen la edad y las cuotas requeridas para jubilarse.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-9" aria-expanded="false" aria-controls="faq-answer-9" data-es="¿Qué es Pensión por Invalidez?" data-en="What is a Disability Pension?" data-pt="O que é a Pensão por Invalidez?" data-fr="Qu'est-ce que la Pension d'Invalidité ?" data-al="Was ist die Invaliditätsrente?" data-zh="什么是伤残养老金？">¿Qué es Pensión por Invalidez?</button>
+                <div class="faq-answer" id="faq-answer-9" role="region" aria-labelledby="faq-question-9">
+                    <p data-es="Beneficio para asegurados que pierden su capacidad de trabajar por enfermedad o accidente no laboral." data-en="A benefit for insured people who lose their ability to work because of illness or a non-work-related accident." data-pt="Benefício para segurados que perdem sua capacidade de trabalhar devido a doença ou acidente não relacionado ao trabalho." data-fr="Une prestation pour les assurés qui perdent leur capacité de travail en raison d'une maladie ou d'un accident non professionnel." data-al="Eine Leistung für Versicherte, die aufgrund von Krankheit oder einem nicht arbeitsbedingten Unfall ihre Arbeitsfähigkeit verlieren." data-zh="为因疾病或非工伤事故丧失工作能力的参保人提供的福利。">Beneficio para asegurados que pierden su capacidad de trabajar por enfermedad o accidente no laboral.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-10" aria-expanded="false" aria-controls="faq-answer-10" data-es="¿Qué es Pensión por Sobreviviente?" data-en="What is a Survivors' Pension?" data-pt="O que é a Pensão por Sobrevivente?" data-fr="Qu'est-ce que la Pension de Survivant ?" data-al="Was ist die Hinterbliebenenrente?" data-zh="什么是遗属养老金？">¿Qué es Pensión por Sobreviviente?</button>
+                <div class="faq-answer" id="faq-answer-10" role="region" aria-labelledby="faq-question-10">
+                    <p data-es="Apoyo económico para los familiares de un asegurado o pensionado fallecido." data-en="Financial support for the relatives of a deceased insured person or pensioner." data-pt="Apoio econômico para os familiares de um segurado ou pensionista falecido." data-fr="Un soutien financier pour les proches d'un assuré ou d'un retraité décédé." data-al="Finanzielle Unterstützung für Angehörige eines verstorbenen Versicherten oder Rentners." data-zh="为已故参保人或退休人员的家属提供的经济支持。">Apoyo económico para los familiares de un asegurado o pensionado fallecido.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-11" aria-expanded="false" aria-controls="faq-answer-11" data-es="¿Qué es Pensión por Vejez Proporcional?" data-en="What is a Proportional Old-Age Pension?" data-pt="O que é a Pensão por Velhice Proporcional?" data-fr="Qu'est-ce que la Pension de Vieillesse Proportionnelle ?" data-al="Was ist die anteilige Altersrente?" data-zh="什么是比例老年养老金？">¿Qué es Pensión por Vejez Proporcional?</button>
+                <div class="faq-answer" id="faq-answer-11" role="region" aria-labelledby="faq-question-11">
+                    <p data-es="Beneficio para quienes cumplen la edad de jubilación, pero no las cuotas de una pensión normal." data-en="A benefit for people who reach retirement age but do not have the contributions required for a standard pension." data-pt="Benefício para quem atinge a idade de aposentadoria, mas não tem as contribuições de uma pensão normal." data-fr="Une prestation pour les personnes qui atteignent l'âge de la retraite mais n'ont pas les cotisations requises pour une pension normale." data-al="Eine Leistung für Personen, die das Rentenalter erreichen, aber nicht die Beiträge für eine reguläre Rente haben." data-zh="为达到退休年龄但未满足正常养老金缴费要求的人提供的福利。">Beneficio para quienes cumplen la edad de jubilación, pero no las cuotas de una pensión normal.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-12" aria-expanded="false" aria-controls="faq-answer-12" data-es="¿Qué es Pensión por Vejez Anticipada?" data-en="What is an Early Old-Age Pension?" data-pt="O que é a Pensão por Velhice Antecipada?" data-fr="Qu'est-ce que la Pension de Vieillesse Anticipée ?" data-al="Was ist die vorgezogene Altersrente?" data-zh="什么是提前老年养老金？">¿Qué es Pensión por Vejez Anticipada?</button>
+                <div class="faq-answer" id="faq-answer-12" role="region" aria-labelledby="faq-question-12">
+                    <p data-es="Permite jubilarse antes de la edad ordinaria, si se cumplen los requisitos establecidos." data-en="It allows retirement before the standard age when the established requirements are met." data-pt="Permite se aposentar antes da idade normal, caso os requisitos estabelecidos sejam cumpridos." data-fr="Elle permet de prendre sa retraite avant l'âge normal, si les conditions établies sont remplies." data-al="Sie ermöglicht den Ruhestand vor dem regulären Alter, sofern die festgelegten Voraussetzungen erfüllt sind." data-zh="在满足规定条件的情况下，可在正常年龄之前退休。">Permite jubilarse antes de la edad ordinaria, si se cumplen los requisitos establecidos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-13" aria-expanded="false" aria-controls="faq-answer-13" data-es="¿Qué es Pensión por Vejez Proporcional Anticipada?" data-en="What is an Early Proportional Old-Age Pension?" data-pt="O que é a Pensão por Velhice Proporcional Antecipada?" data-fr="Qu'est-ce que la Pension de Vieillesse Proportionnelle Anticipée ?" data-al="Was ist die vorgezogene anteilige Altersrente?" data-zh="什么是提前比例老年养老金？">¿Qué es Pensión por Vejez Proporcional Anticipada?</button>
+                <div class="faq-answer" id="faq-answer-13" role="region" aria-labelledby="faq-question-13">
+                    <p data-es="Beneficio para quienes solicitan una jubilación anticipada con una pensión calculada de forma proporcional." data-en="A benefit for people who request early retirement with a pension calculated proportionally." data-pt="Benefício para quem solicita uma aposentadoria antecipada com uma pensão calculada de forma proporcional." data-fr="Une prestation pour les personnes qui demandent une retraite anticipée avec une pension calculée de manière proportionnelle." data-al="Eine Leistung für Personen, die einen vorgezogenen Ruhestand mit anteilig berechneter Rente beantragen." data-zh="为申请提前退休并按比例计算养老金的人提供的福利。">Beneficio para quienes solicitan una jubilación anticipada con una pensión calculada de forma proporcional.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question" id="faq-question-14" aria-expanded="false" aria-controls="faq-answer-14" data-es="¿Qué es Pensión por Vejez para los Trabajadores Estacionales Agrícolas y de la Construcción?" data-en="What is the Old-Age Pension for Seasonal Agricultural and Construction Workers?" data-pt="O que é a Pensão por Velhice para Trabalhadores Sazonais Agrícolas e da Construção?" data-fr="Qu'est-ce que la Pension de Vieillesse pour les Travailleurs Saisonniers Agricoles et du Bâtiment ?" data-al="Was ist die Altersrente für saisonale Landwirtschafts- und Bauarbeiter?" data-zh="什么是季节性农业和建筑工人老年养老金？">¿Qué es Pensión por Vejez para los Trabajadores Estacionales Agrícolas y de la Construcción?</button>
+                <div class="faq-answer" id="faq-answer-14" role="region" aria-labelledby="faq-question-14">
+                    <p data-es="Pensión especial para trabajadores de estos sectores, con requisitos adaptados a su actividad laboral." data-en="A special pension for workers in these sectors, with requirements adapted to their employment activity." data-pt="Pensão especial para trabalhadores desses setores, com requisitos adaptados à sua atividade laboral." data-fr="Une pension spéciale pour les travailleurs de ces secteurs, avec des conditions adaptées à leur activité professionnelle." data-al="Eine spezielle Rente für Arbeitnehmer dieser Branchen, mit an ihre Tätigkeit angepassten Voraussetzungen." data-zh="为这些行业的工人提供的特殊养老金，其要求根据其工作性质进行了调整。">Pensión especial para trabajadores de estos sectores, con requisitos adaptados a su actividad laboral.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ERRORES Y CONSEJOS -->
+    <section class="retirement-tools-section" aria-label="Planificación de la jubilación">
+        <div class="pension-shell">
+            <div class="planning-grid">
+                <article class="planning-card planning-card-errors" data-tilt>
+                    <h2><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Errores Comunes" data-en="Common Mistakes" data-pt="Erros Comuns" data-fr="Erreurs courantes" data-al="Häufige Fehler" data-zh="常见错误">Errores Comunes</span></h2>
+                    <ul>
+                        <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Esperar hasta el último momento para planificar la jubilación." data-en="Waiting until the last minute to plan for retirement." data-pt="Esperar até o último momento para planejar a aposentadoria." data-fr="Attendre le dernier moment pour planifier la retraite." data-al="Bis zum letzten Moment warten, um den Ruhestand zu planen." data-zh="等到最后一刻才规划退休。">Esperar hasta el último momento para planificar la jubilación.</span></li>
+                        <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="No verificar regularmente las cuotas acumuladas." data-en="Not regularly checking your accumulated contributions." data-pt="Não verificar regularmente as contribuições acumuladas." data-fr="Ne pas vérifier régulièrement les cotisations accumulées." data-al="Die angesammelten Beiträge nicht regelmäßig überprüfen." data-zh="不定期核实累计缴费。">No verificar regularmente las cuotas acumuladas.</span></li>
+                        <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Confiar únicamente en la pensión de la CSS." data-en="Relying only on the CSS pension." data-pt="Confiar apenas na pensão da CSS." data-fr="Compter uniquement sur la pension de la CSS." data-al="Sich ausschließlich auf die CSS-Rente verlassen." data-zh="仅依赖CSS养老金。">Confiar únicamente en la pensión de la CSS.</span></li>
+                        <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Desconocer los requisitos para acceder a la jubilación." data-en="Not knowing the requirements for retirement." data-pt="Desconhecer os requisitos para acessar a aposentadoria." data-fr="Ignorer les conditions d'accès à la retraite." data-al="Die Voraussetzungen für den Ruhestand nicht kennen." data-zh="不了解获得退休资格的要求。">Desconocer los requisitos para acceder a la jubilación.</span></li>
+                    </ul>
+                </article>
+
+                <article class="planning-card planning-card-tips" data-tilt>
+                    <h2><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Consejos Financieros" data-en="Financial Tips" data-pt="Dicas Financeiras" data-fr="Conseils financiers" data-al="Finanztipps" data-zh="理财建议">Consejos Financieros</span></h2>
+                    <ul>
+                        <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Empieza a ahorrar para tu retiro desde temprano." data-en="Start saving for retirement early." data-pt="Comece a poupar para a sua aposentadoria desde cedo." data-fr="Commencez à épargner pour votre retraite dès maintenant." data-al="Beginnen Sie frühzeitig, für Ihren Ruhestand zu sparen." data-zh="尽早开始为退休储蓄。">Empieza a ahorrar para tu retiro desde temprano.</span></li>
+                        <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Lleva un control de tus aportes a la CSS." data-en="Keep track of your CSS contributions." data-pt="Mantenha um controle das suas contribuições à CSS." data-fr="Suivez vos cotisations à la CSS." data-al="Behalten Sie Ihre CSS-Beiträge im Blick." data-zh="跟踪您向CSS缴纳的费用。">Lleva un control de tus aportes a la CSS.</span></li>
+                        <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Crea un fondo de emergencia." data-en="Build an emergency fund." data-pt="Crie um fundo de emergência." data-fr="Créez un fonds d'urgence." data-al="Legen Sie einen Notfallfonds an." data-zh="建立应急基金。">Crea un fondo de emergencia.</span></li>
+                        <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Diversifica tus fuentes de ingresos para el futuro." data-en="Diversify your sources of income for the future." data-pt="Diversifique suas fontes de renda para o futuro." data-fr="Diversifiez vos sources de revenus pour l'avenir." data-al="Diversifizieren Sie Ihre Einkommensquellen für die Zukunft." data-zh="为未来分散您的收入来源。">Diversifica tus fuentes de ingresos para el futuro.</span></li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="retirement-path reveal-scale" aria-labelledby="retirement-path-title">
+                <h2 id="retirement-path-title" data-es="Tu camino hacia la jubilación" data-en="Your path to retirement" data-pt="Seu caminho até a aposentadoria" data-fr="Votre chemin vers la retraite" data-al="Ihr Weg in den Ruhestand" data-zh="您的退休之路">Tu camino hacia la jubilación</h2>
+                <ol class="retirement-steps">
+                    <li>
+                        <div class="step-icon"><img src="iconos/imagen-de-perfil.png" alt=""></div>
+                        <strong data-es="18 años" data-en="Age 18" data-pt="18 anos" data-fr="18 ans" data-al="18 Jahre" data-zh="18岁">18 años</strong>
+                        <span data-es="Primer empleo" data-en="First job" data-pt="Primeiro emprego" data-fr="Premier emploi" data-al="Erster Job" data-zh="第一份工作">Primer empleo</span>
+                    </li>
+                    <li>
+                        <div class="step-icon"><img src="iconos/lista-de-verificacion.png" alt=""></div>
+                        <strong data-es="Empiezas a cotizar" data-en="You start contributing" data-pt="Você começa a contribuir" data-fr="Vous commencez à cotiser" data-al="Sie beginnen Beiträge zu zahlen" data-zh="开始缴费">Empiezas a cotizar</strong>
+                        <span data-es="Inicias tus aportes" data-en="You begin your contributions" data-pt="Você inicia suas contribuições" data-fr="Vous débutez vos cotisations" data-al="Sie beginnen mit Ihren Beiträgen" data-zh="开始您的缴费">Inicias tus aportes</span>
+                    </li>
+                    <li>
+                        <div class="step-icon"><img src="iconos/escudo.png" alt=""></div>
+                        <strong data-es="240 cuotas" data-en="240 contributions" data-pt="240 contribuições" data-fr="240 cotisations" data-al="240 Beiträge" data-zh="240次缴费">240 cuotas</strong>
+                        <span data-es="Mínimo requerido" data-en="Minimum required" data-pt="Mínimo exigido" data-fr="Minimum requis" data-al="Erforderliches Minimum" data-zh="最低要求">Mínimo requerido</span>
+                    </li>
+                    <li>
+                        <div class="step-icon"><img src="iconos/social.png" alt=""></div>
+                        <strong data-es="57 / 62 años" data-en="Ages 57 / 62" data-pt="57 / 62 anos" data-fr="57 / 62 ans" data-al="57 / 62 Jahre" data-zh="57/62岁">57 / 62 años</strong>
+                        <span data-es="Edad de jubilación · Mujeres / Hombres" data-en="Retirement age · Women / Men" data-pt="Idade de aposentadoria · Mulheres / Homens" data-fr="Âge de la retraite · Femmes / Hommes" data-al="Rentenalter · Frauen / Männer" data-zh="退休年龄·女性/男性">Edad de jubilación · Mujeres / Hombres</span>
+                    </li>
+                    <li>
+                        <div class="step-icon"><img src="iconos/documento.png" alt=""></div>
+                        <strong data-es="Solicitud" data-en="Application" data-pt="Solicitação" data-fr="Demande" data-al="Antrag" data-zh="申请">Solicitud</strong>
+                        <span data-es="Presentas tu trámite" data-en="You submit your application" data-pt="Você apresenta seu requerimento" data-fr="Vous soumettez votre démarche" data-al="Sie reichen Ihren Antrag ein" data-zh="提交您的申请">Presentas tu trámite</span>
+                    </li>
+                    <li>
+                        <div class="step-icon"><img src="iconos/billetera.png" alt=""></div>
+                        <strong data-es="Pensión" data-en="Pension" data-pt="Pensão" data-fr="Pension" data-al="Rente" data-zh="养老金">Pensión</strong>
+                        <span data-es="Recibes tu pago mensual" data-en="You receive your monthly payment" data-pt="Você recebe seu pagamento mensal" data-fr="Vous recevez votre paiement mensuel" data-al="Sie erhalten Ihre monatliche Zahlung" data-zh="领取每月养老金">Recibes tu pago mensual</span>
+                    </li>
+                </ol>
+            </div>
+
+            <a class="css-pension-link" href="https://www.css.gob.pa/pension/" target="_blank" rel="noopener noreferrer" data-es="Pensión CSS" data-en="CSS Pensions" data-pt="Pensões CSS" data-fr="Pensions CSS" data-al="CSS-Renten" data-zh="CSS养老金">Pensión CSS</a>
+        </div>
+    </section>
+
+    <!-- MITOS Y REALIDADES -->
+    <section class="myths-section" aria-labelledby="myths-title">
+        <div class="pension-shell">
+            <h2 class="myths-title" data-es="MITOS Y REALIDADES" data-en="MYTHS AND FACTS" data-pt="MITOS E REALIDADES" data-fr="MYTHES ET RÉALITÉS" data-al="MYTHEN UND FAKTEN" data-zh="误区与事实">MITOS Y REALIDADES</h2>
+
+            <div class="myths-board">
+                <div class="myths-board-header">
+                    <span><i class="status-icon status-icon-error" aria-hidden="true">×</i><b data-es="MITO" data-en="MYTH" data-pt="MITO" data-fr="MYTHE" data-al="MYTHOS" data-zh="误区">MITO</b></span>
+                    <span><i class="status-icon status-icon-check blue-check" aria-hidden="true">✓</i><b data-es="REALIDAD" data-en="FACT" data-pt="REALIDADE" data-fr="RÉALITÉ" data-al="FAKT" data-zh="事实">REALIDAD</b></span>
+                </div>
+
+                <div class="myth-row">
+                    <div class="myth-cell"><img src="iconos/calendario.png" alt=""><p data-es="Solo necesito cumplir la edad para jubilarme." data-en="I only need to reach retirement age to retire." data-pt="Só preciso atingir a idade para me aposentar." data-fr="Il me suffit d'atteindre l'âge requis pour prendre ma retraite." data-al="Ich muss nur das Alter erreichen, um in Rente zu gehen." data-zh="只要达到年龄就可以退休。">Solo necesito cumplir la edad para jubilarme.</p></div>
+                    <span class="myth-arrow" aria-hidden="true">→</span>
+                    <div class="fact-cell"><img src="iconos/ID.png" alt=""><p data-es="También debes cumplir con las cuotas requeridas y otros requisitos que establece la CSS." data-en="You must also meet the required contributions and other requirements established by the CSS." data-pt="Você também deve cumprir as contribuições exigidas e outros requisitos estabelecidos pela CSS." data-fr="Vous devez également remplir les cotisations requises et les autres exigences établies par la CSS." data-al="Sie müssen auch die erforderlichen Beiträge und weitere von der CSS festgelegte Voraussetzungen erfüllen." data-zh="您还必须满足所需的缴费次数及CSS规定的其他要求。">También debes cumplir con las cuotas requeridas y otros requisitos que establece la CSS.</p></div>
+                </div>
+                <div class="myth-row">
+                    <div class="myth-cell"><img src="iconos/barra-grafica.png" alt=""><p data-es="Mientras más gane al final de mi carrera, mayor será mi pensión." data-en="The more I earn at the end of my career, the higher my pension will be." data-pt="Quanto mais eu ganhar no final da minha carreira, maior será minha pensão." data-fr="Plus je gagne à la fin de ma carrière, plus ma pension sera élevée." data-al="Je mehr ich am Ende meiner Karriere verdiene, desto höher wird meine Rente." data-zh="职业生涯末期赚得越多，养老金就越高。">Mientras más gane al final de mi carrera, mayor será mi pensión.</p></div>
+                    <span class="myth-arrow" aria-hidden="true">→</span>
+                    <div class="fact-cell"><img src="iconos/contabilidad.png" alt=""><p data-es="La pensión se calcula con base en el salario promedio y otros requisitos establecidos por la ley." data-en="The pension is calculated using average salary and other requirements established by law." data-pt="A pensão é calculada com base no salário médio e outros requisitos estabelecidos por lei." data-fr="La pension est calculée sur la base du salaire moyen et d'autres exigences établies par la loi." data-al="Die Rente wird auf Grundlage des Durchschnittsgehalts und weiterer gesetzlich festgelegter Anforderungen berechnet." data-zh="养老金是根据平均工资及法律规定的其他要求计算的。">La pensión se calcula con base en el salario promedio y otros requisitos establecidos por la ley.</p></div>
+                </div>
+                <div class="myth-row">
+                    <div class="myth-cell"><img src="iconos/billetera.png" alt=""><p data-es="Si dejo de cotizar, pierdo todas mis cuotas." data-en="If I stop contributing, I lose all my contributions." data-pt="Se eu parar de contribuir, perco todas as minhas contribuições." data-fr="Si j'arrête de cotiser, je perds toutes mes cotisations." data-al="Wenn ich aufhöre, Beiträge zu zahlen, verliere ich alle meine Beiträge." data-zh="如果停止缴费，我会失去所有已缴费用。">Si dejo de cotizar, pierdo todas mis cuotas.</p></div>
+                    <span class="myth-arrow" aria-hidden="true">→</span>
+                    <div class="fact-cell"><img src="iconos/documento.png" alt=""><p data-es="Las cuotas permanecen registradas en tu historial y puedes retomarlas cuando vuelvas a cotizar." data-en="Your contributions remain in your record and you can continue them when you start contributing again." data-pt="As contribuições permanecem registradas no seu histórico e você pode retomá-las quando voltar a contribuir." data-fr="Les cotisations restent enregistrées dans votre historique et vous pouvez les reprendre lorsque vous recommencez à cotiser." data-al="Die Beiträge bleiben in Ihrer Historie erfasst und Sie können sie fortsetzen, sobald Sie wieder Beiträge zahlen." data-zh="缴费记录会保留在您的档案中，恢复缴费后可继续累积。">Las cuotas permanecen registradas en tu historial y puedes retomarlas cuando vuelvas a cotizar.</p></div>
+                </div>
+                <div class="myth-row">
+                    <div class="myth-cell"><img src="iconos/dinero.png" alt=""><p data-es="La pensión de la CSS será suficiente para todos mis gastos." data-en="My CSS pension will be enough for all my expenses." data-pt="A pensão da CSS será suficiente para todas as minhas despesas." data-fr="La pension de la CSS suffira à couvrir toutes mes dépenses." data-al="Die CSS-Rente wird für all meine Ausgaben ausreichen." data-zh="CSS养老金足以支付我所有的开销。">La pensión de la CSS será suficiente para todos mis gastos.</p></div>
+                    <span class="myth-arrow" aria-hidden="true">→</span>
+                    <div class="fact-cell"><img src="iconos/escudo.png" alt=""><p data-es="Es recomendable complementarla con un ahorro personal o planificar otras fuentes de ingreso." data-en="It is advisable to supplement it with personal savings or plan other sources of income." data-pt="É recomendável complementá-la com poupança pessoal ou planejar outras fontes de renda." data-fr="Il est recommandé de la compléter par une épargne personnelle ou de prévoir d'autres sources de revenus." data-al="Es empfiehlt sich, sie durch persönliches Sparen zu ergänzen oder weitere Einkommensquellen zu planen." data-zh="建议通过个人储蓄或规划其他收入来源加以补充。">Es recomendable complementarla con un ahorro personal o planificar otras fuentes de ingreso.</p></div>
+                </div>
+                <div class="myth-row">
+                    <div class="myth-cell"><img src="iconos/reloj-de-pared.png" alt=""><p data-es="No es necesario revisar mi historial de cuotas." data-en="I do not need to review my contribution history." data-pt="Não é necessário revisar meu histórico de contribuições." data-fr="Il n'est pas nécessaire de vérifier mon historique de cotisations." data-al="Es ist nicht notwendig, meine Beitragshistorie zu überprüfen." data-zh="无需查看我的缴费记录。">No es necesario revisar mi historial de cuotas.</p></div>
+                    <span class="myth-arrow" aria-hidden="true">→</span>
+                    <div class="fact-cell"><img src="iconos/lista-de-verificacion.png" alt=""><p data-es="Consultar tus cuotas periódicamente ayuda a detectar errores y mantener tu información actualizada." data-en="Checking your contributions regularly helps detect errors and keep your information up to date." data-pt="Consultar suas contribuições periodicamente ajuda a detectar erros e manter suas informações atualizadas." data-fr="Consulter régulièrement vos cotisations aide à détecter les erreurs et à maintenir vos informations à jour." data-al="Die regelmäßige Überprüfung Ihrer Beiträge hilft, Fehler zu erkennen und Ihre Daten aktuell zu halten." data-zh="定期查询缴费记录有助于发现错误并保持信息更新。">Consultar tus cuotas periódicamente ayuda a detectar errores y mantener tu información actualizada.</p></div>
+                </div>
+                <div class="myth-row">
+                    <div class="myth-cell"><img src="iconos/social.png" alt=""><p data-es="Todos reciben el mismo monto de pensión." data-en="Everyone receives the same pension amount." data-pt="Todos recebem o mesmo valor de pensão." data-fr="Tout le monde reçoit le même montant de pension." data-al="Alle erhalten den gleichen Rentenbetrag." data-zh="所有人领取的养老金金额相同。">Todos reciben el mismo monto de pensión.</p></div>
+                    <span class="myth-arrow" aria-hidden="true">→</span>
+                    <div class="fact-cell"><img src="iconos/grafica.png" alt=""><p data-es="El monto de la pensión depende del historial de cotizaciones y de los requisitos legales." data-en="The pension amount depends on the contribution history and legal requirements." data-pt="O valor da pensão depende do histórico de contribuições e dos requisitos legais." data-fr="Le montant de la pension dépend de l'historique des cotisations et des exigences légales." data-al="Die Höhe der Rente hängt von der Beitragshistorie und den gesetzlichen Anforderungen ab." data-zh="养老金金额取决于缴费记录及法律规定的要求。">El monto de la pensión depende del historial de cotizaciones y de los requisitos legales.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calcular jubilación-->
+     <section class="jubilacion-section" id="jubilacion">
+    <div class="jubilacion-overlay"></div>
+
+    <div class="jubilacion-container reveal-scale">
+        <div class="jubilacion-header">
+            <span class="jubilacion-eyebrow" data-es="PLANIFICACIÓN FUTURA" data-en="FUTURE PLANNING" data-fr="PLANIFICATION FUTURE" data-pt="PLANEJAMENTO FUTURO" data-al="ZUKUNFTSPLANUNG" data-zh="未来规划">PLANIFICACIÓN FUTURA</span>
+            <h2 data-es="Calculadora de Jubilación" data-en="Retirement Calculator" data-fr="Calculateur de Retraite" data-pt="Calculadora de Aposentadoria" data-al="Rentenrechner" data-zh="退休计算器">Calculadora de Jubilación</h2>
+            <p data-es="Descubre cuánto tiempo te falta para alcanzar la edad de retiro en Panamá (62 hombres / 57 mujeres)." data-en="Find out how much time you have left to reach retirement age in Panama (62 men / 57 women)." data-fr="Découvrez combien de temps il vous reste avant l'âge de la retraite au Panama (62 hommes / 57 femmes)." data-pt="Descubra quanto tempo falta para atingir a idade de aposentadoria no Panamá (62 homens / 57 mulheres)." data-al="Erfahren Sie, wie viel Zeit Ihnen bis zum Renteneintrittsalter in Panama bleibt (62 Männer / 57 Frauen)." data-zh="了解您距离巴拿马法定退休年龄（男性62岁/女性57岁）还有多少时间。">Descubre cuánto tiempo te falta para alcanzar la edad de retiro en Panamá (62 hombres / 57 mujeres).</p>
+        </div>
+
+        <div class="jubilacion-card" data-tilt>
+            <div class="jubilacion-grid">
+                
+                <!-- Columna Izquierda: Controles -->
+                <div class="jubilacion-controls">
+                    <div class="control-group">
+                        <label data-es="Selecciona tu género" data-en="Select your gender" data-fr="Sélectionnez votre genre" data-pt="Selecione seu gênero" data-al="Wählen Sie Ihr Geschlecht" data-zh="选择您的性别">Selecciona tu género</label>
+                        <div class="gender-toggle">
+                            <button id="btnHombre" class="gender-btn active" data-genero="M">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="14" r="6"></circle><path d="M14 10l7-7"></path><path d="M15 3h6v6"></path></svg>
+                                <span data-es="Hombre" data-en="Male" data-fr="Homme" data-pt="Homem" data-al="Mann" data-zh="男性">Hombre</span>
+                            </button>
+                            <button id="btnMujer" class="gender-btn" data-genero="F">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M12 15v8"></path><path d="M8 19h8"></path></svg>
+                                <span data-es="Mujer" data-en="Female" data-fr="Femme" data-pt="Mulher" data-al="Frau" data-zh="女性">Mujer</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label data-es="Tu edad actual" data-en="Your current age" data-fr="Votre âge actuel" data-pt="Sua idade atual" data-al="Ihr aktuelles Alter" data-zh="您当前的年龄">Tu edad actual</label>
+                        <div class="age-slider-wrapper">
+                            <input type="range" id="ageSlider" min="18" max="70" value="25">
+                            <div class="age-display">
+                                <span id="ageValue">25</span>
+                                <span class="age-text" data-es="años" data-en="years" data-fr="ans" data-pt="anos" data-al="Jahre" data-zh="岁">años</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Resultado Visual -->
+                <div class="jubilacion-result">
+                    <div class="result-ring-wrapper">
+                        <svg class="result-ring" width="220" height="220" viewBox="0 0 220 220">
+                            <circle class="ring-bg" cx="110" cy="110" r="95"></circle>
+                            <circle class="ring-progress" cx="110" cy="110" r="95"></circle>
+                        </svg>
+                        <div class="result-center">
+                            <span id="yearsLeft" class="years-left-num">37</span>
+                            <span class="years-left-text" data-es="años restantes" data-en="years left" data-fr="ans restants" data-pt="anos restantes" data-al="Jahre übrig" data-zh="剩余年限">años restantes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="detail-item">
+                            <span class="detail-label" data-es="Edad de retiro" data-en="Retirement age" data-fr="Âge de la retraite" data-pt="Idade de aposentadoria" data-al="Renteneintrittsalter" data-zh="退休年龄">Edad de retiro</span>
+                            <span id="retireAge" class="detail-value">62</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-es="Año aproximado" data-en="Approximate year" data-fr="Année approximative" data-pt="Ano aproximado" data-al="Ungefähriges Jahr" data-zh="大约年份">Año aproximado</span>
+                            <span id="retireYear" class="detail-value">2061</span>
+                        </div>
+                    </div>
+
+                    <p id="retireMessage" class="retire-message" data-es="Sigue planificando tu futuro financiero." data-en="Keep planning your financial future." data-fr="Continuez à planifier votre avenir financier." data-pt="Continue planejando seu futuro financeiro." data-al="Planen Sie weiter Ihre finanzielle Zukunft." data-zh="继续规划您的财务未来。">Sigue planificando tu futuro financiero.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ============================================
+         FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE — STRIX 
+    ============================================ -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="finanzas_seguro.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

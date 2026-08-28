@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fraudes_Phishing.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Phishing</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- Cursor magnético personalizado (solo escritorio) -->
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" class="active" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- ============================================
+         HERO — Phishing
+    ============================================ -->
+    <section class="hero-fraudes-phishing">
+        <div class="hero-fraudes-phishing-content">
+
+            <div class="volver-container">
+                <a href="finanzas_fraudes.html" class="btn-volver">
+                    <span class="flecha" aria-hidden="true">←</span>
+                    <span data-es="Volver a fraudes" data-en="Back to frauds" data-pt="Voltar a fraudes" data-fr="Retour aux fraudes" data-al="Zurück zu Betrug" data-zh="返回欺诈页面">Volver a fraudes</span>
+                </a>
+            </div>
+
+            <div class="hero-body">
+
+                <div class="phishing-text reveal">
+                    <h1>
+                        <span class="accent" data-es="Phishing" data-en="Phishing" data-pt="Phishing" data-fr="Hameçonnage" data-al="Phishing" data-zh="网络钓鱼">Phishing</span>
+                        <span data-es="No muerdas el anzuelo" data-en="Don't take the bait" data-pt="Não morda a isca" data-fr="Ne mordez pas à l'hameçon" data-al="Geh nicht in die Falle" data-zh="别上钩">No muerdas el anzuelo</span>
+                    </h1>
+
+                    <p data-es="El phishing es una técnica de fraude digital utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial, como contraseñas, datos bancarios, números de tarjetas de crédito o información personal."
+                       data-en="Phishing is a digital fraud technique used by cybercriminals to trick individuals into revealing sensitive information, such as passwords, banking details, credit card numbers, or personal data."
+                       data-pt="O phishing é uma técnica de fraude digital usada por cibercriminosos para enganar as pessoas e obter informações confidenciais, como senhas, dados bancários, números de cartão de crédito ou informações pessoais."
+                       data-fr="L'hameçonnage est une technique de fraude numérique utilisée par les cybercriminels pour tromper les gens et obtenir des informations confidentielles, comme des mots de passe, des données bancaires, des numéros de carte de crédit ou des informations personnelles."
+                       data-al="Phishing ist eine digitale Betrugstechnik, mit der Cyberkriminelle Menschen täuschen, um vertrauliche Informationen wie Passwörter, Bankdaten, Kreditkartennummern oder persönliche Daten zu erlangen."
+                       data-zh="网络钓鱼是网络犯罪分子用来欺骗人们、获取密码、银行信息、信用卡号或个人信息等机密数据的一种数字诈骗手段。">
+                        El phishing es una técnica de fraude digital utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial, como contraseñas, datos bancarios, números de tarjetas de crédito o información personal.
+                    </p>
+
+                    <p data-es="Los atacantes suelen hacerse pasar por bancos, empresas reconocidas o instituciones confiables para generar confianza y lograr que las víctimas compartan sus datos."
+                       data-en="Attackers often pose as banks, well-known companies, or trusted institutions to build trust and get victims to share their information."
+                       data-pt="Os atacantes costumam se passar por bancos, empresas conhecidas ou instituições confiáveis para gerar confiança e fazer com que as vítimas compartilhem seus dados."
+                       data-fr="Les attaquants se font souvent passer pour des banques, des entreprises reconnues ou des institutions de confiance afin d'inspirer confiance et d'inciter les victimes à partager leurs données."
+                       data-al="Angreifer geben sich oft als Banken, bekannte Unternehmen oder vertrauenswürdige Institutionen aus, um Vertrauen zu schaffen und die Opfer dazu zu bringen, ihre Daten preiszugeben."
+                       data-zh="攻击者经常冒充银行、知名企业或可信机构，以建立信任，诱使受害者分享自己的信息。">
+                        Los atacantes suelen hacerse pasar por bancos, empresas reconocidas o instituciones confiables para generar confianza y lograr que las víctimas compartan sus datos.
+                    </p>
+                </div>
+
+                <div class="phishing-image reveal-right">
+                    <img src="img/phishing.png" alt="Alerta de phishing">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TARJETAS — tipos de phishing -->
+    <section class="cards-section">
+        <div class="cards-grid">
+
+            <div class="card">
+                <h3 data-es="Suplantan identidades" data-en="They impersonate trusted identities" data-pt="Falsificam identidades" data-fr="Usurpent des identités" data-al="Sie täuschen Identitäten vor" data-zh="冒充身份">Suplantan identidades</h3>
+                <p data-es="Los atacantes se hacen pasar por bancos, empresas, instituciones gubernamentales o plataformas conocidas para parecer legítimos."
+                   data-en="Attackers impersonate banks, companies, government institutions, or well-known platforms to appear legitimate."
+                   data-pt="Os atacantes se passam por bancos, empresas, instituições governamentais ou plataformas conhecidas para parecerem legítimos."
+                   data-fr="Les attaquants se font passer pour des banques, des entreprises, des institutions gouvernementales ou des plateformes connues afin de paraître légitimes."
+                   data-al="Angreifer geben sich als Banken, Unternehmen, staatliche Institutionen oder bekannte Plattformen aus, um legitim zu wirken."
+                   data-zh="攻击者冒充银行、企业、政府机构或知名平台，以显得合法可信。">
+                    Los atacantes se hacen pasar por bancos, empresas, instituciones gubernamentales o plataformas conocidas para parecer legítimos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 data-es="Engañan y manipulan" data-en="Deceive and manipulate" data-pt="Enganam e manipulam" data-fr="Trompent et manipulent" data-al="Sie täuschen und manipulieren" data-zh="欺骗与操纵">Engañan y manipulan</h3>
+                <p data-es="Utilizan mensajes alarmantes, promociones atractivas o solicitudes urgentes para que la víctima actúe rápidamente sin verificar la información."
+                   data-en="Attackers use alarming messages, attractive offers, or urgent requests to pressure victims into acting quickly without verifying the information."
+                   data-pt="Usam mensagens alarmantes, promoções atrativas ou solicitações urgentes para que a vítima aja rapidamente sem verificar a informação."
+                   data-fr="Ils utilisent des messages alarmants, des offres attrayantes ou des demandes urgentes pour pousser la victime à agir rapidement sans vérifier l'information."
+                   data-al="Sie nutzen alarmierende Nachrichten, attraktive Angebote oder dringende Aufforderungen, damit das Opfer schnell handelt, ohne die Informationen zu überprüfen."
+                   data-zh="他们使用令人担忧的信息、诱人的优惠或紧急请求，促使受害者在未核实信息的情况下迅速采取行动。">
+                    Utilizan mensajes alarmantes, promociones atractivas o solicitudes urgentes para que la víctima actúe rápidamente sin verificar la información.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 data-es="Buscan obtener dinero" data-en="They seek to obtain money" data-pt="Buscam obter dinheiro" data-fr="Cherchent à obtenir de l'argent" data-al="Sie wollen Geld erbeuten" data-zh="意图获取钱财">Buscan obtener dinero</h3>
+                <p data-es="Con la información obtenida pueden realizar compras, transferencias, préstamos fraudulentos o incluso vender los datos robados."
+                   data-en="With the information obtained, they can make purchases, transfers, fraudulent loans, or even sell the stolen data."
+                   data-pt="Com as informações obtidas, podem fazer compras, transferências, empréstimos fraudulentos ou até vender os dados roubados."
+                   data-fr="Avec les informations obtenues, ils peuvent effectuer des achats, des virements, des prêts frauduleux ou même vendre les données volées."
+                   data-al="Mit den erlangten Informationen können sie Einkäufe, Überweisungen, betrügerische Kredite tätigen oder die gestohlenen Daten sogar verkaufen."
+                   data-zh="利用获取的信息，他们可以进行购物、转账、欺诈性贷款，甚至出售被盗数据。">
+                    Con la información obtenida pueden realizar compras, transferencias, préstamos fraudulentos o incluso vender los datos robados.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALERTAS — Señales de alerta -->
+    <section class="alertas-section">
+        <img src="img/señales_alerta.png" alt="Fondo señales de alerta" class="alerta-bg-img">
+        <div class="alerta-overlay"></div>
+        <div class="alerta-container">
+
+            <h2 data-es="Señales de alerta" data-en="Warning Signs" data-pt="Sinais de alerta" data-fr="Signaux d'alerte" data-al="Warnzeichen" data-zh="警示信号">Señales de alerta</h2>
+
+            <div class="alerta-box reveal">
+                <div class="alerta-titulo">
+                    <h3 data-es="Remitente sospechoso:" data-en="Suspicious Sender:" data-pt="Remetente suspeito:" data-fr="Expéditeur suspect :" data-al="Verdächtiger Absender:" data-zh="可疑发件人：">Remitente sospechoso:</h3>
+                    <p data-es="Los ciberdelincuentes suelen utilizar direcciones de correo que parecen legítimas a primera vista, pero contienen pequeñas modificaciones difíciles de notar. Su objetivo es hacer creer a la víctima que el mensaje proviene de una empresa o institución confiable."
+                       data-en="Cybercriminals often use email addresses that appear legitimate at first glance but contain small modifications that are difficult to notice. Their goal is to make the victim believe that the message comes from a trusted company or institution."
+                       data-pt="Os cibercriminosos costumam usar endereços de e-mail que parecem legítimos à primeira vista, mas contêm pequenas alterações difíceis de notar. O objetivo é fazer a vítima acreditar que a mensagem vem de uma empresa ou instituição confiável."
+                       data-fr="Les cybercriminels utilisent souvent des adresses e-mail qui semblent légitimes à première vue, mais qui contiennent de petites modifications difficiles à remarquer. Leur but est de faire croire à la victime que le message provient d'une entreprise ou d'une institution de confiance."
+                       data-al="Cyberkriminelle verwenden oft E-Mail-Adressen, die auf den ersten Blick legitim erscheinen, aber kleine, schwer erkennbare Änderungen enthalten. Ihr Ziel ist es, das Opfer glauben zu lassen, die Nachricht stamme von einem vertrauenswürdigen Unternehmen."
+                       data-zh="网络犯罪分子常使用乍看合法、但含有细微改动、不易察觉的邮箱地址，目的是让受害者相信信息来自可信的企业或机构。">
+                        Los ciberdelincuentes suelen utilizar direcciones de correo que parecen legítimas a primera vista, pero contienen pequeñas modificaciones difíciles de notar. Su objetivo es hacer creer a la víctima que el mensaje proviene de una empresa o institución confiable.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alerta-box reveal">
+                <div class="alerta-titulo">
+                    <h3 data-es="Mensajes urgentes:" data-en="Urgent Messages:" data-pt="Mensagens urgentes:" data-fr="Messages urgents :" data-al="Dringende Nachrichten:" data-zh="紧急信息：">Mensajes urgentes:</h3>
+                    <p data-es="Los atacantes intentan generar miedo o presión para que actúes rápidamente sin pensar. Cuando una persona siente urgencia, es más probable que tome decisiones impulsivas."
+                       data-en="Attackers try to create fear or pressure so that you act quickly without thinking. When a person feels a sense of urgency, they are more likely to make impulsive decisions."
+                       data-pt="Os atacantes tentam gerar medo ou pressão para que você aja rapidamente sem pensar. Quando uma pessoa sente urgência, é mais provável que tome decisões impulsivas."
+                       data-fr="Les attaquants tentent de générer de la peur ou de la pression pour que vous agissiez rapidement sans réfléchir. Face à l'urgence, une personne prend plus facilement des décisions impulsives."
+                       data-al="Angreifer versuchen, Angst oder Druck zu erzeugen, damit Sie schnell und unüberlegt handeln. Unter Zeitdruck trifft man eher impulsive Entscheidungen."
+                       data-zh="攻击者试图制造恐惧或压力，让你不假思索地迅速行动。当一个人感到紧迫时，更容易做出冲动的决定。">
+                        Los atacantes intentan generar miedo o presión para que actúes rápidamente sin pensar. Cuando una persona siente urgencia, es más probable que tome decisiones impulsivas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alerta-box reveal">
+                <div class="alerta-titulo">
+                    <h3 data-es="Enlaces extraños:" data-en="Suspicious Links:" data-pt="Links estranhos:" data-fr="Liens étranges :" data-al="Merkwürdige Links:" data-zh="可疑链接：">Enlaces extraños:</h3>
+                    <p data-es="Muchos ataques de phishing utilizan enlaces que parecen reales, pero llevan a páginas falsas diseñadas para robar información."
+                       data-en="Many phishing attacks use links that appear legitimate but lead to fake websites designed to steal information."
+                       data-pt="Muitos ataques de phishing usam links que parecem reais, mas levam a páginas falsas criadas para roubar informações."
+                       data-fr="De nombreuses attaques par hameçonnage utilisent des liens qui semblent réels mais qui mènent à de fausses pages conçues pour voler des informations."
+                       data-al="Viele Phishing-Angriffe verwenden Links, die echt wirken, aber zu gefälschten Seiten führen, die Daten stehlen sollen."
+                       data-zh="许多网络钓鱼攻击使用看似真实的链接，实际却指向专门用于窃取信息的虚假网站。">
+                        Muchos ataques de phishing utilizan enlaces que parecen reales, pero llevan a páginas falsas diseñadas para robar información.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alerta-box reveal">
+                <div class="alerta-titulo">
+                    <h3 data-es="Solicitan información personal:" data-en="Request Personal Information:" data-pt="Solicitam informações pessoais:" data-fr="Demandent des informations personnelles :" data-al="Sie fordern persönliche Daten an:" data-zh="索取个人信息：">Solicitan información personal:</h3>
+                    <p data-es="Las empresas legítimas generalmente no solicitan contraseñas, códigos de verificación o datos bancarios a través de correos electrónicos o mensajes."
+                       data-en="Legitimate companies generally do not request passwords, verification codes, or banking information through emails or messages."
+                       data-pt="Empresas legítimas geralmente não solicitam senhas, códigos de verificação ou dados bancários por e-mail ou mensagens."
+                       data-fr="Les entreprises légitimes ne demandent généralement pas de mots de passe, de codes de vérification ou de données bancaires par e-mail ou par message."
+                       data-al="Seriöse Unternehmen fragen in der Regel nicht per E-Mail oder Nachricht nach Passwörtern, Verifizierungscodes oder Bankdaten."
+                       data-zh="正规企业通常不会通过电子邮件或消息索取密码、验证码或银行信息。">
+                        Las empresas legítimas generalmente no solicitan contraseñas, códigos de verificación o datos bancarios a través de correos electrónicos o mensajes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alerta-box reveal">
+                <div class="alerta-titulo">
+                    <h3 data-es="Errores de ortografía y redacción:" data-en="Spelling and Grammar Errors:" data-pt="Erros de ortografia e redação:" data-fr="Fautes d'orthographe et de rédaction :" data-al="Rechtschreib- und Grammatikfehler:" data-zh="拼写与语法错误：">Errores de ortografía y redacción:</h3>
+                    <p data-es="Muchos mensajes fraudulentos son creados rápidamente o traducidos automáticamente, por lo que suelen contener errores evidentes."
+                       data-en="Many fraudulent messages are created quickly or translated automatically, which is why they often contain obvious spelling and grammar mistakes."
+                       data-pt="Muitas mensagens fraudulentas são criadas rapidamente ou traduzidas automaticamente, por isso costumam ter erros evidentes."
+                       data-fr="De nombreux messages frauduleux sont créés rapidement ou traduits automatiquement, ce qui explique leurs erreurs évidentes."
+                       data-al="Viele betrügerische Nachrichten werden schnell erstellt oder automatisch übersetzt und enthalten deshalb oft offensichtliche Fehler."
+                       data-zh="许多欺诈信息是仓促制作或机器翻译的，因此常常带有明显的错误。">
+                        Muchos mensajes fraudulentos son creados rápidamente o traducidos automáticamente, por lo que suelen contener errores evidentes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alerta-box reveal">
+                <div class="alerta-titulo">
+                    <h3 data-es="Ofertas demasiado buenas para ser verdad:" data-en="Offers Too Good to Be True:" data-pt="Ofertas boas demais para ser verdade:" data-fr="Offres trop belles pour être vraies :" data-al="Angebote, die zu gut klingen, um wahr zu sein:" data-zh="好得令人难以置信的优惠：">Ofertas demasiado buenas para ser verdad:</h3>
+                    <p data-es="Los estafadores saben que las personas se sienten atraídas por regalos y promociones extraordinarias."
+                       data-en="Scammers know that people are attracted to extraordinary gifts and promotions."
+                       data-pt="Os golpistas sabem que as pessoas se sentem atraídas por brindes e promoções extraordinárias."
+                       data-fr="Les escrocs savent que les gens sont attirés par des cadeaux et des promotions extraordinaires."
+                       data-al="Betrüger wissen, dass Menschen von außergewöhnlichen Geschenken und Aktionen angezogen werden."
+                       data-zh="骗子深知人们容易被超乎寻常的礼品和促销所吸引。">
+                        Los estafadores saben que las personas se sienten atraídas por regalos y promociones extraordinarias.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EJEMPLOS MÁS COMUNES EN PANAMÁ -->
+    <section class="tipos-section">
+        <div class="tipos-container">
+
+            <h2 data-es="Ejemplos más comunes en Panamá" data-en="Most common examples in Panama" data-pt="Exemplos mais comuns no Panamá" data-fr="Exemples les plus courants au Panama" data-al="Häufigste Beispiele in Panama" data-zh="巴拿马最常见的例子">Ejemplos más comunes en Panamá</h2>
+            <div class="tipos-grid">
+
+                <div class="tipo-card reveal">
+                    <div class="tipo-icono"><img src="iconos/whatsapp.png" alt="Whatsapp"></div>
+                    <h3>Whatsapp</h3>
+                    <p data-es="Enlaces que prometen bonos, subsidios, premios o ayudas económicas."
+                       data-en="Links promising bonuses, subsidies, prizes, or financial aid."
+                       data-pt="Links que prometem bônus, subsídios, prêmios ou ajudas financeiras."
+                       data-fr="Des liens qui promettent des primes, des subventions, des prix ou des aides financières."
+                       data-al="Links, die Boni, Zuschüsse, Preise oder finanzielle Hilfen versprechen."
+                       data-zh="承诺发放补贴、奖金或经济援助的链接。">
+                        Enlaces que prometen bonos, subsidios, premios o ayudas económicas.
+                    </p>
+                </div>
+
+                <div class="tipo-card reveal">
+                    <div class="tipo-icono"><img src="iconos/bancos.png" alt="Bancos"></div>
+                    <h3 data-es="Bancos" data-en="Banks" data-pt="Bancos" data-fr="Banques" data-al="Banken" data-zh="银行">Bancos</h3>
+                    <p data-es="Mensajes falsos donde indican que tu cuenta será suspendida si no actualizas tus datos."
+                       data-en="Fake messages stating that your account will be suspended if you do not update your details."
+                       data-pt="Mensagens falsas informando que sua conta será suspensa se você não atualizar seus dados."
+                       data-fr="Faux messages indiquant que votre compte sera suspendu si vous ne mettez pas à jour vos données."
+                       data-al="Gefälschte Nachrichten, die behaupten, Ihr Konto werde gesperrt, wenn Sie Ihre Daten nicht aktualisieren."
+                       data-zh="虚假信息称如果不更新资料，账户将被暂停。">
+                        Mensajes falsos donde indican que tu cuenta será suspendida si no actualizas tus datos.
+                    </p>
+                </div>
+
+                <div class="tipo-card reveal">
+                    <div class="tipo-icono"><img src="iconos/correo-electronico2.png" alt="Correo Electrónico"></div>
+                    <h3 data-es="Correo Electrónico" data-en="E-Mail" data-pt="E-mail" data-fr="Courriel" data-al="E-Mail" data-zh="电子邮件">Correo Electrónico</h3>
+                    <p data-es="Facturas falsas, supuestas compras o alertas de seguridad diseñadas para robar tus credenciales."
+                       data-en="Fake invoices, alleged purchases, or security alerts designed to steal your credentials."
+                       data-pt="Faturas falsas, supostas compras ou alertas de segurança criados para roubar suas credenciais."
+                       data-fr="Fausses factures, achats présumés ou alertes de sécurité conçus pour voler vos identifiants."
+                       data-al="Gefälschte Rechnungen, angebliche Käufe oder Sicherheitswarnungen, die Ihre Zugangsdaten stehlen sollen."
+                       data-zh="伪造发票、虚假购买或安全警报，旨在窃取您的账户凭证。">
+                        Facturas falsas, supuestas compras o alertas de seguridad diseñadas para robar tus credenciales.
+                    </p>
+                </div>
+
+                <div class="tipo-card reveal">
+                    <div class="tipo-icono"><img src="iconos/sms.png" alt="Mensajes de Texto"></div>
+                    <h3 data-es="Mensajes de Texto" data-en="SMS" data-pt="Mensagens de Texto" data-fr="SMS" data-al="SMS" data-zh="短信">Mensajes de Texto</h3>
+                    <p data-es="Mensajes indicando que tienes un paquete retenido o un pago pendiente."
+                       data-en="Messages indicating that you have a package on hold or a pending payment."
+                       data-pt="Mensagens indicando que você tem um pacote retido ou um pagamento pendente."
+                       data-fr="Messages indiquant qu'un colis est retenu ou qu'un paiement est en attente."
+                       data-al="Nachrichten, die besagen, Sie hätten ein zurückgehaltenes Paket oder eine ausstehende Zahlung."
+                       data-zh="提示您有包裹被扣留或有待付款项的信息。">
+                        Mensajes indicando que tienes un paquete retenido o un pago pendiente.
+                    </p>
+                </div>
+
+                <div class="tipo-card reveal">
+                    <div class="tipo-icono"><img src="iconos/llamadas.png" alt="Llamadas"></div>
+                    <h3 data-es="Llamadas" data-en="Calls" data-pt="Ligações" data-fr="Appels" data-al="Anrufe" data-zh="电话">Llamadas</h3>
+                    <p data-es="Personas que dicen trabajar para tu banco y solicitan información confidencial."
+                       data-en="People who claim to work for your bank and ask for confidential information."
+                       data-pt="Pessoas que dizem trabalhar para o seu banco e pedem informações confidenciais."
+                       data-fr="Des personnes prétendant travailler pour votre banque et demandant des informations confidentielles."
+                       data-al="Personen, die vorgeben, für Ihre Bank zu arbeiten, und vertrauliche Informationen anfordern."
+                       data-zh="声称在您银行工作、索要机密信息的人员。">
+                        Personas que dicen trabajar para tu banco y solicitan información confidencial.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO PROTEGERTE -->
+    <section class="como-protegerte">
+        <div class="protegerte-container">
+
+            <h2 data-es="¿Cómo protegerte?" data-en="How to protect yourself?" data-pt="Como se proteger?" data-fr="Comment vous protéger ?" data-al="Wie kannst du dich schützen?" data-zh="如何保护自己？">¿Cómo protegerte?</h2>
+
+            <div class="protegerte-central reveal-scale">
+                <img src="img/mapa-protegerte.jpeg"
+                     data-img-es="img/mapa-protegerte.jpeg"
+                     data-img-en="img/mapa-protegerte-en.png"
+                     data-img-pt="img/mapa-protegerte-pt.png"
+                     data-img-fr="img/mapa-protegerte-fr.png"
+                     data-img-al="img/mapa-protegerte-al.png"
+                     data-img-zh="img/mapa-protegerte-zh.png"
+                     alt="Protege tu información en línea"
+                     class="protegerte-central-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- QUÉ HACER SI ERES VÍCTIMA -->
+    <section class="victima-section">
+        <div class="victima-container">
+
+            <div class="victima-texto reveal-left">
+                <h2 data-es="¿Qué hacer si eres víctima?" data-en="What to do if you're a victim?" data-pt="O que fazer se você for vítima?" data-fr="Que faire si vous êtes victime ?" data-al="Was tun, wenn du Opfer bist?" data-zh="如果你成为受害者该怎么办？">
+                    <span data-es="¿Qué hacer si eres" data-en="What to do if you're a" data-pt="O que fazer se você for" data-fr="Que faire si vous êtes" data-al="Was tun, wenn du" data-zh="如果你成为">¿Qué hacer si eres</span>
+                    <span class="accent" data-es="víctima?" data-en="victim?" data-pt="vítima?" data-fr="victime ?" data-al="Opfer bist?" data-zh="受害者，该怎么办？">víctima?</span>
+                </h2>
+
+                <div class="victima-globo">
+                    <img src="iconos/idea.png" alt="Idea" class="victima-globo-icono">
+                    <p data-es="Mientras más rápido actúes, mayores serán las posibilidades de evitar pérdidas económicas."
+                       data-en="The faster you act, the greater your chances of avoiding financial losses."
+                       data-pt="Quanto mais rápido você agir, maiores serão as chances de evitar perdas econômicas."
+                       data-fr="Plus vous agissez rapidement, plus vous augmentez vos chances d'éviter des pertes financières."
+                       data-al="Je schneller Sie handeln, desto größer sind die Chancen, finanzielle Verluste zu vermeiden."
+                       data-zh="行动越快，避免经济损失的可能性就越大。">
+                        Mientras más rápido actúes, mayores serán las posibilidades de evitar pérdidas económicas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="victima-contenido reveal-right">
+
+                <img src="img/preocupación.jpeg" alt="Persona revisando su celular preocupada" class="victima-imagen">
+
+                <div class="victima-checklist">
+                    <p class="victima-checklist-intro"
+                       data-es="Si crees que compartiste información en un sitio fraudulento, sigue estos pasos:"
+                       data-en="If you think you shared information on a fraudulent site, follow these steps:"
+                       data-pt="Se você acha que compartilhou informações em um site fraudulento, siga estes passos:"
+                       data-fr="Si vous pensez avoir partagé des informations sur un site frauduleux, suivez ces étapes :"
+                       data-al="Wenn Sie glauben, Daten auf einer betrügerischen Seite geteilt zu haben, befolgen Sie diese Schritte:"
+                       data-zh="如果您认为在欺诈网站上分享了信息，请按以下步骤操作：">
+                        Si crees que compartiste información en un sitio fraudulento, sigue estos pasos:
+                    </p>
+
+                    <ul class="victima-lista">
+                        <li data-es="Cambia inmediatamente tus contraseñas." data-en="Change your passwords immediately." data-pt="Mude suas senhas imediatamente." data-fr="Changez immédiatement vos mots de passe." data-al="Ändern Sie sofort Ihre Passwörter." data-zh="立即更改密码。">Cambia inmediatamente tus contraseñas.</li>
+                        <li data-es="Contacta a tu banco." data-en="Contact your bank." data-pt="Entre em contato com seu banco." data-fr="Contactez votre banque." data-al="Kontaktieren Sie Ihre Bank." data-zh="联系您的银行。">Contacta a tu banco.</li>
+                        <li data-es="Bloquea tus tarjetas si es necesario." data-en="Block your cards if necessary." data-pt="Bloqueie seus cartões se necessário." data-fr="Bloquez vos cartes si nécessaire." data-al="Sperren Sie bei Bedarf Ihre Karten." data-zh="必要时锁定您的银行卡。">Bloquea tus tarjetas si es necesario.</li>
+                        <li data-es="Revisa los movimientos de tus cuentas." data-en="Review your account activity." data-pt="Revise a movimentação das suas contas." data-fr="Vérifiez les mouvements de vos comptes." data-al="Überprüfen Sie Ihre Kontobewegungen." data-zh="检查您的账户交易记录。">Revisa los movimientos de tus cuentas.</li>
+                        <li data-es="Reporta el incidente." data-en="Report the incident." data-pt="Denuncie o incidente." data-fr="Signalez l'incident." data-al="Melden Sie den Vorfall." data-zh="举报此事件。">Reporta el incidente.</li>
+                        <li data-es="Escanea tu dispositivo con un antivirus." data-en="Scan your device with an antivirus." data-pt="Faça uma varredura no seu dispositivo com um antivírus." data-fr="Analysez votre appareil avec un antivirus." data-al="Scannen Sie Ihr Gerät mit einem Antivirenprogramm." data-zh="使用杀毒软件扫描您的设备。">Escanea tu dispositivo con un antivirus.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MITOS Y REALIDADES -->
+    <section class="mitos-section">
+        <div class="mitos-container reveal">
+
+            <div class="mitos-encabezado">
+                <h2 data-es="Mitos y Realidades" data-en="Myths and Facts" data-pt="Mitos e Realidades" data-fr="Mythes et réalités" data-al="Mythen und Fakten" data-zh="迷思与真相">Mitos y Realidades</h2>
+                <p data-es="No todo lo que escuchas es cierto" data-en="Not everything you hear is true" data-pt="Nem tudo que você ouve é verdade" data-fr="Tout ce que vous entendez n'est pas vrai" data-al="Nicht alles, was du hörst, ist wahr" data-zh="并非你听到的一切都是真的">No todo lo que escuchas es cierto</p>
+            </div>
+
+            <div class="mitos-tabla">
+
+                <div class="mitos-fila mitos-fila-header">
+                    <div class="mitos-celda mitos-celda-header mito">
+                        <span data-es="MITO" data-en="MYTH" data-pt="MITO" data-fr="MYTHE" data-al="MYTHOS" data-zh="迷思">MITO</span>
+                    </div>
+                    <div class="mitos-celda mitos-celda-header realidad">
+                        <span data-es="REALIDAD" data-en="FACT" data-pt="REALIDADE" data-fr="RÉALITÉ" data-al="FAKT" data-zh="真相">REALIDAD</span>
+                    </div>
+                </div>
+
+                <div class="mitos-fila">
+                    <div class="mitos-celda mito">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/jubilado.png" alt="Jubilado" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-x">✕</span>
+                        </div>
+                        <p data-es="&quot;Solo las personas mayores son víctimas.&quot;" data-en="&quot;Only older adults are victims.&quot;" data-pt="&quot;Só pessoas mais velhas são vítimas.&quot;" data-fr="&quot;Seules les personnes âgées sont victimes.&quot;" data-al="&quot;Nur ältere Menschen werden Opfer.&quot;" data-zh="“只有老年人才会成为受害者。”">
+                            "Solo las personas mayores son víctimas."
+                        </p>
+                    </div>
+                    <div class="mitos-celda realidad">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/grupo.png" alt="Grupo" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-check">✓</span>
+                        </div>
+                        <p data-es="Cualquier persona puede ser engañada." data-en="Anyone can be deceived." data-pt="Qualquer pessoa pode ser enganada." data-fr="N'importe qui peut être trompé." data-al="Jeder kann getäuscht werden." data-zh="任何人都可能被骗。">
+                            Cualquier persona puede ser engañada.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mitos-fila">
+                    <div class="mitos-celda mito">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/antivirus.png" alt="Antivirus" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-x">✕</span>
+                        </div>
+                        <p data-es="&quot;Mi antivirus me protege de todo.&quot;" data-en="&quot;My antivirus protects me from everything.&quot;" data-pt="&quot;Meu antivírus me protege de tudo.&quot;" data-fr="&quot;Mon antivirus me protège de tout.&quot;" data-al="&quot;Mein Antivirus schützt mich vor allem.&quot;" data-zh="“我的杀毒软件能保护我免受一切威胁。”">
+                            "Mi antivirus me protege de todo."
+                        </p>
+                    </div>
+                    <div class="mitos-celda realidad">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/escudo.png" alt="Escudo" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-check">✓</span>
+                        </div>
+                        <p data-es="El antivirus ayuda, pero la mejor protección es reconocer un intento de fraude."
+                           data-en="Antivirus software helps, but recognizing a fraud attempt is the best protection."
+                           data-pt="O antivírus ajuda, mas a melhor proteção é reconhecer uma tentativa de fraude."
+                           data-fr="L'antivirus aide, mais la meilleure protection consiste à reconnaître une tentative de fraude."
+                           data-al="Antivirus hilft, aber der beste Schutz ist, einen Betrugsversuch zu erkennen."
+                           data-zh="杀毒软件有帮助，但最好的保护是能识别欺诈企图。">
+                            El antivirus ayuda, pero la mejor protección es reconocer un intento de fraude.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mitos-fila">
+                    <div class="mitos-celda mito">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/sobre-banco.png" alt="Sobre" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-x">✕</span>
+                        </div>
+                        <p data-es="&quot;Si el correo tiene el logo del banco, es verdadero.&quot;" data-en="&quot;If the email has the bank's logo, it's real.&quot;" data-pt="&quot;Se o e-mail tem o logo do banco, é verdadeiro.&quot;" data-fr="&quot;Si l'e-mail a le logo de la banque, il est vrai.&quot;" data-al="&quot;Wenn die E-Mail das Bank-Logo hat, ist sie echt.&quot;" data-zh="“如果邮件带有银行标志，就是真的。”">
+                            "Si el correo tiene el logo del banco, es verdadero."
+                        </p>
+                    </div>
+                    <div class="mitos-celda realidad">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/imagen.png" alt="Imagen" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-check">✓</span>
+                        </div>
+                        <p data-es="Los delincuentes pueden copiar logotipos e imágenes oficiales."
+                           data-en="Criminals can copy official logos and images."
+                           data-pt="Criminosos podem copiar logotipos e imagens oficiais."
+                           data-fr="Les criminels peuvent copier des logos et des images officiels."
+                           data-al="Kriminelle können offizielle Logos und Bilder kopieren."
+                           data-zh="犯罪分子可以复制官方标志和图片。">
+                            Los delincuentes pueden copiar logotipos e imágenes oficiales.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mitos-fila">
+                    <div class="mitos-celda mito">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/contraseña.png" alt="Contraseña" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-x">✕</span>
+                        </div>
+                        <p data-es="&quot;Los bancos solicitan contraseñas por correo.&quot;" data-en="&quot;Banks ask for passwords by email.&quot;" data-pt="&quot;Os bancos pedem senhas por e-mail.&quot;" data-fr="&quot;Les banques demandent des mots de passe par e-mail.&quot;" data-al="&quot;Banken fragen per E-Mail nach Passwörtern.&quot;" data-zh="“银行会通过邮件索取密码。”">
+                            "Los bancos solicitan contraseñas por correo."
+                        </p>
+                    </div>
+                    <div class="mitos-celda realidad">
+                        <div class="mitos-icono-wrap">
+                            <img src="iconos/prohibicion.png" alt="Prohibición" class="mitos-icono-img">
+                            <span class="mitos-badge mitos-badge-check">✓</span>
+                        </div>
+                        <p data-es="Ningún banco solicita contraseñas, PIN o códigos de verificación por estos medios."
+                           data-en="No bank requests passwords, PINs, or verification codes through these channels."
+                           data-pt="Nenhum banco solicita senhas, PINs ou códigos de verificação por esses meios."
+                           data-fr="Aucune banque ne demande de mots de passe, de codes PIN ou de codes de vérification par ces moyens."
+                           data-al="Keine Bank fragt auf diesem Weg nach Passwörtern, PINs oder Verifizierungscodes."
+                           data-zh="没有银行会通过这些渠道索取密码、PIN 码或验证码。">
+                            Ningún banco solicita contraseñas, PIN o códigos de verificación por estos medios.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO IDENTIFICAR UN SITIO WEB FALSO -->
+    <section class="sitio-falso-section">
+        <div class="sitio-falso-container">
+
+            <h2 class="sitio-falso-titulo"
+                data-es="¿Cómo identificar un sitio web falso?"
+                data-en="How to spot a fake website?"
+                data-pt="Como identificar um site falso?"
+                data-fr="Comment repérer un faux site web ?"
+                data-al="Wie erkennt man eine gefälschte Website?"
+                data-zh="如何识别虚假网站？">
+                ¿Cómo identificar un <span>sitio web falso?</span>
+            </h2>
+
+            <div class="sitio-falso-contenido">
+
+                <div class="sitio-falso-imagen reveal-left">
+                    <img src="img/encuesta.jpeg" alt="Persona verificando un sitio web">
+                </div>
+
+                <div class="sitio-falso-texto reveal-right">
+
+                    <p class="sitio-falso-intro"
+                       data-es="Antes de ingresar tus datos, verifica:"
+                       data-en="Before entering your information, check:"
+                       data-pt="Antes de inserir seus dados, verifique:"
+                       data-fr="Avant de saisir vos données, vérifiez :"
+                       data-al="Bevor Sie Ihre Daten eingeben, prüfen Sie:"
+                       data-zh="输入信息前，请核实：">
+                        Antes de ingresar tus datos, verifica:
+                    </p>
+
+                    <ul class="sitio-falso-lista">
+                        <li data-es="Que la dirección web sea correcta." data-en="That the web address is correct." data-pt="Se o endereço do site está correto." data-fr="Que l'adresse du site est correcte." data-al="Dass die Webadresse korrekt ist." data-zh="网址是否正确。">Que la dirección web sea correcta.</li>
+                        <li data-es="Que el sitio utilice HTTPS." data-en="That the site uses HTTPS." data-pt="Se o site usa HTTPS." data-fr="Que le site utilise HTTPS." data-al="Dass die Seite HTTPS verwendet." data-zh="网站是否使用 HTTPS。">Que el sitio utilice HTTPS.</li>
+                        <li data-es="Que aparezca el candado de seguridad." data-en="That the security padlock icon appears." data-pt="Se aparece o cadeado de segurança." data-fr="Que le cadenas de sécurité apparaît." data-al="Dass das Sicherheitsschloss-Symbol angezeigt wird." data-zh="是否出现安全锁标志。">Que aparezca el candado de seguridad.</li>
+                        <li data-es="Que no existan errores ortográficos." data-en="That there are no spelling errors." data-pt="Se não há erros ortográficos." data-fr="Qu'il n'y a pas de fautes d'orthographe." data-al="Dass es keine Rechtschreibfehler gibt." data-zh="是否存在拼写错误。">Que no existan errores ortográficos.</li>
+                        <li data-es="Que el diseño sea profesional y consistente." data-en="That the design looks professional and consistent." data-pt="Se o design é profissional e consistente." data-fr="Que le design est professionnel et cohérent." data-al="Dass das Design professionell und einheitlich wirkt." data-zh="设计是否专业且统一。">Que el diseño sea profesional y consistente.</li>
+                    </ul>
+
+                    <p class="sitio-falso-nota"
+                       data-es="Si tienes dudas, cierra la página e ingresa escribiendo tú mismo la dirección oficial del sitio."
+                       data-en="If in doubt, close the page and type the site's official address yourself."
+                       data-pt="Se tiver dúvidas, feche a página e digite você mesmo o endereço oficial do site."
+                       data-fr="En cas de doute, fermez la page et saisissez vous-même l'adresse officielle du site."
+                       data-al="Im Zweifel schließen Sie die Seite und geben Sie die offizielle Adresse selbst ein."
+                       data-zh="如有疑问，请关闭页面，自行输入网站的官方地址。">
+                        Si tienes dudas, cierra la página e ingresa escribiendo tú mismo la dirección oficial del sitio.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERRAMIENTAS Y CONTACTOS DE INTERÉS -->
+    <section class="herramientas-section">
+        <div class="about-container">
+            <div class="about-text reveal">
+                <h2>
+                    <span data-es="Verifica un sitio antes de hacer clic" data-en="Check a site before you click" data-pt="Verifique um site antes de clicar" data-fr="Vérifiez un site avant de cliquer" data-al="Prüfe eine Seite, bevor du klickst" data-zh="点击前先核实网站">
+                        Verifica un sitio antes de hacer clic
+                    </span>
+                </h2>
+
+                <h3 data-es="Herramientas confiables para detectar enlaces fraudulentos y proteger tu información"
+                    data-en="Reliable tools to detect fraudulent links and protect your information"
+                    data-pt="Ferramentas confiáveis para detectar links fraudulentos e proteger suas informações"
+                    data-fr="Des outils fiables pour détecter les liens frauduleux et protéger vos informations"
+                    data-al="Zuverlässige Tools zur Erkennung betrügerischer Links und zum Schutz Ihrer Daten"
+                    data-zh="用于检测欺诈链接并保护您信息的可靠工具">
+                    Herramientas confiables para detectar enlaces fraudulentos y proteger tu información
+                </h3>
+
+                <div class="entidades-lista">
+
+                    <div class="herramientas-card" data-tilt>
+                        <img src="img/logoVisualTotal.png" alt="VirusTotal" class="herramientas-logo">
+                        <div class="herramientas-divider"></div>
+                        <div class="herramientas-texto">
+                            <h4>VirusTotal</h4>
+                            <p data-es="Analiza enlaces, archivos y dominios con más de 70 motores antivirus."
+                               data-en="Analyzes links, files, and domains with more than 70 antivirus engines."
+                               data-pt="Analisa links, arquivos e domínios com mais de 70 mecanismos antivírus."
+                               data-fr="Analyse les liens, fichiers et domaines avec plus de 70 moteurs antivirus."
+                               data-al="Analysiert Links, Dateien und Domains mit über 70 Antiviren-Engines."
+                               data-zh="使用超过 70 个杀毒引擎分析链接、文件和域名。">
+                                Analiza enlaces, archivos y dominios con más de 70 motores antivirus.
+                            </p>
+                            <div class="herramientas-contacto">
+                                <img src="iconos/escudo-azul.png" alt="" class="herramientas-icono">
+                                <p data-es="Detecta malware, phishing y amenazas." data-en="Detects malware, phishing, and threats." data-pt="Detecta malware, phishing e ameaças." data-fr="Détecte les malwares, l'hameçonnage et les menaces." data-al="Erkennt Malware, Phishing und Bedrohungen." data-zh="检测恶意软件、网络钓鱼和其他威胁。">
+                                    Detecta malware, phishing y amenazas.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://www.virustotal.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a VirusTotal">→</a>
+                    </div>
+
+                    <div class="herramientas-card" data-tilt>
+                        <img src="img/logoGoogle.png" alt="Google Safe Browsing" class="herramientas-logo">
+                        <div class="herramientas-divider"></div>
+                        <div class="herramientas-texto">
+                            <h4>Google Safe Browsing</h4>
+                            <p data-es="Comprueba si un sitio ha sido reportado por phishing o malware."
+                               data-en="Checks if a site has been reported for phishing or malware."
+                               data-pt="Verifica se um site foi reportado por phishing ou malware."
+                               data-fr="Vérifie si un site a été signalé pour hameçonnage ou logiciel malveillant."
+                               data-al="Prüft, ob eine Seite wegen Phishing oder Malware gemeldet wurde."
+                               data-zh="检查网站是否曾被举报涉及网络钓鱼或恶意软件。">
+                                Comprueba si un sitio ha sido reportado por phishing o malware.
+                            </p>
+                            <div class="herramientas-contacto">
+                                <img src="iconos/globo-azul.png" alt="" class="herramientas-icono">
+                                <p data-es="Tecnología usada por Google Chrome." data-en="Technology used by Google Chrome." data-pt="Tecnologia usada pelo Google Chrome." data-fr="Technologie utilisée par Google Chrome." data-al="Von Google Chrome verwendete Technologie." data-zh="Google Chrome 使用的技术。">
+                                    Tecnología usada por Google Chrome.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://transparencyreport.google.com/safe-browsing" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Google Safe Browsing">→</a>
+                    </div>
+
+                    <div class="herramientas-card" data-tilt>
+                        <img src="img/logoPhishTank.png" alt="PhishTank" class="herramientas-logo">
+                        <div class="herramientas-divider"></div>
+                        <div class="herramientas-texto">
+                            <h4>PhishTank</h4>
+                            <p data-es="Consulta una base de datos mundial de sitios de phishing reportados."
+                               data-en="Checks a global database of reported phishing sites."
+                               data-pt="Consulta um banco de dados mundial de sites de phishing reportados."
+                               data-fr="Consulte une base de données mondiale de sites d'hameçonnage signalés."
+                               data-al="Durchsucht eine weltweite Datenbank gemeldeter Phishing-Seiten."
+                               data-zh="查询全球范围内被举报的网络钓鱼网站数据库。">
+                                Consulta una base de datos mundial de sitios de phishing reportados.
+                            </p>
+                            <div class="herramientas-contacto">
+                                <img src="iconos/personas-azul.png" alt="" class="herramientas-icono">
+                                <p data-es="Reporta y busca sitios fraudulentos." data-en="Report and search fraudulent sites." data-pt="Denuncie e pesquise sites fraudulentos." data-fr="Signalez et recherchez des sites frauduleux." data-al="Melden und durchsuchen Sie betrügerische Seiten." data-zh="举报并搜索欺诈网站。">
+                                    Reporta y busca sitios fraudulentos.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://www.phishtank.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a PhishTank">→</a>
+                    </div>
+
+                    <div class="herramientas-card" data-tilt>
+                        <img src="img/logoURLvoid.png" alt="URLVoid" class="herramientas-logo">
+                        <div class="herramientas-divider"></div>
+                        <div class="herramientas-texto">
+                            <h4>URLVoid</h4>
+                            <p data-es="Revisa la reputación de un dominio utilizando múltiples listas de seguridad."
+                               data-en="Checks a domain's reputation using multiple security blocklists."
+                               data-pt="Verifica a reputação de um domínio usando múltiplas listas de segurança."
+                               data-fr="Vérifie la réputation d'un domaine à l'aide de plusieurs listes de sécurité."
+                               data-al="Überprüft den Ruf einer Domain anhand mehrerer Sicherheitslisten."
+                               data-zh="通过多个安全黑名单检查域名信誉。">
+                                Revisa la reputación de un dominio utilizando múltiples listas de seguridad.
+                            </p>
+                            <div class="herramientas-contacto">
+                                <img src="iconos/escudo-azul.png" alt="" class="herramientas-icono">
+                                <p data-es="Verifica si un sitio es seguro o riesgoso." data-en="Verifies whether a site is safe or risky." data-pt="Verifica se um site é seguro ou arriscado." data-fr="Vérifie si un site est sûr ou risqué." data-al="Prüft, ob eine Seite sicher oder riskant ist." data-zh="验证网站是安全还是存在风险。">
+                                    Verifica si un sitio es seguro o riesgoso.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://www.urlvoid.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a URLVoid">→</a>
+                    </div>
+
+                    <div class="herramientas-card" data-tilt>
+                        <img src="img/logoNorton.png" alt="Norton Safe Web" class="herramientas-logo">
+                        <div class="herramientas-divider"></div>
+                        <div class="herramientas-texto">
+                            <h4>Norton Safe Web</h4>
+                            <p data-es="Evalúa la seguridad de un sitio antes de navegar o comprar en línea."
+                               data-en="Assesses a site's safety before browsing or shopping online."
+                               data-pt="Avalia a segurança de um site antes de navegar ou comprar online."
+                               data-fr="Évalue la sécurité d'un site avant de naviguer ou d'acheter en ligne."
+                               data-al="Bewertet die Sicherheit einer Seite vor dem Surfen oder Online-Einkauf."
+                               data-zh="在浏览或在线购物前评估网站的安全性。">
+                                Evalúa la seguridad de un sitio antes de navegar o comprar en línea.
+                            </p>
+                            <div class="herramientas-contacto">
+                                <img src="iconos/estrella-azul.png" alt="" class="herramientas-icono">
+                                <p data-es="Información de reputación y amenazas." data-en="Reputation and threat information." data-pt="Informações de reputação e ameaças." data-fr="Informations sur la réputation et les menaces." data-al="Informationen zu Reputation und Bedrohungen." data-zh="信誉与威胁信息。">
+                                    Información de reputación y amenazas.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://safeweb.norton.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Norton Safe Web">→</a>
+                    </div>
+
+                    <div class="herramientas-card" data-tilt>
+                        <img src="img/logoScamadviser.png" alt="ScamAdviser" class="herramientas-logo">
+                        <div class="herramientas-divider"></div>
+                        <div class="herramientas-texto">
+                            <h4>ScamAdviser</h4>
+                            <p data-es="Calcula el nivel de confianza de una página web mediante análisis de riesgo."
+                               data-en="Calculates a website's trust score through risk analysis."
+                               data-pt="Calcula o nível de confiança de um site por meio de análise de risco."
+                               data-fr="Calcule le niveau de confiance d'un site web grâce à une analyse des risques."
+                               data-al="Berechnet den Vertrauenswert einer Website mittels Risikoanalyse."
+                               data-zh="通过风险分析计算网站的信任度。">
+                                Calcula el nivel de confianza de una página web mediante análisis de riesgo.
+                            </p>
+                            <div class="herramientas-contacto">
+                                <img src="iconos/grafico-azul.png" alt="" class="herramientas-icono">
+                                <p data-es="Revisa reseñas, datos y señales de riesgo." data-en="Reviews ratings, data, and risk signals." data-pt="Analisa avaliações, dados e sinais de risco." data-fr="Examine les avis, les données et les signaux de risque." data-al="Prüft Bewertungen, Daten und Risikosignale." data-zh="审查评价、数据和风险信号。">
+                                    Revisa reseñas, datos y señales de riesgo.
+                                </p>
+                            </div>
+                        </div>
+                        <a href="https://www.scamadviser.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a ScamAdviser">→</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE — STRIX 
+    ============================================ -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="fraudes_Phishing.js"></script>
+    <script type="module" src="auth.js"></script>
+
+</body>
+</html>

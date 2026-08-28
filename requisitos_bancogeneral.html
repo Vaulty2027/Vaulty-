@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="requisitos_bancogeneral.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Vaulty+ - Préstamo personal Banco General</title>
+
+    <link
+        rel="icon"
+        href="img/logo_vaulty+.png"
+        type="image/png"
+    >
+</head>
+
+<body>
+
+    <!-- LÍNEA DE PROGRESO -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER 
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo y botón de registro -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" class="active" data-es="Préstamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Préstamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Spanish</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: píldora fija con bandera + "Spanish" + flecha -->
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Spanish</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- ============================================
+         SECCIÓN BANCO GENERAL 
+    ============================================ -->
+    <section
+        class="bancogeneral-section"
+        aria-labelledby="requisitos-title"
+    >
+        <div class="bancogeneral-shell">
+
+            <!-- CABECERA DE LA SECCIÓN -->
+            <div
+                class="topbar reveal"
+                data-delay="0"
+            >
+                <!-- data-target: página de respaldo si no hay historial que recorrer -->
+                <button
+                    class="back-link"
+                    type="button"
+                    aria-label="Regresar"
+                    data-target="finanzas_prestamos.html"
+                    data-html
+                    data-es="<span aria-hidden='true'>←</span> Regresar"
+                    data-en="<span aria-hidden='true'>←</span> Back"
+                    data-pt="<span aria-hidden='true'>←</span> Voltar"
+                    data-fr="<span aria-hidden='true'>←</span> Retour"
+                    data-al="<span aria-hidden='true'>←</span> Zurück"
+                    data-zh="<span aria-hidden='true'>←</span> 返回"
+                >
+                    <span aria-hidden="true">←</span>
+                    Regresar
+                </button>
+
+              <div class="bancogeneral-brand" aria-label="BancoGeneral">
+                    <span class="bancogeneral-wordmark">BancoGeneral</span>
+                    <img class="bancogeneral-logo" src="img/logoBancoGeneral.png" alt="" aria-hidden="true">
+                </div>
+            </div>
+                        
+            <!-- BENEFICIOS -->
+            <div
+                class="section-heading heading-benefits reveal"
+                data-delay="80"
+            >
+                <span class="heading-line" aria-hidden="true"></span>
+                <span class="heading-dot" aria-hidden="true"></span>
+
+                <h2 data-es="Beneficios" data-en="Benefits" data-pt="Benefícios" data-fr="Avantages" data-al="Vorteile" data-zh="优惠">Beneficios</h2>
+
+                <span class="heading-dot" aria-hidden="true"></span>
+                <span class="heading-line" aria-hidden="true"></span>
+            </div>
+
+            <div class="benefits-grid">
+
+                <article class="benefit-card reveal" data-delay="120">
+                    <div class="icon-disc">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+                            <path d="M8 3v4M16 3v4M4 9h16"></path>
+                            <circle cx="15.5" cy="15.5" r="3.5"></circle>
+                            <path d="M15.5 13.7v2l1.4.8"></path>
+                        </svg>
+                    </div>
+
+                    <span class="short-rule" aria-hidden="true"></span>
+
+                    <p data-html
+                       data-es="Cómodas <strong>mensualidades</strong> con pagos a corto y mediano plazo."
+                       data-en="Convenient <strong>monthly payments</strong> with short- and medium-term plans."
+                       data-pt="Parcelas <strong>cômodas</strong> com pagamentos a curto e médio prazo."
+                       data-fr="Mensualités <strong>pratiques</strong> avec des paiements à court et moyen terme."
+                       data-al="Bequeme <strong>monatliche Raten</strong> mit kurz- und mittelfristigen Zahlungen."
+                       data-zh="便捷的<strong>月供</strong>，提供短期和中期还款方案。">
+                        Cómodas <strong>mensualidades</strong><br>
+                        con pagos a corto y<br>
+                        mediano plazo.
+                    </p>
+                </article>
+
+                <article class="benefit-card reveal" data-delay="200">
+                    <div class="icon-disc">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 7V6a2 2 0 0 0-2-2H5a3 3 0 0 0 0 6h15v8a2 2 0 0 1-2 2H5a3 3 0 0 1-3-3V7"></path>
+                            <path d="M16 14h4"></path>
+                            <circle cx="16" cy="14" r=".6"></circle>
+                        </svg>
+                    </div>
+
+                    <span class="short-rule" aria-hidden="true"></span>
+
+                    <p data-html
+                       data-es="Financiamiento desde <strong>$2,000</strong> hasta <strong>$65,000</strong>, de acuerdo con tu capacidad de pago."
+                       data-en="Financing from <strong>$2,000</strong> up to <strong>$65,000</strong>, based on your ability to pay."
+                       data-pt="Financiamento de <strong>$2.000</strong> a <strong>$65.000</strong>, de acordo com sua capacidade de pagamento."
+                       data-fr="Financement de <strong>2 000 $</strong> à <strong>65 000 $</strong>, selon votre capacité de paiement."
+                       data-al="Finanzierung von <strong>2.000 $</strong> bis <strong>65.000 $</strong>, je nach Zahlungsfähigkeit."
+                       data-zh="融资金额从<strong>2,000美元</strong>到<strong>65,000美元</strong>不等，视您的还款能力而定。">
+                        Financiamiento desde <strong>$2,000</strong><br>
+                        hasta <strong>$65,000</strong>, de acuerdo<br>
+                        con tu capacidad de pago.
+                    </p>
+                </article>
+
+                <article class="benefit-card reveal" data-delay="280">
+                    <div class="icon-disc">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 20V10M10 20V6M16 20V3M22 20H2"></path>
+                            <path d="m4 8 5-3 5 1 6-5M17 1h3v3"></path>
+                        </svg>
+                    </div>
+
+                    <span class="short-rule" aria-hidden="true"></span>
+
+                    <p data-html
+                       data-es="Desarrollo de un sólido <strong>historial de crédito</strong>, al tener tus pagos al día."
+                       data-en="Build a solid <strong>credit history</strong> by keeping your payments up to date."
+                       data-pt="Construção de um <strong>histórico de crédito</strong> sólido, mantendo seus pagamentos em dia."
+                       data-fr="Développez un solide <strong>historique de crédit</strong> en effectuant vos paiements à temps."
+                       data-al="Aufbau einer soliden <strong>Kredithistorie</strong> durch pünktliche Zahlungen."
+                       data-zh="按时还款，建立良好的<strong>信用记录</strong>。">
+                        Desarrollo de un <strong>sólido<br>
+                        historial de crédito</strong>, al tener<br>
+                        tus pagos al día.
+                    </p>
+                </article>
+
+            </div>
+
+            <!-- REQUISITOS -->
+            <div
+                class="section-heading heading-requirements reveal"
+                data-delay="80"
+            >
+                <span class="heading-line" aria-hidden="true"></span>
+                <span class="heading-dot" aria-hidden="true"></span>
+
+                <h1 id="requisitos-title" data-es="Requisitos" data-en="Requirements" data-pt="Requisitos" data-fr="Conditions requises" data-al="Voraussetzungen" data-zh="申请条件">Requisitos</h1>
+
+                <span class="heading-dot" aria-hidden="true"></span>
+                <span class="heading-line" aria-hidden="true"></span>
+            </div>
+
+            <div class="bank-group-heading reveal" data-delay="120">
+                <span></span>
+                <div class="group-icon" aria-hidden="true">▥</div>
+                <h2
+                    data-es="Empresa privada en la ciudad de Panamá"
+                    data-en="Private company in Panama City"
+                    data-pt="Empresa privada na cidade do Panamá"
+                    data-fr="Entreprise privée dans la ville de Panama"
+                    data-al="Privatunternehmen in Panama-Stadt"
+                    data-zh="巴拿马城的私营企业"
+                >Empresa privada en la ciudad de Panamá</h2>
+                <span></span>
+            </div>
+
+            <div class="requirements-grid">
+
+                <article class="requirement-card reveal" data-delay="120">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M4.5 21v-2a7.5 7.5 0 0 1 15 0v2"></path>
+                        </svg>
+                    </div>
+
+                    <span class="vertical-rule" aria-hidden="true"></span>
+
+                    <p data-html
+                       data-es="Edad de 21 a 29 años:<br>salario mínimo para aplicar <strong>$600</strong>"
+                       data-en="Ages 21 to 29:<br>minimum salary to apply <strong>$600</strong>"
+                       data-pt="Idade de 21 a 29 anos:<br>salário mínimo para aplicar <strong>$600</strong>"
+                       data-fr="Âge de 21 à 29 ans :<br>salaire minimum requis <strong>600 $</strong>"
+                       data-al="Alter 21 bis 29 Jahre:<br>Mindestgehalt für die Beantragung <strong>600 $</strong>"
+                       data-zh="21至29岁：<br>申请最低工资<strong>600美元</strong>">
+                        Edad de 21 a 29 años:<br>
+                        salario mínimo para aplicar <strong>$600</strong>
+                    </p>
+                </article>
+
+                <article class="requirement-card reveal" data-delay="200">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                            <path d="M8 7V4h8v3M3 12h18M10 12v3h4v-3"></path>
+                        </svg>
+                    </div>
+
+                    <span class="vertical-rule" aria-hidden="true"></span>
+
+                    <p data-html
+                       data-es="<strong>2 años</strong> en tu empleo<br>actual o continuidad laboral"
+                       data-en="<strong>2 years</strong> at your current<br>job or continuous employment"
+                       data-pt="<strong>2 anos</strong> no emprego<br>atual ou continuidade laboral"
+                       data-fr="<strong>2 ans</strong> dans votre emploi<br>actuel ou continuité professionnelle"
+                       data-al="<strong>2 Jahre</strong> in Ihrer aktuellen<br>Beschäftigung oder ununterbrochene Tätigkeit"
+                       data-zh="现职工作满<strong>2年</strong><br>或有连续工作经历">
+                        <strong>2 años</strong> en tu empleo<br>
+                        actual o continuidad laboral
+                    </p>
+                </article>
+
+                <article class="requirement-card reveal" data-delay="280">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="8" r="5"></circle>
+                            <path d="m8.8 12.1-1.6 9 4.8-2.7 4.8 2.7-1.6-9M9.8 8l1.5 1.5 3-3"></path>
+                        </svg>
+                    </div>
+
+                    <span class="vertical-rule" aria-hidden="true"></span>
+
+                    <p data-html
+                       data-es="Tener buenas referencias<br>de crédito en la <strong>APC</strong>"
+                       data-en="Have good credit<br>references at the <strong>APC</strong>"
+                       data-pt="Ter boas referências<br>de crédito na <strong>APC</strong>"
+                       data-fr="Avoir de bonnes références<br>de crédit auprès de l'<strong>APC</strong>"
+                       data-al="Gute Bonitätsreferenzen<br>bei der <strong>APC</strong> haben"
+                       data-zh="在<strong>APC</strong>信用中心<br>拥有良好信用记录">
+                        Tener buenas referencias<br>
+                        de crédito en la <strong>APC</strong>
+                    </p>
+                </article>
+
+                <article class="requirement-card reveal" data-delay="360">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M5 21v-2a7 7 0 0 1 14 0v2M16.5 14.5l1.5 1.2 1.5-1.2"></path>
+                        </svg>
+                    </div>
+
+                    <span class="vertical-rule" aria-hidden="true"></span>
+
+                    <p data-html
+                       data-es="Edad de 30 años en adelante:<br>salario mínimo para aplicar <strong>$575</strong>"
+                       data-en="Age 30 and up:<br>minimum salary to apply <strong>$575</strong>"
+                       data-pt="A partir de 30 anos:<br>salário mínimo para aplicar <strong>$575</strong>"
+                       data-fr="30 ans et plus :<br>salaire minimum requis <strong>575 $</strong>"
+                       data-al="Ab 30 Jahren:<br>Mindestgehalt für die Beantragung <strong>575 $</strong>"
+                       data-zh="30岁及以上：<br>申请最低工资<strong>575美元</strong>">
+                        Edad de 30 años en adelante:<br>
+                        salario mínimo para aplicar <strong>$575</strong>
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="bank-group-heading reveal" data-delay="100">
+                <span></span>
+                <div class="group-icon handshake-icon" aria-hidden="true">∿</div>
+                <h2
+                    data-es="Empresa privada en el interior del país"
+                    data-en="Private company outside the capital"
+                    data-pt="Empresa privada no interior do país"
+                    data-fr="Entreprise privée à l'intérieur du pays"
+                    data-al="Privatunternehmen im Landesinneren"
+                    data-zh="巴拿马内陆地区的私营企业"
+                >Empresa privada en el interior del país</h2>
+                <span></span>
+            </div>
+
+            <div class="requirements-grid compact-grid">
+                <article class="requirement-card reveal" data-delay="140">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                            <path d="M8 3v4M16 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01"></path>
+                        </svg>
+                    </div>
+                    <span class="vertical-rule" aria-hidden="true"></span>
+                    <p>
+                        <span class="mini-bullet">•</span>
+                        <span
+                            data-es="Edad de 21 años en adelante"
+                            data-en="Age 21 and up"
+                            data-pt="A partir de 21 anos"
+                            data-fr="21 ans et plus"
+                            data-al="Ab 21 Jahren"
+                            data-zh="21岁及以上"
+                        >Edad de 21 años en adelante</span>
+                    </p>
+                </article>
+
+                <article class="requirement-card reveal" data-delay="220">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M15.5 8.5c-.7-.7-1.8-1.1-3-1.1-1.8 0-3.2.9-3.2 2.3 0 3.5 6.4 1.6 6.4 4.9 0 1.3-1.4 2.3-3.3 2.3-1.4 0-2.7-.5-3.5-1.4M12.4 5.5v13"></path>
+                        </svg>
+                    </div>
+                    <span class="vertical-rule" aria-hidden="true"></span>
+                    <p data-html
+                       data-es="<span class='mini-bullet'>•</span> Salario mínimo para aplicar <strong>$585</strong>"
+                       data-en="<span class='mini-bullet'>•</span> Minimum salary to apply <strong>$585</strong>"
+                       data-pt="<span class='mini-bullet'>•</span> Salário mínimo para aplicar <strong>$585</strong>"
+                       data-fr="<span class='mini-bullet'>•</span> Salaire minimum requis <strong>585 $</strong>"
+                       data-al="<span class='mini-bullet'>•</span> Mindestgehalt für die Beantragung <strong>585 $</strong>"
+                       data-zh="<span class='mini-bullet'>•</span> 申请最低工资<strong>585美元</strong>">
+                        <span class="mini-bullet">•</span> Salario mínimo para aplicar <strong>$585</strong>
+                    </p>
+                </article>
+            </div>
+
+            <div class="section-heading heading-public reveal" data-delay="80">
+                <span class="heading-line" aria-hidden="true"></span>
+                <span class="heading-dot" aria-hidden="true"></span>
+                <h2 data-es="Requisitos" data-en="Requirements" data-pt="Requisitos" data-fr="Conditions requises" data-al="Voraussetzungen" data-zh="申请条件">Requisitos</h2>
+                <span class="heading-dot" aria-hidden="true"></span>
+                <span class="heading-line" aria-hidden="true"></span>
+            </div>
+
+            <div class="bank-group-heading public-group-heading reveal" data-delay="120">
+                <span></span>
+                <div class="group-icon" aria-hidden="true">△</div>
+                <h2 data-es="Empresa pública" data-en="Public company" data-pt="Empresa pública" data-fr="Entreprise publique" data-al="Öffentliches Unternehmen" data-zh="公营企业">Empresa pública</h2>
+                <span></span>
+            </div>
+
+            <div class="requirements-grid public-grid">
+                <article class="requirement-card reveal" data-delay="140">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M4.5 21v-2a7.5 7.5 0 0 1 15 0v2"></path>
+                        </svg>
+                    </div>
+                    <span class="vertical-rule" aria-hidden="true"></span>
+                    <p
+                        data-es="Edad desde 21 años en adelante"
+                        data-en="Age 21 and up"
+                        data-pt="Idade a partir de 21 anos"
+                        data-fr="Âge à partir de 21 ans"
+                        data-al="Alter ab 21 Jahren"
+                        data-zh="年龄21岁及以上"
+                    >Edad desde 21 años en adelante</p>
+                </article>
+
+                <article class="requirement-card reveal" data-delay="220">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                            <path d="M8 7V4h8v3M3 12h18M10 12v3h4v-3"></path>
+                        </svg>
+                    </div>
+                    <span class="vertical-rule" aria-hidden="true"></span>
+                    <p data-html
+                       data-es="<span class='mini-bullet'>•</span> Contrato permanente con<br>5 años de continuidad en<br>tu empleo actual"
+                       data-en="<span class='mini-bullet'>•</span> Permanent contract with<br>5 years of continuity in<br>your current job"
+                       data-pt="<span class='mini-bullet'>•</span> Contrato permanente com<br>5 anos de continuidade no<br>emprego atual"
+                       data-fr="<span class='mini-bullet'>•</span> Contrat permanent avec<br>5 ans de continuité dans<br>votre emploi actuel"
+                       data-al="<span class='mini-bullet'>•</span> Unbefristeter Vertrag mit<br>5 Jahren ununterbrochener<br>Tätigkeit in Ihrer Beschäftigung"
+                       data-zh="<span class='mini-bullet'>•</span> 拥有固定合同，<br>且现职连续工作<br>5年">
+                        <span class="mini-bullet">•</span> Contrato permanente con<br>5 años de continuidad en<br>tu empleo actual
+                    </p>
+                </article>
+
+                <article class="requirement-card reveal" data-delay="300">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="8" r="5"></circle>
+                            <path d="m8.8 12.1-1.6 9 4.8-2.7 4.8 2.7-1.6-9M9.8 8l1.5 1.5 3-3"></path>
+                        </svg>
+                    </div>
+                    <span class="vertical-rule" aria-hidden="true"></span>
+                    <p data-html
+                       data-es="Tener buenas referencias<br>de crédito en la APC"
+                       data-en="Have good credit<br>references at the APC"
+                       data-pt="Ter boas referências<br>de crédito na APC"
+                       data-fr="Avoir de bonnes références<br>de crédit auprès de l'APC"
+                       data-al="Gute Bonitätsreferenzen<br>bei der APC haben"
+                       data-zh="在APC信用中心<br>拥有良好信用记录">
+                        Tener buenas referencias<br>de crédito en la APC
+                    </p>
+                </article>
+
+                <article class="requirement-card reveal" data-delay="380">
+                    <div class="requirement-icon">
+                        <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M15.5 8.5c-.7-.7-1.8-1.1-3-1.1-1.8 0-3.2.9-3.2 2.3 0 3.5 6.4 1.6 6.4 4.9 0 1.3-1.4 2.3-3.3 2.3-1.4 0-2.7-.5-3.5-1.4M12.4 5.5v13"></path>
+                        </svg>
+                    </div>
+                    <span class="vertical-rule" aria-hidden="true"></span>
+                    <p data-html
+                       data-es="<span class='mini-bullet'>•</span> Salario mínimo para aplicar <strong>$600</strong>"
+                       data-en="<span class='mini-bullet'>•</span> Minimum salary to apply <strong>$600</strong>"
+                       data-pt="<span class='mini-bullet'>•</span> Salário mínimo para aplicar <strong>$600</strong>"
+                       data-fr="<span class='mini-bullet'>•</span> Salaire minimum requis <strong>600 $</strong>"
+                       data-al="<span class='mini-bullet'>•</span> Mindestgehalt für die Beantragung <strong>600 $</strong>"
+                       data-zh="<span class='mini-bullet'>•</span> 申请最低工资<strong>600美元</strong>">
+                        <span class="mini-bullet">•</span> Salario mínimo para aplicar <strong>$600</strong>
+                    </p>
+                </article>
+            </div>
+
+            <!-- TASAS DE INTERESES -->
+            <div
+                class="section-heading heading-rates reveal"
+                data-delay="80"
+            >
+                <span class="heading-line" aria-hidden="true"></span>
+                <span class="heading-dot" aria-hidden="true"></span>
+
+                <h2 data-es="Tasas de intereses" data-en="Interest rates" data-pt="Taxas de juros" data-fr="Taux d'intérêt" data-al="Zinssätze" data-zh="利率">Tasas de intereses</h2>
+
+                <span class="heading-dot" aria-hidden="true"></span>
+                <span class="heading-line" aria-hidden="true"></span>
+            </div>
+
+            <article class="rates-card reveal" data-delay="160">
+                <div class="rates-symbol">
+                    <span class="percent-circle">%</span>
+                </div>
+
+                <div class="rates-content">
+                    <div class="rate-option reveal-child">
+                        <span class="rate-bank-icon" aria-hidden="true">▥</span>
+                        <span>
+                            <b data-es="Empresa privada" data-en="Private company" data-pt="Empresa privada" data-fr="Entreprise privée" data-al="Privatunternehmen" data-zh="私营企业">Empresa privada</b>
+                            <small data-es="Desde" data-en="From" data-pt="A partir de" data-fr="À partir de" data-al="Ab" data-zh="起">Desde</small>
+                            <strong>8.50%</strong>
+                        </span>
+                    </div>
+
+                    <div class="rate-option reveal-child">
+                        <span class="rate-bank-icon public" aria-hidden="true">△</span>
+                        <span>
+                            <b data-es="Sector público" data-en="Public sector" data-pt="Setor público" data-fr="Secteur public" data-al="Öffentlicher Sektor" data-zh="公共部门">Sector público</b>
+                            <small data-es="Desde" data-en="From" data-pt="A partir de" data-fr="À partir de" data-al="Ab" data-zh="起">Desde</small>
+                            <strong>8.00%</strong>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE — STRIX
+    ============================================ -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">
+                    Strix
+                    <small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small>
+                </div>
+                <button id="cerrar-chat" type="button" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <button id="strix-btn" type="button" aria-label="Abrir asistente Strix">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </button>
+
+    </div>
+
+    <script src="requisitos_bancogeneral.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

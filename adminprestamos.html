@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Administrador - Bancos
+    </title>
+
+    <link rel="stylesheet" href="adminprestamos.css">
+
+</head>
+
+<body>
+
+
+<header class="admin-header">
+
+    <div>
+
+        <h1>
+            Panel de Bancos
+        </h1>
+
+        <p>
+            Analítica de la sección de bancos aliados
+        </p>
+
+    </div>
+
+
+    <button id="btnActualizar">
+        Actualizar
+    </button>
+
+</header>
+
+
+
+<main class="admin-container">
+
+
+    <!-- =================================================
+         ESTADÍSTICAS
+    ================================================== -->
+
+    <section class="estadisticas">
+
+
+        <div class="stat-card">
+
+            <span>
+                Visitas
+            </span>
+
+            <strong id="totalVisitas">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Total de clics
+            </span>
+
+            <strong id="totalClics">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Banco más visitado
+            </span>
+
+            <strong id="bancoMasClickeado">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Acción más utilizada
+            </span>
+
+            <strong id="accionMasUtilizada">
+                -
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CLICS POR BANCO
+    ================================================== -->
+
+    <section class="panel">
+
+        <h2>
+            Clics por banco
+        </h2>
+
+        <p class="descripcion">
+            Cantidad total de clics realizados en cada banco.
+        </p>
+
+
+        <div id="listaBancos"
+             class="lista-bancos">
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DETALLE DE ACCIONES
+    ================================================== -->
+
+    <section class="panel">
+
+        <h2>
+            Acciones por banco
+        </h2>
+
+        <p class="descripcion">
+            Comparación entre "Más información"
+            y "Ver requisitos".
+        </p>
+
+
+        <div id="detalleBancos"
+             class="detalle-bancos">
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MAPA DE CALOR
+    ================================================== -->
+
+    <section class="panel">
+
+        <h2>
+            Mapa de calor
+        </h2>
+
+        <p class="descripcion">
+
+            Zonas donde los usuarios realizaron
+            clic dentro de la sección.
+
+        </p>
+
+
+        <div class="heatmap-wrapper">
+
+            <div class="heatmap-container">
+
+                <canvas
+                    id="heatmapCanvas">
+                </canvas>
+
+            </div>
+
+        </div>
+
+
+        <div class="heatmap-leyenda">
+
+            <span>
+                Menor interacción
+            </span>
+
+            <div class="gradient"></div>
+
+            <span>
+                Mayor interacción
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REGISTRO
+    ================================================== -->
+
+    <section class="panel">
+
+        <h2>
+            Últimos clics
+        </h2>
+
+
+        <div class="tabla-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Banco
+                        </th>
+
+                        <th>
+                            Acción
+                        </th>
+
+                        <th>
+                            Fecha
+                        </th>
+
+                        <th>
+                            X
+                        </th>
+
+                        <th>
+                            Y
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="tablaClics">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ELIMINAR
+    ================================================== -->
+
+    <section class="zona-peligrosa">
+
+        <h2>
+            Administración
+        </h2>
+
+        <p>
+            Eliminar todos los datos almacenados
+            en este navegador.
+        </p>
+
+
+        <button id="btnEliminarDatos">
+
+            Eliminar datos
+
+        </button>
+
+    </section>
+
+
+</main>
+
+
+<script src="adminprestamos.js"></script>
+
+</body>
+
+</html>

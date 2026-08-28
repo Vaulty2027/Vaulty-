@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ATM.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - ATM</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER 
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-atm">
+        <img src="img/atm.png" alt="ATM" class="atm-img">
+        <div class="atm-overlay"></div>
+        <div class="atm-content">
+            <h1>
+                <span data-es="ATM en" data-en="ATM in" data-pt="ATM no" data-fr="DAB au" data-al="ATM in" data-zh="ATM 位于">ATM en</span>
+                <span class="accent" data-es="Panamá" data-en="Panama" data-pt="Panamá" data-fr="Panama" data-al="Panama" data-zh="巴拿马">Panamá</span>
+            </h1>
+            <p data-es="Conoce dónde están ubicados los cajeros automáticos (ATM) en Panamá y encuentra el más cercano de forma rápida y segura."
+               data-en="Locate ATMs across Panama and quickly find the nearest one with ease and confidence."
+               data-pt="Saiba onde estão localizados os caixas eletrônicos (ATM) no Panamá e encontre o mais próximo de forma rápida e segura."
+               data-fr="Découvrez où se trouvent les distributeurs automatiques (DAB) au Panama et trouvez rapidement le plus proche en toute sécurité."
+               data-al="Erfahren Sie, wo sich Geldautomaten (ATM) in Panama befinden, und finden Sie schnell und sicher den nächstgelegenen."
+               data-zh="了解巴拿马各地自动取款机（ATM）的位置，快速安全地找到离你最近的一台。">
+                Conoce dónde están ubicados los cajeros automáticos (ATM) en Panamá y encuentra el más cercano de forma rápida y segura.
+            </p>
+            <button class="btn">
+                <a href="mapa-ATM.html" target="_blank" rel="noopener noreferrer" data-es="Ubica tu ATM →" data-en="Locate your ATM →" data-pt="Localize seu ATM →" data-fr="Localisez votre DAB →" data-al="Finde deinen ATM →" data-zh="定位您的 ATM →">Ubica tu ATM →</a>
+            </button>
+        </div>
+    </section>
+
+    <!-- QUÉ ES UN ATM -->
+    <section class="que-es-atm">
+        <div class="que-es-atm-content">
+            <div class="que-es-atm-text reveal">
+                <h1 data-es="¿Qué es un ATM?" data-en="What is an ATM?" data-pt="O que é um ATM?" data-fr="Qu'est-ce qu'un DAB ?" data-al="Was ist ein Geldautomat?" data-zh="什么是ATM？">¿Qué es un ATM?</h1>
+                <p data-es="Un ATM (Cajero Automático) es un dispositivo electrónico que permite a los clientes realizar operaciones bancarias como retiros de efectivo, consultas de saldo, depósitos, transferencias y pagos de manera rápida, segura y disponible las 24 horas del día, sin necesidad de acudir a una sucursal bancaria."
+                   data-en="An Automated Teller Machine (ATM) is an electronic banking device that enables customers to perform financial transactions such as cash withdrawals, balance inquiries, deposits, funds transfers, and bill payments quickly, securely, and 24 hours a day, without the need to visit a bank branch."
+                   data-pt="Um ATM (Caixa Eletrônico) é um dispositivo eletrônico que permite aos clientes realizar operações bancárias como saques em dinheiro, consultas de saldo, depósitos, transferências e pagamentos de forma rápida, segura e disponível 24 horas por dia, sem precisar ir a uma agência bancária."
+                   data-fr="Un DAB (Distributeur Automatique de Billets) est un appareil électronique qui permet aux clients d'effectuer des opérations bancaires telles que des retraits d'espèces, des consultations de solde, des dépôts, des virements et des paiements, rapidement, en toute sécurité et 24 heures sur 24, sans avoir à se rendre en agence."
+                   data-al="Ein Geldautomat (ATM) ist ein elektronisches Bankgerät, mit dem Kunden Bankgeschäfte wie Bargeldabhebungen, Kontostandsabfragen, Einzahlungen, Überweisungen und Zahlungen schnell, sicher und rund um die Uhr durchführen können, ohne eine Bankfiliale aufsuchen zu müssen."
+                   data-zh="ATM（自动取款机）是一种电子银行设备，允许客户快速、安全地进行提现、查询余额、存款、转账和支付等银行业务，全天24小时可用，无需前往银行网点。">
+                    Un ATM (Cajero Automático) es un dispositivo electrónico que permite a los clientes realizar operaciones bancarias como retiros de efectivo, consultas de saldo, depósitos, transferencias y pagos de manera rápida, segura y disponible las 24 horas del día, sin necesidad de acudir a una sucursal bancaria.
+                </p>
+
+                <h3 data-es="Permite principalmente:" data-en="Its primary functions include:" data-pt="Permite principalmente:" data-fr="Il permet principalement de :" data-al="Ermöglicht hauptsächlich:" data-zh="主要功能包括：">Permite principalmente:</h3>
+                <p data-es="Permite principalmente retirar efectivo y realizar operaciones bancarias básicas de forma rápida, segura y sin acudir a una sucursal."
+                   data-en="It primarily enables users to withdraw cash and perform basic banking transactions quickly, securely, and without visiting a bank branch."
+                   data-pt="Permite principalmente sacar dinheiro e realizar operações bancárias básicas de forma rápida, segura e sem ir a uma agência."
+                   data-fr="Il permet principalement de retirer de l'argent et d'effectuer des opérations bancaires de base rapidement, en toute sécurité et sans se rendre en agence."
+                   data-al="Ermöglicht hauptsächlich das Abheben von Bargeld und die Durchführung grundlegender Bankgeschäfte schnell, sicher und ohne Filialbesuch."
+                   data-zh="主要功能是快速、安全地提取现金并办理基本银行业务，无需前往网点。">
+                    Permite principalmente retirar efectivo y realizar operaciones bancarias básicas de forma rápida, segura y sin acudir a una sucursal.
+                </p>
+            </div>
+
+            <div class="que-es-atm-img reveal-right">
+                <img src="img/atm.png" alt="Detalle de un ATM">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS DISPONIBLES -->
+    <section class="servicios-disponibles">
+        <div class="servicios-disponibles-content">
+            <h2>
+                <span data-es="Servicios disponibles" data-en="Available services" data-pt="Serviços disponíveis" data-fr="Services disponibles" data-al="Verfügbare Dienstleistungen" data-zh="可用服务">Servicios disponibles</span>
+            </h2>
+
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="icon-servicio"><img src="iconos/billete.png" alt="billetes"></div>
+                    <p data-es="Retiro de efectivo" data-en="Cash withdrawal" data-pt="Saque em dinheiro" data-fr="Retrait d'espèces" data-al="Bargeldabhebung" data-zh="现金取款">Retiro de efectivo</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio"><img src="iconos/dinero.png" alt="bolsa dinero"></div>
+                    <p data-es="Consulta de saldo" data-en="Balance inquiry" data-pt="Consulta de saldo" data-fr="Consultation de solde" data-al="Kontostandsabfrage" data-zh="余额查询">Consulta de saldo</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio"><img src="iconos/banco.png" alt="banco"></div>
+                    <p data-es="Depósitos en efectivo" data-en="Cash deposits" data-pt="Depósitos em dinheiro" data-fr="Dépôts en espèces" data-al="Bargeldeinzahlungen" data-zh="现金存款">Depósitos en efectivo</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio"><img src="iconos/transferir.png" alt="transferencias"></div>
+                    <p data-es="Transferencias entre cuentas" data-en="Transfers between accounts" data-pt="Transferências entre contas" data-fr="Virements entre comptes" data-al="Überweisungen zwischen Konten" data-zh="账户间转账">Transferencias entre cuentas</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio"><img src="iconos/tarjetas-de-credito.png" alt="tarjeta"></div>
+                    <p data-es="Pago de tarjetas de crédito y préstamos" data-en="Credit card and loan payments" data-pt="Pagamento de cartões de crédito e empréstimos" data-fr="Paiement de cartes de crédit et de prêts" data-al="Zahlung von Kreditkarten und Krediten" data-zh="信用卡和贷款还款">Pago de tarjetas de crédito y préstamos</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio"><img src="iconos/factura.png" alt="factura"></div>
+                    <p data-es="Pago de servicios" data-en="Bill payments" data-pt="Pagamento de contas" data-fr="Paiement de factures" data-al="Rechnungszahlungen" data-zh="账单支付">Pago de servicios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSEJOS DE SEGURIDAD -->
+    <section class="consejos-seguridad">
+        <div class="consejos-seguridad-content reveal">
+            <h2 data-es="Consejo de seguridad" data-en="Security Tip" data-pt="Dica de segurança" data-fr="Conseil de sécurité" data-al="Sicherheitstipp" data-zh="安全提示">Consejo de seguridad</h2>
+            <ul>
+                <li>
+                    <span class="consejo-titulo" data-es="Cubre el teclado al ingresar tu PIN:" data-en="Cover the keypad when entering your PIN:" data-pt="Cubra o teclado ao digitar seu PIN:" data-fr="Couvrez le clavier en saisissant votre code PIN :" data-al="Decken Sie die Tastatur bei der PIN-Eingabe ab:" data-zh="输入密码时遮挡键盘：">Cubre el teclado al ingresar tu PIN:</span>
+                    <span data-es="Coloca tu mano sobre el teclado mientras escribes tu PIN para evitar que otras personas o cámaras ocultas puedan verlo." data-en="Place your hand over the keypad while typing your PIN to prevent others from seeing it." data-pt="Coloque a mão sobre o teclado enquanto digita seu PIN para evitar que outras pessoas ou câmeras ocultas o vejam." data-fr="Placez votre main sur le clavier en tapant votre code PIN pour éviter que d'autres personnes ou des caméras cachées ne le voient." data-al="Legen Sie Ihre Hand über die Tastatur, während Sie Ihre PIN eingeben, um zu verhindern, dass andere oder versteckte Kameras sie sehen." data-zh="输入密码时用手遮住键盘，以防他人或隐藏摄像头看到。">Coloca tu mano sobre el teclado mientras escribes tu PIN para evitar que otras personas o cámaras ocultas puedan verlo.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Revisa el cajero antes de usarlo:" data-en="Inspect the ATM before using it:" data-pt="Verifique o caixa antes de usá-lo:" data-fr="Vérifiez le DAB avant de l'utiliser :" data-al="Prüfen Sie den Geldautomaten vor der Nutzung:" data-zh="使用前检查ATM：">Revisa el cajero antes de usarlo:</span>
+                    <span data-es="Observa si el lector de tarjetas, el teclado o la pantalla presentan piezas extrañas o manipuladas. Si notas algo inusual, no utilices ese ATM." data-en="Check the ATM for any unusual parts or tampering before using it." data-pt="Observe se o leitor de cartão, o teclado ou a tela apresentam peças estranhas ou manipuladas. Se notar algo incomum, não use esse caixa." data-fr="Vérifiez si le lecteur de carte, le clavier ou l'écran présentent des pièces étranges ou manipulées. Si vous remarquez quelque chose d'inhabituel, n'utilisez pas ce DAB." data-al="Prüfen Sie, ob der Kartenleser, die Tastatur oder der Bildschirm ungewöhnliche oder manipulierte Teile aufweisen. Wenn Ihnen etwas Ungewöhnliches auffällt, nutzen Sie diesen Automaten nicht." data-zh="检查读卡器、键盘或屏幕是否有异常或被篡改的部件。如发现异常，请勿使用该ATM。">Observa si el lector de tarjetas, el teclado o la pantalla presentan piezas extrañas o manipuladas. Si notas algo inusual, no utilices ese ATM.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Utiliza cajeros en lugares seguros:" data-en="Use ATMs in safe locations:" data-pt="Use caixas em locais seguros:" data-fr="Utilisez des DAB dans des lieux sûrs :" data-al="Nutzen Sie Geldautomaten an sicheren Orten:" data-zh="在安全的地点使用ATM：">Utiliza cajeros en lugares seguros:</span>
+                    <span data-es="Prefiere cajeros ubicados dentro de bancos, centros comerciales o áreas bien iluminadas y con vigilancia." data-en="Choose ATMs located in well-lit areas with good visibility." data-pt="Prefira caixas localizados dentro de bancos, shoppings ou áreas bem iluminadas e com vigilância." data-fr="Privilégiez les DAB situés dans les banques, les centres commerciaux ou les zones bien éclairées et surveillées." data-al="Bevorzugen Sie Geldautomaten in Banken, Einkaufszentren oder gut beleuchteten, überwachten Bereichen." data-zh="优先选择位于银行、商场或照明良好且有监控的区域内的ATM。">Prefiere cajeros ubicados dentro de bancos, centros comerciales o áreas bien iluminadas y con vigilancia.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="No aceptes ayuda de desconocidos:" data-en="Do not accept assistance from strangers:" data-pt="Não aceite ajuda de desconhecidos:" data-fr="N'acceptez pas l'aide d'inconnus :" data-al="Nehmen Sie keine Hilfe von Fremden an:" data-zh="不要接受陌生人的帮助：">No aceptes ayuda de desconocidos:</span>
+                    <span data-es="Si tienes algún problema con el cajero, comunícate directamente con tu banco en lugar de aceptar ayuda de personas que estén cerca." data-en="If you encounter issues with the ATM, contact your bank directly instead of accepting help from nearby strangers." data-pt="Se tiver algum problema com o caixa, entre em contato diretamente com seu banco em vez de aceitar ajuda de pessoas próximas." data-fr="En cas de problème avec le DAB, contactez directement votre banque plutôt que d'accepter l'aide de personnes à proximité." data-al="Bei Problemen mit dem Geldautomaten wenden Sie sich direkt an Ihre Bank, statt Hilfe von Fremden anzunehmen." data-zh="如遇ATM问题，请直接联系您的银行，不要接受附近陌生人的帮助。">Si tienes algún problema con el cajero, comunícate directamente con tu banco en lugar de aceptar ayuda de personas que estén cerca.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Guarda tu dinero y tu tarjeta antes de retirarte:" data-en="Keep your money and card secure before leaving:" data-pt="Guarde seu dinheiro e cartão antes de sair:" data-fr="Rangez votre argent et votre carte avant de partir :" data-al="Verstauen Sie Geld und Karte, bevor Sie gehen:" data-zh="离开前妥善保管好现金和卡片：">Guarda tu dinero y tu tarjeta antes de retirarte:</span>
+                    <span data-es="Después de completar la operación, guarda el efectivo, la tarjeta y el comprobante antes de alejarte del cajero." data-en="After completing the transaction, keep your cash, card, and receipt before leaving the ATM." data-pt="Após concluir a operação, guarde o dinheiro, o cartão e o comprovante antes de se afastar do caixa." data-fr="Après avoir terminé l'opération, rangez l'argent, la carte et le reçu avant de vous éloigner du DAB." data-al="Verstauen Sie nach Abschluss der Transaktion das Geld, die Karte und den Beleg, bevor Sie den Automaten verlassen." data-zh="操作完成后，请先妥善收好现金、卡片和凭条，再离开ATM。">Después de completar la operación, guarda el efectivo, la tarjeta y el comprobante antes de alejarte del cajero.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Reporta cualquier actividad sospechosa:" data-en="Report any suspicious activity:" data-pt="Denuncie qualquer atividade suspeita:" data-fr="Signalez toute activité suspecte :" data-al="Melden Sie verdächtige Aktivitäten:" data-zh="举报任何可疑活动：">Reporta cualquier actividad sospechosa:</span>
+                    <span data-es="Si detectas transacciones que no realizaste o el cajero retiene tu tarjeta, informa de inmediato a tu banco para proteger tu cuenta." data-en="If you notice unauthorized transactions or if the ATM retains your card, report it to your bank immediately to protect your account." data-pt="Se notar transações que não realizou ou se o caixa retiver seu cartão, informe imediatamente seu banco para proteger sua conta." data-fr="Si vous constatez des transactions que vous n'avez pas effectuées ou si le DAB conserve votre carte, informez immédiatement votre banque pour protéger votre compte." data-al="Wenn Sie nicht autorisierte Transaktionen bemerken oder der Automat Ihre Karte einbehält, informieren Sie sofort Ihre Bank, um Ihr Konto zu schützen." data-zh="如发现您未进行的交易，或ATM吞卡，请立即通知您的银行以保护账户安全。">Si detectas transacciones que no realizaste o el cajero retiene tu tarjeta, informa de inmediato a tu banco para proteger tu cuenta.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- TIPOS DE ATM -->
+    <section class="tipos-atm">
+        <div class="tipos-atm-content reveal">
+            <h2 data-es="Tipos de ATM" data-en="Types of ATMs" data-pt="Tipos de ATM" data-fr="Types de DAB" data-al="Arten von Geldautomaten" data-zh="ATM类型">Tipos de ATM</h2>
+            <p data-es="En Panamá, los cajeros automáticos (ATM) se clasifican principalmente en tres tipos según sus funciones operativas y el tipo de transacciones que permiten:"
+               data-en="In Panama, Automated Teller Machines (ATMs) are mainly classified into three types based on their operational functions and the types of transactions they allow:"
+               data-pt="No Panamá, os caixas eletrônicos (ATM) são classificados principalmente em três tipos, de acordo com suas funções operacionais e o tipo de transações que permitem:"
+               data-fr="Au Panama, les distributeurs automatiques (DAB) sont principalement classés en trois types selon leurs fonctions opérationnelles et le type de transactions qu'ils permettent :"
+               data-al="In Panama werden Geldautomaten (ATMs) hauptsächlich in drei Typen eingeteilt, je nach ihren Funktionen und den zugelassenen Transaktionsarten:"
+               data-zh="在巴拿马，自动取款机（ATM）主要根据其操作功能和允许的交易类型分为三种：">
+                En Panamá, los cajeros automáticos (ATM) se clasifican principalmente en tres tipos según sus funciones operativas y el tipo de transacciones que permiten:
+            </p>
+            <ul>
+                <li>
+                    <span class="tipo-titulo" data-es="ATM Básicos o Tradicionales:" data-en="Basic or Traditional ATMs:" data-pt="ATM Básicos ou Tradicionais:" data-fr="DAB de base ou traditionnels :" data-al="Einfache oder traditionelle Geldautomaten:" data-zh="基础型/传统型ATM：">ATM Básicos o Tradicionales:</span>
+                    <span data-es="Diseñados únicamente para retiros de efectivo, consultas de saldo, cambios de PIN y, en algunos casos, pago de servicios o recargas telefónicas." data-en="Designed solely for cash withdrawals, balance inquiries, PIN changes, and in some cases, bill payments or mobile top-ups." data-pt="Projetados apenas para saques em dinheiro, consultas de saldo, alteração de PIN e, em alguns casos, pagamento de contas ou recargas de celular." data-fr="Conçus uniquement pour les retraits d'espèces, les consultations de solde, les changements de code PIN et, dans certains cas, le paiement de factures ou les recharges téléphoniques." data-al="Ausschließlich für Bargeldabhebungen, Kontostandsabfragen, PIN-Änderungen und teilweise Rechnungszahlungen oder Handyaufladungen." data-zh="仅设计用于取现、余额查询、更改密码，某些情况下还可支付账单或话费充值。">Diseñados únicamente para retiros de efectivo, consultas de saldo, cambios de PIN y, en algunos casos, pago de servicios o recargas telefónicas.</span>
+                </li>
+                <li>
+                    <span class="tipo-titulo" data-es="ATM Multifuncionales (Full o Depositadores):" data-en="Multi-function ATMs:" data-pt="ATM Multifuncionais (Full ou Depositadores):" data-fr="DAB multifonctions (Full ou de dépôt) :" data-al="Multifunktionale Geldautomaten (Full oder Einzahler):" data-zh="多功能ATM（全功能/存款型）：">ATM Multifuncionales (Full o Depositadores):</span>
+                    <span data-es="Máquinas 24/7 que aceptan depósitos en efectivo (en tiempo real) y cheques, además de permitir el pago de tarjetas de crédito y préstamos." data-en="Machines that accept cash deposits (in real-time) and checks, and also allow credit card payments and loans." data-pt="Máquinas 24/7 que aceitam depósitos em dinheiro (em tempo real) e cheques, além de permitir o pagamento de cartões de crédito e empréstimos." data-fr="Machines 24h/24 acceptant les dépôts en espèces (en temps réel) et les chèques, permettant aussi le paiement de cartes de crédit et de prêts." data-al="24/7-Automaten, die Bargeldeinzahlungen (in Echtzeit) und Schecks akzeptieren sowie Kreditkarten- und Kreditzahlungen ermöglichen." data-zh="24小时机器，支持实时现金存款和支票存款，还可支付信用卡账单和贷款。">Máquinas 24/7 que aceptan depósitos en efectivo (en tiempo real) y cheques, además de permitir el pago de tarjetas de crédito y préstamos.</span>
+                </li>
+                <li>
+                    <span class="tipo-titulo" data-es="ATM Inteligentes con Retiro sin Tarjeta:" data-en="Smart ATMs with Cardless Withdrawal:" data-pt="ATM Inteligentes com Saque sem Cartão:" data-fr="DAB intelligents avec retrait sans carte :" data-al="Intelligente Geldautomaten mit kartenloser Abhebung:" data-zh="无卡取款智能ATM：">ATM Inteligentes con Retiro sin Tarjeta:</span>
+                    <span data-es="Cajeros adaptados para entregar efectivo escaneando un código QR desde la aplicación móvil del banco o ingresando un token de seguridad generado previamente." data-en="Teller machines adapted to dispense cash by scanning a QR code from the bank's mobile application or entering a security token generated previously." data-pt="Caixas adaptados para entregar dinheiro escaneando um código QR do aplicativo móvel do banco ou inserindo um token de segurança gerado previamente." data-fr="DAB adaptés pour distribuer de l'argent en scannant un code QR depuis l'application mobile de la banque ou en saisissant un jeton de sécurité généré au préalable." data-al="Automaten, die Bargeld durch Scannen eines QR-Codes aus der Banking-App oder Eingabe eines zuvor generierten Sicherheitstokens ausgeben." data-zh="通过扫描银行手机应用中的二维码，或输入预先生成的安全令牌来取现的自动柜员机。">Cajeros adaptados para entregar efectivo escaneando un código QR desde la aplicación móvil del banco o ingresando un token de seguridad generado previamente.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PRINCIPALES BANCOS EN PANAMÁ -->
+    <section class="bancos-panama">
+        <div class="bancos-panama-content reveal">
+            <h2 data-es="Principales bancos en Panamá y su disponibilidad" data-en="Main banks in Panama and their availability" data-pt="Principais bancos no Panamá e sua disponibilidade" data-fr="Principales banques au Panama et leur disponibilité" data-al="Wichtigste Banken in Panama und ihre Verfügbarkeit" data-zh="巴拿马主要银行及其网点情况">Principales bancos en Panamá y su disponibilidad</h2>
+            <ul>
+                <li>
+                    <span class="banco-nombre">BAC Credomatic:</span>
+                    <span data-es="Cuentan con los llamados ATM Full (o superhéroes bancarios) que permiten depósitos en efectivo y pagos de tarjetas las 24 horas." data-en="They have the so-called Full ATMs that allow cash deposits and card payments 24 hours a day." data-pt="Contam com os chamados ATM Full que permitem depósitos em dinheiro e pagamentos de cartões 24 horas." data-fr="Ils disposent de DAB dits « Full » permettant des dépôts en espèces et des paiements de cartes 24 heures sur 24." data-al="Sie verfügen über sogenannte Full-Geldautomaten, die rund um die Uhr Bargeldeinzahlungen und Kartenzahlungen ermöglichen." data-zh="拥有所谓的“全功能”ATM，可24小时接受现金存款和信用卡还款。">Cuentan con los llamados ATM Full (o superhéroes bancarios) que permiten depósitos en efectivo y pagos de tarjetas las 24 horas.</span>
+                </li>
+                <li>
+                    <span class="banco-nombre" data-es="Banco General:" data-en="Banco General:" data-pt="Banco General:" data-fr="Banco General :" data-al="Banco General:" data-zh="Banco General：">Banco General:</span>
+                    <span data-es="Disponen de cajeros para retiros, pagos de servicios, recargas y depósitos de dinero en ubicaciones estratégicas y sucursales." data-en="They have ATMs for withdrawals, bill payments, top-ups, and cash deposits at strategic locations and branches." data-pt="Dispõem de caixas para saques, pagamento de contas, recargas e depósitos em locais estratégicos e agências." data-fr="Ils disposent de DAB pour les retraits, le paiement de factures, les recharges et les dépôts d'argent dans des emplacements stratégiques et des agences." data-al="Sie verfügen über Geldautomaten für Abhebungen, Rechnungszahlungen, Aufladungen und Einzahlungen an strategischen Standorten und Filialen." data-zh="在战略位置和分行设有可取现、缴费、充值和存款的ATM。">Disponen de cajeros para retiros, pagos de servicios, recargas y depósitos de dinero en ubicaciones estratégicas y sucursales.</span>
+                </li>
+                <li>
+                    <span class="banco-nombre" data-es="Caja de Ahorros:" data-en="Caja de Ahorros:" data-pt="Caja de Ahorros:" data-fr="Caja de Ahorros :" data-al="Caja de Ahorros:" data-zh="Caja de Ahorros：">Caja de Ahorros:</span>
+                    <span data-es="Cuentan con una red de cajeros multifuncionales que permiten depositar efectivo de forma inmediata a cualquier hora sin necesidad de hacer fila." data-en="They have a network of multi-function ATMs that allow instant cash deposits at any time without waiting in line." data-pt="Contam com uma rede de caixas multifuncionais que permitem depositar dinheiro imediatamente a qualquer hora sem fazer fila." data-fr="Ils disposent d'un réseau de DAB multifonctions permettant de déposer de l'argent instantanément à toute heure sans faire la queue." data-al="Sie verfügen über ein Netz multifunktionaler Geldautomaten, die jederzeit sofortige Bargeldeinzahlungen ohne Warteschlange ermöglichen." data-zh="拥有多功能ATM网络，可随时即时存款，无需排队。">Cuentan con una red de cajeros multifuncionales que permiten depositar efectivo de forma inmediata a cualquier hora sin necesidad de hacer fila.</span>
+                </li>
+                <li>
+                    <span class="banco-nombre" data-es="Banco Nacional de Panamá (BNP):" data-en="Banco Nacional de Panamá (BNP):" data-pt="Banco Nacional de Panamá (BNP):" data-fr="Banco Nacional de Panamá (BNP) :" data-al="Banco Nacional de Panamá (BNP):" data-zh="巴拿马国家银行 (BNP)：">Banco Nacional de Panamá (BNP):</span>
+                    <span data-es="Ofrecen cajeros tradicionales y han expandido su red a nivel nacional con cajeros que permiten realizar depósitos en efectivo en puntos clave." data-en="They offer traditional ATMs and have expanded their network nationwide with ATMs that allow cash deposits at key points." data-pt="Oferecem caixas tradicionais e expandiram sua rede nacionalmente com caixas que permitem depósitos em dinheiro em pontos-chave." data-fr="Ils proposent des DAB traditionnels et ont étendu leur réseau à l'échelle nationale avec des DAB permettant des dépôts en espèces à des points clés." data-al="Sie bieten traditionelle Geldautomaten an und haben ihr landesweites Netz um Automaten erweitert, die Bargeldeinzahlungen an Schlüsselstandorten ermöglichen." data-zh="提供传统ATM，并已在全国范围内扩展网络，在关键地点设有可存款的ATM。">Ofrecen cajeros tradicionales y han expandido su red a nivel nacional con cajeros que permiten realizar depósitos en efectivo en puntos clave.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CAJEROS AUTOMÁTICOS EN PANAMÁ — carrusel visual -->
+    <section class="bancos-section" id="bancos">
+        <div class="bancos-overlay"></div>
+
+        <div class="bancos-header reveal-scale">
+            <span class="bancos-eyebrow" data-es="RED NACIONAL" data-en="NATIONAL NETWORK" data-fr="RÉSEAU NATIONAL" data-pt="REDE NACIONAL" data-al="NATIONALES NETZ" data-zh="全国网络">RED NACIONAL</span>
+            <h2 data-es="Cajeros Automáticos en Panamá" data-en="ATMs in Panama" data-fr="Distributeurs automatiques au Panama" data-pt="Caixas Eletrônicos no Panamá" data-al="Geldautomaten in Panama" data-zh="巴拿马的自动取款机">Cajeros Automáticos en Panamá</h2>
+            <p data-es="Aprende a identificar los cajeros de cada banco. Arrastra las tarjetas para explorar toda la red." data-en="Learn to identify each bank's ATMs. Drag the cards to explore the entire network." data-fr="Apprenez à identifier les DAB de chaque banque. Faites glisser les cartes pour explorer tout le réseau." data-pt="Aprenda a identificar os caixas de cada banco. Arraste os cartões para explorar toda a rede." data-al="Lernen Sie, die Geldautomaten jeder Bank zu identifizieren. Ziehen Sie die Karten, um das gesamte Netzwerk zu erkunden." data-zh="学习识别每家银行的自动取款机。拖动卡片以探索整个网络。">Aprende a identificar los cajeros de cada banco. Arrastra las tarjetas para explorar toda la red.</p>
+        </div>
+
+        <div class="bancos-carousel-wrapper">
+            <button class="carousel-nav nav-prev" id="prevBtn" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <div class="bancos-track" id="bancosTrack">
+
+                <div class="banco-card stagger-item">
+                    <div class="banco-img-wrapper">
+                        <img src="img/atm_b-general.jpg" alt="Cajero Banco General">
+                    </div>
+                    <div class="banco-content">
+                        <span class="banco-badge">Banco General</span>
+                        <p data-es="Cajeros predominantemente azules. Aceptan Visa, Mastercard y Clave. Disponibles en todo el país." data-en="Predominantly blue ATMs. Accept Visa, Mastercard and Clave. Available nationwide." data-fr="DAB predominantemente bleus. Acceptent Visa, Mastercard et Clave. Disponibles dans tout le pays." data-pt="Caixas predominantemente azuis. Aceitam Visa, Mastercard e Clave. Disponíveis em todo o país." data-al="Überwiegend blaue Geldautomaten. Akzeptieren Visa, Mastercard und Clave. Landesweit verfügbar." data-zh="主要为蓝色的自动取款机。接受Visa、Mastercard和Clave。全国可用。">Cajeros predominantemente azules. Aceptan Visa, Mastercard y Clave. Disponibles en todo el país.</p>
+                    </div>
+                </div>
+
+                <div class="banco-card stagger-item">
+                    <div class="banco-img-wrapper">
+                        <img src="img/atm_b-bac.jpg" alt="Cajero BAC Credomatic">
+                    </div>
+                    <div class="banco-content">
+                        <span class="banco-badge">BAC Credomatic</span>
+                        <p data-es="Identificables por su gris metálico y rojo. Amplia red en centros comerciales y zonas urbanas." data-en="Identifiable by their metallic gray and red. Wide network in shopping malls and urban areas." data-fr="Identifiables par leur gris métallique et rouge. Large réseau dans les centres commerciaux et zones urbaines." data-pt="Identificáveis pelo cinza metálico e vermelho. Ampla rede em shoppings e áreas urbanas." data-al="An ihrem metallischen Grau und Rot zu erkennen. Weites Netz in Einkaufszentren und städtischen Gebieten." data-zh="可通过金属灰和红色识别。在购物中心和城市地区拥有广泛的网络。">Identificables por su gris metálico y rojo. Amplia red en centros comerciales y zonas urbanas.</p>
+                    </div>
+                </div>
+
+                <div class="banco-card stagger-item">
+                    <div class="banco-img-wrapper">
+                        <img src="img/atm_b-banismo.jpg" alt="Cajero Banistmo">
+                    </div>
+                    <div class="banco-content">
+                        <span class="banco-badge">Banistmo</span>
+                        <p data-es="Cajeros con tonos verde oscuro y dorado. Destacan por su rapidez en transacciones internacionales." data-en="ATMs with dark green and golden tones. They stand out for their speed in international transactions." data-fr="DAB aux tons vert foncé et doré. Ils se démarquent par leur rapidité dans les transactions internationales." data-pt="Caixas com tons verde escuro e dourado. Destacam-se pela rapidez em transações internacionais." data-al="Geldautomaten in dunkelgrünen und goldenen Tönen. Sie zeichnen sich durch ihre Schnelligkeit bei internationalen Transaktionen aus." data-zh="深绿色和金色调的自动取款机。它们以国际交易的速度而闻名。">Cajeros con tonos verde oscuro y dorado. Destacan por su rapidez en transacciones internacionales.</p>
+                    </div>
+                </div>
+
+                <div class="banco-card stagger-item">
+                    <div class="banco-img-wrapper">
+                        <img src="img/atm_b-nacional.jpg" alt="Cajero Banco Nacional">
+                    </div>
+                    <div class="banco-content">
+                        <span class="banco-badge">Banco Nacional</span>
+                        <p data-es="Red estatal con logo rojo, amarillo y azul. Cajeros presentes en hospitales y instituciones públicas." data-en="State network with red, yellow and blue logo. ATMs present in hospitals and public institutions." data-fr="Réseau d'État avec logo rouge, jaune et bleu. DAB présents dans les hôpitaux et institutions publiques." data-pt="Rede estatal com logotipo vermelho, amarelo e azul. Caixas presentes em hospitais e instituições públicas." data-al="Staatliches Netz mit rotem, gelbem und blauem Logo. Geldautomaten in Krankenhäusern und öffentlichen Einrichtungen." data-zh="国有网络，标志为红、黄、蓝三色。自动取款机分布在医院和公共机构。">Red estatal con logo rojo, amarillo y azul. Cajeros presentes en hospitales y instituciones públicas.</p>
+                    </div>
+                </div>
+
+                <div class="banco-card stagger-item">
+                    <div class="banco-img-wrapper">
+                        <img src="img/atm_b-ahorros.jpg" alt="Cajero Caja de Ahorros">
+                    </div>
+                    <div class="banco-content">
+                        <span class="banco-badge">Caja de Ahorros</span>
+                        <p data-es="Cajeros de color naranja y azul. Muy comunes en zonas residenciales y comerciales de Panamá." data-en="Orange and blue ATMs. Very common in residential and commercial areas of Panama." data-fr="DAB orange et bleus. Très courants dans les zones résidentielles et commerciales du Panama." data-pt="Caixas laranja e azuis. Muito comuns em áreas residenciais e comerciais do Panamá." data-al="Orange und blaue Geldautomaten. Sehr häufig in Wohn- und Gewerbegebieten von Panama." data-zh="橙色和蓝色的自动取款机。在巴拿马的住宅和商业区非常常见。">Cajeros de color naranja y azul. Muy comunes en zonas residenciales y comerciales de Panamá.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-nav nav-next" id="nextBtn" aria-label="Siguiente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- CÓMO DETECTAR UN CAJERO FALSIFICADO -->
+    <section class="fraud-section" id="fraudes">
+        <div class="fraud-overlay"></div>
+
+        <div class="fraud-container reveal-scale">
+            <div class="fraud-header">
+                <span class="fraud-eyebrow" data-es="SEGURIDAD BANCARIA" data-en="BANK SECURITY" data-fr="SÉCURITÉ BANCAIRE" data-pt="SEGURANÇA BANCÁRIA" data-al="BANKSICHERHEIT" data-zh="银行安全">SEGURIDAD BANCARIA</span>
+                <h2 data-es="¿Cómo detectar un Cajero Falsificado?" data-en="How to spot a tampered ATM?" data-fr="Comment repérer un DAB falsifié ?" data-pt="Como detectar um caixa eletrônico falsificado?" data-al="Wie man einen manipulierten Geldautomaten erkennt" data-zh="如何识别被篡改的ATM？">¿Cómo detectar un Cajero Falsificado?</h2>
+                <p data-es="Explora el cajero haciendo clic en los puntos dorados. Conoce dónde se esconden los 'skimmers' y cámaras ocultas para proteger tu dinero." data-en="Explore the ATM by clicking on the gold dots. Learn where skimmers and hidden cameras hide to protect your money." data-fr="Explorez le DAB en cliquant sur les points dorés. Apprenez où se cachent les skimmers et caméras cachées pour protéger votre argent." data-pt="Explore o caixa clicando nos pontos dourados. Saiba onde se escondem os skimmers e câmeras ocultas para proteger seu dinheiro." data-al="Erkunden Sie den Geldautomaten durch Klicken auf die goldenen Punkte. Erfahren Sie, wo Skimmer und versteckte Kameras stecken, um Ihr Geld zu schützen." data-zh="点击金点探索ATM。了解盗刷器和隐藏摄像头藏在哪里，以保护您的资金。">Explora el cajero haciendo clic en los puntos dorados. Conoce dónde se esconden los 'skimmers' y cámaras ocultas para proteger tu dinero.</p>
+            </div>
+
+            <div class="fraud-explorer-grid">
+                <div class="atm-wrapper">
+                    <img src="img/ATM-fraude.png" alt="Cajero Automático" class="atm-img">
+
+                    <button class="hotspot" style="top: 18%; left: 50%;" data-fraud="camara">
+                        <span class="hotspot-pulse"></span>
+                        <span class="hotspot-dot"></span>
+                    </button>
+
+                    <button class="hotspot" style="top: 42%; left: 32%;" data-fraud="skimmer">
+                        <span class="hotspot-pulse"></span>
+                        <span class="hotspot-dot"></span>
+                    </button>
+
+                    <button class="hotspot" style="top: 55%; left: 50%;" data-fraud="teclado">
+                        <span class="hotspot-pulse"></span>
+                        <span class="hotspot-dot"></span>
+                    </button>
+                </div>
+
+                <div class="fraud-info-panel" id="fraudInfoPanel">
+                    <div class="fraud-info-content initial-state" id="initialState">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </div>
+                        <h3 data-es="Selecciona un punto" data-en="Select a spot" data-fr="Sélectionnez un point" data-pt="Selecione um ponto" data-al="Wählen Sie einen Punkt" data-zh="选择一个点">Selecciona un punto</h3>
+                        <p data-es="Haz clic en los indicadores brillantes del cajero para descubrir las técnicas de fraude más comunes." data-en="Click on the glowing indicators on the ATM to discover the most common fraud techniques." data-fr="Cliquez sur les indicateurs lumineux du DAB pour découvrir les techniques de fraude les plus courantes." data-pt="Clique nos indicadores brilhantes do caixa para descobrir as técnicas de fraude mais comuns." data-al="Klicken Sie auf die leuchtenden Indikatoren am Geldautomaten, um die häufigsten Betrugstechniken zu entdecken." data-zh="点击ATM上发光的指示器，了解最常见的欺诈手段。">Haz clic en los indicadores brillantes del cajero para descubrir las técnicas de fraude más comunes.</p>
+                    </div>
+
+                    <div class="fraud-info-content active-state" id="activeState" style="display: none;">
+                        <span class="fraud-badge" id="fraudBadge">Skimmer</span>
+                        <h3 id="fraudTitle">Título del Fraude</h3>
+                        <p id="fraudDesc">Descripción del fraude.</p>
+                        <div class="fraud-tip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.68.94 6.36 2.64"></path></svg>
+                            <span id="fraudTip">Consejo de seguridad.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="faq-dynamic-section">
+        <div class="faq-dynamic-overlay"></div>
+
+        <div class="faq-dynamic-header reveal-scale">
+            <span class="faq-eyebrow" data-es="SOPORTE RÁPIDO" data-en="QUICK SUPPORT" data-fr="SUPPORT RAPIDE" data-pt="SUPORTE RÁPIDO" data-al="SCHNELLE HILFE" data-zh="快速支持">SOPORTE RÁPIDO</span>
+            <h2 data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions" data-fr="Questions Fréquentes" data-pt="Perguntas Frequentes" data-al="Häufig Gestellte Fragen" data-zh="常见问题">Preguntas Frecuentes</h2>
+            <p data-es="Resolvemos tus dudas sobre el uso de cajeros y finanzas en Panamá." data-en="We solve your doubts about ATM usage and finances in Panama." data-fr="Nous résolvons vos doutes sur l'utilisation des DAB et des finances au Panama." data-pt="Resolvemos suas dúvidas sobre o uso de caixas eletrônicos e finanças no Panamá." data-al="Wir klären Ihre Fragen zur Nutzung von Geldautomaten und Finanzen in Panama." data-zh="我们解决您在巴拿马使用ATM和财务方面的疑问。">Resolvemos tus dudas sobre el uso de cajeros y finanzas en Panamá.</p>
+        </div>
+
+        <div class="faq-bento-grid">
+
+            <div class="faq-bento-item" data-faq="1">
+                <div class="faq-bento-inner">
+                    <div class="faq-bento-num">01</div>
+                    <button class="faq-bento-btn">
+                        <span data-es="¿Qué hago si el ATM retiene mi tarjeta?" data-en="What should I do if the ATM keeps my card?" data-pt="O que faço se o ATM retiver meu cartão?" data-fr="Que faire si le DAB garde ma carte ?" data-al="Was tun, wenn der Geldautomat meine Karte einbehält?" data-zh="如果ATM吞卡了怎么办？">¿Qué hago si el ATM retiene mi tarjeta?</span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                    </button>
+                    <div class="faq-bento-content">
+                        <div class="faq-bento-content-inner">
+                            <p data-es="Si el cajero retiene tu tarjeta, no intentes recuperarla por tu cuenta. Comunícate inmediatamente con tu banco para bloquearla o solicitar su devolución."
+                               data-en="If the ATM keeps your card, do not try to retrieve it yourself. Contact your bank immediately to block it or request its return."
+                               data-pt="Se o caixa retiver seu cartão, não tente recuperá-lo sozinho. Entre em contato imediatamente com seu banco para bloqueá-lo ou solicitar sua devolução."
+                               data-fr="Si le DAB conserve votre carte, n'essayez pas de la récupérer vous-même. Contactez immédiatement votre banque pour la bloquer ou demander sa restitution."
+                               data-al="Wenn der Automat Ihre Karte einbehält, versuchen Sie nicht, sie selbst zu holen. Kontaktieren Sie sofort Ihre Bank, um sie zu sperren oder zurückzufordern."
+                               data-zh="如果ATM吞了您的卡，请不要尝试自行取回。请立即联系您的银行挂失或申请退还。">
+                                Si el cajero retiene tu tarjeta, no intentes recuperarla por tu cuenta. Comunícate inmediatamente con tu banco para bloquearla o solicitar su devolución.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-bento-item" data-faq="2">
+                <div class="faq-bento-inner">
+                    <div class="faq-bento-num">02</div>
+                    <button class="faq-bento-btn">
+                        <span data-es="¿Qué hacer si olvidé mi PIN?" data-en="What should I do if I forgot my PIN?" data-pt="O que fazer se esqueci meu PIN?" data-fr="Que faire si j'ai oublié mon code PIN ?" data-al="Was tun, wenn ich meine PIN vergessen habe?" data-zh="忘记密码怎么办？">¿Qué hacer si olvidé mi PIN?</span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                    </button>
+                    <div class="faq-bento-content">
+                        <div class="faq-bento-content-inner">
+                            <p data-es="Por motivos de seguridad, debes solicitar el cambio o recuperación de tu PIN a través de los canales oficiales de tu banco, como la sucursal, banca en línea o la aplicación móvil."
+                               data-en="For security reasons, you must request a PIN change or recovery through your bank's official channels, such as a branch, online banking, or the mobile app."
+                               data-pt="Por motivos de segurança, você deve solicitar a troca ou recuperação do seu PIN pelos canais oficiais do seu banco, como agência, internet banking ou aplicativo móvel."
+                               data-fr="Pour des raisons de sécurité, vous devez demander le changement ou la récupération de votre code PIN via les canaux officiels de votre banque, comme l'agence, la banque en ligne ou l'application mobile."
+                               data-al="Aus Sicherheitsgründen müssen Sie eine PIN-Änderung oder -Wiederherstellung über die offiziellen Kanäle Ihrer Bank beantragen, wie Filiale, Online-Banking oder mobile App."
+                               data-zh="出于安全考虑，您必须通过银行官方渠道（如网点、网上银行或手机应用）申请更改或找回密码。">
+                                Por motivos de seguridad, debes solicitar el cambio o recuperación de tu PIN a través de los canales oficiales de tu banco, como la sucursal, banca en línea o la aplicación móvil.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-bento-item" data-faq="3">
+                <div class="faq-bento-inner">
+                    <div class="faq-bento-num">03</div>
+                    <button class="faq-bento-btn">
+                        <span data-es="¿Puedo usar un ATM de otro banco?" data-en="Can I use an ATM from another bank?" data-pt="Posso usar um ATM de outro banco?" data-fr="Puis-je utiliser le DAB d'une autre banque ?" data-al="Kann ich den Geldautomaten einer anderen Bank nutzen?" data-zh="我可以使用其他银行的ATM吗？">¿Puedo usar un ATM de otro banco?</span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                    </button>
+                    <div class="faq-bento-content">
+                        <div class="faq-bento-content-inner">
+                            <p data-es="Sí. Puedes utilizar cajeros automáticos de otras entidades bancarias, aunque es posible que se aplique una comisión según las políticas de tu banco."
+                               data-en="Yes. You can use ATMs from other banks, although a fee may apply depending on your bank's policies."
+                               data-pt="Sim. Você pode usar caixas eletrônicos de outras instituições bancárias, embora possa haver uma taxa de acordo com as políticas do seu banco."
+                               data-fr="Oui. Vous pouvez utiliser les DAB d'autres établissements bancaires, bien que des frais puissent s'appliquer selon les politiques de votre banque."
+                               data-al="Ja. Sie können Geldautomaten anderer Banken nutzen, wobei je nach den Richtlinien Ihrer Bank eine Gebühr anfallen kann."
+                               data-zh="可以。您可以使用其他银行的ATM，但可能会根据您银行的政策收取手续费。">
+                                Sí. Puedes utilizar cajeros automáticos de otras entidades bancarias, aunque es posible que se aplique una comisión según las políticas de tu banco.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-bento-item" data-faq="4">
+                <div class="faq-bento-inner">
+                    <div class="faq-bento-num">04</div>
+                    <button class="faq-bento-btn">
+                        <span data-es="¿Es seguro usar un ATM por la noche?" data-en="Is it safe to use an ATM at night?" data-pt="É seguro usar um ATM à noite?" data-fr="Est-il sûr d'utiliser un DAB la nuit ?" data-al="Ist es sicher, nachts einen Geldautomaten zu benutzen?" data-zh="晚上使用ATM安全吗？">¿Es seguro usar un ATM por la noche?</span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                    </button>
+                    <div class="faq-bento-content">
+                        <div class="faq-bento-content-inner">
+                            <p data-es="Sí, siempre que el cajero esté ubicado en un lugar bien iluminado, con vigilancia y sigas las recomendaciones de seguridad."
+                               data-en="Yes, as long as the ATM is located in a well-lit area with security and you follow safety recommendations."
+                               data-pt="Sim, desde que o caixa esteja em um local bem iluminado, com vigilância, e você siga as recomendações de segurança."
+                               data-fr="Oui, à condition que le DAB soit situé dans un lieu bien éclairé, surveillé, et que vous suiviez les recommandations de sécurité."
+                               data-al="Ja, solange sich der Automat an einem gut beleuchteten, überwachten Ort befindet und Sie die Sicherheitsempfehlungen befolgen."
+                               data-zh="是的，只要ATM位于照明良好、有监控的地方，并遵循安全建议即可。">
+                                Sí, siempre que el cajero esté ubicado en un lugar bien iluminado, con vigilancia y sigas las recomendaciones de seguridad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-bento-item" data-faq="5">
+                <div class="faq-bento-inner">
+                    <div class="faq-bento-num">05</div>
+                    <button class="faq-bento-btn">
+                        <span data-es="¿Cuál es el monto máximo de retiro?" data-en="What is the maximum withdrawal amount?" data-pt="Qual é o valor máximo de saque?" data-fr="Quel est le montant maximum de retrait ?" data-al="Wie hoch ist der maximale Abhebungsbetrag?" data-zh="最大取款限额是多少？">¿Cuál es el monto máximo de retiro?</span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                    </button>
+                    <div class="faq-bento-content">
+                        <div class="faq-bento-content-inner">
+                            <p data-es="El monto máximo de retiro depende del banco, del tipo de cuenta y de los límites establecidos para tu tarjeta. Consulta con tu entidad bancaria para conocer el límite diario."
+                               data-en="The maximum withdrawal amount depends on the bank, account type, and the limits set for your card. Check with your bank to find out your daily limit."
+                               data-pt="O valor máximo de saque depende do banco, do tipo de conta e dos limites definidos para seu cartão. Consulte seu banco para saber o limite diário."
+                               data-fr="Le montant maximum de retrait dépend de la banque, du type de compte et des limites définies pour votre carte. Renseignez-vous auprès de votre banque pour connaître votre limite quotidienne."
+                               data-al="Der maximale Abhebungsbetrag hängt von der Bank, dem Kontotyp und den für Ihre Karte festgelegten Limits ab. Erkundigen Sie sich bei Ihrer Bank nach Ihrem Tageslimit."
+                               data-zh="最大取款限额取决于银行、账户类型及您卡片设定的限额。请咨询您的银行了解每日限额。">
+                                El monto máximo de retiro depende del banco, del tipo de cuenta y de los límites establecidos para tu tarjeta. Consulta con tu entidad bancaria para conocer el límite diario.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-bento-item" data-faq="6">
+                <div class="faq-bento-inner">
+                    <div class="faq-bento-num">06</div>
+                    <button class="faq-bento-btn">
+                        <span data-es="¿Qué hago si el ATM no entrega el dinero?" data-en="What should I do if the ATM doesn't dispense money?" data-pt="O que faço se o ATM não entregar o dinheiro?" data-fr="Que faire si le DAB ne distribue pas d'argent ?" data-al="Was tun, wenn der Geldautomat kein Geld ausgibt?" data-zh="如果ATM没有吐钱怎么办？">¿Qué hago si el ATM no entrega el dinero?</span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                    </button>
+                    <div class="faq-bento-content">
+                        <div class="faq-bento-content-inner">
+                            <p data-es="Conserva el comprobante, si lo recibiste, y reporta el incidente de inmediato a tu banco. La entidad verificará la transacción y realizará la gestión correspondiente."
+                               data-en="Keep the receipt if you received one, and report the incident to your bank immediately. The bank will verify the transaction and take the appropriate action."
+                               data-pt="Guarde o comprovante, se recebeu, e denuncie o incidente imediatamente ao seu banco. A instituição verificará a transação e tomará as providências necessárias."
+                               data-fr="Conservez le reçu si vous en avez reçu un, et signalez l'incident immédiatement à votre banque. L'établissement vérifiera la transaction et prendra les mesures appropriées."
+                               data-al="Bewahren Sie den Beleg auf, falls Sie einen erhalten haben, und melden Sie den Vorfall sofort Ihrer Bank. Diese wird die Transaktion prüfen und entsprechend handeln."
+                               data-zh="如收到凭条请保留，并立即向银行报告此事件。银行将核实交易并采取相应处理措施。">
+                                Conserva el comprobante, si lo recibiste, y reporta el incidente de inmediato a tu banco. La entidad verificará la transacción y realizará la gestión correspondiente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-bento-item" data-faq="7">
+                <div class="faq-bento-inner">
+                    <div class="faq-bento-num">07</div>
+                    <button class="faq-bento-btn">
+                        <span data-es="¿Qué debo hacer si pierdo mi tarjeta?" data-en="What should I do if I lose my card?" data-pt="O que devo fazer se perder meu cartão?" data-fr="Que dois-je faire si je perds ma carte ?" data-al="Was soll ich tun, wenn ich meine Karte verliere?" data-zh="如果丢失了卡该怎么办？">¿Qué debo hacer si pierdo mi tarjeta?</span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                    </button>
+                    <div class="faq-bento-content">
+                        <div class="faq-bento-content-inner">
+                            <p data-es="Bloquéala inmediatamente desde la aplicación de tu banco o llamando al servicio de atención al cliente para evitar un uso no autorizado."
+                               data-en="Block it immediately through your bank's app or by calling customer service to prevent unauthorized use."
+                               data-pt="Bloqueie-o imediatamente pelo aplicativo do seu banco ou ligando para o atendimento ao cliente para evitar uso não autorizado."
+                               data-fr="Bloquez-la immédiatement depuis l'application de votre banque ou en appelant le service client pour éviter une utilisation non autorisée."
+                               data-al="Sperren Sie sie sofort über die App Ihrer Bank oder telefonisch beim Kundendienst, um eine unbefugte Nutzung zu verhindern."
+                               data-zh="请立即通过银行应用程序挂失，或致电客户服务热线，以防止未经授权的使用。">
+                                Bloquéala inmediatamente desde la aplicación de tu banco o llamando al servicio de atención al cliente para evitar un uso no autorizado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VIDEO TUTORIAL -->
+    <section class="faq-video">
+        <div class="faq-video-content reveal">
+            <h3>
+                <span class="accent" data-es="Video:" data-en="Video:" data-pt="Vídeo:" data-fr="Vidéo :" data-al="Video:" data-zh="视频：">Video:</span>
+                <span data-es="¿Cómo usar un ATM de forma segura?" data-en="How to safely use an ATM?" data-pt="Como usar um ATM com segurança?" data-fr="Comment utiliser un DAB en toute sécurité ?" data-al="Wie benutzt man einen Geldautomaten sicher?" data-zh="如何安全使用ATM？">¿Cómo usar un ATM de forma segura?</span>
+            </h3>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/AUheBiJLadc" title="Cómo usar un ATM de forma segura" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ASISTENTE — STRIX -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="ATM.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="finanzas_impuestos.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="adminfinanzas.html">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Impuestos</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+
+    <!-- Cursor magnético personalizado (solo escritorio) -->
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER 
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo y botón de registro -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+                <a href="registro.html" class="btn-register" data-es="Regístrate" data-en="Register" data-pt="Registre-se" data-fr="Inscrivez-vous" data-al="Registrieren" data-zh="注册">Regístrate </a>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio"
+                   data-en="Home"
+                   data-pt="Início"
+                   data-fr="Accueil"
+                   data-al="Startseite"
+                   data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label active"
+                              data-es="Finanzas Panamá"
+                              data-en="Panama's Finances"
+                              data-pt="Finanças do Panamá"
+                              data-fr="Finances du Panama"
+                              data-al="Panamas Finanzen"
+                              data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="finanzas_fraudes.html"
+                               data-es="Fraudes"
+                               data-en="Frauds"
+                               data-pt="Fraudes"
+                               data-fr="Fraudes"
+                               data-al="Betrug"
+                               data-zh="欺诈">Fraudes</a>
+                        </li>
+
+                        <li>
+                            <a href="finanzas_impuestos.html"
+                               class="active"
+                               data-es="Impuestos"
+                               data-en="Taxes"
+                               data-pt="Impostos"
+                               data-fr="Impôts"
+                               data-al="Steuern"
+                               data-zh="税收">Impuestos</a>
+                        </li>
+
+                        <li>
+                            <a href="finanzas_seguro.html"
+                               data-es="Seguro Social"
+                               data-en="Social Security"
+                               data-pt="Previdência Social"
+                               data-fr="Sécurité sociale"
+                               data-al="Sozialversicherung"
+                               data-zh="社会保障">Seguro Social</a>
+                        </li>
+
+                        <li>
+                            <a href="finanzas_prestamos.html"
+                               data-es="Prestamos personales"
+                               data-en="Personal Loans"
+                               data-pt="Empréstimos pessoais"
+                               data-fr="Prêts personnels"
+                               data-al="Privatkredite"
+                               data-zh="个人贷款">Prestamos</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+
+                        <span class="nav-label"
+                              data-es="Aprende"
+                              data-en="Learn"
+                              data-pt="Aprenda"
+                              data-fr="Apprendre"
+                              data-al="Lernen"
+                              data-zh="学习">Aprende</span>
+
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="aprende_glosario.html"
+                               data-es="Glosario"
+                               data-en="Glossary"
+                               data-pt="Glossário"
+                               data-fr="Glossaire"
+                               data-al="Glossar"
+                               data-zh="词汇表">Glosario</a>
+                        </li>
+
+                        <li>
+                            <a href="aprende_podcast.html"
+                               data-es="Podcast"
+                               data-en="Podcast"
+                               data-pt="Podcast"
+                               data-fr="Podcast"
+                               data-al="Podcast"
+                               data-zh="播客">Podcast</a>
+                        </li>
+
+                        <li>
+                            <a href="aprende_juegos.html"
+                               data-es="Juegos"
+                               data-en="Games"
+                               data-pt="Jogos"
+                               data-fr="Jeux"
+                               data-al="Spiele"
+                               data-zh="游戏">Juegos</a>
+                        </li>
+
+                        <li>
+                            <a href="aprende_monedas.html"
+                               data-es="Monedas"
+                               data-en="Coins"
+                               data-pt="Moedas"
+                               data-fr="Devises"
+                               data-al="Münzen"
+                               data-zh="货币">Monedas</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+
+                        <span class="nav-label"
+                              data-es="ATM"
+                              data-en="ATM"
+                              data-pt="Caixa eletrônico"
+                              data-fr="Distributeur"
+                              data-al="Geldautomat"
+                              data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel"
+                            id="langTogglePanel"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="langDropdownPanel">
+
+                        <img src="img/spain.png"
+                             alt=""
+                             class="lang-current-flag"
+                             data-lang-flag>
+
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li>
+                            <button type="button" class="lang-option" data-lang="es">
+                                <img src="img/spain.png" alt="ES">
+                                Español
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="en">
+                                <img src="img/ingles.png" alt="EN">
+                                English
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="pt">
+                                <img src="img/portugues.png" alt="PT">
+                                Português
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="fr">
+                                <img src="img/frances.png" alt="FR">
+                                Français
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="al">
+                                <img src="img/aleman.png" alt="AL">
+                                Deutsch
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="zh">
+                                <img src="img/china.png" alt="ZH">
+                                中文
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: píldora fija con bandera + "Español" + flecha -->
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop"
+                            id="langToggleDesktop"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="langDropdownDesktop">
+
+                        <img src="img/spain.png"
+                             alt=""
+                             class="lang-current-flag"
+                             data-lang-flag>
+
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li>
+                            <button type="button" class="lang-option" data-lang="es">
+                                <img src="img/spain.png" alt="ES">
+                                Español
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="en">
+                                <img src="img/ingles.png" alt="EN">
+                                English
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="pt">
+                                <img src="img/portugues.png" alt="PT">
+                                Português
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="fr">
+                                <img src="img/frances.png" alt="FR">
+                                Français
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="al">
+                                <img src="img/aleman.png" alt="AL">
+                                Deutsch
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="zh">
+                                <img src="img/china.png" alt="ZH">
+                                中文
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar"
+                            id="langToggleTop"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="langDropdownTop">
+
+                        <img src="img/spain.png"
+                             alt=""
+                             class="lang-current-flag"
+                             data-lang-flag>
+
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li>
+                            <button type="button" class="lang-option" data-lang="es">
+                                <img src="img/spain.png" alt="ES">
+                                Español
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="en">
+                                <img src="img/ingles.png" alt="EN">
+                                English
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="pt">
+                                <img src="img/portugues.png" alt="PT">
+                                Português
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="fr">
+                                <img src="img/frances.png" alt="FR">
+                                Français
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="al">
+                                <img src="img/aleman.png" alt="AL">
+                                Deutsch
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button type="button" class="lang-option" data-lang="zh">
+                                <img src="img/china.png" alt="ZH">
+                                中文
+                                <span class="lang-check" aria-hidden="true">✓</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- ============================================
+         HERO — Impuestos
+    ============================================ -->
+    <section class="hero-impuestos">
+        <img src="img/impuestos.png" class="hero-impuestos-img" alt="Impuestos en Panamá">
+        <div class="hero-impuestos-overlay"></div>
+
+        <div class="hero-content">
+            <h1
+                data-es="Impuestos"
+                data-en="Taxes"
+                data-pt="Impostos"
+                data-fr="Impôts"
+                data-al="Steuern"
+                data-zh="税收">Impuestos</h1>
+
+            <p
+                data-es="Aprende cómo funcionan los impuestos, quiénes deben pagarlos y cómo contribuyen al desarrollo del país."
+                data-en="Learn how taxes work, who must pay them and how they contribute to the country's development."
+                data-pt="Aprenda como funcionam os impostos, quem deve pagá-los e como contribuem para o desenvolvimento do país."
+                data-fr="Découvrez comment fonctionnent les impôts, qui doit les payer et comment ils contribuent au développement du pays."
+                data-al="Erfahren Sie, wie Steuern funktionieren, wer sie zahlen muss und wie sie zur Entwicklung des Landes beitragen."
+                data-zh="了解税收的运作方式、谁需要缴税，以及税收如何促进国家发展。">
+                Aprende cómo funcionan los impuestos, quiénes deben pagarlos y cómo contribuyen al desarrollo del país.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN 1 — Tipos de impuestos
+    ============================================ -->
+    <section class="tipos-section">
+        <div class="tipos-container">
+
+            <h2 class="reveal"
+                data-es="Tipos de impuestos"
+                data-en="Types of taxes"
+                data-pt="Tipos de impostos"
+                data-fr="Types d'impôts"
+                data-al="Steuerarten"
+                data-zh="税收类型">Tipos de impuestos</h2>
+
+            <p class="tipos-desc reveal"
+               data-es="Los impuestos son pagos obligatorios que realizan las personas y las empresas al Estado. Estos recursos se utilizan para financiar servicios públicos como la educación, la salud, la seguridad y la construcción de carreteras. En Panamá, la entidad encargada de administrar los impuestos es la Dirección General de Ingresos (DGI)."
+               data-en="Taxes are mandatory payments made by individuals and businesses to the State. These resources are used to finance public services such as education, health, security and road construction. In Panama, the entity in charge of managing taxes is the Dirección General de Ingresos (DGI)."
+               data-pt="Os impostos são pagamentos obrigatórios feitos por pessoas e empresas ao Estado. Esses recursos são utilizados para financiar serviços públicos como educação, saúde, segurança e construção de estradas. No Panamá, a entidade responsável pela administração dos impostos é a Dirección General de Ingresos (DGI)."
+               data-fr="Les impôts sont des paiements obligatoires effectués par les particuliers et les entreprises à l'État. Ces ressources servent à financer des services publics tels que l'éducation, la santé, la sécurité et la construction de routes. Au Panama, l'organisme chargé de gérer les impôts est la Dirección General de Ingresos (DGI)."
+               data-al="Steuern sind verpflichtende Zahlungen, die Privatpersonen und Unternehmen an den Staat leisten. Diese Mittel werden zur Finanzierung öffentlicher Dienstleistungen wie Bildung, Gesundheit, Sicherheit und Straßenbau verwendet. In Panama ist die Dirección General de Ingresos (DGI) für die Verwaltung der Steuern zuständig."
+               data-zh="税收是个人和企业向国家缴纳的强制性款项。这些资金用于教育、医疗、治安和道路建设等公共服务。在巴拿马，负责管理税收的机构是Dirección General de Ingresos（DGI）。">
+                Los impuestos son pagos obligatorios que realizan las personas y las empresas al Estado. Estos recursos se utilizan para financiar servicios públicos como la educación, la salud, la seguridad y la construcción de carreteras. En Panamá, la entidad encargada de administrar los impuestos es
+                <strong
+                    data-es="la Dirección General de Ingresos (DGI)."
+                    data-en="the Dirección General de Ingresos (DGI)."
+                    data-pt="a Dirección General de Ingresos (DGI)."
+                    data-fr="la Dirección General de Ingresos (DGI)."
+                    data-al="die Dirección General de Ingresos (DGI)."
+                    data-zh="Dirección General de Ingresos（DGI）。">
+                    la Dirección General de Ingresos (DGI).
+                </strong>
+            </p>
+
+            <div class="tipos-grid">
+
+                <div class="tipo-card">
+                    <div class="tipo-icono">
+                        <img src="iconos/carrito-de-compras.png" alt="ITBMS">
+                    </div>
+
+                    <h3
+                        data-es="ITBMS"
+                        data-en="ITBMS"
+                        data-pt="ITBMS"
+                        data-fr="ITBMS"
+                        data-al="ITBMS"
+                        data-zh="ITBMS">ITBMS</h3>
+
+                    <p class="tipo-subtitulo"
+                       data-es="Impuesto de Transferencia de Bienes Muebles y Servicios"
+                       data-en="Transfer Tax on Movable Goods and Services"
+                       data-pt="Imposto de Transferência de Bens Móveis e Serviços"
+                       data-fr="Impôt sur le transfert de biens meubles et de services"
+                       data-al="Steuer auf die Übertragung beweglicher Güter und Dienstleistungen"
+                       data-zh="动产和服务转让税">
+                        Impuesto de Transferencia de Bienes Muebles y Servicios
+                    </p>
+
+                    <p
+                        data-es="Se aplica a la compra de la mayoría de los bienes y servicios en Panamá. Es un impuesto al consumo que se paga en cada compra de productos o al contratar determinados servicios."
+                        data-en="It applies to the purchase of most goods and services in Panama. It is a consumption tax paid on every purchase of products or when hiring certain services."
+                        data-pt="Aplica-se à compra da maioria dos bens e serviços no Panamá. É um imposto sobre o consumo pago na compra de produtos ou na contratação de determinados serviços."
+                        data-fr="Il s'applique à l'achat de la plupart des biens et services au Panama. Il s'agit d'une taxe à la consommation payée lors de l'achat de produits ou de certains services."
+                        data-al="Er gilt für den Kauf der meisten Waren und Dienstleistungen in Panama. Es handelt sich um eine Verbrauchssteuer, die beim Kauf von Produkten oder bei bestimmten Dienstleistungen gezahlt wird."
+                        data-zh="适用于巴拿马大多数商品和服务的购买。这是一种消费税，在购买产品或使用某些服务时缴纳。">
+                        Se aplica a la compra de la mayoría de los bienes y servicios en Panamá. Es un impuesto al consumo que se paga en cada compra de productos o al contratar determinados servicios.
+                    </p>
+                </div>
+
+                <div class="tipo-card">
+                    <div class="tipo-icono">
+                        <img src="iconos/imagen-de-perfil.png" alt="ISR">
+                    </div>
+
+                    <h3
+                        data-es="ISR"
+                        data-en="ISR"
+                        data-pt="ISR"
+                        data-fr="ISR"
+                        data-al="ISR"
+                        data-zh="ISR">ISR</h3>
+
+                    <p class="tipo-subtitulo"
+                       data-es="Impuesto Sobre la Renta"
+                       data-en="Income Tax"
+                       data-pt="Imposto sobre a Renda"
+                       data-fr="Impôt sur le revenu"
+                       data-al="Einkommensteuer"
+                       data-zh="所得税">
+                        Impuesto Sobre la Renta
+                    </p>
+
+                    <p
+                        data-es="Es un impuesto que pagan las personas naturales o jurídicas sobre los ingresos que obtienen. El monto depende del nivel de ingresos y de las disposiciones fiscales vigentes."
+                        data-en="It is a tax paid by individuals or legal entities on the income they earn. The amount depends on the income level and current tax regulations."
+                        data-pt="É um imposto pago por pessoas físicas ou jurídicas sobre os rendimentos que obtêm. O valor depende do nível de renda e das normas fiscais vigentes."
+                        data-fr="Il s'agit d'un impôt payé par les personnes physiques ou morales sur les revenus qu'elles perçoivent. Le montant dépend du niveau de revenu et des dispositions fiscales en vigueur."
+                        data-al="Es handelt sich um eine Steuer, die natürliche oder juristische Personen auf ihre Einkünfte zahlen. Die Höhe hängt vom Einkommen und den geltenden Steuervorschriften ab."
+                        data-zh="这是个人或法人根据其收入缴纳的税款。税额取决于收入水平和现行税收规定。">
+                        Es un impuesto que pagan las personas naturales o jurídicas sobre los ingresos que obtienen. El monto depende del nivel de ingresos y de las disposiciones fiscales vigentes.
+                    </p>
+                </div>
+
+                <div class="tipo-card">
+                    <div class="tipo-icono">
+                        <img src="iconos/casa.png" alt="Impuesto de Inmuebles">
+                    </div>
+
+                    <h3
+                        data-es="Impuesto de Inmuebles"
+                        data-en="Real Estate Tax"
+                        data-pt="Imposto sobre Imóveis"
+                        data-fr="Impôt immobilier"
+                        data-al="Grundsteuer"
+                        data-zh="房地产税">Impuesto de Inmuebles</h3>
+
+                    <p class="tipo-subtitulo"
+                       data-es="Impuesto sobre la propiedad de bienes inmuebles"
+                       data-en="Tax on real estate ownership"
+                       data-pt="Imposto sobre a propriedade de bens imóveis"
+                       data-fr="Impôt sur la propriété immobilière"
+                       data-al="Steuer auf den Besitz von Immobilien"
+                       data-zh="不动产所有权税">
+                        Impuesto sobre la propiedad de bienes inmuebles
+                    </p>
+
+                    <p
+                        data-es="Es un impuesto que grava bienes inmuebles como casas, apartamentos, edificios y terrenos. Los propietarios deben pagarlo de acuerdo con el valor de la propiedad y la normativa fiscal vigente."
+                        data-en="It is a tax on real estate such as houses, apartments, buildings and land. Owners must pay it according to the value of the property and current tax regulations."
+                        data-pt="É um imposto sobre bens imóveis, como casas, apartamentos, edifícios e terrenos. Os proprietários devem pagá-lo de acordo com o valor do imóvel e as normas fiscais vigentes."
+                        data-fr="Il s'agit d'un impôt sur les biens immobiliers tels que les maisons, les appartements, les bâtiments et les terrains. Les propriétaires doivent le payer en fonction de la valeur du bien et de la réglementation fiscale en vigueur."
+                        data-al="Es handelt sich um eine Steuer auf Immobilien wie Häuser, Wohnungen, Gebäude und Grundstücke. Eigentümer müssen sie entsprechend dem Wert der Immobilie und den geltenden Steuervorschriften zahlen."
+                        data-zh="这是对房屋、公寓、建筑物和土地等不动产征收的税。业主必须根据房产价值和现行税收规定缴纳。">
+                        Es un impuesto que grava bienes inmuebles como casas, apartamentos, edificios y terrenos. Los propietarios deben pagarlo de acuerdo con el valor de la propiedad y la normativa fiscal vigente.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN 2 — Contribución al desarrollo de Panamá
+    ============================================ -->
+    <section class="contribucion-section">
+        <div class="contribucion-container">
+
+            <h2 class="reveal"
+                data-es="Contribución al desarrollo de Panamá"
+                data-en="Contribution to Panama's development"
+                data-pt="Contribuição para o desenvolvimento do Panamá"
+                data-fr="Contribution au développement du Panama"
+                data-al="Beitrag zur Entwicklung Panamas"
+                data-zh="为巴拿马发展做出的贡献">
+                Contribución al desarrollo de Panamá
+            </h2>
+
+            <img src="img/contribucion-es.png"
+                 data-img-es="img/contribucion-es.png"
+                 data-img-en="img/contribucion-en.png"
+                 data-img-pt="img/contribucion-pt.png"
+                 data-img-fr="img/contribucion-fr.png"
+                 data-img-al="img/contribucion-al.png"
+                 data-img-zh="img/contribucion-zh.png"
+                 alt="Diagrama de contribución de los impuestos al desarrollo de Panamá"
+                 class="contribucion-img reveal-scale">
+        </div>
+    </section>
+
+<!-- ============================================
+     SECCIÓN 3 — Quién paga + imagen + dato curioso
+============================================ -->
+<section class="quien-section">
+    <div class="quien-container">
+
+        <div class="quien-texto reveal-left">
+
+            <h2
+                data-es="¿Quién debe pagar impuestos?"
+                data-en="Who must pay taxes?"
+                data-fr="Qui doit payer des impôts ?"
+                data-pt="Quem deve pagar impostos?"
+                data-al="Wer muss Steuern zahlen?"
+                data-zh="谁必须缴纳税款？">
+                ¿Quién debe pagar impuestos?
+            </h2>
+
+            <div class="quien-lista">
+
+                <div class="quien-item">
+                    <span class="quien-icono">
+                        <img src="iconos/imagen-de-perfil.png" alt="Personas">
+                    </span>
+
+                    <div>
+                        <h3
+                            data-es="Personas"
+                            data-en="Individuals"
+                            data-fr="Particuliers"
+                            data-pt="Pessoas"
+                            data-al="Einzelpersonen"
+                            data-zh="个人">
+                            Personas
+                        </h3>
+
+                        <p
+                            data-es="Algunos ingresos de las personas naturales pueden estar sujetos al pago de impuestos según la ley."
+                            data-en="Some income of individuals may be subject to taxes according to the law."
+                            data-fr="Certains revenus des particuliers peuvent être soumis à l'impôt conformément à la loi."
+                            data-pt="Alguns rendimentos das pessoas físicas podem estar sujeitos ao pagamento de impostos de acordo com a lei."
+                            data-al="Bestimmte Einkünfte von Privatpersonen können laut Gesetz steuerpflichtig sein."
+                            data-zh="根据法律，个人的某些收入可能需要缴纳税款。">
+                            Algunos ingresos de las personas naturales pueden estar sujetos al pago de impuestos según la ley.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="quien-item">
+                    <span class="quien-icono">
+                        <img src="iconos/edificios.png" alt="Empresas">
+                    </span>
+
+                    <div>
+                        <h3
+                            data-es="Empresas"
+                            data-en="Companies"
+                            data-fr="Entreprises"
+                            data-pt="Empresas"
+                            data-al="Unternehmen"
+                            data-zh="企业">
+                            Empresas
+                        </h3>
+
+                        <p
+                            data-es="Las empresas deben declarar y cumplir con sus obligaciones fiscales."
+                            data-en="Companies must file tax returns and comply with their tax obligations."
+                            data-fr="Les entreprises doivent déclarer leurs revenus et respecter leurs obligations fiscales."
+                            data-pt="As empresas devem declarar e cumprir suas obrigações fiscais."
+                            data-al="Unternehmen müssen Steuererklärungen abgeben und ihre steuerlichen Verpflichtungen erfüllen."
+                            data-zh="企业必须申报并履行其纳税义务。">
+                            Las empresas deben declarar y cumplir con sus obligaciones fiscales.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="quien-item">
+                    <span class="quien-icono">
+                        <img src="iconos/maleta.png" alt="Trabajos independientes">
+                    </span>
+
+                    <div>
+                        <h3
+                            data-es="Trabajos independientes"
+                            data-en="Self-employed"
+                            data-fr="Travailleurs indépendants"
+                            data-pt="Trabalhadores autônomos"
+                            data-al="Selbstständige"
+                            data-zh="自由职业者">
+                            Trabajos independientes
+                        </h3>
+
+                        <p
+                            data-es="Los profesionales independientes también pueden tener responsabilidades tributarias."
+                            data-en="Self-employed professionals may also have tax responsibilities."
+                            data-fr="Les travailleurs indépendants peuvent également avoir des obligations fiscales."
+                            data-pt="Os profissionais autônomos também podem ter responsabilidades tributárias."
+                            data-al="Selbstständige können ebenfalls steuerliche Verpflichtungen haben."
+                            data-zh="自由职业者也可能需要承担纳税义务。">
+                            Los profesionales independientes también pueden tener responsabilidades tributarias.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="quien-derecha reveal-right">
+
+            <img src="img/impuestos2.png"
+                 data-img-es="img/impuestos2.png"
+                 data-img-en="img/impuestos-en.png"
+                 alt="Declaración de impuestos"
+                 class="quien-img">
+
+            <div class="sabias-que">
+
+                <h3
+                    data-es="¿Sabías que?"
+                    data-en="Did you know?"
+                    data-fr="Le saviez-vous ?"
+                    data-pt="Você sabia?"
+                    data-al="Wusstest du schon?"
+                    data-zh="你知道吗？">
+                    ¿Sabías que?
+                </h3>
+
+                <p
+                    data-es="Los impuestos existen desde hace miles de años. Algunas de las primeras civilizaciones ya cobraban tributos para financiar obras públicas y mantener el funcionamiento de sus gobiernos."
+                    data-en="Taxes have existed for thousands of years. Some of the earliest civilizations collected tributes to finance public works and maintain their governments."
+                    data-fr="Les impôts existent depuis des milliers d'années. Certaines des premières civilisations percevaient déjà des taxes pour financer les travaux publics et assurer le fonctionnement de leurs gouvernements."
+                    data-pt="Os impostos existem há milhares de anos. Algumas das primeiras civilizações já cobravam tributos para financiar obras públicas e manter o funcionamento de seus governos."
+                    data-al="Steuern gibt es seit Tausenden von Jahren. Einige der frühesten Zivilisationen erhoben bereits Abgaben zur Finanzierung öffentlicher Arbeiten und zur Aufrechterhaltung ihrer Regierungen."
+                    data-zh="税收已经存在了数千年。一些最早的文明已经征收税款，用于资助公共工程和维持政府运作。">
+                    Los impuestos existen desde hace miles de años. Algunas de las primeras civilizaciones ya cobraban tributos para financiar obras públicas y mantener el funcionamiento de sus gobiernos.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================
+     SECCIÓN 4 — Del impuesto al ahorro
+============================================ -->
+<section class="impuesto-ahorro-section">
+    <div class="impuesto-ahorro-container">
+
+        <h2 class="reveal"
+            data-es="Del Impuesto al Ahorro"
+            data-en="From Taxes to Savings"
+            data-fr="De l'impôt à l'épargne"
+            data-pt="Do Imposto à Poupança"
+            data-al="Von Steuern zum Sparen"
+            data-zh="从税收到储蓄">
+            Del Impuesto al Ahorro
+        </h2>
+
+        <p class="impuesto-ahorro-intro reveal"
+           data-es="Pagar impuestos es una responsabilidad de todos los ciudadanos y contribuye al funcionamiento del país. Sin embargo, una buena administración financiera no termina cuando se cumplen las obligaciones tributarias. Después de conocer cuánto dinero se destina a impuestos y otros gastos, es importante planificar el uso del resto de los ingresos. Una de las mejores decisiones es ahorrar de forma constante para alcanzar metas personales y estar preparado ante cualquier imprevisto."
+           data-en="Paying taxes is the responsibility of every citizen and contributes to the functioning of the country. However, good financial management does not end once tax obligations are met. After understanding how much money goes to taxes and other expenses, it is important to plan how the rest of the income will be used. One of the best decisions is to save consistently to reach personal goals and be prepared for unexpected events."
+           data-fr="Payer des impôts est une responsabilité de tous les citoyens et contribue au fonctionnement du pays. Cependant, une bonne gestion financière ne s'arrête pas une fois les obligations fiscales remplies. Après avoir compris combien d'argent est consacré aux impôts et aux autres dépenses, il est important de planifier l'utilisation du reste des revenus. L'une des meilleures décisions est d'épargner régulièrement pour atteindre ses objectifs personnels et être prêt face aux imprévus."
+           data-pt="Pagar impostos é uma responsabilidade de todos os cidadãos e contribui para o funcionamento do país. No entanto, uma boa administração financeira não termina quando as obrigações fiscais são cumpridas. Depois de entender quanto dinheiro é destinado aos impostos e outras despesas, é importante planejar como o restante da renda será utilizado. Uma das melhores decisões é economizar de forma constante para alcançar metas pessoais e estar preparado para imprevistos."
+           data-al="Steuern zu zahlen ist eine Verantwortung aller Bürger und trägt zum Funktionieren des Landes bei. Eine gute Finanzverwaltung endet jedoch nicht mit der Erfüllung der steuerlichen Pflichten. Nachdem man verstanden hat, wie viel Geld für Steuern und andere Ausgaben verwendet wird, ist es wichtig, die Verwendung des restlichen Einkommens zu planen. Eine der besten Entscheidungen ist es, regelmäßig zu sparen, um persönliche Ziele zu erreichen und auf unerwartete Ereignisse vorbereitet zu sein."
+           data-zh="缴纳税款是每个公民的责任，也有助于国家正常运行。然而，良好的财务管理并不会在履行纳税义务后结束。了解有多少钱用于缴税和其他支出后，合理规划剩余收入的使用非常重要。持续储蓄是实现个人目标并应对意外情况的好方法。">
+            Pagar impuestos es una responsabilidad de todos los ciudadanos y contribuye al funcionamiento del país. Sin embargo, una buena administración financiera no termina cuando se cumplen las obligaciones tributarias. Después de conocer cuánto dinero se destina a impuestos y otros gastos, es importante planificar el uso del resto de los ingresos. Una de las mejores decisiones es ahorrar de forma constante para alcanzar metas personales y estar preparado ante cualquier imprevisto.
+        </p>
+
+        <div class="ruta-financiera" aria-label="Ruta del ingreso hacia las metas">
+
+            <div class="ruta-paso">
+                <div class="ruta-icono ruta-ingresos">
+                    <img src="iconos/billetera-impu.png" alt="Billetera">
+                </div>
+                <h3 data-es="Ingresos"
+                    data-en="Income"
+                    data-fr="Revenus"
+                    data-pt="Renda"
+                    data-al="Einkommen"
+                    data-zh="收入">
+                    Ingresos
+                </h3>
+                <p data-es="Dinero que recibes."
+                   data-en="Money you receive."
+                   data-fr="Argent que vous recevez."
+                   data-pt="Dinheiro que você recebe."
+                   data-al="Geld, das Sie erhalten."
+                   data-zh="你收到的钱。">
+                    Dinero que recibes.
+                </p>
+            </div>
+
+            <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+            <div class="ruta-paso">
+                <div class="ruta-icono ruta-impuestos">
+                    <img src="iconos/banco-impu.png" alt="Banco">
+                </div>
+                <h3 data-es="Impuestos"
+                    data-en="Taxes"
+                    data-fr="Impôts"
+                    data-pt="Impostos"
+                    data-al="Steuern"
+                    data-zh="税收">
+                    Impuestos
+                </h3>
+                <p data-es="Contribución al país."
+                   data-en="Contribution to the country."
+                   data-fr="Contribution au pays."
+                   data-pt="Contribuição para o país."
+                   data-al="Beitrag zum Land."
+                   data-zh="对国家的贡献。">
+                    Contribución al país.
+                </p>
+            </div>
+
+            <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+            <div class="ruta-paso">
+                <div class="ruta-icono ruta-gastos">
+                    <img src="iconos/carrito-impu.png" alt="Carrito">
+                </div>
+                <h3 data-es="Gastos"
+                    data-en="Expenses"
+                    data-fr="Dépenses"
+                    data-pt="Despesas"
+                    data-al="Ausgaben"
+                    data-zh="支出">
+                    Gastos
+                </h3>
+                <p data-es="Necesidades y pagos diarios."
+                   data-en="Daily needs and payments."
+                   data-fr="Besoins et paiements quotidiens."
+                   data-pt="Necessidades e pagamentos diários."
+                   data-al="Tägliche Bedürfnisse und Zahlungen."
+                   data-zh="日常需求和付款。">
+                    Necesidades y pagos diarios.
+                </p>
+            </div>
+
+            <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+            <div class="ruta-paso">
+                <div class="ruta-icono ruta-ahorros">
+                    <img src="iconos/alcancia-impu.png" alt="Alcancía">
+                </div>
+                <h3 data-es="Ahorros"
+                    data-en="Savings"
+                    data-fr="Épargne"
+                    data-pt="Poupança"
+                    data-al="Ersparnisse"
+                    data-zh="储蓄">
+                    Ahorros
+                </h3>
+                <p data-es="Dinero reservado para el futuro."
+                   data-en="Money reserved for the future."
+                   data-fr="Argent réservé pour l'avenir."
+                   data-pt="Dinheiro reservado para o futuro."
+                   data-al="Für die Zukunft reserviertes Geld."
+                   data-zh="为未来预留的钱。">
+                    Dinero reservado para el futuro.
+                </p>
+            </div>
+
+            <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+            <div class="ruta-paso">
+                <div class="ruta-icono ruta-metas">
+                    <img src="iconos/meta-impu.png" alt="Metas">
+                </div>
+                <h3 data-es="Metas"
+                    data-en="Goals"
+                    data-fr="Objectifs"
+                    data-pt="Metas"
+                    data-al="Ziele"
+                    data-zh="目标">
+                    Metas
+                </h3>
+                <p data-es="Viajes, estudios, vivienda, emergencias."
+                   data-en="Travel, education, housing, emergencies."
+                   data-fr="Voyages, études, logement, urgences."
+                   data-pt="Viagens, estudos, moradia, emergências."
+                   data-al="Reisen, Bildung, Wohnen, Notfälle."
+                   data-zh="旅行、教育、住房、紧急情况。">
+                    Viajes, estudios, vivienda, emergencias.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     SECCIÓN 5 — Ahorrar
+============================================ -->
+<section class="ahorrar-hero">
+
+    <img src="img/ahorrar-hero.png"
+         alt="Una persona deposita una moneda en una alcancía"
+         class="ahorrar-hero-img">
+
+    <div class="ahorrar-hero-overlay"></div>
+
+    <div class="ahorrar-hero-content reveal-scale">
+
+        <h2 data-es="Ahorrar"
+            data-en="Saving"
+            data-fr="Épargner"
+            data-pt="Poupar"
+            data-al="Sparen"
+            data-zh="储蓄">
+            Ahorrar
+        </h2>
+
+        <p data-es="El ahorro consiste en reservar una parte de los ingresos para utilizarla en el futuro, en lugar de gastarla inmediatamente. En Panamá, las cuentas de ahorro son uno de los productos financieros más utilizados y permiten guardar dinero de forma segura mientras permanece disponible cuando el titular lo necesite."
+           data-en="Saving means setting aside a portion of income to use in the future instead of spending it immediately. In Panama, savings accounts are among the most widely used financial products and allow money to be kept safely while remaining available whenever the account holder needs it."
+           data-fr="Épargner consiste à mettre de côté une partie de ses revenus pour l'utiliser à l'avenir au lieu de la dépenser immédiatement. Au Panama, les comptes d'épargne sont parmi les produits financiers les plus utilisés et permettent de conserver son argent en toute sécurité tout en le gardant disponible lorsque le titulaire en a besoin."
+           data-pt="Poupar significa reservar uma parte da renda para utilizá-la no futuro, em vez de gastá-la imediatamente. No Panamá, as contas de poupança estão entre os produtos financeiros mais utilizados e permitem guardar dinheiro com segurança, mantendo-o disponível quando o titular precisar."
+           data-al="Sparen bedeutet, einen Teil des Einkommens für die Zukunft zurückzulegen, anstatt ihn sofort auszugeben. In Panama gehören Sparkonten zu den am häufigsten genutzten Finanzprodukten und ermöglichen es, Geld sicher aufzubewahren und gleichzeitig verfügbar zu halten, wenn der Kontoinhaber es benötigt."
+           data-zh="储蓄是指将一部分收入留到未来使用，而不是立即花掉。在巴拿马，储蓄账户是最常用的金融产品之一，可以安全地存放资金，同时在账户持有人需要时保持资金可用。">
+            El ahorro consiste en reservar una parte de los ingresos para utilizarla en el futuro, en lugar de gastarla inmediatamente. En Panamá, las cuentas de ahorro son uno de los productos financieros más utilizados y permiten guardar dinero de forma segura mientras permanece disponible cuando el titular lo necesite.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ============================================
+     SECCIÓN 6 — ¿Por qué es importante ahorrar?
+============================================ -->
+<section class="importancia-ahorro-section">
+    <div class="importancia-ahorro-container">
+
+        <h2 class="reveal"
+            data-es="¿Por qué es importante ahorrar?"
+            data-en="Why is saving important?"
+            data-fr="Pourquoi est-il important d'épargner ?"
+            data-pt="Por que é importante poupar?"
+            data-al="Warum ist Sparen wichtig?"
+            data-zh="为什么储蓄很重要？">
+            ¿Por qué es importante ahorrar?
+        </h2>
+
+        <ul class="importancia-lista reveal">
+
+            <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <span data-es="Tener dinero disponible para "
+                      data-en="Have money available for "
+                      data-fr="Avoir de l'argent disponible pour "
+                      data-pt="Ter dinheiro disponível para "
+                      data-al="Geld zur Verfügung haben für "
+                      data-zh="为以下情况准备可用资金：">
+                    Tener dinero disponible para
+                </span>
+                <strong data-es="emergencias."
+                        data-en="emergencies."
+                        data-fr="les urgences."
+                        data-pt="emergências."
+                        data-al="Notfälle."
+                        data-zh="紧急情况。">
+                    emergencias.
+                </strong>
+            </li>
+
+            <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <span data-es="Organizar mejor las "
+                      data-en="Better organize your "
+                      data-fr="Mieux organiser vos "
+                      data-pt="Organizar melhor as suas "
+                      data-al="Besser organisieren Sie Ihre "
+                      data-zh="更好地管理您的">
+                    Organizar mejor las
+                </span>
+                <strong data-es="finanzas personales."
+                        data-en="personal finances."
+                        data-fr="finances personnelles."
+                        data-pt="finanças pessoais."
+                        data-al="persönlichen Finanzen."
+                        data-zh="个人财务。">
+                    finanzas personales.
+                </strong>
+            </li>
+
+            <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <span data-es="Alcanzar "
+                      data-en="Reach "
+                      data-fr="Atteindre "
+                      data-pt="Alcançar "
+                      data-al="Erreichen Sie "
+                      data-zh="实现">
+                    Alcanzar
+                </span>
+                <strong data-es="metas"
+                        data-en="goals"
+                        data-fr="des objectifs"
+                        data-pt="metas"
+                        data-al="Ziele">
+                    metas
+                </strong>
+                <span data-es=" como estudiar, comprar una computadora o un automóvil."
+                      data-en=" such as studying, buying a computer or a car."
+                      data-fr=" comme étudier, acheter un ordinateur ou une voiture."
+                      data-pt=" como estudar, comprar um computador ou um carro."
+                      data-al=" wie ein Studium, der Kauf eines Computers oder eines Autos."
+                      data-zh="，例如学习、购买电脑或汽车。">
+                    como estudiar, comprar una computadora o un automóvil.
+                </span>
+            </li>
+
+            <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <span data-es="Tener mayor "
+                      data-en="Have greater "
+                      data-fr="Avoir une plus grande "
+                      data-pt="Ter maior "
+                      data-al="Mehr "
+                      data-zh="拥有更大的">
+                    Tener mayor
+                </span>
+                <strong data-es="tranquilidad económica."
+                        data-en="financial peace of mind."
+                        data-fr="tranquillité financière."
+                        data-pt="tranquilidade financeira."
+                        data-al="finanzielle Sicherheit."
+                        data-zh="经济安心感。">
+                    tranquilidad económica.
+                </strong>
+            </li>
+
+            <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <strong data-es="Evitar endeudarse "
+                        data-en="Avoid going into debt "
+                        data-fr="Éviter de s'endetter "
+                        data-pt="Evitar endividar-se "
+                        data-al="Verschuldung vermeiden "
+                        data-zh="避免负债">
+                    Evitar endeudarse
+                </strong>
+                <span data-es="cuando surgen gastos inesperados."
+                      data-en="when unexpected expenses arise."
+                      data-fr="lorsque des dépenses imprévues surviennent."
+                      data-pt="quando surgem despesas inesperadas."
+                      data-al="wenn unerwartete Ausgaben entstehen."
+                      data-zh="，以应对意外支出。">
+                    cuando surgen gastos inesperados.
+                </span>
+            </li>
+
+        </ul>
+
+        <div class="dato-destacado reveal">
+
+            <span class="dato-destacado-icono" aria-hidden="true">
+                <img src="iconos/bancos.png" alt="Bancos">
+            </span>
+
+            <p>
+                <strong data-es="La Superintendencia de Bancos de Panamá "
+                        data-en="The Superintendency of Banks of Panama "
+                        data-fr="La Superintendance des banques du Panama "
+                        data-pt="A Superintendência de Bancos do Panamá "
+                        data-al="Die Bankenaufsicht von Panama "
+                        data-zh="巴拿马银行监管局">
+                    La Superintendencia de Bancos de Panamá
+                </strong>
+
+                <span data-es="promueve el ahorro como parte de la educación financiera para que las personas puedan tomar mejores decisiones sobre el manejo de su dinero."
+                      data-en="promotes savings as part of financial education so people can make better decisions about managing their money."
+                      data-fr="encourage l'épargne dans le cadre de l'éducation financière afin que les personnes puissent prendre de meilleures décisions concernant la gestion de leur argent."
+                      data-pt="promove a poupança como parte da educação financeira para que as pessoas possam tomar melhores decisões sobre a gestão do seu dinheiro."
+                      data-al="fördert das Sparen als Teil der Finanzbildung, damit Menschen bessere Entscheidungen über den Umgang mit ihrem Geld treffen können."
+                      data-zh="将储蓄作为金融教育的一部分，以帮助人们更好地管理自己的资金并做出更好的财务决策。">
+                    promueve el ahorro como parte de la educación financiera para que las personas puedan tomar mejores decisiones sobre el manejo de su dinero.
+                </span>
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     SECCIÓN 7 — Consejos para ahorrar
+============================================ -->
+<section class="consejos-section">
+    <div class="consejos-container">
+
+        <h2 class="reveal"
+            data-es="Consejos para ahorrar"
+            data-en="Tips for saving"
+            data-fr="Conseils pour épargner"
+            data-pt="Dicas para poupar"
+            data-al="Tipps zum Sparen"
+            data-zh="储蓄技巧">
+            Consejos para ahorrar
+        </h2>
+
+        <div class="consejos-grid">
+
+            <div class="consejo-card">
+                <span class="consejo-numero">1</span>
+
+                <h3 data-es="Elabora un presupuesto mensual"
+                    data-en="Make a monthly budget"
+                    data-fr="Établissez un budget mensuel"
+                    data-pt="Faça um orçamento mensal"
+                    data-al="Erstellen Sie ein Monatsbudget"
+                    data-zh="制定月度预算">
+                    Elabora un presupuesto mensual
+                </h3>
+
+                <p data-es="Anota cuánto dinero recibes y cuánto gastas."
+                   data-en="Write down how much money you receive and how much you spend."
+                   data-fr="Notez combien d'argent vous recevez et combien vous dépensez."
+                   data-pt="Anote quanto dinheiro recebe e quanto gasta."
+                   data-al="Notieren Sie, wie viel Geld Sie erhalten und wie viel Sie ausgeben."
+                   data-zh="记录你收到多少钱以及花费多少钱。">
+                    Anota cuánto dinero recibes y cuánto gastas.
+                </p>
+
+                <div class="consejo-icono">
+                    <img src="iconos/registros-financieros.png" alt="Registros">
+                </div>
+            </div>
+
+
+            <div class="consejo-card">
+                <span class="consejo-numero">2</span>
+
+                <h3 data-es="Ahorra antes de gastar"
+                    data-en="Save before you spend"
+                    data-fr="Épargnez avant de dépenser"
+                    data-pt="Poupe antes de gastar"
+                    data-al="Sparen Sie, bevor Sie ausgeben"
+                    data-zh="先储蓄再消费">
+                    Ahorra antes de gastar
+                </h3>
+
+                <p data-es="Cuando recibas tu salario o ingreso, separa primero una parte para el ahorro."
+                   data-en="When you receive your salary or income, set aside part of it for savings first."
+                   data-fr="Lorsque vous recevez votre salaire ou vos revenus, mettez d'abord une partie de côté pour l'épargne."
+                   data-pt="Quando receber seu salário ou renda, separe primeiro uma parte para a poupança."
+                   data-al="Wenn Sie Ihr Gehalt oder Einkommen erhalten, legen Sie zuerst einen Teil zum Sparen zurück."
+                   data-zh="收到工资或收入后，先拿出一部分用于储蓄。">
+                    Cuando recibas tu salario o ingreso, separa primero una parte para el ahorro.
+                </p>
+
+                <div class="consejo-icono">
+                    <img src="iconos/alcancia.png" alt="Alcancía">
+                </div>
+            </div>
+
+
+            <div class="consejo-card">
+                <span class="consejo-numero">3</span>
+
+                <h3 data-es="Abre una cuenta de ahorro"
+                    data-en="Open a savings account"
+                    data-fr="Ouvrez un compte d'épargne"
+                    data-pt="Abra uma conta poupança"
+                    data-al="Eröffnen Sie ein Sparkonto"
+                    data-zh="开设储蓄账户">
+                    Abre una cuenta de ahorro
+                </h3>
+
+                <p data-es="Los bancos panameños ofrecen cuentas de ahorro seguras y flexibles."
+                   data-en="Panamanian banks offer safe and flexible savings accounts."
+                   data-fr="Les banques panaméennes proposent des comptes d'épargne sûrs et flexibles."
+                   data-pt="Os bancos panamenhos oferecem contas poupança seguras e flexíveis."
+                   data-al="Panamaische Banken bieten sichere und flexible Sparkonten an."
+                   data-zh="巴拿马银行提供安全且灵活的储蓄账户。">
+                    Los bancos panameños ofrecen cuentas de ahorro seguras y flexibles.
+                </p>
+
+                <div class="consejo-icono">
+                    <img src="iconos/banco-impu.png" alt="Banco">
+                </div>
+            </div>
+
+
+            <div class="consejo-card">
+                <span class="consejo-numero">4</span>
+
+                <h3 data-es="Evita las compras impulsivas"
+                    data-en="Avoid impulse purchases"
+                    data-fr="Évitez les achats impulsifs"
+                    data-pt="Evite compras por impulso"
+                    data-al="Vermeiden Sie Impulskäufe"
+                    data-zh="避免冲动消费">
+                    Evita las compras impulsivas
+                </h3>
+
+                <p data-es="Antes de comprar algo, pregúntate: ¿Lo necesito realmente?"
+                   data-en="Before buying something, ask yourself: Do I really need it?"
+                   data-fr="Avant d'acheter quelque chose, demandez-vous : Est-ce que j'en ai vraiment besoin ?"
+                   data-pt="Antes de comprar algo, pergunte-se: Eu realmente preciso disso?"
+                   data-al="Bevor Sie etwas kaufen, fragen Sie sich: Brauche ich es wirklich?"
+                   data-zh="购买东西之前，问问自己：我真的需要它吗？">
+                    Antes de comprar algo, pregúntate: ¿Lo necesito realmente?
+                </p>
+
+                <div class="consejo-icono">
+                    <img src="iconos/error-compras.png" alt="Carrito">
+                </div>
+            </div>
+
+
+            <div class="consejo-card">
+                <span class="consejo-numero">5</span>
+
+                <h3 data-es="Establece metas"
+                    data-en="Set goals"
+                    data-fr="Fixez des objectifs"
+                    data-pt="Estabeleça metas"
+                    data-al="Setzen Sie Ziele"
+                    data-zh="设定目标">
+                    Establece metas
+                </h3>
+
+                <p class="consejo-ejemplos"
+                   data-es="Ejemplos:"
+                   data-en="Examples:"
+                   data-fr="Exemples :"
+                   data-pt="Exemplos:"
+                   data-al="Beispiele:"
+                   data-zh="示例：">
+                    Ejemplos:
+                </p>
+
+                <ul class="consejo-lista-ejemplos">
+                    <li data-es="Universidad" data-en="University" data-fr="Université" data-pt="Universidade" data-al="Universität" data-zh="大学">Universidad</li>
+                    <li data-es="Vivienda" data-en="Housing" data-fr="Logement" data-pt="Moradia" data-al="Wohnung" data-zh="住房">Vivienda</li>
+                    <li data-es="Computadora" data-en="Computer" data-fr="Ordinateur" data-pt="Computador" data-al="Computer" data-zh="电脑">Computadora</li>
+                    <li data-es="Viaje" data-en="Trip" data-fr="Voyage" data-pt="Viagem" data-al="Reise" data-zh="旅行">Viaje</li>
+                    <li data-es="Auto" data-en="Car" data-fr="Voiture" data-pt="Carro" data-al="Auto" data-zh="汽车">Auto</li>
+                </ul>
+
+                <div class="consejo-icono">
+                    <img src="iconos/metas-financieras.png" alt="Metas">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="ahorro-dos-columnas">
+
+            <div class="ahorro-caja reveal-left">
+
+                <h3 data-es="Fondo de Emergencia"
+                    data-en="Emergency Fund"
+                    data-fr="Fonds d'urgence"
+                    data-pt="Fundo de emergência"
+                    data-al="Notfallfonds"
+                    data-zh="应急基金">
+                    Fondo de Emergencia
+                </h3>
+
+                <p data-es="El fondo de emergencia es un ahorro destinado exclusivamente a cubrir gastos inesperados, por ejemplo:"
+                   data-en="The emergency fund is savings intended exclusively to cover unexpected expenses, for example:"
+                   data-fr="Le fonds d'urgence est une épargne destinée exclusivement à couvrir les dépenses imprévues, par exemple :"
+                   data-pt="O fundo de emergência é uma poupança destinada exclusivamente a cobrir despesas inesperadas, por exemplo:"
+                   data-al="Der Notfallfonds ist ein Sparbetrag, der ausschließlich zur Deckung unerwarteter Ausgaben vorgesehen ist, zum Beispiel:"
+                   data-zh="应急基金是专门用于支付意外支出的储蓄，例如：">
+                    El fondo de emergencia es un ahorro destinado exclusivamente a cubrir gastos inesperados, por ejemplo:
+                </p>
+
+                <div class="fondo-grid">
+
+                    <div class="fondo-item">
+                        <div class="fondo-icono">
+                            <img src="iconos/ambulancia.png" alt="Ambulancia">
+                        </div>
+                        <span data-es="Enfermedades"
+                              data-en="Illness"
+                              data-fr="Maladies"
+                              data-pt="Doenças"
+                              data-al="Krankheiten"
+                              data-zh="疾病">
+                            Enfermedades
+                        </span>
+                    </div>
+
+                    <div class="fondo-item">
+                        <div class="fondo-icono">
+                            <img src="iconos/vehiculo.png" alt="Automóvil">
+                        </div>
+                        <span data-es="Reparación de autos"
+                              data-en="Car repairs"
+                              data-fr="Réparation de voitures"
+                              data-pt="Reparação de carros"
+                              data-al="Autoreparaturen"
+                              data-zh="汽车维修">
+                            Reparación de autos
+                        </span>
+                    </div>
+
+                    <div class="fondo-item">
+                        <div class="fondo-icono">
+                            <img src="iconos/casa-aho.png" alt="Vivienda">
+                        </div>
+                        <span data-es="Techos en la vivienda"
+                              data-en="Home roofing"
+                              data-fr="Toiture de la maison"
+                              data-pt="Telhado da casa"
+                              data-al="Dachreparaturen"
+                              data-zh="房屋屋顶维修">
+                            Techos en la vivienda
+                        </span>
+                    </div>
+
+                    <div class="fondo-item">
+                        <div class="fondo-icono">
+                            <img src="iconos/maletin.png" alt="Maleta">
+                        </div>
+                        <span data-es="Pérdida de empleo"
+                              data-en="Job loss"
+                              data-fr="Perte d'emploi"
+                              data-pt="Perda de emprego"
+                              data-al="Arbeitslosigkeit"
+                              data-zh="失业">
+                            Pérdida de empleo
+                        </span>
+                    </div>
+
+                </div>
+
+                <p class="fondo-advertencia">
+                    <span aria-hidden="true">⚠️</span>
+                    <span data-es="Lo recomendable es no utilizar este dinero para compras y entretenimiento."
+                          data-en="It is recommended not to use this money for shopping and entertainment."
+                          data-fr="Il est recommandé de ne pas utiliser cet argent pour les achats et les divertissements."
+                          data-pt="Recomenda-se não usar esse dinheiro para compras e entretenimento."
+                          data-al="Es wird empfohlen, dieses Geld nicht für Einkäufe und Unterhaltung zu verwenden."
+                          data-zh="建议不要将这笔钱用于购物和娱乐。">
+                        Lo recomendable es no utilizar este dinero para compras y entretenimiento.
+                    </span>
+                </p>
+
+            </div>
+
+
+            <div class="ahorro-caja reveal-right">
+
+                <h3 data-es="Tipos de ahorros"
+                    data-en="Types of savings"
+                    data-fr="Types d'épargne"
+                    data-pt="Tipos de poupança"
+                    data-al="Arten des Sparens"
+                    data-zh="储蓄类型">
+                    Tipos de ahorros
+                </h3>
+
+                <div class="tipos-ahorro-grid">
+
+                    <div class="tipo-ahorro-col">
+
+                        <h4 data-es="Corto plazo"
+                            data-en="Short term"
+                            data-fr="Court terme"
+                            data-pt="Curto prazo"
+                            data-al="Kurzfristig"
+                            data-zh="短期">
+                            Corto plazo
+                        </h4>
+
+                        <ul>
+                            <li data-es="Comprar un celular." data-en="Buy a phone." data-fr="Acheter un téléphone." data-pt="Comprar um celular." data-al="Ein Handy kaufen." data-zh="购买手机。">Comprar un celular.</li>
+                            <li data-es="Vacaciones." data-en="Vacation." data-fr="Vacances." data-pt="Férias." data-al="Urlaub." data-zh="假期。">Vacaciones.</li>
+                            <li data-es="Uniformes escolares." data-en="School uniforms." data-fr="Uniformes scolaires." data-pt="Uniformes escolares." data-al="Schuluniformen." data-zh="校服。">Uniformes escolares.</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="tipo-ahorro-col">
+
+                        <h4 data-es="Mediano plazo"
+                            data-en="Medium term"
+                            data-fr="Moyen terme"
+                            data-pt="Médio prazo"
+                            data-al="Mittelfristig"
+                            data-zh="中期">
+                            Mediano plazo
+                        </h4>
+
+                        <ul>
+                            <li data-es="Universidad." data-en="University." data-fr="Université." data-pt="Universidade." data-al="Universität." data-zh="大学。">Universidad.</li>
+                            <li data-es="Computadora." data-en="Computer." data-fr="Ordinateur." data-pt="Computador." data-al="Computer." data-zh="电脑。">Computadora.</li>
+                            <li data-es="Emprendimiento." data-en="Starting a business." data-fr="Création d'entreprise." data-pt="Empreendedorismo." data-al="Unternehmensgründung." data-zh="创业。">Emprendimiento.</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="tipo-ahorro-col">
+
+                        <h4 data-es="Largo plazo"
+                            data-en="Long term"
+                            data-fr="Long terme"
+                            data-pt="Longo prazo"
+                            data-al="Langfristig"
+                            data-zh="长期">
+                            Largo plazo
+                        </h4>
+
+                        <ul>
+                            <li data-es="Comprar una vivienda." data-en="Buy a home." data-fr="Acheter un logement." data-pt="Comprar uma casa." data-al="Ein Haus kaufen." data-zh="购买住房。">Comprar una vivienda.</li>
+                            <li data-es="Jubilación." data-en="Retirement." data-fr="Retraite." data-pt="Aposentadoria." data-al="Ruhestand." data-zh="退休。">Jubilación.</li>
+                            <li data-es="Iniciar un negocio." data-en="Start a business." data-fr="Créer une entreprise." data-pt="Iniciar um negócio." data-al="Ein Unternehmen gründen." data-zh="创办企业。">Iniciar un negocio.</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     SECCIÓN 8 — ¿Dónde podemos ahorrar en Panamá?
+============================================ -->
+<section class="donde-ahorrar-section">
+    <div class="donde-ahorrar-container">
+
+        <h2 class="reveal">
+            <span data-es="¿Dónde podemos "
+                  data-en="Where can we "
+                  data-fr="Où pouvons-nous "
+                  data-pt="Onde podemos "
+                  data-al="Wo können wir "
+                  data-zh="我们可以在哪里">
+                ¿Dónde podemos
+            </span>
+
+            <span class="accent"
+                  data-es="ahorrar"
+                  data-en="save"
+                  data-fr="épargner"
+                  data-pt="poupar"
+                  data-al="sparen"
+                  data-zh="储蓄">
+                ahorrar
+            </span>
+
+            <span data-es=" en Panamá?"
+                  data-en=" in Panama?"
+                  data-fr=" au Panama ?"
+                  data-pt=" no Panamá?"
+                  data-al=" in Panama?"
+                  data-zh="？">
+                en Panamá?
+            </span>
+        </h2>
+
+
+        <p class="donde-ahorrar-intro reveal"
+           data-es="En Panamá existen bancos seguros y regulados donde puedes abrir cuentas y productos de ahorro según tus necesidades y metas financieras."
+           data-en="In Panama there are safe, regulated banks where you can open accounts and savings products based on your needs and financial goals."
+           data-fr="Au Panama, il existe des banques sûres et réglementées où vous pouvez ouvrir des comptes et des produits d'épargne adaptés à vos besoins et objectifs financiers."
+           data-pt="No Panamá existem bancos seguros e regulamentados onde você pode abrir contas e produtos de poupança de acordo com suas necessidades e metas financeiras."
+           data-al="In Panama gibt es sichere und regulierte Banken, bei denen Sie Konten und Sparprodukte entsprechend Ihren Bedürfnissen und finanziellen Zielen eröffnen können."
+           data-zh="在巴拿马，有安全且受监管的银行，你可以根据自己的需求和财务目标开设账户和储蓄产品。">
+            En Panamá existen bancos seguros y regulados donde puedes abrir cuentas y productos de ahorro según tus necesidades y metas financieras.
+        </p>
+
+
+        <h3 class="donde-ahorrar-subtitulo"
+            data-es="Formas de ahorrar"
+            data-en="Ways to save"
+            data-fr="Façons d'épargner"
+            data-pt="Formas de poupar"
+            data-al="Möglichkeiten zu sparen"
+            data-zh="储蓄方式">
+            Formas de ahorrar
+        </h3>
+
+
+        <div class="formas-ahorrar-grid">
+
+            <div class="forma-card">
+
+                <div class="forma-icono">
+                    <img src="iconos/banco-blanco.png" alt="Bancos">
+                </div>
+
+                <h4 data-es="Cuenta de ahorro bancaria"
+                    data-en="Bank savings account"
+                    data-fr="Compte d'épargne bancaire"
+                    data-pt="Conta poupança bancária"
+                    data-al="Banksparkonto"
+                    data-zh="银行储蓄账户">
+                    Cuenta de ahorro bancaria
+                </h4>
+
+                <p data-es="Es el producto de ahorro más común. Permite guardar dinero de forma segura, realizar depósitos y retiros cuando lo necesites, y en muchos casos generar intereses sobre el saldo disponible."
+                   data-en="It is the most common savings product. It lets you keep your money safe, make deposits and withdrawals whenever you need to, and in many cases earn interest on the available balance."
+                   data-fr="C'est le produit d'épargne le plus courant. Il permet de conserver son argent en toute sécurité, d'effectuer des dépôts et des retraits lorsque vous en avez besoin et, dans de nombreux cas, de générer des intérêts sur le solde disponible."
+                   data-pt="É o produto de poupança mais comum. Permite guardar dinheiro com segurança, fazer depósitos e saques quando necessário e, em muitos casos, receber juros sobre o saldo disponível."
+                   data-al="Es ist das gängigste Sparprodukt. Es ermöglicht, Geld sicher aufzubewahren, Einzahlungen und Abhebungen vorzunehmen und in vielen Fällen Zinsen auf das verfügbare Guthaben zu erhalten."
+                   data-zh="这是最常见的储蓄产品。它可以安全地存放资金，随时进行存款和取款，并且在许多情况下可以根据账户余额获得利息。">
+                    Es el producto de ahorro más común. Permite guardar dinero de forma segura, realizar depósitos y retiros cuando lo necesites, y en muchos casos generar intereses sobre el saldo disponible.
+                </p>
+
+            </div>
+
+
+            <div class="forma-card">
+
+                <div class="forma-icono">
+                    <img src="iconos/celular.png" alt="Celular">
+                </div>
+
+                <h4 data-es="Cuenta de ahorro digital"
+                    data-en="Digital savings account"
+                    data-fr="Compte d'épargne numérique"
+                    data-pt="Conta poupança digital"
+                    data-al="Digitales Sparkonto"
+                    data-zh="数字储蓄账户">
+                    Cuenta de ahorro digital
+                </h4>
+
+                <p data-es="Permite abrir y administrar una cuenta desde una aplicación móvil o página web, sin necesidad de acudir a una sucursal. Es una opción práctica para realizar transferencias, consultar saldos o ahorrar de manera cómoda."
+                   data-en="It lets you open and manage an account from a mobile app or website, without needing to visit a branch. It is a practical option for transfers, checking balances or saving conveniently."
+                   data-fr="Elle permet d'ouvrir et de gérer un compte depuis une application mobile ou un site web, sans avoir besoin de se rendre en agence. C'est une option pratique pour effectuer des virements, consulter les soldes ou épargner facilement."
+                   data-pt="Permite abrir e administrar uma conta por meio de um aplicativo móvel ou site, sem precisar ir a uma agência. É uma opção prática para fazer transferências, consultar saldos ou poupar com comodidade."
+                   data-al="Damit können Sie ein Konto über eine mobile App oder Website eröffnen und verwalten, ohne eine Filiale besuchen zu müssen. Es ist eine praktische Möglichkeit für Überweisungen, Kontostandsabfragen und bequemes Sparen."
+                   data-zh="你可以通过手机应用或网站开设和管理账户，无需前往银行网点。这是一种方便进行转账、查询余额和储蓄的方式。">
+                    Permite abrir y administrar una cuenta desde una aplicación móvil o página web, sin necesidad de acudir a una sucursal. Es una opción práctica para realizar transferencias, consultar saldos o ahorrar de manera cómoda.
+                </p>
+
+            </div>
+
+
+            <div class="forma-card">
+
+                <div class="forma-icono">
+                    <img src="iconos/reloj-de-pared.png" alt="Reloj">
+                </div>
+
+                <h4 data-es="Depósito a plazo fijo"
+                    data-en="Fixed-term deposit"
+                    data-fr="Dépôt à terme"
+                    data-pt="Depósito a prazo fixo"
+                    data-al="Festgeldanlage"
+                    data-zh="定期存款">
+                    Depósito a plazo fijo
+                </h4>
+
+                <p data-es="Consiste en depositar una cantidad de dinero durante un período determinado. A cambio, el banco ofrece una tasa de interés generalmente mayor a la de una cuenta de ahorro tradicional. Es recomendable si no necesitas usar ese dinero durante el tiempo acordado."
+                   data-en="It involves depositing a set amount of money for a fixed period. In exchange, the bank offers an interest rate usually higher than a traditional savings account. It is a good option if you don't need that money during the agreed period."
+                   data-fr="Il consiste à déposer une somme d'argent pendant une période déterminée. En échange, la banque propose généralement un taux d'intérêt supérieur à celui d'un compte d'épargne traditionnel. C'est une bonne option si vous n'avez pas besoin de cet argent pendant la période convenue."
+                   data-pt="Consiste em depositar uma quantia de dinheiro durante um período determinado. Em troca, o banco oferece uma taxa de juros geralmente maior que a de uma conta poupança tradicional. É uma boa opção se você não precisar usar esse dinheiro durante o período acordado."
+                   data-al="Dabei wird ein bestimmter Geldbetrag für einen festgelegten Zeitraum angelegt. Im Gegenzug bietet die Bank in der Regel einen höheren Zinssatz als bei einem herkömmlichen Sparkonto. Es ist eine gute Option, wenn Sie das Geld während der vereinbarten Zeit nicht benötigen."
+                   data-zh="定期存款是指在规定期限内存入一定金额的资金。作为回报，银行通常会提供高于普通储蓄账户的利率。如果你在约定期限内不需要使用这笔钱，这是一个不错的选择。">
+                    Consiste en depositar una cantidad de dinero durante un período determinado. A cambio, el banco ofrece una tasa de interés generalmente mayor a la de una cuenta de ahorro tradicional. Es recomendable si no necesitas usar ese dinero durante el tiempo acordado.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <h3 class="donde-ahorrar-subtitulo"
+            data-es="Entidades en Panamá"
+            data-en="Institutions in Panama"
+            data-fr="Institutions au Panama"
+            data-pt="Instituições no Panamá"
+            data-al="Institutionen in Panama"
+            data-zh="巴拿马的金融机构">
+            Entidades en Panamá
+        </h3>
+
+
+        <div class="entidades-bancos-grid">
+
+            <div class="entidad-banco-card">
+                <div class="entidad-banco-logo">
+                    <img src="img/logoBancoNacional.png" alt="Banco Nacional de Panamá">
+                </div>
+
+                <h4 data-es="Banco Nacional de Panamá"
+                    data-en="Banco Nacional de Panamá"
+                    data-fr="Banco Nacional de Panamá"
+                    data-pt="Banco Nacional de Panamá"
+                    data-al="Banco Nacional de Panamá"
+                    data-zh="巴拿马国家银行">
+                    Banco Nacional de Panamá
+                </h4>
+
+                <p data-es="Ofrece cuentas de ahorro con acceso a banca en línea y tarjeta de débito."
+                   data-en="Offers savings accounts with online banking access and a debit card."
+                   data-fr="Propose des comptes d'épargne avec accès aux services bancaires en ligne et une carte de débit."
+                   data-pt="Oferece contas poupança com acesso ao banco online e cartão de débito."
+                   data-al="Bietet Sparkonten mit Online-Banking und Debitkarte."
+                   data-zh="提供储蓄账户、网上银行服务和借记卡。">
+                    Ofrece cuentas de ahorro con acceso a banca en línea y tarjeta de débito.
+                </p>
+
+                <a href="https://www.banconal.com.pa/productos/cuentas/cuenta-de-ahorro/"
+                   class="entidad-banco-btn"
+                   data-es="Sitio oficial"
+                   data-en="Official site"
+                   data-fr="Site officiel"
+                   data-pt="Site oficial"
+                   data-al="Offizielle Website"
+                   data-zh="官方网站">
+                    Sitio oficial
+                </a>
+            </div>
+
+
+            <div class="entidad-banco-card">
+                <div class="entidad-banco-logo">
+                    <img src="img/logoCajaAhorros.png" alt="Caja de Ahorros">
+                </div>
+
+                <h4 data-es="Caja de Ahorros"
+                    data-en="Caja de Ahorros"
+                    data-fr="Caja de Ahorros"
+                    data-pt="Caja de Ahorros"
+                    data-al="Caja de Ahorros"
+                    data-zh="储蓄银行">
+                    Caja de Ahorros
+                </h4>
+
+                <p data-es="Cuenta con opciones de ahorro accesibles para personas y familias."
+                   data-en="Has accessible savings options for individuals and families."
+                   data-fr="Elle propose des options d'épargne accessibles aux particuliers et aux familles."
+                   data-pt="Possui opções de poupança acessíveis para pessoas e famílias."
+                   data-al="Bietet zugängliche Sparmöglichkeiten für Einzelpersonen und Familien."
+                   data-zh="为个人和家庭提供便捷的储蓄选择。">
+                    Cuenta con opciones de ahorro accesibles para personas y familias.
+                </p>
+
+                <a href="https://www.cajadeahorros.com.pa/cuentas-de-ahorro/"
+                   class="entidad-banco-btn"
+                   data-es="Sitio oficial"
+                   data-en="Official site"
+                   data-fr="Site officiel"
+                   data-pt="Site oficial"
+                   data-al="Offizielle Website"
+                   data-zh="官方网站">
+                    Sitio oficial
+                </a>
+            </div>
+
+
+            <div class="entidad-banco-card">
+                <div class="entidad-banco-logo">
+                    <img src="img/logoBancoGeneral.png" alt="Banco General">
+                </div>
+
+                <h4 data-es="Banco General"
+                    data-en="Banco General"
+                    data-fr="Banco General"
+                    data-pt="Banco General"
+                    data-al="Banco General"
+                    data-zh="Banco General">
+                    Banco General
+                </h4>
+
+                <p data-es="Brinda cuentas de ahorro con servicios digitales y banca en línea."
+                   data-en="Provides savings accounts with digital services and online banking."
+                   data-fr="Propose des comptes d'épargne avec des services numériques et des services bancaires en ligne."
+                   data-pt="Oferece contas poupança com serviços digitais e banco online."
+                   data-al="Bietet Sparkonten mit digitalen Diensten und Online-Banking."
+                   data-zh="提供储蓄账户、数字服务和网上银行。">
+                    Brinda cuentas de ahorro con servicios digitales y banca en línea.
+                </p>
+
+                <a href="https://www.bgeneral.com/cuentas/"
+                   class="entidad-banco-btn"
+                   data-es="Sitio oficial"
+                   data-en="Official site"
+                   data-fr="Site officiel"
+                   data-pt="Site oficial"
+                   data-al="Offizielle Website"
+                   data-zh="官方网站">
+                    Sitio oficial
+                </a>
+            </div>
+
+
+            <div class="entidad-banco-card">
+                <div class="entidad-banco-logo">
+                    <img src="img/logoBanismo.jpg" alt="Banistmo">
+                </div>
+
+                <h4 data-es="Banistmo"
+                    data-en="Banistmo"
+                    data-fr="Banistmo"
+                    data-pt="Banistmo"
+                    data-al="Banistmo"
+                    data-zh="Banistmo">
+                    Banistmo
+                </h4>
+
+                <p data-es="Ofrece productos de ahorro y administración digital del dinero."
+                   data-en="Offers savings products and digital money management."
+                   data-fr="Propose des produits d'épargne et une gestion numérique de l'argent."
+                   data-pt="Oferece produtos de poupança e gestão digital do dinheiro."
+                   data-al="Bietet Sparprodukte und digitale Geldverwaltung."
+                   data-zh="提供储蓄产品和数字化资金管理服务。">
+                    Ofrece productos de ahorro y administración digital del dinero.
+                </p>
+
+                <a href="https://www.banistmo.com/"
+                   class="entidad-banco-btn"
+                   data-es="Sitio oficial"
+                   data-en="Official site"
+                   data-fr="Site officiel"
+                   data-pt="Site oficial"
+                   data-al="Offizielle Website"
+                   data-zh="官方网站">
+                    Sitio oficial
+                </a>
+            </div>
+
+
+            <div class="entidad-banco-card">
+                <div class="entidad-banco-logo">
+                    <img src="img/logoBAC.png" alt="BAC">
+                </div>
+
+                <h4 data-es="BAC"
+                    data-en="BAC"
+                    data-fr="BAC"
+                    data-pt="BAC"
+                    data-al="BAC"
+                    data-zh="BAC">
+                    BAC
+                </h4>
+
+                <p data-es="Cuenta con opciones de ahorro y servicios financieros digitales."
+                   data-en="Has savings options and digital financial services."
+                   data-fr="Propose des options d'épargne et des services financiers numériques."
+                   data-pt="Possui opções de poupança e serviços financeiros digitais."
+                   data-al="Bietet Sparmöglichkeiten und digitale Finanzdienstleistungen."
+                   data-zh="提供储蓄选择和数字金融服务。">
+                    Cuenta con opciones de ahorro y servicios financieros digitales.
+                </p>
+
+                <a href="https://www.baccredomatic.com/es-pa/personas/cuentas/cuentas-de-ahorro"
+                   class="entidad-banco-btn"
+                   data-es="Sitio oficial"
+                   data-en="Official site"
+                   data-fr="Site officiel"
+                   data-pt="Site oficial"
+                   data-al="Offizielle Website"
+                   data-zh="官方网站">
+                    Sitio oficial
+                </a>
+            </div>
+
+
+            <div class="entidad-banco-card">
+                <div class="entidad-banco-logo">
+                    <img src="img/logoBanesco.png" alt="Banesco">
+                </div>
+
+                <h4 data-es="Banesco"
+                    data-en="Banesco"
+                    data-fr="Banesco"
+                    data-pt="Banesco"
+                    data-al="Banesco"
+                    data-zh="Banesco">
+                    Banesco
+                </h4>
+
+                <p data-es="Ofrece cuentas de ahorro con acceso a plataformas digitales."
+                   data-en="Offers savings accounts with access to digital platforms."
+                   data-fr="Propose des comptes d'épargne avec accès à des plateformes numériques."
+                   data-pt="Oferece contas poupança com acesso a plataformas digitais."
+                   data-al="Bietet Sparkonten mit Zugang zu digitalen Plattformen."
+                   data-zh="提供可通过数字平台访问的储蓄账户。">
+                    Ofrece cuentas de ahorro con acceso a plataformas digitales.
+                </p>
+
+                <a href="https://www.banesco.com.pa/"
+                   class="entidad-banco-btn"
+                   data-es="Sitio oficial"
+                   data-en="Official site"
+                   data-fr="Site officiel"
+                   data-pt="Site oficial"
+                   data-al="Offizielle Website"
+                   data-zh="官方网站">
+                    Sitio oficial
+                </a>
+            </div>
+
+
+            <div class="entidad-banco-card">
+                <div class="entidad-banco-logo">
+                    <img src="img/logoGlobalBank.png" alt="Global Bank">
+                </div>
+
+                <h4 data-es="Global Bank"
+                    data-en="Global Bank"
+                    data-fr="Global Bank"
+                    data-pt="Global Bank"
+                    data-al="Global Bank"
+                    data-zh="Global Bank">
+                    Global Bank
+                </h4>
+
+                <p data-es="Brinda productos de ahorro para ayudar a alcanzar metas financieras."
+                   data-en="Provides savings products to help reach financial goals."
+                   data-fr="Propose des produits d'épargne pour aider à atteindre des objectifs financiers."
+                   data-pt="Oferece produtos de poupança para ajudar a alcançar metas financeiras."
+                   data-al="Bietet Sparprodukte, die beim Erreichen finanzieller Ziele helfen."
+                   data-zh="提供帮助实现财务目标的储蓄产品。">
+                    Brinda productos de ahorro para ayudar a alcanzar metas financieras.
+                </p>
+
+                <a href="https://www.globalbank.com.pa/"
+                   class="entidad-banco-btn"
+                   data-es="Sitio oficial"
+                   data-en="Official site"
+                   data-fr="Site officiel"
+                   data-pt="Site oficial"
+                   data-al="Offizielle Website"
+                   data-zh="官方网站">
+                    Sitio oficial
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="recuerda-caja reveal">
+
+            <span class="recuerda-icono" aria-hidden="true">
+                <img src="iconos/bombilla.png" alt="Bombilla">
+            </span>
+
+            <div>
+
+                <h4 data-es="Recuerda"
+                    data-en="Remember"
+                    data-fr="Rappelez-vous"
+                    data-pt="Lembre-se"
+                    data-al="Denken Sie daran"
+                    data-zh="请记住">
+                    Recuerda
+                </h4>
+
+                <p data-es="Compara las condiciones, intereses y requisitos de cada entidad antes de abrir tu cuenta. Elige la opción que mejor se adapte a tus metas y necesidades."
+                   data-en="Compare the terms, interest rates and requirements of each institution before opening your account. Choose the option that best fits your goals and needs."
+                   data-fr="Comparez les conditions, les taux d'intérêt et les exigences de chaque institution avant d'ouvrir votre compte. Choisissez l'option qui correspond le mieux à vos objectifs et à vos besoins."
+                   data-pt="Compare as condições, taxas de juros e requisitos de cada instituição antes de abrir sua conta. Escolha a opção que melhor se adapta às suas metas e necessidades."
+                   data-al="Vergleichen Sie die Bedingungen, Zinssätze und Anforderungen der einzelnen Institute, bevor Sie Ihr Konto eröffnen. Wählen Sie die Option, die am besten zu Ihren Zielen und Bedürfnissen passt."
+                   data-zh="在开设账户之前，请比较各机构的条款、利率和要求。选择最符合你目标和需求的选项。">
+                    Compara las condiciones, intereses y requisitos de cada entidad antes de abrir tu cuenta. Elige la opción que mejor se adapte a tus metas y necesidades.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- ============================================
+         FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ASISTENTE — STRIX-->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="finanzas_impuestos.js"></script>
+    <script src="heatmap-tracker.js"></script>
+    <script type="module" src="auth.js"></script>
+
+</body>
+</html>

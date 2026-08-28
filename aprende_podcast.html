@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aprende_podcast.css">
+     <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Vaulty+ - Podcast</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <div class="vaulty-cursor" id="cursorDot" aria-hidden="true"></div>
+    <div class="vaulty-cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER 
+    ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <nav id="mainNav">
+
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"
+                   data-es="Inicio" data-en="Home" data-pt="Início" data-fr="Accueil" data-al="Startseite" data-zh="首页">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Finanzas Panamá" data-en="Panama's Finances" data-pt="Finanças do Panamá" data-fr="Finances du Panama" data-al="Panamas Finanzen" data-zh="巴拿马金融">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds" data-pt="Fraudes" data-fr="Fraudes" data-al="Betrug" data-zh="欺诈">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes" data-pt="Impostos" data-fr="Impôts" data-al="Steuern" data-zh="税收">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security" data-pt="Previdência Social" data-fr="Sécurité sociale" data-al="Sozialversicherung" data-zh="社会保障">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans" data-pt="Empréstimos pessoais" data-fr="Prêts personnels" data-al="Privatkredite" data-zh="个人贷款">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label"
+                              data-es="Aprende" data-en="Learn" data-pt="Aprenda" data-fr="Apprendre" data-al="Lernen" data-zh="学习">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary" data-pt="Glossário" data-fr="Glossaire" data-al="Glossar" data-zh="词汇表">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" class="active" data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games" data-pt="Jogos" data-fr="Jeux" data-al="Spiele" data-zh="游戏">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins" data-pt="Moedas" data-fr="Devises" data-al="Münzen" data-zh="货币">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM" data-pt="Caixa eletrônico" data-fr="Distributeur" data-al="Geldautomat" data-zh="自动取款机">ATM</span>
+                    </a>
+                </div>
+
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+
+                <div class="nav-lang-desktop">
+                    <button class="lang-current lang-current--desktop" id="langToggleDesktop" type="button" aria-expanded="false" aria-controls="langDropdownDesktop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--desktop" id="langDropdownDesktop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="ES">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="EN">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="pt"><img src="img/portugues.png" alt="PT">Português<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="fr"><img src="img/frances.png" alt="FR">Français<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="al"><img src="img/aleman.png" alt="AL">Deutsch<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="zh"><img src="img/china.png" alt="ZH">中文<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-podcast">
+        <img src="img/podcast.png" alt="Podcast" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-es="Podcast" data-en="Podcast" data-pt="Podcast" data-fr="Podcast" data-al="Podcast" data-zh="播客">Podcast</h1>
+            <p data-es="Explora podcasts interesantes sobre dinero, ahorro, inversión y finanzas personales. Escucha consejos útiles, descubre nuevas ideas y aprende a tomar mejores decisiones financieras en tu vida diaria."
+               data-en="Explore interesting podcasts about money, saving, investing, and personal finance. Listen to useful advice, discover new ideas, and learn how to make smarter financial decisions in your everyday life."
+               data-pt="Explore podcasts interessantes sobre dinheiro, poupança, investimento e finanças pessoais. Ouça conselhos úteis, descubra novas ideias e aprenda a tomar melhores decisões financeiras no seu dia a dia."
+               data-fr="Découvrez des podcasts intéressants sur l'argent, l'épargne, l'investissement et les finances personnelles. Écoutez des conseils utiles, découvrez de nouvelles idées et apprenez à prendre de meilleures décisions financières au quotidien."
+               data-al="Entdecken Sie interessante Podcasts über Geld, Sparen, Investieren und persönliche Finanzen. Hören Sie sich nützliche Tipps an, entdecken Sie neue Ideen und lernen Sie, im Alltag bessere finanzielle Entscheidungen zu treffen."
+               data-zh="探索关于金钱、储蓄、投资和个人理财的精彩播客。聆听实用建议，发现新想法，学习在日常生活中做出更明智的财务决策。">
+                Explora podcasts interesantes sobre dinero, ahorro, inversión y finanzas personales. Escucha consejos útiles, descubre nuevas ideas y aprende a tomar mejores decisiones financieras en tu vida diaria.
+            </p>
+        </div>
+    </section>
+
+    <section class="podcast-section" id="podcasts">
+        <div class="podcast-container">
+
+            <div class="podcast-header reveal">
+                <p data-es="Episodios seleccionados sobre ahorro, deudas, inversión y educación financiera, listos para escuchar cuando quieras."
+                   data-en="Selected episodes on saving, debt, investing and financial education, ready whenever you want to listen."
+                   data-pt="Episódios selecionados sobre poupança, dívidas, investimento e educação financeira, prontos para ouvir quando quiser."
+                   data-fr="Épisodes sélectionnés sur l'épargne, les dettes, l'investissement et l'éducation financière, prêts à écouter quand vous voulez."
+                   data-al="Ausgewählte Episoden über Sparen, Schulden, Investieren und finanzielle Bildung, jederzeit zum Anhören bereit."
+                   data-zh="精选关于储蓄、债务、投资和金融教育的节目，随时可以收听。">
+                    Episodios seleccionados sobre ahorro, deudas, inversión y educación financiera, listos para escuchar cuando quieras.
+                </p>
+            </div>
+
+            <div class="podcast-toolbar">
+
+                <label class="podcast-search" for="podcastSearch">
+                    <svg viewBox="0 0 24 24" class="podcast-search-icon" aria-hidden="true">
+                        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+                    </svg>
+                    <input
+                        type="text"
+                        id="podcastSearch"
+                        autocomplete="off"
+                        data-es-placeholder="Buscar podcast o canal..."
+                        data-en-placeholder="Search podcast or channel..."
+                        data-fr-placeholder="Rechercher un podcast ou une chaîne..."
+                        data-pt-placeholder="Buscar podcast ou canal..."
+                        data-al-placeholder="Podcast oder Kanal suchen..."
+                        data-zh-placeholder="搜索播客或频道..."
+                        placeholder="Buscar podcast o canal...">
+                </label>
+
+                <div class="podcast-filtros" id="podcastFiltros" role="group" aria-label="Filtrar podcasts por idioma">
+                    <button type="button" class="podcast-filtro is-active" data-filtro="todos" data-es="Todos" data-en="All" data-pt="Todos" data-fr="Tous" data-al="Alle" data-zh="全部">Todos</button>
+                    <button type="button" class="podcast-filtro" data-filtro="es" data-es="Español" data-en="Español" data-pt="Espanhol" data-fr="Espagnol" data-al="Spanisch" data-zh="西班牙语">Español</button>
+                    <button type="button" class="podcast-filtro" data-filtro="en" data-es="Inglés" data-en="English" data-pt="Inglês" data-fr="Anglais" data-al="Englisch" data-zh="英语">Inglés</button>
+                </div>
+
+            </div>
+
+            <div class="podcast-grid" id="podcastGrid">
+
+                <!-- ESPAÑOL -->
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Banco de España</span>
+                    <h3 class="podcast-card-titulo" data-es="Episodio 13. La buena educación... financiera" data-en="Episode 13. Good financial education..." data-pt="Episódio 13. A boa educação... financeira" data-fr="Épisode 13. La bonne éducation... financière" data-al="Folge 13. Die gute Bildung... finanziell" data-zh="第13集：良好的……金融教育">Episodio 13. La buena educación... financiera</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6UIBG4-b6H0?si=_yhqahyzf_Inzch8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Compuestos Podcast</span>
+                    <h3 class="podcast-card-titulo" data-es="Cómo lograr la libertad financiera y aumentar tus ingresos" data-en="How to achieve financial freedom and grow your income" data-pt="Como alcançar a liberdade financeira e aumentar sua renda" data-fr="Comment atteindre la liberté financière et augmenter vos revenus" data-al="Wie man finanzielle Freiheit erreicht und sein Einkommen steigert" data-zh="如何实现财务自由并增加收入">Cómo lograr la libertad financiera y aumentar tus ingresos</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZilTyactMjU?si=qRULmsDqi6vAHlKJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Compuestos Podcast</span>
+                    <h3 class="podcast-card-titulo" data-es="Moris Dieck: cómo manejar tu dinero para lograr tus metas" data-en="Moris Dieck: how to manage your money to reach your goals" data-pt="Moris Dieck: como administrar seu dinheiro para alcançar suas metas" data-fr="Moris Dieck : comment gérer votre argent pour atteindre vos objectifs" data-al="Moris Dieck: Wie man sein Geld verwaltet, um seine Ziele zu erreichen" data-zh="Moris Dieck：如何管理资金以实现目标">Moris Dieck: cómo manejar tu dinero para lograr tus metas</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/qEGtimQA-iU?si=I6i555I0mfKm6D4N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Banco Nacional de Panamá</span>
+                    <h3 class="podcast-card-titulo" data-es="Financiamiento y adquirencia: impulsa tu PYME" data-en="Financing and merchant acquiring: boost your small business" data-pt="Financiamento e adquirência: impulsione sua PME" data-fr="Financement et acquisition commerçante : boostez votre PME" data-al="Finanzierung und Acquiring: Bringen Sie Ihr KMU voran" data-zh="融资与收单：助力您的中小企业">Financiamiento y adquirencia: impulsa tu PYME</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/xlwGjWd-f7I?si=kMKHo6ZdH05M_H2K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Banco Nacional de Panamá</span>
+                    <h3 class="podcast-card-titulo" data-es="Energía para tus Finanzas | Cuentas de ahorro y cómo hacer crecer tu dinero" data-en="Energy for Your Finances | Savings Accounts and How to Grow Your Money" data-pt="Energia para suas Finanças | Contas poupança e como fazer seu dinheiro crescer" data-fr="De l'énergie pour vos finances | Comptes d'épargne et comment faire fructifier votre argent" data-al="Energie für Ihre Finanzen | Sparkonten und wie man sein Geld vermehrt" data-zh="为您的财务注入活力｜储蓄账户与钱生钱的方法">Energía para tus Finanzas | Cuentas de ahorro y cómo hacer crecer tu dinero</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/srg0Dz9YcWQ?si=dRiwWQz7hXG0UckU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Moris Dieck | Finanzas e Inversiones</span>
+                    <h3 class="podcast-card-titulo" data-es="La magia de las inversiones compuestas" data-en="The Magic of Compound Investments" data-pt="A magia dos investimentos compostos" data-fr="La magie des investissements composés" data-al="Die Magie der zusammengesetzten Investitionen" data-zh="复利投资的魔力">La magia de las inversiones compuestas</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/GDmnYWXyqZU?si=hfbOMR-c0qFxlxF-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Moris Dieck | Finanzas e Inversiones</span>
+                    <h3 class="podcast-card-titulo" data-es="El arte de ahorrar bien" data-en="The Art of Saving Wisely" data-pt="A arte de poupar bem" data-fr="L'art de bien épargner" data-al="Die Kunst des klugen Sparens" data-zh="善于储蓄的艺术">El arte de ahorrar bien</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/y2QqZOT32ko?si=soYPTimwJayS6V4V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Moris Dieck | Finanzas e Inversiones</span>
+                    <h3 class="podcast-card-titulo" data-es="Dimes y Billetes" data-en="Dimes and Bills" data-pt="Moedas e Notas" data-fr="Pièces et Billets" data-al="Münzen und Scheine" data-zh="硬币与纸币">Dimes y Billetes</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/M039j4vacCo?si=bu_OsI-gHHQxrF5i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">Hábito Emprendedor</span>
+                    <h3 class="podcast-card-titulo" data-es="Finanzas Personales para Principiantes" data-en="Personal Finance for Beginners" data-pt="Finanças Pessoais para Iniciantes" data-fr="Finances personnelles pour débutants" data-al="Persönliche Finanzen für Anfänger" data-zh="个人理财入门">Finanzas Personales para Principiantes</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ojG8oAvlwsM?si=GAukRVQqEnHDYxKh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="es">
+                    <span class="podcast-card-canal">TEDx Talks</span>
+                    <h3 class="podcast-card-titulo" data-es="El secreto para tomar mejores decisiones financieras" data-en="The Secret to Making Better Financial Decisions" data-pt="O segredo para tomar melhores decisões financeiras" data-fr="Le secret pour prendre de meilleures décisions financières" data-al="Das Geheimnis besserer finanzieller Entscheidungen" data-zh="做出更好财务决策的秘诀">El secreto para tomar mejores decisiones financieras</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/W4ZGWyl_XZM?si=1mXHvMTU8-8cga8z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- ENGLISH -->
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Bogart Wealth</span>
+                    <h3 class="podcast-card-titulo" data-es="¿Cuál es el valor de la planificación financiera?" data-en="What is the Value of Financial Planning?" data-pt="Qual é o valor do planejamento financeiro?" data-fr="Quelle est la valeur de la planification financière ?" data-al="Was ist der Wert der Finanzplanung?" data-zh="财务规划的价值是什么？">What is the Value of Financial Planning?</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tUdjHXRQ82g?si=yWhnQD_uCBN2kSsT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Mel Robbins y David Bach</span>
+                    <h3 class="podcast-card-titulo" data-es="5 reglas de dinero que cambiarán tu vida y crearán libertad financiera" data-en="5 Money Rules That Will Change Your Life & Create Financial Freedom" data-pt="5 regras de dinheiro que mudarão sua vida e criarão liberdade financeira" data-fr="5 règles d'argent qui changeront votre vie et créeront la liberté financière" data-al="5 Geldregeln, die Ihr Leben verändern und finanzielle Freiheit schaffen" data-zh="5条改变人生、创造财务自由的理财法则">5 Money Rules That Will Change Your Life & Create Financial Freedom</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/uysZfSEmeRE?si=d6MBv35TSgpTUiP1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">EverythingProfessor</span>
+                    <h3 class="podcast-card-titulo" data-es="Explicando conceptos financieros básicos que DEBES entender" data-en="Explaining Basic Financial Concepts YOU Should Understand" data-pt="Explicando conceitos financeiros básicos que você DEVE entender" data-fr="Explication des concepts financiers de base que VOUS devriez comprendre" data-al="Grundlegende Finanzkonzepte, die SIE verstehen sollten" data-zh="解释你应该理解的基本金融概念">Explaining Basic Financial Concepts YOU Should Understand</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/A9Xq3FGjpZA?si=eR6y326XMX759m-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Practical Wisdom - Interesting Ideas</span>
+                    <h3 class="podcast-card-titulo" data-es="Educación financiera | Las 4 reglas para ser financieramente alfabetizado" data-en="Financial Education | The 4 Rules Of Being Financially Literate" data-pt="Educação financeira | As 4 regras para ser financeiramente alfabetizado" data-fr="Éducation financière | Les 4 règles pour être financièrement lettré" data-al="Finanzbildung | Die 4 Regeln der finanziellen Bildung" data-zh="金融教育｜财商素养的四条法则">Financial Education | The 4 Rules Of Being Financially Literate</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/q5JWp47z4bY?si=rn_a9DuYbXZXOWiP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Learn Bright</span>
+                    <h3 class="podcast-card-titulo" data-es="Educación financiera para niños | Aprende lo básico de finanzas y presupuesto" data-en="Financial Literacy for Kids | Learn the basics of finance and budgeting" data-pt="Educação financeira para crianças | Aprenda o básico de finanças e orçamento" data-fr="Éducation financière pour enfants | Apprenez les bases de la finance et du budget" data-al="Finanzbildung für Kinder | Grundlagen von Finanzen und Budgetierung" data-zh="儿童金融素养｜学习理财与预算基础">Financial Literacy for Kids | Learn the basics of finance and budgeting</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/0iRbD5rM5qc?si=2HfU1UuUXuf-7Q99" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Jay Shetty Podcast</span>
+                    <h3 class="podcast-card-titulo" data-es="7 lecciones de dinero que me hubiera gustado saber en mis 20" data-en="7 Money Lessons I Wish Knew in My 20s!" data-pt="7 lições de dinheiro que eu gostaria de saber aos 20 anos" data-fr="7 leçons d'argent que j'aurais aimé connaître dans la vingtaine" data-al="7 Geldlektionen, die ich mit 20 gerne gekannt hätte" data-zh="7条我希望20岁就懂的理财课">7 Money Lessons I Wish Knew in My 20s!</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ARf0RQ1HkaM?si=9uogJHnsKkQNMjgM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Darren Lee</span>
+                    <h3 class="podcast-card-titulo" data-es="Cómo dominar tus finanzas, inversiones y deudas" data-en="How to Master Your Finances, Investing & Debt" data-pt="Como dominar suas finanças, investimentos e dívidas" data-fr="Comment maîtriser vos finances, vos investissements et vos dettes" data-al="Wie man Finanzen, Investitionen und Schulden meistert" data-zh="如何掌控你的财务、投资与债务">How to Master Your Finances, Investing & Debt</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RC0QHSTRUJc?si=_q8WtWAXmcLfU2FR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Hartford Funds</span>
+                    <h3 class="podcast-card-titulo" data-es="133: Cómo tu estilo con el dinero influye en tus decisiones financieras" data-en="133: How Your Money Style Influences Financial Decision-Making" data-pt="133: Como seu estilo com o dinheiro influencia suas decisões financeiras" data-fr="133 : Comment votre style d'argent influence vos décisions financières" data-al="133: Wie Ihr Geldstil finanzielle Entscheidungen beeinflusst" data-zh="133：你的理财风格如何影响财务决策">133: How Your Money Style Influences Financial Decision-Making</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ruH84Nw7_I?si=jSnHJalHTFCnN2VP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="podcast-card stagger-item" data-lang="en">
+                    <span class="podcast-card-canal">Finance Genics</span>
+                    <h3 class="podcast-card-titulo" data-es="Los mejores podcasts de finanzas personales 2022 | 10 consejos" data-en="Best personal finance podcasts 2022 | 10 Personal Finance Podcast Tips" data-pt="Os melhores podcasts de finanças pessoais 2022 | 10 dicas" data-fr="Meilleurs podcasts de finances personnelles 2022 | 10 conseils" data-al="Beste Personal-Finance-Podcasts 2022 | 10 Tipps" data-zh="2022年最佳个人理财播客｜10个建议">Best personal finance podcasts 2022 | 10 Personal Finance Podcast Tips</h3>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WgCevWPyZl8?si=n574sy2TKLdruF7P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="podcast-empty" id="podcastEmpty" hidden
+               data-es="No encontramos podcasts que coincidan con tu búsqueda."
+               data-en="We couldn't find any podcasts matching your search."
+               data-pt="Não encontramos podcasts que correspondam à sua busca."
+               data-fr="Nous n'avons trouvé aucun podcast correspondant à votre recherche."
+               data-al="Wir konnten keine Podcasts finden, die zu Ihrer Suche passen."
+               data-zh="未找到与您的搜索匹配的播客。">
+                No encontramos podcasts que coincidan con tu búsqueda.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER 
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span>SECURE YOUR MONEY,</span>
+                        <span class="accent">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us" data-pt="Fale conosco" data-fr="Contactez-nous" data-al="Kontaktieren Sie uns" data-zh="联系我们">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://engage.cloud.microsoft/main/org/superate.org/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzU0MjgwNDQ4MDAifQ" class="footer-icon" aria-label="Comunidad" target="_blank" rel="noopener">
+                            <img src="iconos/viva-engage.png" alt="Comunidad">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved." data-pt="© 2026 Vaulty+ - Todos os direitos reservados." data-fr="© 2026 Vaulty+ - Tous droits réservés." data-al="© 2026 Vaulty+ - Alle Rechte vorbehalten." data-zh="© 2026 Vaulty+ - 版权所有。">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ASISTENTE — STRIX  -->
+    <div id="asistente">
+
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small data-es="Asistente financiero" data-en="Financial assistant" data-pt="Assistente financeiro" data-fr="Assistant financier" data-al="Finanzassistent" data-zh="财务助手">Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    <span data-es="¡Hola!" data-en="Hi!" data-pt="Olá!" data-fr="Bonjour !" data-al="Hallo!" data-zh="你好！">¡Hola!</span><br>
+                    <span data-es="Soy Strix. Selecciona una pregunta." data-en="I'm Strix. Pick a question." data-pt="Sou Strix. Selecione uma pergunta." data-fr="Je suis Strix. Choisissez une question." data-al="Ich bin Strix. Wähle eine Frage." data-zh="我是 Strix。请选择一个问题。">Soy Strix. Selecciona una pregunta.</span>
+                </div>
+            </div>
+
+            <div id="preguntas-strix"></div>
+        </div>
+
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="aprende_podcast.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>
