@@ -340,7 +340,7 @@ signupForm.addEventListener("submit", async (event) => {
 
     // Esperar un momento antes de redirigir
     setTimeout(() => {
-      window.location.href = "index-inicio.html";
+      window.location.href = "index.html";
     }, 2500);
 
   } catch (error) {
