@@ -17,35 +17,34 @@
   <div id="screen-intro" class="screen active">
     <div class="intro-glow"></div>
     <div class="intro-content">
-      <div class="brand-label">◈ STOCK WARS</div>
+      <div class="brand-label" data-es="◈ STOCK WARS" data-en="◈ STOCK WARS">◈ STOCK WARS</div>
       <h1 class="intro-title">
-        MERCADO DE<br>
-        <span class="title-accent">ACCIONES</span>
+        <span data-es="MERCADO DE" data-en="STOCK">MERCADO DE</span><br>
+        <span class="title-accent" data-es="ACCIONES" data-en="MARKET">ACCIONES</span>
       </h1>
-      <p class="intro-tagline">
-        Invierte, especula y supera a la IA rival.<br>
-        Llega a $20,000 antes que ella.
+      <p class="intro-tagline" data-es="Invierte, especula y supera a la IA rival.<br>Llega a $20,000 antes que ella." data-en="Invest, speculate and beat the rival AI.<br>Reach $20,000 before it does.">
+        Invierte, especula y supera a la IA rival.<br>Llega a $20,000 antes que ella.
       </p>
 
       <div class="rules-box">
-        <div class="section-label">REGLAS</div>
-        <div class="rule-row"><span class="rule-icon">$</span>Empiezas con $10,000 en efectivo</div>
-        <div class="rule-row"><span class="rule-icon">→</span>Compra y vende acciones cada turno</div>
-        <div class="rule-row"><span class="rule-icon">!</span>Eventos y noticias sacuden el mercado</div>
-        <div class="rule-row"><span class="rule-icon">🤖</span>La IA rival invierte al mismo tiempo</div>
-        <div class="rule-row"><span class="rule-icon">🏆</span>Gana quien llega primero a $20,000</div>
-        <div class="rule-row"><span class="rule-icon">☠</span>Si tu capital cae a $0, pierdes</div>
+        <div class="section-label" data-es="REGLAS" data-en="RULES">REGLAS</div>
+        <div class="rule-row"><span class="rule-icon">$</span><span data-es="Empiezas con $10,000 en efectivo" data-en="You start with $10,000 in cash">Empiezas con $10,000 en efectivo</span></div>
+        <div class="rule-row"><span class="rule-icon">→</span><span data-es="Compra y vende acciones cada turno" data-en="Buy and sell stocks every turn">Compra y vende acciones cada turno</span></div>
+        <div class="rule-row"><span class="rule-icon">!</span><span data-es="Eventos y noticias sacuden el mercado" data-en="Events and news shake the market">Eventos y noticias sacuden el mercado</span></div>
+        <div class="rule-row"><span class="rule-icon">🤖</span><span data-es="La IA rival invierte al mismo tiempo" data-en="The rival AI invests at the same time">La IA rival invierte al mismo tiempo</span></div>
+        <div class="rule-row"><span class="rule-icon">🏆</span><span data-es="Gana quien llega primero a $20,000" data-en="Whoever reaches $20,000 first wins">Gana quien llega primero a $20,000</span></div>
+        <div class="rule-row"><span class="rule-icon">☠</span><span data-es="Si tu capital cae a $0, pierdes" data-en="If your capital drops to $0, you lose">Si tu capital cae a $0, pierdes</span></div>
       </div>
 
-      <button class="tutorial-menu-btn" id="btn-tutorial">¿CÓMO JUGAR?</button>
-      <button class="continue-btn" id="btn-continue-intro" style="display:none">⏩ CONTINUAR PARTIDA</button>
-      <div class="diff-label">DIFICULTAD</div>
+      <button class="tutorial-menu-btn" id="btn-tutorial" data-es="¿CÓMO JUGAR?" data-en="HOW TO PLAY?">¿CÓMO JUGAR?</button>
+      <button class="continue-btn" id="btn-continue-intro" style="display:none" data-es="⏩ CONTINUAR PARTIDA" data-en="⏩ CONTINUE GAME">⏩ CONTINUAR PARTIDA</button>
+      <div class="diff-label" data-es="DIFICULTAD" data-en="DIFFICULTY">DIFICULTAD</div>
       <div class="diff-btns">
-        <button class="diff-btn" data-diff="easy">Fácil</button>
-        <button class="diff-btn active" data-diff="normal">Normal</button>
-        <button class="diff-btn" data-diff="hard">Difícil</button>
+        <button class="diff-btn" data-diff="easy" data-es="Fácil" data-en="Easy">Fácil</button>
+        <button class="diff-btn active" data-diff="normal" data-es="Normal" data-en="Normal">Normal</button>
+        <button class="diff-btn" data-diff="hard" data-es="Difícil" data-en="Hard">Difícil</button>
       </div>
-      <button class="start-btn" id="btn-start">INICIAR MERCADO ▶</button>
+      <button class="start-btn" id="btn-start" data-es="INICIAR MERCADO ▶" data-en="START MARKET ▶">INICIAR MERCADO ▶</button>
     </div>
   </div>
 
@@ -55,29 +54,29 @@
   <div id="screen-game" class="screen">
     <!-- TOP BAR -->
     <div class="topbar">
-      <div class="topbar-brand">◈ STOCK WARS</div>
+      <div class="topbar-brand" data-es="◈ STOCK WARS" data-en="◈ STOCK WARS">◈ STOCK WARS</div>
       <div class="topbar-actions">
-        <button class="topbar-action" id="btn-help">? AYUDA</button>
-        <button class="topbar-action" id="btn-guided">TUTORIAL</button>
+        <button class="topbar-action" id="btn-help" data-es="? AYUDA" data-en="? HELP">? AYUDA</button>
+        <button class="topbar-action" id="btn-guided" data-es="TUTORIAL" data-en="TUTORIAL">TUTORIAL</button>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Efectivo</span>
+        <span class="stat-label" data-es="Efectivo" data-en="Cash">Efectivo</span>
         <span class="stat-val green" id="stat-cash">$10,000</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Portafolio</span>
+        <span class="stat-label" data-es="Portafolio" data-en="Portfolio">Portafolio</span>
         <span class="stat-val" id="stat-port">$0</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Total</span>
+        <span class="stat-label" data-es="Total" data-en="Total">Total</span>
         <span class="stat-val amber" id="stat-total">$10,000</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Turno</span>
+        <span class="stat-label" data-es="Turno" data-en="Turn">Turno</span>
         <span class="stat-val" id="stat-turn">1/30</span>
       </div>
       <div class="stat-pill level-pill">
-        <span class="stat-label">Nivel</span>
+        <span class="stat-label" data-es="Nivel" data-en="Level">Nivel</span>
         <span class="stat-val" id="stat-level">1 · Novato</span>
         <div class="xp-bar-mini"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
       </div>
@@ -90,12 +89,12 @@
     <!-- PROGRESS RACE -->
     <div class="race-box">
       <div class="race-row">
-        <span class="race-label">👤 Tú — <span id="race-you-val">$10,000</span></span>
+        <span class="race-label" data-es="👤 Tú —" data-en="👤 You —">👤 Tú — <span id="race-you-val">$10,000</span></span>
         <span class="race-pct" id="race-you-pct">0.0% hacia $20,000</span>
       </div>
       <div class="progress-track"><div class="progress-fill green-fill" id="bar-you" style="width:1%"></div></div>
       <div class="race-row" style="margin-top:8px">
-        <span class="race-label">🤖 IA — <span id="race-rival-val">$10,000</span></span>
+        <span class="race-label" data-es="🤖 IA —" data-en="🤖 AI —">🤖 IA — <span id="race-rival-val">$10,000</span></span>
         <span class="race-pct" id="race-rival-pct">0.0%</span>
       </div>
       <div class="progress-track"><div class="progress-fill red-fill" id="bar-rival" style="width:1%"></div></div>
@@ -110,11 +109,11 @@
       <!-- LEFT COLUMN -->
       <div class="col-left">
         <div class="panel">
-          <div class="section-label">MERCADO — selecciona una acción</div>
+          <div class="section-label" data-es="MERCADO — selecciona una acción" data-en="MARKET — select a stock">MERCADO — selecciona una acción</div>
           <div id="stocks-list"></div>
         </div>
         <div class="panel log-panel">
-          <div class="section-label">ACTIVIDAD</div>
+          <div class="section-label" data-es="ACTIVIDAD" data-en="ACTIVITY">ACTIVIDAD</div>
           <div id="log-list"></div>
         </div>
       </div>
@@ -123,17 +122,17 @@
       <div class="col-right">
         <!-- TAB NAV -->
         <div class="tabs-nav">
-          <button class="tab-btn active" data-tab="trade">📊 Operar</button>
-          <button class="tab-btn" data-tab="portfolio">💼 Portafolio</button>
-          <button class="tab-btn" data-tab="news">📰 Noticias</button>
-          <button class="tab-btn" data-tab="missions">🎯 Misiones</button>
-          <button class="tab-btn" data-tab="history">📋 Historial</button>
+          <button class="tab-btn active" data-tab="trade" data-es="📊 Operar" data-en="📊 Trade">📊 Operar</button>
+          <button class="tab-btn" data-tab="portfolio" data-es="💼 Portafolio" data-en="💼 Portfolio">💼 Portafolio</button>
+          <button class="tab-btn" data-tab="news" data-es="📰 Noticias" data-en="📰 News">📰 Noticias</button>
+          <button class="tab-btn" data-tab="missions" data-es="🎯 Misiones" data-en="🎯 Missions">🎯 Misiones</button>
+          <button class="tab-btn" data-tab="history" data-es="📋 Historial" data-en="📋 History">📋 Historial</button>
         </div>
 
         <!-- TAB: TRADE -->
         <div class="tab-content active" id="tab-trade">
           <div class="panel trade-panel">
-            <div id="trade-empty" class="trade-empty">← Selecciona una acción del mercado</div>
+            <div id="trade-empty" class="trade-empty" data-es="← Selecciona una acción del mercado" data-en="← Select a stock from the market">← Selecciona una acción del mercado</div>
             <div id="trade-active" style="display:none">
               <div class="sel-info">
                 <span class="sel-ticker" id="sel-ticker">NXCR</span>
@@ -146,18 +145,18 @@
                 <button class="period-btn" data-period="15">5m</button>
                 <button class="period-btn active" data-period="30">15m</button>
                 <button class="period-btn" data-period="60">1h</button>
-                <button class="period-btn" data-period="all">Todo</button>
+                <button class="period-btn" data-period="all" data-es="Todo" data-en="All">Todo</button>
               </div>
               <div class="detail-chart" id="detail-chart"></div>
               <div class="detail-grid">
-                <div class="detail-stat"><span>Ultimo mov.</span><strong id="detail-change" class="detail-val">+0.00%</strong></div>
-                <div class="detail-stat"><span>Rango</span><strong id="detail-range" class="detail-val">$0 - $0</strong></div>
-                <div class="detail-stat"><span>Tendencia</span><strong id="detail-trend" class="detail-val">LATERAL</strong></div>
-                <div class="detail-stat"><span>Sesion</span><strong id="detail-session" class="detail-val">+0.00%</strong></div>
-                <div class="detail-stat wide"><span>Tu posicion</span><strong id="detail-position" class="detail-val muted-val">SIN POSICION</strong></div>
+                <div class="detail-stat"><span data-es="Ultimo mov." data-en="Last chg.">Ultimo mov.</span><strong id="detail-change" class="detail-val">+0.00%</strong></div>
+                <div class="detail-stat"><span data-es="Rango" data-en="Range">Rango</span><strong id="detail-range" class="detail-val">$0 - $0</strong></div>
+                <div class="detail-stat"><span data-es="Tendencia" data-en="Trend">Tendencia</span><strong id="detail-trend" class="detail-val">LATERAL</strong></div>
+                <div class="detail-stat"><span data-es="Sesion" data-en="Session">Sesion</span><strong id="detail-session" class="detail-val">+0.00%</strong></div>
+                <div class="detail-stat wide"><span data-es="Tu posicion" data-en="Your position">Tu posicion</span><strong id="detail-position" class="detail-val muted-val">SIN POSICION</strong></div>
               </div>
               <div class="sel-owned" id="sel-owned">Tienes 0 acc. · Valor: $0</div>
-              <div class="qty-label">CANTIDAD</div>
+              <div class="qty-label" data-es="CANTIDAD" data-en="QUANTITY">CANTIDAD</div>
               <div class="qty-row">
                 <button class="qty-step" data-step="-1">−</button>
                 <input type="number" id="qty-input" class="qty-input" min="1" value="1" />
@@ -169,8 +168,8 @@
               </div>
               <div class="cost-row" id="cost-row">Costo total: <strong>—</strong></div>
               <div class="trade-btns">
-                <button class="btn-buy" id="btn-buy">COMPRAR</button>
-                <button class="btn-sell" id="btn-sell">VENDER</button>
+                <button class="btn-buy" id="btn-buy" data-es="COMPRAR" data-en="BUY">COMPRAR</button>
+                <button class="btn-sell" id="btn-sell" data-es="VENDER" data-en="SELL">VENDER</button>
               </div>
               <div class="hint-box" id="hint-box" style="display:none"></div>
             </div>
@@ -180,31 +179,31 @@
         <!-- TAB: PORTFOLIO -->
         <div class="tab-content" id="tab-portfolio">
           <div class="panel">
-            <div class="section-label">RESUMEN DEL PORTAFOLIO</div>
+            <div class="section-label" data-es="RESUMEN DEL PORTAFOLIO" data-en="PORTFOLIO SUMMARY">RESUMEN DEL PORTAFOLIO</div>
             <div id="portfolio-summary"></div>
           </div>
           <div class="panel">
-            <div class="section-label">ANÁLISIS DE RIESGO</div>
+            <div class="section-label" data-es="ANÁLISIS DE RIESGO" data-en="RISK ANALYSIS">ANÁLISIS DE RIESGO</div>
             <div id="risk-panel"></div>
           </div>
           <div class="panel">
-            <div class="section-label">POSICIONES</div>
-            <div id="portfolio-list"><div class="empty-msg">Sin acciones todavía</div></div>
+            <div class="section-label" data-es="POSICIONES" data-en="POSITIONS">POSICIONES</div>
+            <div id="portfolio-list"><div class="empty-msg" data-es="Sin acciones todavía" data-en="No stocks yet">Sin acciones todavía</div></div>
           </div>
         </div>
 
         <!-- TAB: NEWS -->
         <div class="tab-content" id="tab-news">
           <div class="panel">
-            <div class="section-label">NOTICIAS DEL MERCADO</div>
-            <div id="news-list"><div class="empty-msg">Sin noticias aún</div></div>
+            <div class="section-label" data-es="NOTICIAS DEL MERCADO" data-en="MARKET NEWS">NOTICIAS DEL MERCADO</div>
+            <div id="news-list"><div class="empty-msg" data-es="Sin noticias aún" data-en="No news yet">Sin noticias aún</div></div>
           </div>
         </div>
 
         <!-- TAB: MISSIONS -->
         <div class="tab-content" id="tab-missions">
           <div class="panel">
-            <div class="section-label">MISIONES</div>
+            <div class="section-label" data-es="MISIONES" data-en="MISSIONS">MISIONES</div>
             <div id="missions-list"></div>
           </div>
         </div>
@@ -212,22 +211,22 @@
         <!-- TAB: HISTORY -->
         <div class="tab-content" id="tab-history">
           <div class="panel">
-            <div class="section-label">HISTORIAL DE OPERACIONES</div>
-            <div id="history-list"><div class="empty-msg">Sin operaciones aún</div></div>
+            <div class="section-label" data-es="HISTORIAL DE OPERACIONES" data-en="TRADE HISTORY">HISTORIAL DE OPERACIONES</div>
+            <div id="history-list"><div class="empty-msg" data-es="Sin operaciones aún" data-en="No trades yet">Sin operaciones aún</div></div>
           </div>
         </div>
 
-        <!-- Quick Stats (always visible below tabs) -->
+        <!-- Quick Stats -->
         <div class="panel quick-stats">
-          <div class="qs-row"><span class="qs-label">Efectivo disponible</span><span class="qs-val green" id="qs-cash">$10,000</span></div>
-          <div class="qs-row"><span class="qs-label">Rival IA</span><span class="qs-val red" id="qs-rival">$10,000</span></div>
-          <div class="qs-row"><span class="qs-label">Meta restante</span><span class="qs-val amber" id="qs-goal">$10,000</span></div>
+          <div class="qs-row"><span class="qs-label" data-es="Efectivo disponible" data-en="Available cash">Efectivo disponible</span><span class="qs-val green" id="qs-cash">$10,000</span></div>
+          <div class="qs-row"><span class="qs-label" data-es="Rival IA" data-en="Rival AI">Rival IA</span><span class="qs-val red" id="qs-rival">$10,000</span></div>
+          <div class="qs-row"><span class="qs-label" data-es="Meta restante" data-en="Goal remaining">Meta restante</span><span class="qs-val amber" id="qs-goal">$10,000</span></div>
         </div>
 
         <!-- Next Turn -->
         <div class="turn-actions">
-          <button class="pause-btn" id="btn-pause">Ⅱ PAUSA</button>
-          <button class="turn-btn" id="btn-turn">SIGUIENTE TURNO →</button>
+          <button class="pause-btn" id="btn-pause" data-es="Ⅱ PAUSA" data-en="Ⅱ PAUSE">Ⅱ PAUSA</button>
+          <button class="turn-btn" id="btn-turn" data-es="SIGUIENTE TURNO →" data-en="NEXT TURN →">SIGUIENTE TURNO →</button>
         </div>
       </div>
     </div>
@@ -243,7 +242,7 @@
       <div class="overlay-sub" id="ov-sub"></div>
       <div class="endgame-grid" id="endgame-grid"></div>
       <div class="endgame-rating" id="eg-rating"></div>
-      <button class="overlay-btn" id="btn-restart">JUGAR DE NUEVO</button>
+      <button class="overlay-btn" id="btn-restart" data-es="JUGAR DE NUEVO" data-en="PLAY AGAIN">JUGAR DE NUEVO</button>
     </div>
   </div>
 
@@ -251,7 +250,7 @@
   <div id="tutorial-overlay" class="overlay tutorial-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="tutorial-title">
     <div class="tutorial-shell">
       <div class="tutorial-topline">
-        <span class="tutorial-brand">STOCK WARS // ACADEMIA</span>
+        <span class="tutorial-brand" data-es="STOCK WARS // ACADEMIA" data-en="STOCK WARS // ACADEMY">STOCK WARS // ACADEMIA</span>
         <button class="modal-close" id="btn-tutorial-close" aria-label="Cerrar tutorial">&times;</button>
       </div>
       <div class="tutorial-progress-row">
@@ -263,11 +262,11 @@
       </div>
       <div id="tutorial-step-content" class="tutorial-step-content"></div>
       <div class="tutorial-footer">
-        <button class="tutorial-skip" id="btn-tutorial-skip">SALTAR TUTORIAL</button>
+        <button class="tutorial-skip" id="btn-tutorial-skip" data-es="SALTAR TUTORIAL" data-en="SKIP TUTORIAL">SALTAR TUTORIAL</button>
         <div class="tutorial-nav">
-          <button class="tutorial-nav-btn secondary" id="btn-tutorial-prev">&larr; ATRÁS</button>
-          <button class="tutorial-nav-btn primary" id="btn-tutorial-next">SIGUIENTE &rarr;</button>
-          <button class="tutorial-nav-btn primary" id="btn-tutorial-start" style="display:none">EMPEZAR A JUGAR</button>
+          <button class="tutorial-nav-btn secondary" id="btn-tutorial-prev" data-es="&larr; ATRÁS" data-en="&larr; BACK">&larr; ATRÁS</button>
+          <button class="tutorial-nav-btn primary" id="btn-tutorial-next" data-es="SIGUIENTE &rarr;" data-en="NEXT &rarr;">SIGUIENTE &rarr;</button>
+          <button class="tutorial-nav-btn primary" id="btn-tutorial-start" style="display:none" data-es="EMPEZAR A JUGAR" data-en="START PLAYING">EMPEZAR A JUGAR</button>
         </div>
       </div>
     </div>
@@ -277,21 +276,21 @@
   <div id="quick-help-overlay" class="overlay help-overlay" style="display:none" role="dialog" aria-modal="true">
     <div class="help-shell">
       <div class="tutorial-topline">
-        <span class="tutorial-brand">STOCK WARS // SOPORTE</span>
+        <span class="tutorial-brand" data-es="STOCK WARS // SOPORTE" data-en="STOCK WARS // SUPPORT">STOCK WARS // SOPORTE</span>
         <button class="modal-close" id="btn-help-close" aria-label="Cerrar ayuda">&times;</button>
       </div>
-      <h2>CENTRO DE AYUDA</h2>
-      <p class="help-intro">Consulta lo esencial y vuelve al mercado cuando quieras.</p>
+      <h2 data-es="CENTRO DE AYUDA" data-en="HELP CENTER">CENTRO DE AYUDA</h2>
+      <p class="help-intro" data-es="Consulta lo esencial y vuelve al mercado cuando quieras." data-en="Check the essentials and return to the market whenever you want.">Consulta lo esencial y vuelve al mercado cuando quieras.</p>
       <div class="help-grid">
-        <div class="help-card"><span class="help-card-icon">01</span><strong>ELIGE</strong><p>Selecciona una acción para ver su precio, gráfico y tendencia.</p></div>
-        <div class="help-card"><span class="help-card-icon">02</span><strong>OPERA</strong><p>Compra con efectivo disponible o vende acciones de tu portafolio.</p></div>
-        <div class="help-card"><span class="help-card-icon">03</span><strong>OBSERVA</strong><p>Los eventos y las noticias pueden mover sectores completos.</p></div>
-        <div class="help-card"><span class="help-card-icon">04</span><strong>AVANZA</strong><p>Pulsa SIGUIENTE TURNO para actualizar precios y dejar actuar a la IA.</p></div>
+        <div class="help-card"><span class="help-card-icon">01</span><strong data-es="ELIGE" data-en="CHOOSE">ELIGE</strong><p data-es="Selecciona una acción para ver su precio, gráfico y tendencia." data-en="Select a stock to see its price, chart and trend.">Selecciona una acción para ver su precio, gráfico y tendencia.</p></div>
+        <div class="help-card"><span class="help-card-icon">02</span><strong data-es="OPERA" data-en="TRADE">OPERA</strong><p data-es="Compra con efectivo disponible o vende acciones de tu portafolio." data-en="Buy with available cash or sell stocks from your portfolio.">Compra con efectivo disponible o vende acciones de tu portafolio.</p></div>
+        <div class="help-card"><span class="help-card-icon">03</span><strong data-es="OBSERVA" data-en="OBSERVE">OBSERVA</strong><p data-es="Los eventos y las noticias pueden mover sectores completos." data-en="Events and news can move entire sectors.">Los eventos y las noticias pueden mover sectores completos.</p></div>
+        <div class="help-card"><span class="help-card-icon">04</span><strong data-es="AVANZA" data-en="ADVANCE">AVANZA</strong><p data-es="Pulsa SIGUIENTE TURNO para actualizar precios y dejar actuar a la IA." data-en="Press NEXT TURN to update prices and let the AI act.">Pulsa SIGUIENTE TURNO para actualizar precios y dejar actuar a la IA.</p></div>
       </div>
-      <div class="help-tip"><strong>Atajos:</strong> <kbd>B</kbd> comprar · <kbd>S</kbd> vender · <kbd>ENTER</kbd> siguiente turno · <kbd>ESC</kbd> pausa</div>
+      <div class="help-tip"><strong data-es="Atajos:" data-en="Shortcuts:">Atajos:</strong> <kbd>B</kbd> <span data-es="comprar" data-en="buy">comprar</span> · <kbd>S</kbd> <span data-es="vender" data-en="sell">vender</span> · <kbd>ENTER</kbd> <span data-es="siguiente turno" data-en="next turn">siguiente turno</span> · <kbd>ESC</kbd> <span data-es="pausa" data-en="pause">pausa</span></div>
       <div class="help-actions">
-        <button class="tutorial-nav-btn secondary" id="btn-help-tutorial">ABRIR TUTORIAL</button>
-        <button class="tutorial-nav-btn primary" id="btn-help-guided">TUTORIAL GUIADO</button>
+        <button class="tutorial-nav-btn secondary" id="btn-help-tutorial" data-es="ABRIR TUTORIAL" data-en="OPEN TUTORIAL">ABRIR TUTORIAL</button>
+        <button class="tutorial-nav-btn primary" id="btn-help-guided" data-es="TUTORIAL GUIADO" data-en="GUIDED TOUR">TUTORIAL GUIADO</button>
       </div>
     </div>
   </div>
@@ -303,8 +302,8 @@
       <h3 id="guided-title">Mira el mercado</h3>
       <p id="guided-text">Selecciona una acción para comenzar.</p>
       <div class="guided-actions">
-        <button class="guided-close" id="btn-guided-close">CERRAR GUÍA</button>
-        <button class="tutorial-nav-btn primary compact" id="btn-guided-next">SIGUIENTE &rarr;</button>
+        <button class="guided-close" id="btn-guided-close" data-es="CERRAR GUÍA" data-en="CLOSE TOUR">CERRAR GUÍA</button>
+        <button class="tutorial-nav-btn primary compact" id="btn-guided-next" data-es="SIGUIENTE &rarr;" data-en="NEXT &rarr;">SIGUIENTE &rarr;</button>
       </div>
     </div>
   </div>
@@ -312,21 +311,21 @@
   <!-- PAUSE MENU -->
   <div id="pause-menu" class="overlay" style="display:none">
     <div class="overlay-box">
-      <div class="overlay-title">PAUSA</div>
-      <button class="overlay-btn" id="btn-continue">CONTINUAR</button>
-      <button class="overlay-btn overlay-btn-warn" id="btn-pause-restart">REINICIAR PARTIDA</button>
-      <button class="overlay-btn" id="btn-pause-menu">VOLVER AL MENÚ</button>
+      <div class="overlay-title" data-es="PAUSA" data-en="PAUSE">PAUSA</div>
+      <button class="overlay-btn" id="btn-continue" data-es="CONTINUAR" data-en="CONTINUE">CONTINUAR</button>
+      <button class="overlay-btn overlay-btn-warn" id="btn-pause-restart" data-es="REINICIAR PARTIDA" data-en="RESTART GAME">REINICIAR PARTIDA</button>
+      <button class="overlay-btn" id="btn-pause-menu" data-es="VOLVER AL MENÚ" data-en="BACK TO MENU">VOLVER AL MENÚ</button>
     </div>
   </div>
 
   <!-- RESTART CONFIRM -->
   <div id="restart-confirm" class="overlay" style="display:none">
     <div class="overlay-box">
-      <div class="overlay-title" style="color:var(--red)">⚠ CONFIRMAR</div>
-      <div class="overlay-sub">¿Seguro que quieres reiniciar? Se perderá todo el progreso de esta partida.</div>
+      <div class="overlay-title" style="color:var(--red)" data-es="⚠ CONFIRMAR" data-en="⚠ CONFIRM">⚠ CONFIRMAR</div>
+      <div class="overlay-sub" data-es="¿Seguro que quieres reiniciar? Se perderá todo el progreso de esta partida." data-en="Are you sure you want to restart? All progress in this game will be lost.">¿Seguro que quieres reiniciar? Se perderá todo el progreso de esta partida.</div>
       <div style="display:flex;gap:10px;justify-content:center">
-        <button class="overlay-btn overlay-btn-warn" id="btn-restart-yes">SÍ, REINICIAR</button>
-        <button class="overlay-btn" id="btn-restart-no">CANCELAR</button>
+        <button class="overlay-btn overlay-btn-warn" id="btn-restart-yes" data-es="SÍ, REINICIAR" data-en="YES, RESTART">SÍ, REINICIAR</button>
+        <button class="overlay-btn" id="btn-restart-no" data-es="CANCELAR" data-en="CANCEL">CANCELAR</button>
       </div>
     </div>
   </div>
