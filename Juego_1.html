@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es" id="gameHtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-es="Chanchito Aventura: Mundos Animados" data-en="Piggy Adventure: Animated Worlds">Chanchito Aventura: Mundos Animados</title>
+  <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+  <link rel="stylesheet" href="Juego_1.css" />
+</head>
+<body>
+  <main id="appShell">
+    <header id="topBar">
+      <div>
+        <p class="eyebrow" data-es="Aventura Deluxe" data-en="Deluxe Adventure">Aventura Deluxe</p>
+        <h1 data-es="Chanchito Aventura" data-en="Piggy Adventure">Chanchito Aventura</h1>
+      </div>
+      <div id="quickStats" aria-hidden="true">
+        <span data-es="10 mundos" data-en="10 worlds">10 mundos</span>
+        <span data-es="enemigos nuevos" data-en="new enemies">enemigos nuevos</span>
+        <span data-es="doble salto" data-en="double jump">doble salto</span>
+      </div>
+      
+    
+    </header>
+
+    <section id="frame">
+      <div id="gameContainer">
+        <canvas id="game" width="900" height="480"></canvas>
+
+        <div id="hud">
+          <div class="hud-pill level-pill">
+            <span data-es="Nivel" data-en="Level">Nivel</span>
+            <b id="levelCount">1 / 10</b>
+          </div>
+          <div class="hud-pill">
+            <span data-es="Monedas" data-en="Coins">Monedas</span>
+            <b><span id="coinCount">0</span>/<span id="coinTotal">0</span></b>
+          </div>
+          <div class="hud-pill">
+            <span data-es="Puntos" data-en="Points">Puntos</span>
+            <b id="scoreCount">0</b>
+          </div>
+          <div class="hud-pill">
+            <span data-es="Vidas" data-en="Lives">Vidas</span>
+            <b id="livesIcons">&hearts;&hearts;&hearts;</b>
+          </div>
+          <div class="hud-pill power-pill">
+            <span data-es="Poder" data-en="Power">Poder</span>
+            <b id="powerText" data-es="listo" data-en="ready">listo</b>
+          </div>
+        </div>
+
+        <button id="pauseBtn" class="icon-button" type="button" 
+                aria-label="Pausar juego" title="Pausar (P o Esc)">
+          &#10074;&#10074;
+        </button>
+
+        <div id="levelBanner" data-level="1" data-es-name="Valle Dulce" data-en-name="Sweet Valley">
+          <span data-es="NIVEL" data-en="LEVEL">NIVEL</span> <span id="bannerNumber">1</span>
+          <small id="bannerName">Valle Dulce</small>
+        </div>
+
+        <div id="message">
+          <div id="messageCard">
+            <h2 id="msgTitle"></h2>
+            <p id="msgText"></p>
+            <p id="msgText2"></p>
+            <div id="levelPicker" class="level-picker" hidden></div>
+            <div class="message-actions">
+              <button onclick="onMessageButton()" id="msgBtn" data-es="Comenzar" data-en="Start">Comenzar</button>
+              <button onclick="onSecondaryButton()" id="msgSecondaryBtn" class="secondary-button" 
+                      hidden data-es="Elegir nivel" data-en="Choose level">Elegir nivel</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mobileControls" aria-hidden="true">
+          <button id="leftBtn">&#9664;</button>
+          <button id="jumpBtn">&#9650;</button>
+          <button id="rightBtn">&#9654;</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="levelDots"></div>
+
+    <p id="instructions" data-es="← → / A D moverse · Espacio / ↑ / W doble salto · pisa enemigos · toma la estrella para brillar · llega a la bandera · P / Esc pausa." 
+       data-en="← → / A D move · Space / ↑ / W double jump · stomp enemies · take the star to shine · reach the flag · P / Esc pause.">
+      <b>&larr; &rarr; / A D</b> moverse · <b>Espacio / &uarr; / W</b> doble salto ·
+      pisa enemigos · toma la <b>estrella</b> para brillar · llega a la bandera · <b>P / Esc</b> pausa.
+    </p>
+  </main>
+
+  <script src="Juego_1.js"></script>
+  <script>
+    // ============================================
+    // SINCRONIZACIÓN DE IDIOMA CON LA PÁGINA PRINCIPAL
+    // ============================================
+    
+    let gameLanguage = localStorage.getItem('lang') || 'es';
+    
+    function setGameLanguage(lang) {
+      if (lang !== 'es' && lang !== 'en') {
+        lang = 'es';
+      }
+      gameLanguage = lang;
+      
+      // Actualizar atributo de idioma en HTML
+      document.getElementById('gameHtml').lang = lang === 'al' ? 'de' : (lang === 'zh' ? 'zh-CN' : lang);
+      
+      // Traducir todos los elementos con data-es y data-en
+      document.querySelectorAll('[data-es]').forEach(element => {
+        if (element.querySelector('[data-es]')) return; // Saltar elementos padre con hijos
+        element.textContent = element.dataset[lang] || element.dataset.es || '';
+      });
+      
+      // Guardar en localStorage
+      localStorage.setItem('lang', lang);
+      
+      // Si el juego está inicializado, actualizar algunos textos dinámicos
+      if (typeof updateGameTexts === 'function') {
+        updateGameTexts(lang);
+      }
+    }
+    
+    // Escuchar cambios de idioma desde la página principal (si es necesario)
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lang' && e.newValue) {
+        setGameLanguage(e.newValue);
+      }
+    });
+    
+    // Configurar selectores de idioma en el juego
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        setGameLanguage(lang);
+        
+        // Actualizar botones activos
+        document.querySelectorAll('.lang-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.lang === lang);
+        });
+      });
+      
+      // Marcar como activo el idioma actual
+      if (btn.dataset.lang === gameLanguage) {
+        btn.classList.add('active');
+      }
+    });
+    
+    // Inicializar idioma al cargar
+    setGameLanguage(gameLanguage);
+  </script>
+</body>
+</html>
